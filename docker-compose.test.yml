@@ -1,0 +1,71 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: api
+    build: ./vue_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./vue_backend/:/usr/src/api/
+      - static_volume:/usr/src/api/static
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.test
+    depends_on:
+      - db
+      - redis
+    networks:
+      - django-nginx
+  redis:
+    container_name: redis
+    restart: always
+    volumes:
+      - ./redis.cof:/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    image: redis
+    networks:
+      - django-nginx
+  db:
+    container_name: db
+    image: postgres:12.0-alpine
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=hello_django_dev
+    networks:
+      - django-nginx
+  nginx:
+    container_name: nginx
+    build:
+      context: ./fontend
+      dockerfile: Dockerfile.dev
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1g"
+    volumes:
+      - static_volume:/usr/src/api/static
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./serverkey:/serverkey
+    depends_on:
+      - api
+    ports:
+      - 8088:80
+      - 443:443
+    networks:
+      - django-nginx
+
+networks:
+  django-nginx:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  static_volume:
