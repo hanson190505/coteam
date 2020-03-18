@@ -2,7 +2,6 @@
   <div id="app">
     <div class="header-row">
       <Header />
-      <MiniHeader />
     </div>
     <nuxt />
   </div>
@@ -20,10 +19,10 @@ export default {
 <style>
 .header-row {
   background-color: #003366;
-  height: 60px;
+  height: 30px;
   text-align: center;
-  font-size: 20px;
-  line-height: 60px;
+  font-size: 14px;
+  line-height: 30px;
   color: #ffffff;
   position: -webkit-sticky;
   position: sticky;
