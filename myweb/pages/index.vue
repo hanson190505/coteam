@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <el-carousel height="500px">
+      <el-carousel-item v-for="(item, index) in imageData" :key="index">
+        <img :src="item.path" :alt="item.image_alt" />
+      </el-carousel-item>
+    </el-carousel>
     <HomeCategory />
   </div>
 </template>
@@ -7,10 +12,24 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import HomeCategory from '../components/HomeCategory'
+import { getImage } from '../api/images'
 export default {
   components: {
     Logo,
     HomeCategory
+  },
+  data() {
+    return {
+      imageData: []
+    }
+  },
+  asyncData() {
+    return getImage({ is_banner: 1 }).then(res => {
+      res.data.results.forEach(el => {
+        el.path = process.env.IMAGE_URL + el.path
+      })
+      return { imageData: res.data.results }
+    })
   }
 }
 </script>
@@ -19,34 +38,7 @@ export default {
 .container {
   padding-top: 20px;
 }
-/* .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+img {
+  width: 100%;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-} */
 </style>

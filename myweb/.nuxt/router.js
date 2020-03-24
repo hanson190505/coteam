@@ -5,6 +5,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _6b81082b = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
 const _dc470484 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
+const _54e08607 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _2f9300bc = () => interopDefault(import('../pages/powerbank/index.vue' /* webpackChunkName: "pages/powerbank/index" */))
 const _731eb5b6 = () => interopDefault(import('../pages/usb/index.vue' /* webpackChunkName: "pages/usb/index" */))
 const _0d77faec = () => interopDefault(import('../pages/powerbank/_id.vue' /* webpackChunkName: "pages/powerbank/_id" */))
@@ -35,6 +36,10 @@ export const routerOptions = {
     path: "/contact",
     component: _dc470484,
     name: "contact"
+  }, {
+    path: "/login",
+    component: _54e08607,
+    name: "login"
   }, {
     path: "/powerbank",
     component: _2f9300bc,

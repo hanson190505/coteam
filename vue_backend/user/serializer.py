@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from user.models import UserInfo
+
+from user.models import UserInfo, Customer
 
 
 class UserInfoSerializer(serializers.ModelSerializer):
@@ -20,6 +21,13 @@ class PostUserInfoSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = UserInfo
+		fields = '__all__'
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = Customer
 		fields = '__all__'
 
 

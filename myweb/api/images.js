@@ -2,9 +2,9 @@ import {
   request
 } from "../plugins/axios";
 
-export function getProducts(params) {
+export function getImage(params) {
   return request({
-    url: 'products/',
+    url: process.env.API_BASE_URL + 'upload/',
     params: params
   })
 }

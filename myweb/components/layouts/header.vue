@@ -12,13 +12,17 @@
         </ul>
       </el-col>
       <el-col :span="12" class="hidden-sm-and-down">
-        <div>profile</div>
+        <localLogin />
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
+import localLogin from '../user/localLogin'
 export default {
+  components: {
+    localLogin
+  },
   data() {
     return {
       menus: [

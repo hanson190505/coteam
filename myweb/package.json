@@ -12,9 +12,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.3.6",
+    "cookie-parser": "^1.4.5",
+    "crypto-js": "^4.0.0",
     "element-ui": "^2.4.11",
-    "@nuxtjs/axios": "^5.3.6"
+    "js-cookie": "^2.2.1",
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",

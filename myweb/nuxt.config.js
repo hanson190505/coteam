@@ -1,4 +1,9 @@
 require('dotenv').config()
+const path = require('path')
+
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 
 export default {
   mode: 'universal',
@@ -45,7 +50,8 @@ export default {
    */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/axios'
+    '@/plugins/axios',
+    '@/plugins/jsencrypt',
   ],
   /*
    ** Nuxt.js dev-modules
@@ -59,6 +65,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Axios module configuration
@@ -73,6 +80,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, context) {}
   }
 }

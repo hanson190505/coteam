@@ -4,8 +4,11 @@
       <el-col :span="4">
         <backend-searchVue @parentMethod="pagination"></backend-searchVue>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="8">
         <date-search @dateSearchDate="dateSearchDate"></date-search>
+      </el-col>
+      <el-col :span="4">
+        <upload-pic @sendPicUrl="getPicUrl"></upload-pic>
       </el-col>
     </el-row>
     <el-table
@@ -92,13 +95,15 @@
 import pagiNation from '@/components/common/pagiNation'
 import dateSearch from '@/components/common/dateSearch'
 import backendSearchVue from '@/components/common/backendSearch.vue'
+import uploadPic from '@/components/common/uploadPic'
 import { getImages, delImage, patchImage } from '@/api/image'
 export default {
   name: 'imageTable',
   components: {
     pagiNation,
     backendSearchVue,
-    dateSearch
+    dateSearch,
+    uploadPic
   },
   data() {
     return {
@@ -151,6 +156,10 @@ export default {
     },
     clearSelect() {
       this.$refs.imageTableData.clearSelection()
+    },
+    //获取上传图片组件发送的图片网址
+    getPicUrl(picurl) {
+      this.$message('图片上传成功!')
     }
   },
   created() {

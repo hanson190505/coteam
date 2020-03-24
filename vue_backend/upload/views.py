@@ -9,6 +9,7 @@ from middleware.pagenation import SubOrderPagination
 from upload.models import Image
 from upload.serializer import ImageSerializer
 from user.authentications import UploadTokenAuthentication, GetTokenAuthentication
+from user.permissions import UserTokenPermission
 from utils import juhe
 from utils.image_upload import get_file_extension, is_allow_size, is_allowed_image_type, calculate_md5
 from vuebackend.settings import MEDIA_ROOT
@@ -20,13 +21,20 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
     pagination_class = SubOrderPagination
     authentication_classes = GetTokenAuthentication,
+    permission_classes = UserTokenPermission
+    filterset_fields = ['is_banner']
 
-    # def get_authenticators(self):
-    #     print(self.request.method)
-    #     if self.request.method == 'POST':
-    #         return [UploadTokenAuthentication()]
-    #     else:
-    #         return [GetTokenAuthentication()]
+    def get_authenticators(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [GetTokenAuthentication()]
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [UserTokenPermission()]
 
     def create(self, request, *args, **kwargs):
         file = request.data['file']

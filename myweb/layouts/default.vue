@@ -7,8 +7,8 @@
   </div>
 </template>
 <script>
-import Header from '../components/layouts/header'
-import MiniHeader from '../components/layouts/MiniHeader'
+import Header from '@/components/layouts/header'
+import MiniHeader from '@/components/layouts/MiniHeader'
 export default {
   components: {
     Header,

@@ -28,3 +28,30 @@ class UserInfo(models.Model):
         """
         return True
 
+
+class Customer(models.Model):
+    name = models.CharField(max_length=32)
+    email = models.EmailField(max_length=128)
+    password = models.CharField(max_length=256)
+    pub_date = models.DateTimeField(auto_now_add=True)
+    is_delete = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    def verify_password(self, password):
+        return check_password(password, self.password)
+
+    @property
+    def is_authenticated(self):
+        """
+        Always return True. This is a way to tell if the user has been
+        authenticated in templates.
+        """
+        return True
+    # TODO:找回密码,修改密码
+    def find_password(self):
+        pass
+
+    def change_password(self):
+        pass

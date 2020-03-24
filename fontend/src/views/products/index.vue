@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="4">
+      <!-- <el-col :span="4">
         <el-button type="primary" @click="addproductType">新增类别</el-button>
-      </el-col>
+      </el-col>-->
       <el-col :span="4">
         <el-button type="primary" @click="addproductData">新增产品</el-button>
       </el-col>
@@ -21,18 +21,18 @@
 
 <script>
 import ProductTable from './ProductTable'
-import addProductType from './addProductType'
+// import addProductType from './addProductType'
 import addProduct from './addProduct'
 export default {
   components: {
     ProductTable,
-    addProductType,
+    // addProductType,
     addProduct
   },
   data() {
     return {
       productsData: { pro_color: '' },
-      addproductTypeVisible: false,
+      // addproductTypeVisible: false,
       addProductVisible: false
     }
   },

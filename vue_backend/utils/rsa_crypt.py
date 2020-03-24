@@ -59,3 +59,4 @@ def decrypt_data(input_data, key):
         return output_data
     except Exception as e:
         return e
+

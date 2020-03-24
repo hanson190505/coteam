@@ -4,17 +4,12 @@
       <el-row>
         <el-col :span="4">
           <el-form-item label="类别">
-            <el-select
-              v-model="addProductData.sub_type"
-              filterable
-              placeholder="请选择"
-              @visible-change="handleProductTypeSelect"
-            >
+            <el-select v-model="addProductData.pro_type" placeholder="请选择">
               <el-option
                 v-for="item in productTypeData"
-                :key="item.sub_type"
-                :label="item.sub_type"
-                :value="item.id"
+                :key="item.value"
+                :label="item.value"
+                :value="item.value"
               ></el-option>
             </el-select>
           </el-form-item>
@@ -194,7 +189,10 @@ export default {
     return {
       imageData: [],
       PicDialogTableVisible: false,
-      productTypeData: [],
+      productTypeData: [
+        { value: 'powerbank', label: 'powerbank' },
+        { value: 'usb', label: 'usb' }
+      ],
       // addProductData: {
       //   pro_color: '',
       //   pro_pic: ''
@@ -218,14 +216,6 @@ export default {
     }
   },
   methods: {
-    //获取产品类别
-    handleProductTypeSelect(v) {
-      if (v === true) {
-        getProductType().then(res => {
-          this.productTypeData = res.data.results
-        })
-      }
-    },
     //删除颜色
     delProColor(value, index) {
       let newValue = ''

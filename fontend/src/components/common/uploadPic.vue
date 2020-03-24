@@ -2,6 +2,45 @@
   <div>
     <el-button type="primary" @click="picdialogVisible = true" size="mini">上传图片</el-button>
     <el-dialog title :visible.sync="picdialogVisible" width="50%" :append-to-body="true">
+      <el-row>
+        <el-col :span="4">
+          <span>首页</span>
+        </el-col>
+        <el-col :span="4">
+          <span>首页顺序</span>
+        </el-col>
+        <el-col :span="4">banner</el-col>
+        <el-col :span="12">alt</el-col>
+      </el-row>
+
+      <el-row>
+        <el-col :span="4">
+          <el-select v-model="uploadData.is_home" placeholder>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-col>
+        <el-col :span="4">
+          <el-input v-model="uploadData.home_index"></el-input>
+        </el-col>
+        <el-col :span="4">
+          <el-select v-model="uploadData.is_banner" placeholder>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-col>
+        <el-col :span="12">
+          <el-input v-model="uploadData.image_alt"></el-input>
+        </el-col>
+      </el-row>
       <el-upload
         class="upload-demo"
         ref="upload"
@@ -24,11 +63,13 @@
 </template>
 
 <script>
-//TODO:重构图片上传
 export default {
   name: 'uploadPic',
   props: {
-    owner: String,
+    owner: {
+      type: String,
+      default: 'public'
+    },
     index: {
       type: Number,
       default: 99
@@ -36,19 +77,19 @@ export default {
     number: {
       type: String,
       default: 'default'
-    },
-    is_home: {
-      type: Number,
-      default: 0
-    },
-    home_index: {
-      type: Number,
-      default: 0
-    },
-    is_banner: {
-      type: Number,
-      default: 0
     }
+    // is_home: {
+    //   type: Number,
+    //   default: 0
+    // },
+    // home_index: {
+    //   type: Number,
+    //   default: 0
+    // },
+    // is_banner: {
+    //   type: Number,
+    //   default: 0
+    // }
   },
   data() {
     return {
@@ -59,14 +100,18 @@ export default {
       uploadData: {
         // token: window.localStorage.getItem('token'),
         owner: this.owner,
-        number: this.number,
-        is_home: this.is_home,
-        home_index: this.home_index,
-        is_banner: this.is_banner
+        number: this.number
+        // is_home: this.is_home,
+        // home_index: this.home_index,
+        // is_banner: this.is_banner
       },
       myheaders: {
         authorization: window.localStorage.getItem('token')
-      }
+      },
+      options: [
+        { value: '0', label: '否' },
+        { value: '1', label: '是' }
+      ]
     }
   },
   methods: {

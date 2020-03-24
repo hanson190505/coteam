@@ -4,8 +4,8 @@ from django.core.cache import cache
 from rest_framework import status, exceptions
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
-from user.models import UserInfo
-from user.serializer import UserInfoSerializer, PostUserInfoSerializer, UserLoginSerializer
+from user.models import UserInfo, Customer
+from user.serializer import UserInfoSerializer, PostUserInfoSerializer, UserLoginSerializer, CustomerSerializer
 from user.authentications import GetTokenAuthentication, UserTokenAuthentication
 from user.permissions import UserTokenPermission
 from middleware.pagenation import SubOrderPagination
@@ -14,7 +14,8 @@ from utils.rsa_crypt import creat_key, decrypt_data
 
 
 class UserApiViewSet(viewsets.ModelViewSet):
-    queryset = UserInfo.objects.all().order_by('id')
+    # queryset = UserInfo.objects.all().order_by('id')
+    queryset = UserInfo.objects.all()
     serializer_class = UserInfoSerializer
     authentication_classes = UserTokenAuthentication,
     pagination_class = SubOrderPagination
@@ -63,7 +64,10 @@ class UserApiViewSet(viewsets.ModelViewSet):
             # print(cache.get(ip)[0])
             return Response({'pub_key': pub_key})
         elif self.request.query_params.get('login'):
+            # pr1 = AesCrypt("ECB", "", "utf-8")
+            # print('前端密码:{}'.format(self.request.query_params.get('password')))
             ip = self.request.META['REMOTE_ADDR']
+            # print('视图解密结果:{}'.format(pr1.aesdecrypt(text=self.request.query_params.get('password'))))
             password = decrypt_data(self.request.query_params.get('u_password'), cache.get(ip)[0])
             username = self.request.query_params.get('u_name')
             users = self.queryset.filter(u_name=username)
@@ -118,3 +122,31 @@ class UserApiViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         serializer = UserLoginSerializer(instance)
         return Response(serializer.data)
+
+
+class CustomersAPIViewSet(viewsets.ModelViewSet):
+    queryset = Customer.objects.all().filter(is_delete=0)
+    serializer_class = CustomerSerializer
+
+    def get_authenticators(self):
+        st = self.request.query_params.get('st')
+        if st == 'login' or st == 'register':
+            return []
+        else:
+            return [GetTokenAuthentication()]
+
+    def get_permissions(self):
+        st = self.request.query_params.get('st')
+        if st == 'login' or st == 'register':
+            return []
+        else:
+            return [UserTokenPermission()]
+
+    def create(self, request, *args, **kwargs):
+        if self.request.query_params.get('st') == 'login':
+            pass
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)

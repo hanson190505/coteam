@@ -27,8 +27,9 @@ class ProductsType(models.Model):
 
 
 class Products(models.Model):
-    sub_type = models.ForeignKey(
-        ProductsType, null=False, blank=False, max_length=32, verbose_name='产品子类', on_delete=models.CASCADE)
+    # sub_type = models.ForeignKey(
+    #     ProductsType, null=False, blank=False, max_length=32, verbose_name='产品子类', on_delete=models.CASCADE)
+    pro_type = models.CharField(max_length=32)
     seo_title = models.CharField(max_length=128, default='china good gifts')
     seo_desc = models.CharField(max_length=256, default='china good gifts')
     pub_date = models.DateField('添加日期', auto_now=datetime.now)
