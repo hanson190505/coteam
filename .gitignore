@@ -11,7 +11,6 @@ postgres_data
 redeploy.sh
 updatessl.sh
 serverkey
-migrations
 fontend/test
 vue_backend/image
 apps
