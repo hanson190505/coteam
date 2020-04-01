@@ -5,7 +5,7 @@ services:
     build:
       context: ./vue_backend
       dockerfile: Dockerfile.prod
-    command: gunicorn -c vue_backend/gunicorn_config.py vuebackend.wsgi:application
+    command: gunicorn -c gunicorn_config.py vuebackend.wsgi:application
     container_name: vue_api
     volumes:
       - static_volume:/usr/src/api/image
