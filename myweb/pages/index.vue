@@ -1,10 +1,6 @@
 <template>
   <div class="container">
-    <el-carousel height="500px">
-      <el-carousel-item v-for="(item, index) in imageData" :key="index">
-        <img :src="item.path" :alt="item.image_alt" />
-      </el-carousel-item>
-    </el-carousel>
+    <div class="home-banner"></div>
     <HomeCategory />
   </div>
 </template>
@@ -40,5 +36,8 @@ export default {
 }
 img {
   width: 100%;
+}
+.home-banner {
+  background-image: url();
 }
 </style>
