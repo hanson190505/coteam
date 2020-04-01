@@ -9,6 +9,7 @@ then
     done
 
     echo "PostgreSQL started"
+    gunicorn -c gunicorn_config.py vuebackend.wsgi:application
 fi
 
 exec "$@"

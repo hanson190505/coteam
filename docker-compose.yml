@@ -4,8 +4,9 @@ services:
   api:
     container_name: api
     build: ./vue_backend
-#    command: python manage.py runserver 0.0.0.0:8000
-    command: gunicorn -c gunicorn_config.py vuebackend.wsgi:application
+    command: python manage.py runserver 0.0.0.0:8000
+#    command: gunicorn -c gunicorn_config.py vuebackend.wsgi:application
+#    command: gunicorn vuebackend.wsgi:application --bind 127.0.0.1:8005
     volumes:
       - ./vue_backend/:/usr/src/api/
     ports:
