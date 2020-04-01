@@ -1,6 +1,6 @@
 from multiprocessing import cpu_count
 
-bind = ["172.26.15.58:8000"]
+bind = ["0.0.0.0:8000"]
 daemon = True  # 是否开启守护进程
 pidfile = 'logs/gunicorn.pid'
 
