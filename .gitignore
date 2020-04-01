@@ -10,7 +10,6 @@ redis_data
 postgres_data
 redeploy.sh
 updatessl.sh
-nginx.conf
 serverkey
 migrations
 fontend/test
