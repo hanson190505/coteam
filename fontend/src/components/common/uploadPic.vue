@@ -12,7 +12,6 @@
         <el-col :span="4">banner</el-col>
         <el-col :span="12">alt</el-col>
       </el-row>
-
       <el-row>
         <el-col :span="4">
           <el-select v-model="uploadData.is_home" placeholder>

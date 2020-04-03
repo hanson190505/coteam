@@ -18,11 +18,11 @@ export default {
 </script>
 <style>
 .header-row {
-  background-color: #003366;
-  height: 30px;
+  background-color: #336699;
+  height: 60px;
   text-align: center;
-  font-size: 14px;
-  line-height: 30px;
+  font-size: 16px;
+  line-height: 60px;
   color: #ffffff;
   position: -webkit-sticky;
   position: sticky;

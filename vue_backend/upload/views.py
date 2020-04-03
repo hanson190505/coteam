@@ -40,11 +40,12 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
         file = request.data['file']
         owner = request.data['owner']
         file_name = request.data['number']
-        print(request.data)
+        # print(request.data)
         year = str(datetime.now().year)
         month = str(datetime.now().month)
         ext = get_file_extension(file)
-        file.name = file_name + '.{}'.format(ext)
+        if file_name != 'default':
+            file.name = file_name + '.{}'.format(ext)
         sub_path = owner + '/{}-{}/'.format(year, month)
         path = MEDIA_ROOT + sub_path
         md5 = calculate_md5(file)

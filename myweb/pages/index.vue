@@ -1,6 +1,18 @@
 <template>
   <div class="container">
-    <div class="home-banner"></div>
+    <div
+      class="home-banner"
+      :style="{
+        backgroundImage: 'url(' + imageData + ')',
+        backgroundPosition: 'center center'
+      }"
+    >
+      <div class="banner-title">
+        <nuxt-link to="/usb">USB</nuxt-link>
+        <span>/</span>
+        <nuxt-link to="/powerbank">POWERBANK</nuxt-link>
+      </div>
+    </div>
     <HomeCategory />
   </div>
 </template>
@@ -16,15 +28,18 @@ export default {
   },
   data() {
     return {
-      imageData: []
+      imageData: ''
+      // banner: {
+      //   backgroundImage: 'url(' + require(this.imageData) + ') ',
+      //   backgroundPosition: 'center center',
+      //   backgroundRepeat: 'no-repeat',
+      //   backgroundSize: 'cover'
+      // }
     }
   },
   asyncData() {
     return getImage({ is_banner: 1 }).then(res => {
-      res.data.results.forEach(el => {
-        el.path = process.env.IMAGE_URL + el.path
-      })
-      return { imageData: res.data.results }
+      return { imageData: process.env.IMAGE_URL + res.data.results[0].path }
     })
   }
 }
@@ -32,12 +47,22 @@ export default {
 
 <style>
 .container {
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 img {
   width: 100%;
 }
 .home-banner {
-  background-image: url();
+  height: 600px;
+}
+.banner-title {
+  display: block;
+  font-size: 60px;
+  text-align: center;
+  line-height: 600px;
+  color: #336699;
+}
+.banner-title a:visited {
+  color: #336699;
 }
 </style>
