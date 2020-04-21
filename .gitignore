@@ -14,10 +14,12 @@ serverkey
 fontend/test
 vue_backend/image
 apps
+migrations
 # local env files
 .env.local
 .env.*.local
 .env.*
+.nuxt
 
 # Log files
 npm-debug.log*

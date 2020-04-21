@@ -18,6 +18,7 @@
             placeholder="请输入用户名"
             prefix-icon="el-icon-user"
             v-model="loginform.u_name"
+            autofocus
           ></el-input>
         </el-form-item>
         <el-form-item prop="u_password">

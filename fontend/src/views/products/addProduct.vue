@@ -4,12 +4,17 @@
       <el-row>
         <el-col :span="4">
           <el-form-item label="类别">
-            <el-select v-model="addProductData.pro_type" placeholder="请选择">
+            <el-select
+              v-model="addProductData.sub_type"
+              filterable
+              placeholder="请选择"
+              @visible-change="selectTest"
+            >
               <el-option
                 v-for="item in productTypeData"
-                :key="item.value"
-                :label="item.value"
-                :value="item.value"
+                :key="item.id"
+                :label="item.category + '--' + item.sub_type"
+                :value="item.id"
               ></el-option>
             </el-select>
           </el-form-item>
@@ -160,7 +165,7 @@ import uploadPic from '@/components/common/uploadPic'
 import richText from '@/components/ckeditor/richText'
 import addProductColor from '@/components/common/addProductColor'
 import imageTable from '../imageManage/imageTable'
-import { postProducts } from '@/api/products'
+import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
 export default {
   name: 'addProduct',
@@ -189,10 +194,7 @@ export default {
     return {
       imageData: [],
       PicDialogTableVisible: false,
-      productTypeData: [
-        { value: 'powerbank', label: 'powerbank' },
-        { value: 'usb', label: 'usb' }
-      ],
+      productTypeData: [],
       // addProductData: {
       //   pro_color: '',
       //   pro_pic: ''
@@ -216,6 +218,15 @@ export default {
     }
   },
   methods: {
+    //调用后台类别数据
+    selectTest(v) {
+      if (v === true) {
+        getProductType().then(res => {
+          this.productTypeData = res.data.results
+          console.log(res.data)
+        })
+      }
+    },
     //删除颜色
     delProColor(value, index) {
       let newValue = ''
@@ -256,7 +267,20 @@ export default {
         .catch(_ => {})
     },
     //修改后保存
-    handleSave() {},
+    handleSave() {
+      patchProducts(this.addProductData.id, this.addProductData)
+        .then(res => {
+          this.$notify({
+            message: '提交成功',
+            type: 'success'
+          })
+        })
+        .catch(err => {
+          this.$notify.error({
+            message: '提交失败'
+          })
+        })
+    },
     prefill() {
       this.addProductData.pro_desc = 'test'
     },

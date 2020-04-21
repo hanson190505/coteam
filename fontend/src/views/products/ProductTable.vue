@@ -17,12 +17,12 @@
           <span>{{ scope.row.sub_type }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="seo标题" align="center" width="120">
+      <el-table-column label="seo标题" align="center" width="180">
         <template slot-scope="scope">
           <el-input v-model="scope.row.seo_title"></el-input>
         </template>
       </el-table-column>
-      <el-table-column label="seo描述" align="center" width="200">
+      <el-table-column label="seo描述" align="center" width="350">
         <template slot-scope="scope">
           <el-input v-model="scope.row.seo_desc"></el-input>
         </template>
@@ -72,7 +72,7 @@
           ></add-product-color>
         </template>
       </el-table-column>
-      <el-table-column label="操作" fixed="right" width="60" align="center">
+      <el-table-column label="操作" fixed="right" width="120" align="center">
         <template slot-scope="scope">
           <el-button @click="handleCheck(scope.row)" type="text" size="mini">查看</el-button>
           <el-button @click="handleSave(scope.row)" type="text" size="mini">保存</el-button>

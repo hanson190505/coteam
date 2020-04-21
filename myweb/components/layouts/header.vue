@@ -13,7 +13,11 @@
           text-color="#ffffff"
           active-text-color="#ffcc66"
         >
-          <el-menu-item v-for="(item, index) in menus" :key="index" :index="item.index">
+          <el-menu-item
+            v-for="(item, index) in menus"
+            :key="index"
+            :index="item.index"
+          >
             <nuxt-link :to="item.path">{{ item.title }}</nuxt-link>
           </el-menu-item>
         </el-menu>
@@ -27,9 +31,9 @@
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </el-col>
-      <el-col :span="4" class="hidden-sm-and-down">
+      <!-- <el-col :span="4" class="hidden-sm-and-down">
         <localLogin />
-      </el-col>
+      </el-col>-->
     </el-row>
   </div>
 </template>
@@ -54,6 +58,6 @@ export default {
 </script>
 <style>
 .el-menu.el-menu--horizontal {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 </style>

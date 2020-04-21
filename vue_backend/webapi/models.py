@@ -4,15 +4,7 @@ from ckeditor.fields import RichTextField
 
 
 class ProductsType(models.Model):
-    TYPE = (
-        (1, '硅胶产品'),
-        (2, '五金产品'),
-        (3, '电子产品'),
-        (4, '塑胶产品'),
-        (5, '木制产品'),
-        (6, '其他产品'),
-    )
-    type = models.IntegerField('产品大类', choices=TYPE)
+    category = models.CharField('产品总类', max_length=32, default='electronics')
     sub_type = models.CharField(
         '产品子类', unique=True, help_text='用英文填写产品子类', max_length=32)
     pub_date = models.DateField('添加日期', auto_now=datetime.now)
@@ -23,13 +15,12 @@ class ProductsType(models.Model):
         verbose_name_plural = '产品类别'
 
     def __str__(self):
-        return '{}-{}'.format(self.type, self.sub_type)
+        return '{}-{}'.format(self.category, self.sub_type)
 
 
 class Products(models.Model):
-    # sub_type = models.ForeignKey(
-    #     ProductsType, null=False, blank=False, max_length=32, verbose_name='产品子类', on_delete=models.CASCADE)
-    pro_type = models.CharField(max_length=32)
+    sub_type = models.ForeignKey(
+        ProductsType, null=False, blank=False, max_length=32, verbose_name='产品子类', on_delete=models.CASCADE)
     seo_title = models.CharField(max_length=128, default='china good gifts')
     seo_desc = models.CharField(max_length=256, default='china good gifts')
     pub_date = models.DateField('添加日期', auto_now=datetime.now)

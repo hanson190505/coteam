@@ -1,10 +1,14 @@
 from rest_framework import serializers
 from webapi.models import ProductsType, Products
-from upload.models import Image
 
 
 class ProductsSerializer(serializers.ModelSerializer):
-    pro_image = serializers.StringRelatedField(many=True)
+    # pro_image = serializers.StringRelatedField(many=True)
+    pro_image = serializers.SlugRelatedField(
+        many=True,
+        read_only=True,
+        slug_field='path'
+    )
 
     class Meta:
         model = Products

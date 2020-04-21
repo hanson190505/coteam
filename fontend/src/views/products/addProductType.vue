@@ -1,50 +1,75 @@
 <template>
-  <el-dialog :visible.sync="visible" width="30%" :before-close="handleClose">
-    <el-form :model="productTypeData" ref="productTypeData" label-width="80px">
-      <el-form-item label="产品大类" prop="type">
-        <el-select v-model="productTypeData.type" placeholder="请选择">
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-          ></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="产品子类" prop="sub_type">
-        <el-input v-model="productTypeData.sub_type" placeholder="请输入"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">立即创建</el-button>
-        <el-button>取消</el-button>
-      </el-form-item>
-    </el-form>
+  <el-dialog :visible.sync="visible" width="40%" :before-close="handleClose">
+    <el-table
+      :data="productsTypeData"
+      border
+      show-summary
+      highlight-current-row
+      style="width=99.9%"
+      v-loading="loading"
+      element-loading-text="拼命加载中"
+      element-loading-spinner="el-icon-loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
+    >
+      <el-table-column label="产品类别" align="center" width="150" fiexd>
+        <template slot-scope="scope">
+          <el-select v-if="scope.row.status === 1" v-model="scope.row.category" placeholder="请选择">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+          <span v-else>{{ scope.row.category }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="产品子类" align="center" width="120" fiexd>
+        <template slot-scope="scope">
+          <el-input v-if="scope.row.status === 1" v-model="scope.row.sub_type"></el-input>
+          <span v-else>{{ scope.row.sub_type }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="提交日期" align="center" width="120" fiexd>
+        <template slot-scope="scope">
+          <span>{{ scope.row.pub_date }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" width="180" align="center">
+        <template slot-scope="scope">
+          <el-button @click="handleAdd()" type="text" size="mini">新增</el-button>
+          <el-button
+            v-if="scope.row.status === 1"
+            @click="handleSave(scope.row)"
+            type="text"
+            size="mini"
+          >保存</el-button>
+          <el-button v-else @click="handleChange(scope.row)" type="text" size="mini">修改</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
   </el-dialog>
 </template>
 
 <script>
-import { postProductType } from '@/api/products'
+import {
+  postProductType,
+  getProductType,
+  patchProductType
+} from '@/api/products'
+import pagiNation from '@/components/common/pagiNation'
 export default {
   data() {
     return {
-      rueles: {
-        type: [{ required: true, message: '请选择产品大类', trigger: 'blur' }],
-        sub_type: [
-          { required: true, message: '请输入产品子类', trigger: 'blur' }
-        ]
-      },
-      productTypeData: {
-        type: '',
-        sub_type: ''
-      },
       options: [
-        { value: 1, label: '硅胶产品' },
-        { value: 2, label: '五金产品' },
-        { value: 3, label: '电子产品' },
-        { value: 4, label: '塑胶产品' },
-        { value: 5, label: '木制产品' },
-        { value: 6, label: '其他产品' }
-      ]
+        { value: 'USB', label: 'usb' },
+        { value: 'POWERBANK', label: 'powerbank' },
+        { value: 'ELECTRONICS', label: 'electronics' }
+      ],
+      productsTypeData: [],
+      dataTotal: 0,
+      loading: true
     }
   },
   props: {
@@ -53,26 +78,67 @@ export default {
       default: false
     }
   },
+  components: {
+    pagiNation
+  },
   methods: {
-    onSubmit() {
-      // this.$refs.postProductType.validate(valid => {
-      //   if (valid) {
-      postProductType(this.productTypeData)
+    pagination(params) {
+      if (!params) {
+        params = { page: 1, page_size: 10 }
+      }
+      getProductType(params).then(res => {
+        res.data.results.forEach(el => {
+          el.status = 0
+        })
+        this.productsTypeData = res.data.results
+        this.loading = false
+        this.dataTotal = res.data.count
+      })
+    },
+    handleAdd() {
+      this.productsTypeData.push({
+        category: '',
+        sub_type: '',
+        status: 1
+      })
+    },
+    //提交新目录
+    handleSubmit(row) {
+      postProductType(row)
         .then(res => {
-          this.$message({
-            message: '创建成功',
-            type: 'seccuss'
+          this.$notify({
+            message: '提交成功',
+            type: 'success'
           })
-          this.$emit('closeAddproductType', 'close')
+          row.status = 0
         })
-        .catch(error => {
-          this.$message({
-            message: '网络错误,请稍后重试',
-            type: 'warning'
+        .catch(err => {
+          this.$notify.error({
+            message: '提交失败'
           })
         })
-      //     }
-      //   })
+    },
+    handleChange(row) {
+      row.status = 1
+    },
+    handleSave(row) {
+      if (row.id) {
+        patchProductType(row.id, row)
+          .then(res => {
+            this.$notify({
+              message: '修改成功',
+              type: 'success'
+            })
+            row.status = 0
+          })
+          .catch(err => {
+            this.$notify.error({
+              message: '修改失败'
+            })
+          })
+      } else {
+        this.handleSubmit(row)
+      }
     },
     //关闭窗口处理
     handleClose(done) {
@@ -83,6 +149,9 @@ export default {
         done()
       })
     }
+  },
+  created() {
+    this.pagination()
   }
 }
 </script>

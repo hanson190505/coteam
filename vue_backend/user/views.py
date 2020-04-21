@@ -4,6 +4,8 @@ from django.core.cache import cache
 from rest_framework import status, exceptions
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from user.models import UserInfo, Customer
 from user.serializer import UserInfoSerializer, PostUserInfoSerializer, UserLoginSerializer, CustomerSerializer
 from user.authentications import GetTokenAuthentication, UserTokenAuthentication
@@ -153,20 +155,24 @@ class CustomersAPIViewSet(viewsets.ModelViewSet):
 
 
 # 控制邮件发送频率
-def send_email(request):
-    from django.core.mail import BadHeaderError, send_mail
-    from django.http import HttpResponse, HttpResponseRedirect
-    subject = request.POST.get('subject', '')
-    message = request.POST.get('message', '')
-    from_email = request.POST.get('from_email', 'hanjiwen30@163.com')
-    if subject and message and from_email:
-        try:
-            send_mail(subject, message, from_email, ['infochinagoodgifts@gmail.com'])
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
-        # return HttpResponseRedirect('/contact/thanks/')
-        return HttpResponse('thanks')
-    else:
-        # In reality we'd use a form class
-        # to get proper validation errors.
-        return HttpResponse('Make sure all fields are entered and valid.')
+class SendEmail(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def post(self, request, format=None):
+        from django.core.mail import BadHeaderError, send_mail
+        print(self.request.data)
+        subject = self.request.data['subject']
+        message = self.request.data['message']
+        from_email = request.POST.get('from_email', 'hanjiwen30@163.com')
+        if subject and message and from_email:
+            try:
+                send_mail(subject, message, from_email, ['infochinagoodgifts@gmail.com'])
+            except BadHeaderError:
+                return Response({'msg': 'Invalid header found.', 'type': 'warning'})
+            # return HttpResponseRedirect('/contact/thanks/')
+            return Response({'msg': 'thanks', 'type': 'success'})
+        else:
+            # In reality we'd use a form class
+            # to get proper validation errors.
+            return Response({'msg': 'Make sure all fields are entered and valid.', 'type': 'warning'})

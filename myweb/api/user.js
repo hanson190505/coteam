@@ -17,3 +17,12 @@ export function localLogin(params) {
     params: params
   })
 }
+
+export function sendMail(params, data) {
+  return request({
+    url: 'sendmail/',
+    method: 'POST',
+    params: params,
+    data: data
+  })
+}

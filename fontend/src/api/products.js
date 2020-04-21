@@ -18,6 +18,14 @@ export function postProductType(data) {
     })
 }
 
+export function patchProductType(id, data) {
+    return request({
+        url: `product_type/${id}/`,
+        method: 'patch',
+        data: qs.stringify(data)
+    })
+}
+
 export function getProducts(params) {
     return request({
         url: 'products/',
@@ -29,6 +37,14 @@ export function postProducts(data) {
     return request({
         url: 'products/',
         method: 'post',
+        data: qs.stringify(data)
+    })
+}
+
+export function patchProducts(id, data) {
+    return request({
+        url: `products/${id}/`,
+        method: 'patch',
         data: qs.stringify(data)
     })
 }

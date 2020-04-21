@@ -14,6 +14,18 @@ class ProductTypeViewSet(viewsets.ModelViewSet):
     pagination_class = SubOrderPagination
     authentication_classes = GetTokenAuthentication,
 
+    def get_authenticators(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [GetTokenAuthentication()]
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [UserTokenPermission()]
+
 
 class ProductsViewSet(viewsets.ModelViewSet):
     queryset = Products.objects.filter(is_delete=0).order_by()
@@ -21,7 +33,7 @@ class ProductsViewSet(viewsets.ModelViewSet):
     pagination_class = SubOrderPagination
     authentication_classes = GetTokenAuthentication,
     permission_classes = UserTokenPermission,
-    filterset_fields = ['pro_type']
+    filterset_fields = ['seo_title', 'sub_type', 'is_hot']
 
     def get_authenticators(self):
         if self.request.method == 'GET':

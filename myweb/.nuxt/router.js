@@ -3,14 +3,17 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _6b81082b = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
-const _dc470484 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
-const _54e08607 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
-const _2f9300bc = () => interopDefault(import('../pages/powerbank/index.vue' /* webpackChunkName: "pages/powerbank/index" */))
-const _731eb5b6 = () => interopDefault(import('../pages/usb/index.vue' /* webpackChunkName: "pages/usb/index" */))
-const _0d77faec = () => interopDefault(import('../pages/powerbank/_id.vue' /* webpackChunkName: "pages/powerbank/_id" */))
-const _f080a666 = () => interopDefault(import('../pages/usb/_id.vue' /* webpackChunkName: "pages/usb/_id" */))
-const _e98e3a20 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _6c8ef5fd = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
+const _f1b381e0 = () => interopDefault(import('../pages/contact.vue' /* webpackChunkName: "pages/contact" */))
+const _74643a31 = () => interopDefault(import('../pages/custom.vue' /* webpackChunkName: "pages/custom" */))
+const _ed54720c = () => interopDefault(import('../pages/factory.vue' /* webpackChunkName: "pages/factory" */))
+const _55ee73d9 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _cbca6218 = () => interopDefault(import('../pages/powerbank/index.vue' /* webpackChunkName: "pages/powerbank/index" */))
+const _5033e3e7 = () => interopDefault(import('../pages/professional.vue' /* webpackChunkName: "pages/professional" */))
+const _df614c12 = () => interopDefault(import('../pages/usb/index.vue' /* webpackChunkName: "pages/usb/index" */))
+const _cf900348 = () => interopDefault(import('../pages/powerbank/_id.vue' /* webpackChunkName: "pages/powerbank/_id" */))
+const _7d096e1f = () => interopDefault(import('../pages/usb/_id.vue' /* webpackChunkName: "pages/usb/_id" */))
+const _e7725e7c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -30,35 +33,47 @@ export const routerOptions = {
 
   routes: [{
     path: "/about",
-    component: _6b81082b,
+    component: _6c8ef5fd,
     name: "about"
   }, {
     path: "/contact",
-    component: _dc470484,
+    component: _f1b381e0,
     name: "contact"
   }, {
+    path: "/custom",
+    component: _74643a31,
+    name: "custom"
+  }, {
+    path: "/factory",
+    component: _ed54720c,
+    name: "factory"
+  }, {
     path: "/login",
-    component: _54e08607,
+    component: _55ee73d9,
     name: "login"
   }, {
     path: "/powerbank",
-    component: _2f9300bc,
+    component: _cbca6218,
     name: "powerbank"
   }, {
+    path: "/professional",
+    component: _5033e3e7,
+    name: "professional"
+  }, {
     path: "/usb",
-    component: _731eb5b6,
+    component: _df614c12,
     name: "usb"
   }, {
     path: "/powerbank/:id",
-    component: _0d77faec,
+    component: _cf900348,
     name: "powerbank-id"
   }, {
     path: "/usb/:id",
-    component: _f080a666,
+    component: _7d096e1f,
     name: "usb-id"
   }, {
     path: "/",
-    component: _e98e3a20,
+    component: _e7725e7c,
     name: "index"
   }],
 

@@ -48,8 +48,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@/plugins/element-ui',
+  plugins: [{
+      src: '@/plugins/element-ui',
+      ssr: true
+    },
     '@/plugins/axios',
     '@/plugins/jsencrypt',
   ],
@@ -76,7 +78,21 @@ export default {
    ** Build configuration
    */
   build: {
-    transpile: [/^element-ui/],
+    vendor: [
+      'element-ui'
+    ],
+    babel: {
+      'plugins': [
+        [
+          'component',
+          {
+            'libraryName': 'element-ui',
+            'styleLibraryName': 'theme-chalk'
+          }
+        ]
+      ],
+      'comments': true
+    },
     /*
      ** You can extend webpack config here
      */

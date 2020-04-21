@@ -8,3 +8,10 @@ export function getProducts(params) {
     params: params
   })
 }
+
+export function getProductType(params) {
+  return request({
+    url: 'product_type/',
+    params: params
+  })
+}

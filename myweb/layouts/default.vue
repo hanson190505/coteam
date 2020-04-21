@@ -21,7 +21,7 @@ export default {
   background-color: #336699;
   height: 60px;
   text-align: center;
-  font-size: 16px;
+  font-size: 0.8em;
   line-height: 60px;
   color: #ffffff;
   position: -webkit-sticky;
@@ -29,11 +29,11 @@ export default {
   top: 0px;
   z-index: 999;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .header-row {
     font-size: 12px;
     height: 30px;
     line-height: 30px;
   }
-}
+} */
 </style>
