@@ -4,9 +4,8 @@ from ckeditor.fields import RichTextField
 
 
 class ProductsType(models.Model):
-    category = models.CharField('产品总类', max_length=32, default='electronics')
-    sub_type = models.CharField(
-        '产品子类', unique=True, help_text='用英文填写产品子类', max_length=32)
+    category = models.CharField('产品总类', max_length=32, null=True, blank=True)
+    parent_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subs')
     pub_date = models.DateField('添加日期', auto_now=datetime.now)
     is_delete = models.IntegerField(default=0)
 

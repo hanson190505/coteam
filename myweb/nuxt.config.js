@@ -10,6 +10,10 @@ export default {
   /*
    ** Headers of the page
    */
+  server: {
+    port: process.env.PORT,
+    host: '0.0.0.0'
+  },
   head: {
     title: 'chinagoodgifts',
     meta: [{

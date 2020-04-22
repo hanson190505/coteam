@@ -1,5 +1,27 @@
 <template>
   <el-card>
+    <div class="idnex-doc">
+      <ul class="idnex-doc-ul">
+        <li>
+          <p>Customized products do not support return and exchange applications</p>
+        </li>
+        <li>
+          <p>For color sensitive products, please use Pantone color number</p>
+        </li>
+        <li>
+          <p>test</p>
+        </li>
+        <li>
+          <p>test</p>
+        </li>
+        <li>
+          <p>test</p>
+        </li>
+        <li>
+          <p>test</p>
+        </li>
+      </ul>
+    </div>
     <el-row :gutter="10">
       <el-col :span="6">
         <h4>About</h4>
@@ -23,7 +45,7 @@
       </el-col>
       <el-col :span="6">
         <h4>USB</h4>
-        <ul>
+        <ul class="foot-usb">
           <li>
             <nuxt-link :to="{name:'usb', params:{sub_type:'USB2.0'}}">USB 2.0</nuxt-link>
           </li>
@@ -60,7 +82,25 @@ export default {
 </script>
 
 <style>
-.foot-msg {
+.foot-msg,
+.foot-usb {
   list-style-type: none;
+}
+.foot-msg li,
+.foot-usb li {
+  font-size: 0.6em;
+  margin-top: 10px;
+}
+.idnex-doc {
+  margin-bottom: 10px;
+}
+.idnex-doc-ul {
+  list-style: outside;
+  font-size: 0.6em;
+  margin-left: 20px;
+}
+.idnex-doc-ul li,
+.idnex-doc-ul p {
+  font-size: 0.6em;
 }
 </style>

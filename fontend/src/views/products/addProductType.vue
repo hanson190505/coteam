@@ -13,21 +13,27 @@
     >
       <el-table-column label="产品类别" align="center" width="150" fiexd>
         <template slot-scope="scope">
-          <el-select v-if="scope.row.status === 1" v-model="scope.row.category" placeholder="请选择">
+          <el-select
+            v-if="scope.row.status === 1"
+            v-model="scope.row.parent_category"
+            filterable
+            placeholder="请选择"
+            @visible-change="selectTest"
+          >
             <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
+              v-for="item in productTypeDataSelect"
+              :key="item.id"
+              :label="item.category + '-' + item.parent_category"
+              :value="item.id"
             ></el-option>
           </el-select>
-          <span v-else>{{ scope.row.category }}</span>
+          <span v-else>{{ scope.row.parent_category +'-'+ scope.row.category}}</span>
         </template>
       </el-table-column>
       <el-table-column label="产品子类" align="center" width="120" fiexd>
         <template slot-scope="scope">
-          <el-input v-if="scope.row.status === 1" v-model="scope.row.sub_type"></el-input>
-          <span v-else>{{ scope.row.sub_type }}</span>
+          <el-input v-if="scope.row.status === 1" v-model="scope.row.category"></el-input>
+          <span v-else>{{ scope.row.category }}</span>
         </template>
       </el-table-column>
       <el-table-column label="提交日期" align="center" width="120" fiexd>
@@ -45,9 +51,11 @@
             size="mini"
           >保存</el-button>
           <el-button v-else @click="handleChange(scope.row)" type="text" size="mini">修改</el-button>
+          <el-button @click="handleDel(scope.$index, scope.row)" type="text" size="mini">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
+    <el-button @click="handleAdd()" type="text" size="mini">新增</el-button>
     <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
   </el-dialog>
 </template>
@@ -59,15 +67,12 @@ import {
   patchProductType
 } from '@/api/products'
 import pagiNation from '@/components/common/pagiNation'
+import { delTableRow } from '@/utils/delTablerow'
 export default {
   data() {
     return {
-      options: [
-        { value: 'USB', label: 'usb' },
-        { value: 'POWERBANK', label: 'powerbank' },
-        { value: 'ELECTRONICS', label: 'electronics' }
-      ],
       productsTypeData: [],
+      productTypeDataSelect: [],
       dataTotal: 0,
       loading: true
     }
@@ -82,6 +87,15 @@ export default {
     pagiNation
   },
   methods: {
+    //调用后台类别数据
+    selectTest(v) {
+      if (v === true) {
+        getProductType().then(res => {
+          this.productTypeDataSelect = res.data.results
+          console.log(res.data)
+        })
+      }
+    },
     pagination(params) {
       if (!params) {
         params = { page: 1, page_size: 10 }
@@ -138,6 +152,52 @@ export default {
           })
       } else {
         this.handleSubmit(row)
+      }
+    },
+    //删除订单
+    handleDel(index, row) {
+      if (!row.hasOwnProperty('id')) {
+        this.$confirm('数据未保存,确定删除?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        })
+          .then(() => {
+            this.productsTypeData.splice(index, 1)
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+          })
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
+          })
+      } else {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        })
+          .then(() => {
+            console.log(index)
+            console.log(row)
+            this.productsTypeData.splice(index, 1)
+            patchProductType(row.id, { is_delete: 1 }).then(res => {
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+              })
+            })
+          })
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '删除失败!'
+            })
+          })
       }
     },
     //关闭窗口处理

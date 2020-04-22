@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from middleware.pagenation import SubOrderPagination
 from user.permissions import UserTokenPermission
-from webapi.serializer import ProductsSerializer, ProductTypeSerializer
+from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer
 from webapi.models import Products, ProductsType
 from user.authentications import GetTokenAuthentication
 
@@ -25,6 +25,11 @@ class ProductTypeViewSet(viewsets.ModelViewSet):
             return []
         else:
             return [UserTokenPermission()]
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = ProductTypeRetrieveSerializer(instance)
+        return Response(serializer.data)
 
 
 class ProductsViewSet(viewsets.ModelViewSet):

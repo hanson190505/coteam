@@ -133,7 +133,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {"BASE_URL":"http://localhost:3000","API_BASE_URL":"http://localhost:8000/api/","IMAGE_URL":"http://localhost:8000/image/"}
+      env: {"HOST":"192.168.0.101","PORT":"3000","BASE_URL":"http://192.168.0.101:3000","API_BASE_URL":"http://192.168.0.101:8000/api/","IMAGE_URL":"http://192.168.0.101:8000/image/"}
     }
     // Only set once
     if (context.req) {

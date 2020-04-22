@@ -20,3 +20,12 @@ class ProductTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductsType
         fields = '__all__'
+
+
+class ProductTypeRetrieveSerializer(serializers.ModelSerializer):
+
+    subs = ProductTypeSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = ProductsType
+        fields = '__all__'

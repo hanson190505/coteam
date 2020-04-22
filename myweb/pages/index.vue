@@ -5,7 +5,7 @@
       class="home-banner"
       :style="{
         backgroundImage: 'url(' + imageData + ')',
-        backgroundPosition: 'center center',
+        backgroundPosition: 'center center'
       }"
     >
       <div class="banner-title">
@@ -28,7 +28,7 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import indexfooter from '~/components/index/indexfooter'
-import indexcontainer from '../components/index/indexcontainer'
+import indexcontainer from '~/components/index/indexcontainer'
 import sendmail from '~/components/sendmail'
 import { getImage } from '~/api/images'
 export default {
@@ -87,13 +87,7 @@ img {
   width: 80%;
   margin-left: 10%;
 }
-.footer ul {
-  list-style: none;
-}
-.footer ul li {
-  font-size: 0.6rem;
-  margin-top: 10px;
-}
+
 .footer ul li a:visited {
   color: #000000;
 }
