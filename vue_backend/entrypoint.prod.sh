@@ -11,6 +11,7 @@ then
     echo "PostgreSQL started"
     sleep 1
     gunicorn -c gunicorn_config.py vuebackend.wsgi:application
+    echo "api started"
 fi
 
 exec "$@"
