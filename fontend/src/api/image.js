@@ -16,7 +16,7 @@ export function delImage(id) {
     })
 }
 
-export function patchImage(data, id) {
+export function patchImage(id, data) {
     return request({
         url: `upload/${id}/`,
         method: 'patch',

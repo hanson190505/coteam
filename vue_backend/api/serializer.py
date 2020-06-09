@@ -12,6 +12,11 @@ class CustomersSerializer(serializers.ModelSerializer):
 
 class OrdersSerializer(serializers.ModelSerializer):
     sales = serializers.StringRelatedField()
+    order_image = serializers.SlugRelatedField(
+        many=True,
+        read_only=True,
+        slug_field='path'
+    )
 
     class Meta:
         model = OrderCatalog

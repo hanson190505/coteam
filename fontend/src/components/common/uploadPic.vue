@@ -10,7 +10,7 @@
           <span>首页顺序</span>
         </el-col>
         <el-col :span="4">banner</el-col>
-        <el-col :span="12">alt</el-col>
+        <el-col :span="12">alt(首页,首页顺序,banner,alt非必填项)</el-col>
       </el-row>
       <el-row>
         <el-col :span="4">
@@ -77,18 +77,6 @@ export default {
       type: String,
       default: 'default'
     }
-    // is_home: {
-    //   type: Number,
-    //   default: 0
-    // },
-    // home_index: {
-    //   type: Number,
-    //   default: 0
-    // },
-    // is_banner: {
-    //   type: Number,
-    //   default: 0
-    // }
   },
   data() {
     return {
@@ -97,12 +85,8 @@ export default {
       fileList: [],
       //图片上传附加数据
       uploadData: {
-        // token: window.localStorage.getItem('token'),
         owner: this.owner,
         number: this.number
-        // is_home: this.is_home,
-        // home_index: this.home_index,
-        // is_banner: this.is_banner
       },
       myheaders: {
         authorization: window.localStorage.getItem('token')
@@ -119,11 +103,11 @@ export default {
       switch (res.status) {
         case 1000:
           this.$message('上传成功')
-          this.$emit(
-            'sendPicUrl',
-            process.env.VUE_APP_API_PIC_URL + res.file,
-            this.index
-          )
+          this.$emit('sendPicUrl', {
+            url: process.env.VUE_APP_API_PIC_URL + res.file,
+            index: this.index,
+            id: res.id
+          })
           break
         case 1001:
           this.$message.error('图片尺寸太大,请选择500kb以下的图片')
@@ -133,11 +117,11 @@ export default {
           break
         case 1003:
           this.$message('找到相同的图片')
-          this.$emit(
-            'sendPicUrl',
-            process.env.VUE_APP_API_PIC_URL + res.file,
-            this.index
-          )
+          this.$emit('sendPicUrl', {
+            url: process.env.VUE_APP_API_PIC_URL + res.file,
+            index: this.index,
+            id: res.id
+          })
         default:
           break
       }
@@ -148,6 +132,15 @@ export default {
     },
     //上传图片前控制
     uploadBtn() {
+      if (this.uploadData.home_index === undefined) {
+        this.uploadData.home_index = 0
+      }
+      if (this.uploadData.is_home === undefined) {
+        this.uploadData.is_home = 0
+      }
+      if (this.uploadData.is_banner === undefined) {
+        this.uploadData.is_banner = 0
+      }
       if (this.number === '') {
         this.$message.error('请完整填写订单信息!')
       } else {

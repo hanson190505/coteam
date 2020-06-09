@@ -2,6 +2,9 @@
   <div class="error-container">
     <h1 v-if="error.statusCode === 404">404</h1>
     <h1 v-else>应用发生错误异常</h1>
+    <h1>
+      <nuxt-link to="/">Go Home</nuxt-link>
+    </h1>
   </div>
 </template>
 

@@ -11,12 +11,13 @@ import {
   Row,
   Col,
   Card,
+  Steps,
+  Step,
+  Select,
+  Option,
+  Message,
+  Upload,
 } from 'element-ui'
-// import locale from 'element-ui/lib/locale/lang/en'
-
-// Vue.use(Element, {
-//   locale
-// })
 
 Vue.use(Button)
 Vue.use(Input)
@@ -29,3 +30,9 @@ Vue.use(FormItem)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(Card)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(Upload)
+Vue.prototype.$message = Message

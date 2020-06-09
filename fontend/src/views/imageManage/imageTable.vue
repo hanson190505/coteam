@@ -20,9 +20,23 @@
       ref="imageTableData"
     >
       <el-table-column type="selection" width="55" align="center"></el-table-column>
-      <el-table-column label="编号" align="center" width="60">
+      <el-table-column label="所属产品" align="center" width="120">
         <template slot-scope="scope">
-          <span>{{ scope.row.id }}</span>
+          <el-select
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.pro_number"
+            filterable
+            placeholder="请选择"
+            @visible-change="selectTest"
+          >
+            <el-option
+              v-for="item in productDataSelect"
+              :key="item.id"
+              :label="item.pro_number"
+              :value="item.id"
+            ></el-option>
+          </el-select>
+          <span v-else>{{ scope.row.pro_number}}</span>
         </template>
       </el-table-column>
       <el-table-column label="上传日期" align="center" width="120">
@@ -97,6 +111,7 @@ import dateSearch from '@/components/common/dateSearch'
 import backendSearchVue from '@/components/common/backendSearch.vue'
 import uploadPic from '@/components/common/uploadPic'
 import { getImages, delImage, patchImage } from '@/api/image'
+import { getProducts } from '@/api/products'
 export default {
   name: 'imageTable',
   components: {
@@ -109,10 +124,20 @@ export default {
     return {
       imageData: [],
       dataTotal: 0,
-      baseurl: process.env.VUE_APP_API_PIC_URL
+      baseurl: process.env.VUE_APP_API_PIC_URL,
+      productDataSelect: []
     }
   },
   methods: {
+    //调用后台类别数据
+    selectTest(v) {
+      if (v === true) {
+        getProducts().then(res => {
+          this.productDataSelect = res.data.results
+          console.log(res.data)
+        })
+      }
+    },
     //选中处理
     handleSelect(row) {
       this.$emit('patchImageTable', row)
@@ -150,7 +175,7 @@ export default {
     },
     handleSave(row) {
       row.is_edit = 0
-      patchImage(row, row.id).then(res => {
+      patchImage(row.id, row).then(res => {
         this.pagination()
       })
     },

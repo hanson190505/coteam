@@ -16,16 +16,14 @@
         </el-menu>
       </el-col>
       <el-col :span="20">
-        <div>
-          <el-row :gutter="20">
-            <el-col :span="5" v-for="(item, index) in usbData" :key="index">
-              <el-card shadow="always">
-                <img :src="item.pro_image" />
-                <p @click="handleSendMail" class="contact-us">contact us ></p>
-              </el-card>
-            </el-col>
-          </el-row>
-        </div>
+        <el-row :gutter="20" class="product-row">
+          <el-col :span="5" v-for="(item, index) in usbData" :key="index">
+            <el-card shadow="always" class="product-card">
+              <img :src="item.pro_image" />
+              <p @click="handleSendMail" class="contact-us">contact us ></p>
+            </el-card>
+          </el-col>
+        </el-row>
       </el-col>
     </el-row>
     <sendmail ref="sendmailref" />
@@ -94,5 +92,12 @@ export default {
 <style>
 .usb-container {
   padding-top: 10px;
+  margin-left: 10%;
+}
+.product-card img {
+  width: 100%;
+}
+.product-row .el-col {
+  padding-bottom: 10px;
 }
 </style>

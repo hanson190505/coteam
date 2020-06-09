@@ -12,7 +12,7 @@ export default {
    */
   server: {
     port: process.env.PORT,
-    host: '0.0.0.0'
+    host: process.env.HOST
   },
   head: {
     title: 'chinagoodgifts',
@@ -47,7 +47,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     'element-ui/lib/theme-chalk/display.css',
-    './assets/css/base.css'
+    './assets/css/base.css',
   ],
   /*
    ** Plugins to load before mounting the App
@@ -83,7 +83,7 @@ export default {
    */
   build: {
     vendor: [
-      'element-ui'
+      'element-ui',
     ],
     babel: {
       'plugins': [
@@ -97,6 +97,7 @@ export default {
       ],
       'comments': true
     },
+
     /*
      ** You can extend webpack config here
      */

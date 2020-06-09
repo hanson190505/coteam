@@ -200,6 +200,7 @@ export default {
       //   pro_pic: ''
       // },
       pic_url: [],
+      pic_id: '',
       options: [
         { label: '是', value: 1 },
         { label: '否', value: 0 }
@@ -222,7 +223,6 @@ export default {
     selectTest(v) {
       if (v === true) {
         getProductType().then(res => {
-          console.log(res.data)
           res.data.results.forEach(el => {
             if (el.parent_category !== null) {
               this.productTypeData.push(el)
@@ -252,14 +252,26 @@ export default {
       }
     },
     //获取图片地址
-    getPicUrl(picurl, index) {
-      this.pic_url.push(picurl)
+    getPicUrl(picurl) {
+      this.pic_url.push(picurl.url)
+      this.pic_id = picurl.id
     },
     //提交
     onSubmit() {
       postProducts(this.addProductData)
-        .then(res => {})
-        .catch(error => {})
+        .then(res => {
+          patchImage(this.pic_id, { pro_number: res.data.id }).then(res => {
+            this.$notify({
+              message: '创建成功',
+              type: 'success'
+            })
+          })
+        })
+        .catch(error => {
+          this.$notify.error({
+            message: '创建失败'
+          })
+        })
     },
     close() {
       this.$confirm('数据未保存,确认关闭?')

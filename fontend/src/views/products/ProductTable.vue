@@ -76,6 +76,7 @@
         <template slot-scope="scope">
           <el-button @click="handleCheck(scope.row)" type="text" size="mini">查看</el-button>
           <el-button @click="handleSave(scope.row)" type="text" size="mini">保存</el-button>
+          <el-button @click="handleDel(scope.$index, scope.row)" type="text" size="mini">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -84,7 +85,7 @@
 </template>
 
 <script>
-import { getProductType, getProducts } from '@/api/products'
+import { getProductType, getProducts, patchProducts } from '@/api/products'
 import addProductColor from '@/components/common/addProductColor'
 import pagiNation from '@/components/common/pagiNation'
 import dateSearch from '@/components/common/dateSearch'
@@ -147,7 +148,64 @@ export default {
       this.$emit('checkproductData', row)
     },
     //保存修改
-    handleSave(row) {}
+    handleSave(row) {
+      patchProducts(row.id, row)
+        .then(res => {
+          this.$notify({
+            message: '保存成功',
+            type: 'success'
+          })
+        })
+        .catch(error => {
+          this.$notify.error({
+            message: '保存失败'
+          })
+        })
+    },
+    //删除
+    handleDel(index, row) {
+      if (!row.hasOwnProperty('id')) {
+        this.$confirm('数据未保存,确定删除?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        })
+          .then(() => {
+            this.productsData.splice(index, 1)
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+          })
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
+          })
+      } else {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        })
+          .then(() => {
+            this.productsData.splice(index, 1)
+            patchProducts(row.id, { is_delete: 1 }).then(res => {
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+              })
+            })
+          })
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '删除失败!'
+            })
+          })
+      }
+    }
   },
   created() {
     this.pagination()

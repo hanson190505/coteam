@@ -24,26 +24,6 @@
     </div>
     <el-row :gutter="10">
       <el-col :span="6">
-        <h4>About</h4>
-      </el-col>
-      <el-col :span="6">
-        <h4>CONTACT</h4>
-        <!-- <div class="foot-msg">
-        E-mail:
-        <a href="mailto:infochinagoodgifts@gmail.com">infochinagoodgifts@gmail.com</a>
-      </div>
-        <p>Address:DongGuang City GuangDong Province China</p>-->
-        <ul class="foot-msg">
-          <li>
-            E-mail:
-            <a href="mailto:infochinagoodgifts@gmail.com">infochinagoodgifts@gmail.com</a>
-          </li>
-          <li>Address:LongGang ShenZhen City GuangDong Province China</li>
-          <li></li>
-          <li></li>
-        </ul>
-      </el-col>
-      <el-col :span="6">
         <h4>USB</h4>
         <ul class="foot-usb">
           <li>
@@ -62,6 +42,26 @@
       </el-col>
       <el-col :span="6">
         <h4>PWOERBANK</h4>
+      </el-col>
+      <el-col :span="6">
+        <h4>Support</h4>
+      </el-col>
+      <el-col :span="6">
+        <h4>CONTACT</h4>
+        <!-- <div class="foot-msg">
+        E-mail:
+        <a href="mailto:infochinagoodgifts@gmail.com">infochinagoodgifts@gmail.com</a>
+      </div>
+        <p>Address:DongGuang City GuangDong Province China</p>-->
+        <ul class="foot-msg">
+          <li>
+            E-mail:
+            <a href="mailto:infochinagoodgifts@gmail.com">infochinagoodgifts@gmail.com</a>
+          </li>
+          <li>Address:LongGang ShenZhen City GuangDong Province China</li>
+          <li></li>
+          <li></li>
+        </ul>
       </el-col>
     </el-row>
   </el-card>

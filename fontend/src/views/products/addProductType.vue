@@ -1,5 +1,5 @@
 <template>
-  <el-dialog :visible.sync="visible" width="40%" :before-close="handleClose">
+  <el-dialog :visible.sync="visible" width="50%" :before-close="handleClose">
     <el-table
       :data="productsTypeData"
       border

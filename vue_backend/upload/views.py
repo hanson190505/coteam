@@ -55,7 +55,7 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
         if not is_allowed_image_type(ext):
             return Response({'status': 1002})
         if upload_img:
-            return Response({'file': upload_img.path, 'status': 1003})
+            return Response({'file': upload_img.path, 'id': upload_img.id, 'status': 1003})
         else:
             # 保存图片
             if os.path.exists(path):
@@ -75,7 +75,7 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
             upload_img.home_index = request.data['home_index']
             upload_img.is_banner = request.data['is_banner']
             upload_img.save()
-        return Response({'file': upload_img.path, 'status': 1000}, status=status.HTTP_201_CREATED)
+        return Response({'file': upload_img.path, 'id': upload_img.id, 'status': 1000}, status=status.HTTP_201_CREATED)
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

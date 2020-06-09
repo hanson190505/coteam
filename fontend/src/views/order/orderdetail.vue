@@ -102,7 +102,7 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="8">
+          <!-- <el-col :span="8">
             <el-upload
               class="upload-demo"
               :action="actionUrl"
@@ -118,11 +118,21 @@
               <el-button size="mini" type="primary">点击上传</el-button>
               <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
             </el-upload>
-          </el-col>
-          <el-col :span="16">
+          </el-col>-->
+          <!-- <el-col :span="16">
             <div class="order-img">
               <img :src="this.orderdetail.order_pic" @click="imgLook" class="orderImg" />
             </div>
+          </el-col>-->
+          <!-- <el-button type="primary" @click="selectPic">选择图片</el-button> -->
+          <el-col :span="18">
+            <upload-pic :number="orderdetail.order_number" :owner="'order'" @sendPicUrl="getPicUrl"></upload-pic>
+            <div v-for="(item, index) in orderdetail.order_image" :key="index">
+              <span>{{ item }}</span>
+            </div>
+          </el-col>
+          <el-col :span="6">
+            <!-- <pic-carousel :proPicUrl="pic_url" ref="picCar"></pic-carousel> -->
           </el-col>
         </el-row>
       </el-form>
@@ -257,10 +267,12 @@ import {
   patchOrder
 } from '@/api/order'
 import addProductColor from '@/components/common/addProductColor'
+import uploadPic from '@/components/common/uploadPic'
 export default {
   name: 'OrderDetail',
   components: {
-    addProductColor
+    addProductColor,
+    uploadPic
   },
   data() {
     return {
@@ -303,8 +315,9 @@ export default {
         { value: 1, label: '紧急' }
       ],
       fileList: [],
-      //TODO:修改订单图片上传及其他优化
+      //TODO:订单图片上传功能重构
       //放大图片弹出框
+      getPicUrl(pirurl) {},
       imgdialogVisible: false,
       //图片上传附加数据
       uploadData: {

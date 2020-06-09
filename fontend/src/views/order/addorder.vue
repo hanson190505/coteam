@@ -237,6 +237,7 @@ import {
   postOrder,
   postSubOrder
 } from '@/api/order'
+import { patchImage } from '@/api/image'
 import addProductColor from '@/components/common/addProductColor'
 import uploadPic from '@/components/common/uploadPic'
 export default {
@@ -287,7 +288,8 @@ export default {
       disabled: false,
       fileList: [],
       //放大图片弹出框
-      imgdialogVisible: false
+      imgdialogVisible: false,
+      pic_id: ''
     }
   },
   methods: {
@@ -297,7 +299,9 @@ export default {
     },
     //获取上传图片组件发送的图片网址
     getPicUrl(picurl) {
-      this.orderData.order_pic = picurl
+      this.orderData.order_pic = picurl.url
+      this.pic_id = picurl.id
+      console.log(this.pic_id)
     },
     beforeRemove() {},
     handleRemove(file) {},
@@ -331,10 +335,16 @@ export default {
           let promise = new Promise((resolve, reject) => {
             postOrder(this.orderData)
               .then(res => {
-                resolve(res)
-                // //把返回的订单信息存储到vuex中
-                // this.$store.state.orderdetail = res.data
-                //循环提交订单明细
+                console.log(res)
+
+                patchImage(this.pic_id, {
+                  order_number: res.data.order_number
+                }).then(res => {
+                  this.$notify({
+                    message: '创建成功',
+                    type: 'success'
+                  })
+                })
                 for (const val of this.subOrderData) {
                   postSubOrder(val)
                     .then(res => {
@@ -342,8 +352,6 @@ export default {
                       // this.$store.state.suborderdetail.push(res.data)
                     })
                     .catch(err => {
-                      console.log(err.response.request)
-                      console.log(typeof err.response.request.response)
                       let errmsg = qs.parse(err.response.request.response, {
                         delimiter: ','
                       })

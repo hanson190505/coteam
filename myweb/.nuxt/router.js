@@ -10,6 +10,7 @@ const _ed54720c = () => interopDefault(import('../pages/factory.vue' /* webpackC
 const _55ee73d9 = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _cbca6218 = () => interopDefault(import('../pages/powerbank/index.vue' /* webpackChunkName: "pages/powerbank/index" */))
 const _5033e3e7 = () => interopDefault(import('../pages/professional.vue' /* webpackChunkName: "pages/professional" */))
+const _68555506 = () => interopDefault(import('../pages/svgTest.vue' /* webpackChunkName: "pages/svgTest" */))
 const _df614c12 = () => interopDefault(import('../pages/usb/index.vue' /* webpackChunkName: "pages/usb/index" */))
 const _cf900348 = () => interopDefault(import('../pages/powerbank/_id.vue' /* webpackChunkName: "pages/powerbank/_id" */))
 const _7d096e1f = () => interopDefault(import('../pages/usb/_id.vue' /* webpackChunkName: "pages/usb/_id" */))
@@ -59,6 +60,10 @@ export const routerOptions = {
     path: "/professional",
     component: _5033e3e7,
     name: "professional"
+  }, {
+    path: "/svgTest",
+    component: _68555506,
+    name: "svgTest"
   }, {
     path: "/usb",
     component: _df614c12,

@@ -13,9 +13,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@svgdotjs/svg.draggable.js": "^3.0.2",
+    "@svgdotjs/svg.js": "^3.0.16",
     "cookie-parser": "^1.4.5",
     "crypto-js": "^4.0.0",
     "element-ui": "^2.4.11",
+    "fabric": "^3.6.3",
     "js-cookie": "^2.2.1",
     "nuxt": "^2.0.0"
   },
