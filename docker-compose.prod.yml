@@ -6,10 +6,11 @@ services:
       context: ./vue_backend
       dockerfile: Dockerfile.prod
 #    command: gunicorn -c gunicorn_config.py vuebackend.wsgi:application
+    command: python manage.py runserver 0.0.0.0:8000
     container_name: vue_api
     volumes:
       - static_volume:/usr/src/api/image
-      - logs:/usr/src/logs
+      - ./logs:/usr/src/logs
     ports:
       - 8005:8005
     env_file:
