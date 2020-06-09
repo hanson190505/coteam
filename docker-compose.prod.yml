@@ -6,7 +6,7 @@ services:
       context: ./vue_backend
       dockerfile: Dockerfile.prod
 #    command: gunicorn -c gunicorn_config.py vuebackend.wsgi:application
-    command: python manage.py runserver 0.0.0.0:8000
+#    command: python manage.py runserver 0.0.0.0:8000
     container_name: vue_api
     volumes:
       - static_volume:/usr/src/api/image
@@ -51,8 +51,8 @@ services:
       options:
         max-size: "1g"
     volumes:
-      - ./etc/letsencrypt/live:/letsencrypt/live        # 当前证书目录
-      - ./etc/letsencrypt/archive:/letsencrypt/archive  # 历史证书目录
+      - ./letsencrypt/live:/letsencrypt/live        # 当前证书目录
+      - ./letsencrypt/archive:/letsencrypt/archive  # 历史证书目录
       - ./dhparam-2048.pem:/letsencrypt/dhparam-2048.pem
       - static_volume:/home/image
     depends_on:
