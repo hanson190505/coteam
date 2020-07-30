@@ -1,0 +1,476 @@
+<!doctype html>
+<html data-n-head-ssr>
+  <head>
+    <title>weblearn</title><meta data-n-head="ssr" charset="utf-8"><meta data-n-head="ssr" name="viewport" content="width=device-width,initial-scale=1"><meta data-n-head="ssr" data-hid="description" name="description" content="## Build Setup"><link data-n-head="ssr" rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" href="/_nuxt/runtime.d43830f.js" as="script"><link rel="preload" href="/_nuxt/commons/app.2f19b44.js" as="script"><link rel="preload" href="/_nuxt/vendors~app.b93b817.js" as="script"><link rel="preload" href="/_nuxt/app.2d09956.js" as="script"><link rel="preload" href="/_nuxt/pages/cssbasic/_slug.1047c57.js" as="script"><style data-vue-ssr-id="38dfa7e4:0 517a8dd7:0 fa7ff0ca:0 56b15182:0 647dd6a7:0">/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden],template{display:none}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}button{background-color:transparent;background-image:none}button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}fieldset,ol,ul{margin:0;padding:0}ol,ul{list-style:none}html{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}hr{border-top-width:1px}img{border-style:solid}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{color:#a0aec0}input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#a0aec0}input::-ms-input-placeholder,textarea::-ms-input-placeholder{color:#a0aec0}input::placeholder,textarea::placeholder{color:#a0aec0}[role=button],button{cursor:pointer}table{border-collapse:collapse}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}button,input,optgroup,select,textarea{padding:0;line-height:inherit;color:inherit}code,kbd,pre,samp{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}@-webkit-keyframes spin{0%{transform:rotate(0)}to{transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.border{border-width:1px}.grid{display:grid}.static{position:static}.text-center{text-align:center}.gap-4{grid-gap:1rem;gap:1rem}.grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}.grid-cols-12{grid-template-columns:repeat(12,minmax(0,1fr))}.col-span-2{grid-column:span 2/span 2}.col-span-10{grid-column:span 10/span 10}.col-span-12{grid-column:span 12/span 12}@media (min-width:640px){.sm\:container{width:100%}}@media (min-width:640px) and (min-width:640px){.sm\:container{max-width:640px}}@media (min-width:640px) and (min-width:768px){.sm\:container{max-width:768px}}@media (min-width:640px) and (min-width:1024px){.sm\:container{max-width:1024px}}@media (min-width:640px) and (min-width:1280px){.sm\:container{max-width:1280px}}@media (min-width:768px){.md\:container{width:100%}}@media (min-width:768px) and (min-width:640px){.md\:container{max-width:640px}}@media (min-width:768px) and (min-width:768px){.md\:container{max-width:768px}}@media (min-width:768px) and (min-width:1024px){.md\:container{max-width:1024px}}@media (min-width:768px) and (min-width:1280px){.md\:container{max-width:1280px}}@media (min-width:1024px){.lg\:container{width:100%}}@media (min-width:1024px) and (min-width:640px){.lg\:container{max-width:640px}}@media (min-width:1024px) and (min-width:768px){.lg\:container{max-width:768px}}@media (min-width:1024px) and (min-width:1024px){.lg\:container{max-width:1024px}}@media (min-width:1024px) and (min-width:1280px){.lg\:container{max-width:1280px}}@media (min-width:1280px){.xl\:container{width:100%}}@media (min-width:1280px) and (min-width:640px){.xl\:container{max-width:640px}}@media (min-width:1280px) and (min-width:768px){.xl\:container{max-width:768px}}@media (min-width:1280px) and (min-width:1024px){.xl\:container{max-width:1024px}}@media (min-width:1280px) and (min-width:1280px){.xl\:container{max-width:1280px}}code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}html{margin:0 8px;font-family:"Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:16px;word-spacing:1px;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;box-sizing:border-box}*,:after,:before{box-sizing:border-box;margin:0}.button--green{display:inline-block;border-radius:4px;border:1px solid #3b8070;color:#3b8070;text-decoration:none;padding:10px 30px}.button--green:hover{color:#fff;background-color:#3b8070}.button--grey{display:inline-block;border-radius:4px;border:1px solid #35495e;color:#35495e;text-decoration:none;padding:10px 30px;margin-left:15px}.button--grey:hover{color:#fff;background-color:#35495e}h1{font-weight:700;font-size:2rem}.nuxt-content h2{font-weight:700;font-size:1.5rem}.nuxt-content h3{font-weight:700;font-size:1.2rem}.nuxt-content p{font-size:1rem}</style><link rel="preload" href="/_nuxt/static/1596095363/cssbasic/CSS3选择器详解/payload.js" as="script">
+  </head>
+  <body>
+    <div data-server-rendered="true" id="__nuxt"><!----><div id="__layout"><div><span><a href="/" class="nuxt-link-active">Home</a></span> <span>
+    文章引自
+    <a href="https://github.com/qianguyihao/Web">https://github.com/qianguyihao/Web</a></span> <div class="grid grid-cols-12 gap-4"><div class="col-span-12"><h1>css3选择器详解</h1></div> <div class="col-span-2"><nav><ul><li><a href="/cssbasic/CSS3选择器详解#css3-介绍">CSS3 介绍</a></li><li><a href="/cssbasic/CSS3选择器详解#css3-的现状">CSS3 的现状</a></li><li><a href="/cssbasic/CSS3选择器详解#应对的策略：渐进增强">应对的策略：渐进增强</a></li><li><a href="/cssbasic/CSS3选择器详解#浏览器的版本问题">浏览器的版本问题</a></li><li><a href="/cssbasic/CSS3选择器详解#如何使用手册">如何使用手册</a></li><li><a href="/cssbasic/CSS3选择器详解#css3-选择器">CSS3 选择器</a></li><li><a href="/cssbasic/CSS3选择器详解#属性选择器">属性选择器</a></li><li><a href="/cssbasic/CSS3选择器详解#结构伪类选择器">结构伪类选择器</a></li><li><a href="/cssbasic/CSS3选择器详解#伪元素选择器">伪元素选择器</a></li><li><a href="/cssbasic/CSS3选择器详解#我的公众号">我的公众号</a></li></ul></nav></div> <div class="col-span-10"><div class="nuxt-content"><h2 id="css3-介绍"><a href="#css3-%E4%BB%8B%E7%BB%8D" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>CSS3 介绍</h2>
+<p>CSS3 在 CSS2 基础上，<strong>增强</strong>或<strong>新增</strong>了许多特性， 弥补了 CSS2 的众多不足之处，使得 Web 开发变得更为高效和便捷。</p>
+<h3 id="css3-的现状"><a href="#css3-%E7%9A%84%E7%8E%B0%E7%8A%B6" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>CSS3 的现状</h3>
+<ul>
+<li>
+<p>浏览器支持程度不够好，有些需要添加<strong>私有前缀</strong></p>
+</li>
+<li>
+<p>移动端支持优于 PC 端</p>
+</li>
+<li>
+<p>不断改进中</p>
+</li>
+<li>
+<p>应用相对广泛</p>
+</li>
+</ul>
+<h3 id="应对的策略：渐进增强"><a href="#%E5%BA%94%E5%AF%B9%E7%9A%84%E7%AD%96%E7%95%A5%EF%BC%9A%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>应对的策略：渐进增强</h3>
+<ul>
+<li>（1）坚持<strong>渐进增强</strong>的原则：<strong>让低版本浏览器能正常访问页面，高版本的浏览器用户体验更好</strong>。【重要】</li>
+</ul>
+<p>比如说，同样是一个头像，可能在低版本的浏览器中，头像方的；在高版本的浏览器中，头像是圆的。</p>
+<ul>
+<li>
+<p>（2）考虑用户群体。</p>
+</li>
+<li>
+<p>（3）遵照产品的方案。</p>
+</li>
+</ul>
+<p>参考链接：</p>
+<ul>
+<li>
+<p><a href="https://www.jianshu.com/p/d313f1108862" rel="nofollow noopener noreferrer" target="_blank">渐进增强 VS 优雅降级 | 简书</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/iceflorence/archive/2017/03/27/6625466.html" rel="nofollow noopener noreferrer" target="_blank">渐进增强和优雅降级之间的不同（面试题目）</a></p>
+</li>
+</ul>
+<h3 id="浏览器的版本问题"><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>浏览器的版本问题</h3>
+<p>由于 CSS3 普遍存在兼容性问题，为了避免因兼容性带来的干扰，浏览器的建议版本为：</p>
+<ul>
+<li>
+<p>Chrome 浏览器 version 46+</p>
+</li>
+<li>
+<p>Firefox 浏览器 firefox 42+</p>
+</li>
+</ul>
+<h3 id="如何使用手册"><a href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>如何使用手册</h3>
+<p>CSS 参考手册的网址：<a href="http://css.doyoe.com/" rel="nofollow noopener noreferrer" target="_blank">http://css.doyoe.com/</a></p>
+<p>CSS 参考手册的下载链接：<a href="http://download.csdn.net/download/smyhvae/10243974" rel="nofollow noopener noreferrer" target="_blank">http://download.csdn.net/download/smyhvae/10243974</a></p>
+<p>在查看<a href="http://download.csdn.net/download/smyhvae/10243974" rel="nofollow noopener noreferrer" target="_blank">CSS 参考手册</a>时，需要注意以下符号：</p>
+<p><img src="http://img.smyhvae.com/20180206_2150.png"></p>
+<p>比如说，<code>{1,4}</code>表示可以设置一至四个参数。</p>
+<p>下面讲 CSS3 的基础知识。本文讲一下 CSS3 选择器的内容。</p>
+<h2 id="css3-选择器"><a href="#css3-%E9%80%89%E6%8B%A9%E5%99%A8" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>CSS3 选择器</h2>
+<p>我们之前学过 CSS 的选择器，比如：</p>
+<div class="nuxt-content-highlight"><pre class="line-numbers language-text"><code>     div 标签选择器
+
+     .box 类名选择器
+
+     #box　id选择器
+
+     div p 后代选择器
+
+     div.box 交集选择器
+
+     div,p,span 并集选择器
+
+     div>p 子代选择器
+
+     * : 通配符
+
+     div+p: 选中div后面相邻的第一个p
+
+     div~p: 选中的div后面所有的p
+
+</code></pre></div>
+<p>CSS3 新增了许多<strong>灵活</strong>查找元素的方法，极大的提高了查找元素的效率和<strong>精准度</strong>。CSS3 选择器与 jQuery 中所提供的<strong>绝大部分</strong>选择器兼容。</p>
+<h3 id="属性选择器"><a href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>属性选择器</h3>
+<p>属性选择器的标志性符号是 <code>[]</code>。</p>
+<p>匹配含义：</p>
+<div class="nuxt-content-highlight"><pre class="line-numbers language-text"><code>^：开头  $：结尾  *：包含
+</code></pre></div>
+<p>格式：</p>
+<ul>
+<li>
+<p><code>E[title]</code> 选中页面的 E 元素，并且 E 存在 title 属性即可。</p>
+</li>
+<li>
+<p><code>E[title="abc"]</code>选中页面的 E 元素，并且 E 需要带有 title 属性，且属性值<strong>完全等于</strong>abc。</p>
+</li>
+<li>
+<p><code>E[attr~=val]</code> 选择具有 att 属性且属性值为：用空格分隔的字词列表，其中一个等于 val 的 E 元素。</p>
+</li>
+<li>
+<p><code>E[attr|=val]</code> 表示要么是一个单独的属性值，要么这个属性值是以“-”分隔的。</p>
+</li>
+<li>
+<p><code>E[title^="abc"]</code> 选中页面的 E 元素，并且 E 需要带有 title 属性,属性值以 abc 开头。</p>
+</li>
+<li>
+<p><code>E[title$="abc"]</code> 选中页面的 E 元素，并且 E 需要带有 title 属性,属性值以 abc 结尾。</p>
+</li>
+<li>
+<p><code>E[title*="abc"]</code> 选中页面的 E 元素，并且 E 需要带有 title 属性,属性值任意位置包含 abc。</p>
+</li>
+</ul>
+<p>比如说，我们用属性选择器去匹配标签的 className，是非常方便的。</p>
+<p>这里我们用 class 属性来举例。代码举例：</p>
+<div class="nuxt-content-highlight"><pre class="line-numbers language-html"><code><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>选择器 - 属性<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+      <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'微软雅黑'</span><span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#f7f7f7</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.wrapper</span></span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">1024</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.wrapper</span> > section</span> <span class="token punctuation">{</span>
+        <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> <span class="token number">1</span><span class="token unit">px</span> <span class="token number">4</span><span class="token unit">px</span> <span class="token hexcode color">#ddd</span><span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#fff</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.wrapper</span> > header</span> <span class="token punctuation">{</span>
+        <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.wrapper</span> section > header</span> <span class="token punctuation">{</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode color">#333</span><span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode color">#eee</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.wrapper</span> <span class="token class">.wrap-box</span></span> <span class="token punctuation">{</span>
+        <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">form</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span> auto<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">form input<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">type</span><span class="token operator">=</span><span class="token value">'text'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">form input<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">type</span><span class="token operator">=</span><span class="token value">'password'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.attr1</span></span> <span class="token punctuation">{</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.download</span></span> <span class="token punctuation">{</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.attr1</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">href</span><span class="token operator">=</span><span class="token value">'./a.rmvb'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector"><span class="token class">.attr1</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">href</span><span class="token operator">=</span><span class="token value">'./b.rmvb'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">pink</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">/*  E[attr~=val] 表示的一个单独的属性值 这个属性值是以空格分隔的*/</span>
+      <span class="token selector"><span class="token class">.attr2</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">class</span><span class="token operator">~=</span><span class="token value">'download'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">/*  E[attr|=val] 表示的要么一个单独的属性值 要么这个属性值是以"-"分隔的*/</span>
+      <span class="token selector"><span class="token class">.attr3</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">class</span><span class="token operator">|=</span><span class="token value">'download'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">/*  E[attr*=val] 表示的属性值里包含val字符并且在“任意”位置 */</span>
+      <span class="token selector"><span class="token class">.attr4</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">class</span><span class="token operator">*=</span><span class="token value">'download'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">/*  E[attr^=val] 表示的属性值里包含val字符并且在“开始”位置 */</span>
+      <span class="token selector"><span class="token class">.attr5</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">class</span><span class="token operator">^=</span><span class="token value">'download'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">/*  E[attr$=val] 表示的属性值里包含val字符并且在“结束”位置 */</span>
+      <span class="token selector"><span class="token class">.attr6</span> a<span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">class</span><span class="token operator">$=</span><span class="token value">'download'</span><span class="token punctuation">]</span></span></span> <span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrapper<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>CSS3-属性选择器<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>简介<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>姓名: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>密码: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>性别: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>男 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>radio<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> 女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>兴趣: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>写代码<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>attr1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>E[attr]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download download-movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download download-movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download download-music<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>attr2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>E[attr~=attr]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download download-movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download download-movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download download-music<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>attr3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>E[attr|=attr]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download-movie<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download-music<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>attr4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>E[attr*=val]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>moviedownload<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>downloadmusic<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>attr5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>E[attr^=val]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>moviedownload<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>downloadmusic<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>attr6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>E[attr$=val]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap-box<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>download<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.rmvb<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>moviedownload<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.mp3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>downloadmusic<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>下载<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre></div>
+<p>最后来张表格：</p>
+<p><img src="http://img.smyhvae.com/20180207_1500.png"></p>
+<h3 id="结构伪类选择器"><a href="#%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>结构伪类选择器</h3>
+<p>伪类选择器的标志性符号是 <code>:</code>。</p>
+<p>CSS 中有一些伪类选择器，比如<code>:link</code>、<code>:active</code>、<code>:visited</code>、<code>:hover</code>，这些是动态伪类选择器。</p>
+<p>CSS3 又新增了其它的伪类选择器。这一小段，我们来学习 CSS3 中的<strong>结构伪类选择器</strong>：即通过<strong>结构</strong>来进行筛选。</p>
+<p><strong>1、格式：（第一部分）</strong></p>
+<ul>
+<li>
+<p><code>E:first-child</code> 匹配父元素的第一个子元素 E。</p>
+</li>
+<li>
+<p><code>E:last-child</code> 匹配父元素的最后一个子元素 E。</p>
+</li>
+<li>
+<p><code>E:nth-child(n)</code> 匹配父元素的第 n 个子元素 E。<strong>注意</strong>，盒子的编号是从<code>1</code>开始算起，不是从<code>0</code>开始算起。</p>
+</li>
+<li>
+<p><code>E:nth-child(odd)</code> 匹配奇数</p>
+</li>
+<li>
+<p><code>E:nth-child(even)</code> 匹配偶数</p>
+</li>
+<li>
+<p><code>E:nth-last-child(n)</code> 匹配父元素的倒数第 n 个子元素 E。</p>
+</li>
+</ul>
+<p>理解：</p>
+<p>（1）这里我们要好好理解<strong>父元素</strong>的含义，它指的是：以 E 元素的父元素为参考。</p>
+<p>（2）注意：以上选择器中所选到的元素的类型，必须是指定的类型 E，如果选不中，则无效。这个要好好理解，具体可以看 CSS 参考手册中的<code>E:nth-child(n)</code>的示例。我们可以理解成：<strong>先根据选择器找到选中的全部位置，如果发现某个位置不是类型 E，则该位置失效</strong>。</p>
+<p>（3）另外，<code>E:nth-child(n)</code>这个属性也很有意思。比如，针对下面这样一组标签：</p>
+<div class="nuxt-content-highlight"><pre class="line-numbers language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>9<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+</code></pre></div>
+<p>上方代码中：</p>
+<ul>
+<li>
+<p>如果选择器写成<code>li:nth-child(2)</code>，则表示第 2 个 <code>li</code>。</p>
+</li>
+<li>
+<p>如果选择器写成<code>li:nth-child(n)</code>，则表示<strong>所有的</strong><code>li</code>。因为此时的 <code>n</code> 表示 0,1,2,3,4,5,6,7,8.....（当 n 小于 1 时无效，因为 n = 0 也是不会选中的）</p>
+</li>
+<li>
+<p>如果选择器写成<code>li:nth-child(2n)</code>，则表示所有的<strong>第偶数个</strong> li。</p>
+</li>
+<li>
+<p>如果选择器写成<code>li:nth-child(2n+1)</code>，则表示所有的<strong>第奇数个</strong> li。</p>
+</li>
+<li>
+<p>如果选择器写成<code>li:nth-child(-n+5)</code>，则表示<strong>前 5 个</strong> li。</p>
+</li>
+<li>
+<p>如果选择器写成<code>li:nth-last-child(-n+5)</code>，则表示<strong>最后 5 个</strong> li。</p>
+</li>
+<li>
+<p>如果选择器写成<code>li:nth-child(7n)</code>，则表示选中 7 的倍数。。</p>
+</li>
+</ul>
+<p>上面列举的选择器中，我们只要记住： <code>n</code> 表示 0,1,2,3,4,5,6,7,8.....就很容易明白了。</p>
+<p><strong>2、格式：（第二部分）</strong></p>
+<ul>
+<li>
+<p><code>E:first-of-type</code> 匹配同类型中的第一个同级兄弟元素 E。</p>
+</li>
+<li>
+<p><code>E:last-of-type</code> 匹配同类型中的最后一个同级兄弟元素 E。</p>
+</li>
+<li>
+<p><code>E:nth-of-type(n)</code> 匹配同类型中的第 n 个同级兄弟元素 E。</p>
+</li>
+<li>
+<p><code>E:nth-last-of-type(n)</code> 匹配同类型中的倒数第 n 个同级兄弟元素 E。</p>
+</li>
+</ul>
+<p>既然上面这几个选择器带有<code>type</code>，我们可以这样理解：先在同级里找到所有的 E 类型，然后根据 n 进行匹配。</p>
+<p><strong>3、格式：（第三部分）</strong></p>
+<ul>
+<li>
+<p><code>E:empty</code> 匹配没有任何子节点（包括空格等 text 节点）的元素 E。</p>
+</li>
+<li>
+<p><code>E:target</code> 匹配相关 URL 指向的 E 元素。要配合锚点使用。</p>
+</li>
+</ul>
+<p><strong>举例：</strong></p>
+<p>我们可以把多个伪类选择器结合起来使用，比如：</p>
+<p><img src="http://img.smyhvae.com/20180207_1340.png"></p>
+<p>如果想把上图中，第一行的前三个 span 标红，我们可以这样使用结构伪类选择器：</p>
+<div class="nuxt-content-highlight"><pre class="line-numbers language-css"><code><span class="token selector">dt<span class="token pseudo-class">:first-child</span> span<span class="token pseudo-class">:nth-of-type</span><span class="token punctuation">(</span><span class="token n-th"><span class="token operator">-</span><span class="token number">n</span> <span class="token operator">+</span> <span class="token number">3</span></span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p>最后来张表格：</p>
+<p><img src="http://img.smyhvae.com/20180207_1502.png"></p>
+<h3 id="伪元素选择器"><a href="#%E4%BC%AA%E5%85%83%E7%B4%A0%E9%80%89%E6%8B%A9%E5%99%A8" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>伪元素选择器</h3>
+<p>伪元素选择器的标志性符号是 <code>::</code>。</p>
+<p><strong>1、格式：（第一部分）</strong></p>
+<ul>
+<li>
+<p><code>E::before</code> 设置在 元素 E 前面（依据对象树的逻辑结构）的内容，配合 content 属性一起使用。</p>
+</li>
+<li>
+<p><code>E::after</code> 设置在 元素 E 后面（依据对象树的逻辑结构）的内容，配合 content 属性一起使用。</p>
+</li>
+</ul>
+<p><code>E:after</code>、<code>E:before</code>在旧版本里是伪类，在 CSS3 这个新版本里是伪元素。新版本里，<code>E:after</code>、<code>E:before</code>会被自动识别为<code>E::after</code>、<code>E::before</code>，按伪元素来对待，这样做的目的是用来做兼容处理。</p>
+<p>举例：</p>
+<div class="nuxt-content-highlight"><pre class="line-numbers language-html"><code><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+      <span class="token comment">/*::before 和::after 是通过 css 模拟出的html标签的效果*/</span>
+      <span class="token selector">span<span class="token pseudo-element">::before</span></span> <span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'smyhvae'</span><span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token color">pink</span><span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token selector">span<span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'永不止步'</span><span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">yellowgreen</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token comment">/*给原本的span标签设置一个默认的属性*/</span>
+      <span class="token selector">span</span> <span class="token punctuation">{</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode color">#000</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>生命壹号<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
+</code></pre></div>
+<p>效果如下：</p>
+<p><img src="http://img.smyhvae.com/20180207_1409.png"></p>
+<p><strong>上图可以看出</strong>：</p>
+<ul>
+<li>
+<p>通过伪元素选择器，就可以添加出类似于 span 标签的效果（记得要结合 content 属性使用）。</p>
+</li>
+<li>
+<p>通过这两个属性添加的伪元素，是<strong>行内元素</strong>，需要转换成块元素才能设置宽高。</p>
+</li>
+</ul>
+<p><strong>2、格式：（第二部分）</strong></p>
+<ul>
+<li>
+<p><code>E::first-letter</code> 设置元素 E 里面的<strong>第一个字符</strong>的样式。</p>
+</li>
+<li>
+<p><code>E::first-line</code> 设置元素 E 里面的<strong>第一行</strong>的样式。</p>
+</li>
+<li>
+<p><code>E::selection</code> 设置元素 E 里面被鼠标选中的区域的样式（一般设置颜色和背景色）。</p>
+</li>
+</ul>
+<p><code>E::first-letter</code> 的举例：</p>
+<p><img src="http://img.smyhvae.com/20180207_1430.png"></p>
+<p><code>E::first-line</code>的举例：</p>
+<p><img src="http://img.smyhvae.com/20180207_1433.png"></p>
+<p>最后来张表格：</p>
+<p><img src="http://img.smyhvae.com/20180207_1503.png"></p>
+<h2 id="我的公众号"><a href="#%E6%88%91%E7%9A%84%E5%85%AC%E4%BC%97%E5%8F%B7" aria-hidden="true" tab-index="-1"><span class="icon icon-link"></span></a>我的公众号</h2>
+<p>想学习<strong>代码之外的技能</strong>？不妨关注我的微信公众号：<strong>千古壹号</strong>（id：<code>qianguyihao</code>）。</p>
+<p>扫一扫，你将发现另一个全新的世界，而这将是一场美丽的意外：</p>
+<p><img src="http://img.smyhvae.com/20190101.png"></p></div> <prev-next prev="[object Object]" next="[object Object]"></prev-next></div></div></div></div></div><script>window.__NUXT__={staticAssetsBase:"/_nuxt/static/1596095363",layout:"default",error:null,serverRendered:!0,routePath:"/cssbasic/CSS3选择器详解",config:{}}</script><script src="/_nuxt/runtime.d43830f.js" defer></script><script src="/_nuxt/pages/cssbasic/_slug.1047c57.js" defer></script><script src="/_nuxt/commons/app.2f19b44.js" defer></script><script src="/_nuxt/vendors~app.b93b817.js" defer></script><script src="/_nuxt/app.2d09956.js" defer></script>
+  </body>
+</html>

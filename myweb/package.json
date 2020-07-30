@@ -20,7 +20,7 @@
     "element-ui": "^2.4.11",
     "fabric": "^3.6.3",
     "js-cookie": "^2.2.1",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.13.3"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
