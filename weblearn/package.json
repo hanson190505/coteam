@@ -2,6 +2,9 @@
   "name": "weblearn",
   "version": "1.0.0",
   "private": true,
+  "config": {
+    "host": "hanboliang.com"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
