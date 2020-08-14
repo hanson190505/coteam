@@ -1,3 +1,5 @@
+from django.shortcuts import render
+from django.views.generic import ListView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
@@ -58,3 +60,16 @@ class ProductsViewSet(viewsets.ModelViewSet):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class ProductListView(ListView):
+    model = Products
+    context_object_name = 'products_list'
+    template_name = 'home/products.html'
+
+
+def home_index(request):
+    # now = datetime.now()
+    # html = "<html><body>It is now %s.</body></html>" % now
+    # return HttpResponse(html)
+    return render(request, 'home/index.html')
