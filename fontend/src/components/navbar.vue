@@ -37,7 +37,7 @@
       </el-submenu>
       <el-submenu index="6">
         <template slot="title">前端管理</template>
-        <el-menu-item index="/goods">产品列表</el-menu-item>
+        <el-menu-item index="/home_index">首页管理</el-menu-item>
       </el-submenu>
       <el-submenu index="7" v-if="checkpermission()">
         <template slot="title">系统管理</template>
@@ -57,7 +57,7 @@ export default {
   // v-if="window.localStorage.getItem('permissions')===1"
   data() {
     return {
-      activeIndex: '1'
+      activeIndex: '1',
     }
   },
   methods: {
@@ -70,9 +70,9 @@ export default {
     logout() {
       this.$store.dispatch('userInfo/logout')
       this.$router.push('/login')
-    }
+    },
   },
-  created() {}
+  created() {},
 }
 </script>
 

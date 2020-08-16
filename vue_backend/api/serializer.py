@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from api.models import Customers, OrderCatalog, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail
+from webapi.models import HomeIndex
 
 
 class CustomersSerializer(serializers.ModelSerializer):
@@ -115,3 +116,10 @@ class SubOrderSerializer(serializers.ModelSerializer):
         # exclude = ['is_delete']
         fields = "__all__"
         depth = 1
+
+
+class HomeIndexSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = HomeIndex
+

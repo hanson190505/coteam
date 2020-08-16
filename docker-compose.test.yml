@@ -7,7 +7,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./vue_backend/:/usr/src/api/
-      - static_volume:/usr/src/api/static
+      - static_volume:/usr/src/api/image
     ports:
       - 8000:8000
     env_file:
@@ -51,7 +51,7 @@ services:
       options:
         max-size: "1g"
     volumes:
-      - static_volume:/usr/src/api/static
+      - static_volume:/usr/src/api/image
       - ./nginx.conf:/etc/nginx/nginx.conf
       - ./serverkey:/serverkey
     depends_on:

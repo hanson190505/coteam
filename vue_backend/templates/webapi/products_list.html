@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+  products
+{% endblock %}
+{% block content %}
+  <p></p>
+  <div class="row">
+    {#  产品页侧面导航#}
+    <div class="col-sm-0 col-md-2">
+      {#      <div class="list-group">#}
+      {#        <a href="{% url 'products' %}" class="list-group-item list-group-item-action">ALL PRODUCTS</a>#}
+      {#        {% for product_type in product_type_list %}#}
+      {#          <a href="{% url 'product_type' pro_type=product_type.id %}"#}
+      {#             class="list-group-item list-group-item-action">{{ product_type.category }}#}
+      {#          </a>#}
+      {#        {% endfor %}#}
+      {#      </div>#}
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="{% url 'products' %}">ALL</a>
+        {% for product_type in product_type_list %}
+          <a href="{% url 'product_type' pro_type=product_type.id %}"
+             class="nav-link">{{ product_type.category }}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+    {#  产品页正文内容#}
+    <div class="col-sm-12 col-md-10">
+      <div class="row">
+        {% for prodcuct in products_list %}
+          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card text-center">
+              <a href="{% url 'product_detail' prodcuct.id %}">
+                <img src="{{ prodcuct.pro_image.first.path }}" class="card-img-top img-fluid"
+                     alt="{{ prodcuct.seo_title }}">
+              </a>
+              <div class="card-body">
+                <a href="{% url 'product_detail' prodcuct.id %}">
+                  <h5 class="card-title">{{ prodcuct.seo_title }}</h5>
+                </a>
+                <p class="card-text">{{ prodcuct.seo_desc }}</p>
+              </div>
+            </div>
+            <p></p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

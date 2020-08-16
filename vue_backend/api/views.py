@@ -5,7 +5,8 @@ from rest_framework import status, exceptions
 from rest_framework.response import Response
 from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerializer, PurchaseOrderSerializer, \
     PurchaseDetailSerializer, PostPurchaseOrderSerializer, PostSubOrderSerializer, PostOrdersSerializer, \
-    PostPurchaseDetailSerializer, ShipOrderSerializer, ShipDetailSerializer, PostShipDetailSerializer
+    PostPurchaseDetailSerializer, ShipOrderSerializer, ShipDetailSerializer, PostShipDetailSerializer, \
+    HomeIndexSerializer
 from api.models import OrderCatalog, Customers, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail
 from rest_framework.viewsets import ModelViewSet
 from middleware.pagenation import SubOrderPagination
@@ -13,6 +14,9 @@ from user.authentications import GetTokenAuthentication
 
 
 # 获取两个日期之间的查询参数
+from webapi.models import HomeIndex
+
+
 def get_search_date(self):
     start = self.request.query_params.get('start_date', None)
     end = self.request.query_params.get('end_date', None)
@@ -291,3 +295,10 @@ class ShipDetailViewSet(ModelViewSet):
         else:
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
+
+
+class HomeIndexViewSet(ModelViewSet):
+    queryset = HomeIndex.objects.all().filter(is_delete=0)
+    serializer_class = HomeIndexSerializer
+    authentication_classes = GetTokenAuthentication,
+

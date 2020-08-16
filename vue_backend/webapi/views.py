@@ -1,5 +1,6 @@
+from django.http import Http404
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
@@ -65,11 +66,45 @@ class ProductsViewSet(viewsets.ModelViewSet):
 class ProductListView(ListView):
     model = Products
     context_object_name = 'products_list'
-    template_name = 'home/products.html'
+    # template_name = 'webapi/products_list.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
+        return context
+
+    def get(self, request, *args, **kwargs):
+        # 根据url后缀查询数据,按产品种类
+        suffix = request.get_full_path()
+        if suffix.split('/')[-1]:
+            self.object_list = self.get_queryset().filter(sub_type=suffix.split('/')[-1])
+        else:
+            self.object_list = self.get_queryset()
+        allow_empty = self.get_allow_empty()
+        if not allow_empty:
+            # When pagination is enabled and object_list is a queryset,
+            # it's better to do a cheap query than to load the unpaginated
+            # queryset in memory.
+            if self.get_paginate_by(self.object_list) is not None and hasattr(self.object_list, 'exists'):
+                is_empty = not self.object_list.exists()
+            else:
+                is_empty = not self.object_list
+            if is_empty:
+                raise Http404(_('Empty list and “%(class_name)s.allow_empty” is False.') % {
+                    'class_name': self.__class__.__name__,
+                })
+        context = self.get_context_data()
+        return self.render_to_response(context)
+
+
+class ProductDetailView(DetailView):
+    model = Products
+    context_object_name = 'product_detail'
+    template_name = 'webapi/product_detail.html'
 
 
 def home_index(request):
-    # now = datetime.now()
-    # html = "<html><body>It is now %s.</body></html>" % now
-    # return HttpResponse(html)
-    return render(request, 'home/index.html')
+
+    return render(request, 'webapi/index.html')

@@ -77,6 +77,11 @@ const routes = [{
         name: 'upload',
         component: () => import('@/views/imageManage'),
       },
+      {
+        path: '/home_index',
+        name: 'home_index',
+        component: () => import('@/views/webapi'),
+      },
     ]
   },
 ]

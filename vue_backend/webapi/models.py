@@ -5,7 +5,7 @@ from ckeditor.fields import RichTextField
 
 class ProductsType(models.Model):
     category = models.CharField('产品总类', max_length=32, null=True, blank=True)
-    parent_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subs')
+    # parent_category = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subs')
     pub_date = models.DateField('添加日期', auto_now=datetime.now)
     is_delete = models.IntegerField(default=0)
 
@@ -51,3 +51,15 @@ class Products(models.Model):
     def __str__(self):
         return '{}-{}'.format(self.pro_number, self.pro_name)
 
+
+class HomeIndex(models.Model):
+    seo_title = models.CharField(max_length=64)
+    seo_desc = models.CharField(max_length=256)
+    is_use = models.IntegerField(default=0)
+    company_name = models.CharField(max_length=64, null=True, blank=True)
+    company_addr = models.CharField(max_length=256, null=True, blank=True)
+    logo_svg = models.TextField(null=True, blank=True)
+    is_delete = models.IntegerField(default=0)
+
+    def __str__(self):
+        return '{}'.format(self.seo_title)
