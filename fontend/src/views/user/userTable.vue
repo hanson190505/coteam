@@ -11,11 +11,7 @@
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)"
     >
-      <el-table-column
-        type="selection"
-        width="60"
-        align="center"
-      ></el-table-column>
+      <el-table-column type="selection" width="60" align="center"></el-table-column>
       <el-table-column label="用户名" align="center" width="100" fixed>
         <template slot-scope="scope">
           <span>{{ scope.row.u_name }}</span>
@@ -28,30 +24,29 @@
       </el-table-column>
       <el-table-column label="角色" align="center" width="100" fixed>
         <template slot-scope="scope">
-          <el-tag disable-transitions slot="reference">{{
+          <el-tag disable-transitions slot="reference">
+            {{
             scope.row.tag
-          }}</el-tag>
+            }}
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="状态" align="center" width="100" fixed>
         <template slot-scope="scope">
-          <el-tag :type="scope.row.type" disable-transitions slot="reference">{{
+          <el-tag :type="scope.row.type" disable-transitions slot="reference">
+            {{
             scope.row.status
-          }}</el-tag>
+            }}
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center" width="120">
         <template slot-scope="scope">
-          <el-button @click="changeRow(scope.row)" type="text" size="mini"
-            >修改</el-button
-          >
+          <el-button @click="changeRow(scope.row)" type="text" size="mini">修改</el-button>
         </template>
       </el-table-column>
     </el-table>
-    <pagi-nation
-      @pagination="pagination"
-      :getDataTotal="dataTotal"
-    ></pagi-nation>
+    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
     <change-data ref="changeForm"></change-data>
   </div>
 </template>
@@ -64,13 +59,13 @@ export default {
   name: 'userTable',
   components: {
     pagiNation,
-    changeData
+    changeData,
   },
   data() {
     return {
       userData: [],
       loading: true,
-      dataTotal: 0
+      dataTotal: 0,
     }
   },
   methods: {
@@ -129,7 +124,7 @@ export default {
       if (!params) {
         params = { page: 1, page_size: 10 }
       }
-      getUserInfo(params).then(res => {
+      getUserInfo(params).then((res) => {
         this.userData = res.data.results
         this.dataTotal = res.data.count
         this.loading = false
@@ -137,11 +132,11 @@ export default {
     },
     changeRow(row) {
       this.$refs.changeForm.handleChange(row)
-    }
+    },
   },
   created() {
     this.pagination()
-  }
+  },
 }
 </script>
 

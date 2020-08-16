@@ -301,4 +301,5 @@ class HomeIndexViewSet(ModelViewSet):
     queryset = HomeIndex.objects.all().filter(is_delete=0)
     serializer_class = HomeIndexSerializer
     authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
 

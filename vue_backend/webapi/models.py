@@ -63,3 +63,7 @@ class HomeIndex(models.Model):
 
     def __str__(self):
         return '{}'.format(self.seo_title)
+
+
+class TestPsql(models.Model):
+    hello = models.CharField(max_length=32)
