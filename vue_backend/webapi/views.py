@@ -9,7 +9,7 @@ from user.permissions import UserTokenPermission
 from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer
 from webapi.models import Products, ProductsType
 from user.authentications import GetTokenAuthentication
-
+from vuebackend import settings
 
 class ProductTypeViewSet(viewsets.ModelViewSet):
     queryset = ProductsType.objects.filter(is_delete=0)
@@ -73,6 +73,7 @@ class ProductListView(ListView):
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
         context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
+        context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         return context
 
     def get(self, request, *args, **kwargs):
