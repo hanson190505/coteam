@@ -73,6 +73,18 @@
           <span v-else>{{ scope.row.image_alt }}</span>
         </template>
       </el-table-column>
+      <el-table-column label="banner_title" align="center" width="200">
+        <template slot-scope="scope">
+          <el-input autosize v-if="scope.row.is_edit === 1" v-model="scope.row.banner_title"></el-input>
+          <span v-else>{{ scope.row.banner_title }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="banner_desc" align="center" width="200">
+        <template slot-scope="scope">
+          <el-input autosize v-if="scope.row.is_edit === 1" v-model="scope.row.banner_desc"></el-input>
+          <span v-else>{{ scope.row.banner_desc }}</span>
+        </template>
+      </el-table-column>
       <el-table-column label="是否占用" align="center" width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.is_used }}</span>
@@ -118,21 +130,21 @@ export default {
     pagiNation,
     backendSearchVue,
     dateSearch,
-    uploadPic
+    uploadPic,
   },
   data() {
     return {
       imageData: [],
       dataTotal: 0,
       baseurl: process.env.VUE_APP_API_PIC_URL,
-      productDataSelect: []
+      productDataSelect: [],
     }
   },
   methods: {
     //调用后台类别数据
     selectTest(v) {
       if (v === true) {
-        getProducts().then(res => {
+        getProducts().then((res) => {
           this.productDataSelect = res.data.results
           console.log(res.data)
         })
@@ -150,7 +162,7 @@ export default {
         this.pagination({
           start_date: value[0],
           end_date: value[1],
-          argument: 'date_search'
+          argument: 'date_search',
         })
       }
     },
@@ -159,14 +171,14 @@ export default {
       if (!params) {
         params = { page: 1, page_size: 10 }
       }
-      getImages(params).then(res => {
+      getImages(params).then((res) => {
         this.loading = false
         this.imageData = res.data.results
         this.dataTotal = res.data.count
       })
     },
     handleDel(row) {
-      delImage(row.id).then(res => {
+      delImage(row.id).then((res) => {
         this.pagination()
       })
     },
@@ -175,7 +187,7 @@ export default {
     },
     handleSave(row) {
       row.is_edit = 0
-      patchImage(row.id, row).then(res => {
+      patchImage(row.id, row).then((res) => {
         this.pagination()
       })
     },
@@ -185,11 +197,11 @@ export default {
     //获取上传图片组件发送的图片网址
     getPicUrl(picurl) {
       this.$message('图片上传成功!')
-    }
+    },
   },
   created() {
     this.pagination()
-  }
+  },
 }
 </script>
 

@@ -7,7 +7,7 @@ const state = {
     name: '',
     token: '',
     permissions: 0,
-    id: 0
+    id: 0,
 }
 
 const mutations = {

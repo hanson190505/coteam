@@ -1,15 +1,17 @@
 from django.http import Http404
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
 from middleware.pagenation import SubOrderPagination
+from upload.models import Image
 from user.permissions import UserTokenPermission
 from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer
-from webapi.models import Products, ProductsType
+from webapi.models import Products, ProductsType, HomeIndex
 from user.authentications import GetTokenAuthentication
 from vuebackend import settings
+
 
 class ProductTypeViewSet(viewsets.ModelViewSet):
     queryset = ProductsType.objects.filter(is_delete=0)
@@ -80,9 +82,9 @@ class ProductListView(ListView):
         # 根据url后缀查询数据,按产品种类
         suffix = request.get_full_path()
         if suffix.split('/')[-1]:
-            self.object_list = self.get_queryset().filter(sub_type=suffix.split('/')[-1])
+            self.object_list = self.get_queryset().filter(sub_type=suffix.split('/')[-1]).filter(is_delete=0)
         else:
-            self.object_list = self.get_queryset()
+            self.object_list = self.get_queryset().filter(is_delete=0)
         allow_empty = self.get_allow_empty()
         if not allow_empty:
             # When pagination is enabled and object_list is a queryset,
@@ -106,6 +108,21 @@ class ProductDetailView(DetailView):
     template_name = 'webapi/product_detail.html'
 
 
-def home_index(request):
+class HomeIndexView(TemplateView):
+    template_name = 'webapi/index.html'
 
-    return render(request, 'webapi/index.html')
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['banners'] = Image.objects.filter(is_banner=1)
+        context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
+        context['home_text'] = HomeIndex.objects.filter(is_use=1).first()
+        return context
+
+
+class SearchView(TemplateView):
+    template_name = 'webapi/search.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = Products.objects.all()
+        return context

@@ -29,3 +29,4 @@ class ProductTypeRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductsType
         fields = '__all__'
+

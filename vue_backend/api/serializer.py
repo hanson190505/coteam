@@ -122,4 +122,5 @@ class HomeIndexSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HomeIndex
+        fields = "__all__"
 

@@ -20,3 +20,11 @@ export function getWebapi(params) {
         params: params
     })
 }
+
+export function patchWebApi(id, data) {
+    return request({
+        url: `home_index/${id}/`,
+        method: 'patch',
+        data: data
+    })
+}

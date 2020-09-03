@@ -15,6 +15,8 @@ class Image(models.Model):
     home_index = models.IntegerField(default=0)
     is_banner = models.IntegerField(default=0)
     is_edit = models.IntegerField(default=0)
+    banner_title = models.CharField(max_length=64, blank=True, null=True)
+    banner_desc = models.CharField(max_length=128, blank=True, null=True)
     # 是否被占用
     is_used = models.IntegerField(default=0)
     image_alt = models.CharField(max_length=64, default='usb powerbank')

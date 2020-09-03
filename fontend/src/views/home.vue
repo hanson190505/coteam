@@ -70,7 +70,7 @@ import navBar from '@/components/navbar'
 export default {
   name: 'home',
   components: {
-    navBar
+    navBar,
   },
   data() {
     return {
@@ -81,13 +81,13 @@ export default {
     logout() {
       this.$store.dispatch('userInfo/logout')
       this.$router.push('/login')
-    }
+    },
   },
   created() {
     // getExRate().then(res => {
     //   this.exData = res.data
     // })
-  }
+  },
   // destroyed() {
   //   window.removeEventListener('beforeunload', e => this.beforeunloadFn(e))
   // }

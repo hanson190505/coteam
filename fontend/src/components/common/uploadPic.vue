@@ -40,6 +40,10 @@
           <el-input v-model="uploadData.image_alt"></el-input>
         </el-col>
       </el-row>
+      <span>banner标题:</span>
+      <el-input v-model="uploadData.banner_title" placeholder="非必填项"></el-input>
+      <span>banner描述:</span>
+      <el-input v-model="uploadData.banner_desc" placeholder="非必填项"></el-input>
       <el-upload
         class="upload-demo"
         ref="upload"
@@ -67,16 +71,16 @@ export default {
   props: {
     owner: {
       type: String,
-      default: 'public'
+      default: 'public',
     },
     index: {
       type: Number,
-      default: 99
+      default: 99,
     },
     number: {
       type: String,
-      default: 'default'
-    }
+      default: 'default',
+    },
   },
   data() {
     return {
@@ -86,15 +90,15 @@ export default {
       //图片上传附加数据
       uploadData: {
         owner: this.owner,
-        number: this.number
+        number: this.number,
       },
       myheaders: {
-        authorization: window.localStorage.getItem('token')
+        authorization: window.localStorage.getItem('token'),
       },
       options: [
         { value: '0', label: '否' },
-        { value: '1', label: '是' }
-      ]
+        { value: '1', label: '是' },
+      ],
     }
   },
   methods: {
@@ -106,7 +110,7 @@ export default {
           this.$emit('sendPicUrl', {
             url: process.env.VUE_APP_API_PIC_URL + res.file,
             index: this.index,
-            id: res.id
+            id: res.id,
           })
           break
         case 1001:
@@ -120,7 +124,7 @@ export default {
           this.$emit('sendPicUrl', {
             url: process.env.VUE_APP_API_PIC_URL + res.file,
             index: this.index,
-            id: res.id
+            id: res.id,
           })
         default:
           break
@@ -147,8 +151,8 @@ export default {
         this.uploadData.number = this.number
         this.$refs.upload.submit()
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

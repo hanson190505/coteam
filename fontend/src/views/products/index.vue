@@ -27,13 +27,13 @@ export default {
   components: {
     ProductTable,
     addProductType,
-    addProduct
+    addProduct,
   },
   data() {
     return {
       productsData: { pro_color: '' },
       addproductTypeVisible: false,
-      addProductVisible: false
+      addProductVisible: false,
     }
   },
   methods: {
@@ -54,17 +54,15 @@ export default {
       this.productsData = { pro_color: '' }
     },
     checkproductData(data) {
-      console.log(data)
-
-      data.pro_image.forEach(el => {
+      data.pro_image.forEach((el) => {
         this.$refs.addProductComponent.getPicUrl({
-          url: process.env.VUE_APP_API_PIC_URL + el
+          url: process.env.VUE_APP_API_PIC_URL + el,
         })
       })
       this.addProductVisible = true
       this.productsData = data
-    }
-  }
+    },
+  },
 }
 </script>
 
