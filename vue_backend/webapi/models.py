@@ -14,7 +14,7 @@ class ProductsType(models.Model):
         verbose_name_plural = '产品类别'
 
     def __str__(self):
-        return '{}-{}'.format(self.category, self.sub_type)
+        return '{}'.format(self.category)
 
 
 class Products(models.Model):

@@ -1,5 +1,5 @@
-from django.http import Http404
-from django.shortcuts import render
+from django.http import Http404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.views.generic import ListView, DetailView, TemplateView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -68,6 +68,7 @@ class ProductsViewSet(viewsets.ModelViewSet):
 class ProductListView(ListView):
     model = Products
     context_object_name = 'products_list'
+
     # template_name = 'webapi/products_list.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -107,6 +108,11 @@ class ProductDetailView(DetailView):
     context_object_name = 'product_detail'
     template_name = 'webapi/product_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
+        return context
+
 
 class HomeIndexView(TemplateView):
     template_name = 'webapi/index.html'
@@ -114,6 +120,7 @@ class HomeIndexView(TemplateView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['banners'] = Image.objects.filter(is_banner=1)
+        context['is_home'] = Image.objects.filter(is_home=1)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['home_text'] = HomeIndex.objects.filter(is_use=1).first()
         return context
@@ -122,7 +129,18 @@ class HomeIndexView(TemplateView):
 class SearchView(TemplateView):
     template_name = 'webapi/search.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['products'] = Products.objects.all()
-        return context
+    def get(self, request, *args, **kwargs):
+        keyword = request.GET.get('keywords')
+        context = self.get_context_data(**kwargs)
+        if keyword is None:
+            pass
+        else:
+            print(keyword)
+            context['products'] = get_list_or_404(Products,
+                                                  seo_desc__icontains=keyword, seo_title__icontains=keyword,
+                                                  pro_name__icontains=keyword, pro_number__icontains=keyword,
+                                                  is_delete=0)
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        pass

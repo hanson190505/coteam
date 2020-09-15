@@ -1,7 +1,55 @@
 {% extends 'base.html' %}
+{% load image %}
 {% block title %}
-product_detail
+  product_detail
 {% endblock %}
 {% block content %}
-  {{ product_detail.pro_number }}
+  <p></p>
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <img src="{% image base_url product_detail.pro_image.first.path %}" class="card-img-top img-fluid"
+           alt="{{ product_detail.seo_title }}">
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <table class="product-tab">
+        <tr>
+          <td>Type:</td>
+          <td>{{ product_detail.sub_type }}</td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td>{{ product_detail.pro_name }}</td>
+        </tr>
+        <tr>
+          <td>Size:</td>
+          <td>{{ product_detail.pro_size }}</td>
+        </tr>
+        <tr>
+          <td>Weight:</td>
+          <td>{{ product_detail.pro_weight }}g</td>
+        </tr>
+        <tr>
+          <td>Pack:</td>
+          <td>{{ product_detail.pro_pack }}</td>
+        </tr>
+        <tr>
+          <td>Price:</td>
+          <td>${{ product_detail.pro_price }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <p></p>
+  <div class="text-center">
+    {{ product_detail.pro_desc | safe }}
+  </div>
+{% endblock %}
+{% block style %}
+  <style>
+    .product-tab td {
+      padding-bottom: 0.5em;
+      padding-right: 0.5em;
+      font-size: 1.5em;
+    }
+  </style>
 {% endblock %}
