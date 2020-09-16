@@ -91,6 +91,8 @@ export default {
       uploadData: {
         owner: this.owner,
         number: this.number,
+        banner_title: 'default',
+        banner_desc: 'default',
       },
       myheaders: {
         authorization: window.localStorage.getItem('token'),
