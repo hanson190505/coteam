@@ -1,7 +1,14 @@
 <template>
   <div>
-    <el-button type="primary" @click="picdialogVisible = true" size="mini">上传图片</el-button>
-    <el-dialog title :visible.sync="picdialogVisible" width="50%" :append-to-body="true">
+    <el-button type="primary" @click="picdialogVisible = true" size="mini"
+      >上传图片</el-button
+    >
+    <el-dialog
+      title
+      :visible.sync="picdialogVisible"
+      width="50%"
+      :append-to-body="true"
+    >
       <el-row>
         <el-col :span="4">
           <span>首页</span>
@@ -40,10 +47,16 @@
           <el-input v-model="uploadData.image_alt"></el-input>
         </el-col>
       </el-row>
-      <span>banner标题:</span>
-      <el-input v-model="uploadData.banner_title" placeholder="非必填项"></el-input>
+      <!-- <span>banner标题:</span>
+      <el-input
+        v-model="uploadData.banner_title"
+        placeholder="非必填项"
+      ></el-input>
       <span>banner描述:</span>
-      <el-input v-model="uploadData.banner_desc" placeholder="非必填项"></el-input>
+      <el-input
+        v-model="uploadData.banner_desc"
+        placeholder="非必填项"
+      ></el-input> -->
       <el-upload
         class="upload-demo"
         ref="upload"
@@ -57,9 +70,19 @@
         :auto-upload="false"
         :on-exceed="handleExceed"
       >
-        <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-        <el-button style="margin-left: 10px;" size="small" type="success" @click="uploadBtn">上传到服务器</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        <el-button slot="trigger" size="small" type="primary"
+          >选取文件</el-button
+        >
+        <el-button
+          style="margin-left: 10px;"
+          size="small"
+          type="success"
+          @click="uploadBtn"
+          >上传到服务器</el-button
+        >
+        <div slot="tip" class="el-upload__tip">
+          只能上传jpg/png文件，且不超过500kb
+        </div>
       </el-upload>
     </el-dialog>
   </div>
@@ -71,16 +94,16 @@ export default {
   props: {
     owner: {
       type: String,
-      default: 'public',
+      default: 'public'
     },
     index: {
       type: Number,
-      default: 99,
+      default: 99
     },
     number: {
       type: String,
-      default: 'default',
-    },
+      default: 'default'
+    }
   },
   data() {
     return {
@@ -90,17 +113,15 @@ export default {
       //图片上传附加数据
       uploadData: {
         owner: this.owner,
-        number: this.number,
-        banner_title: 'default',
-        banner_desc: 'default',
+        number: this.number
       },
       myheaders: {
-        authorization: window.localStorage.getItem('token'),
+        authorization: window.localStorage.getItem('token')
       },
       options: [
         { value: '0', label: '否' },
-        { value: '1', label: '是' },
-      ],
+        { value: '1', label: '是' }
+      ]
     }
   },
   methods: {
@@ -112,7 +133,7 @@ export default {
           this.$emit('sendPicUrl', {
             url: process.env.VUE_APP_API_PIC_URL + res.file,
             index: this.index,
-            id: res.id,
+            id: res.id
           })
           break
         case 1001:
@@ -126,7 +147,7 @@ export default {
           this.$emit('sendPicUrl', {
             url: process.env.VUE_APP_API_PIC_URL + res.file,
             index: this.index,
-            id: res.id,
+            id: res.id
           })
         default:
           break
@@ -153,8 +174,8 @@ export default {
         this.uploadData.number = this.number
         this.$refs.upload.submit()
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
