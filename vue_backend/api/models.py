@@ -52,6 +52,16 @@ class Customers(models.Model):
         return self.lite_name
 
 
+class CustomerAddr(models.Model):
+    customer = models.ForeignKey(Customers, verbose_name='客户地址', on_delete=models.CASCADE)
+    country = models.CharField(max_length=64, null=True, blank=True)
+    city = models.CharField(max_length=64, null=True, blank=True)
+    addr = models.CharField(max_length=256, null=True, blank=True)
+    
+    def __str__(self):
+        return '{}-{}'.format(self.country, self.city)
+
+
 class OrderCatalog(models.Model):
     """
     订单目录

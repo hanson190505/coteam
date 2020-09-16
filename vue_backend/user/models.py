@@ -55,3 +55,4 @@ class Customer(models.Model):
 
     def change_password(self):
         pass
+
