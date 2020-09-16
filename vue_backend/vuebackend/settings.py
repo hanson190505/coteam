@@ -52,10 +52,6 @@ LOGGING = {
         },
     },
     'filters': {
-        'special': {
-            '()': 'project.logging.SpecialFilter',
-            'foo': 'bar',
-        },
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue',
         },
@@ -70,12 +66,10 @@ LOGGING = {
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['special']
         }
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
             'propagate': True,
         },
         'django.request': {
@@ -84,9 +78,8 @@ LOGGING = {
             'propagate': False,
         },
         'myproject.custom': {
-            'handlers': ['console', 'mail_admins'],
+            'handlers': ['mail_admins'],
             'level': 'INFO',
-            'filters': ['special']
         }
     }
 }
