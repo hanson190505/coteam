@@ -54,7 +54,7 @@ services:
       - ./letsencrypt/live:/letsencrypt/live        # 当前证书目录
       - ./letsencrypt/archive:/letsencrypt/archive  # 历史证书目录
       - ./dhparam-2048.pem:/letsencrypt/dhparam-2048.pem
-      - static_volume:/home/image
+      - static_volume:/usr/src/api/image
     depends_on:
       - api
     ports:
