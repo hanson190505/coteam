@@ -33,55 +33,88 @@ def get_debug():
 DEBUG = get_debug()
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '!dikmomho)6o=q8c@ipbddxlxark$=vt!+s&ch3irsye__3fgy'
 # DEBUG = True
 # ALLOWED_HOSTS = ['*']
-ADMINS = [('hanson', '413506012@qq.com'), ]
 
+BASE_LOG_DIR = os.path.join(BASE_DIR, "logs")
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
+    'version': 1,  # 保留字
+    'disable_existing_loggers': False,  # 禁用已经存在的logger实例
+    # 日志文件的格式
     'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
+        # 详细的日志格式
+        'standard': {
+            'format': '[%(asctime)s][%(threadName)s:%(thread)d][task_id:%(name)s][%(filename)s:%(lineno)d]'
+                      '[%(levelname)s][%(message)s]'
         },
+        # 简单的日志格式
         'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
+            'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'
         },
+        # 定义一个特殊的日志格式
+        'collect': {
+            'format': '%(message)s'
+        }
     },
+    # 过滤器
     'filters': {
         'require_debug_true': {
             '()': 'django.utils.log.RequireDebugTrue',
         },
     },
+    # 处理器
     'handlers': {
+        # 在终端打印
         'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],  # 只有在Django debug为True时才在屏幕打印日志
+            'class': 'logging.StreamHandler',  #
             'formatter': 'simple'
         },
-        'mail_admins': {
+        # 默认的
+        'default': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_info.log"),  # 日志文件
+            'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'backupCount': 3,  # 最多备份几个
+            'formatter': 'standard',
+            'encoding': 'utf-8',
+        },
+        # 专门用来记错误日志
+        'error': {
             'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
+            'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
+            'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'backupCount': 5,
+            'formatter': 'standard',
+            'encoding': 'utf-8',
+        },
+        # 专门定义一个收集特定信息的日志
+        'collect': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_collect.log"),
+            'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'backupCount': 5,
+            'formatter': 'collect',
+            'encoding': "utf-8"
         }
     },
     'loggers': {
-        'django': {
-            'propagate': True,
+       # 默认的logger应用如下配置
+        '': {
+            'handlers': ['default', 'console', 'error'],  # 上线之后可以把'console'移除
+            'level': 'DEBUG',
+            'propagate': True,  # 向不向更高级别的logger传递
         },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        'myproject.custom': {
-            'handlers': ['mail_admins'],
+        # 名为 'collect'的logger还单独处理
+        'collect': {
+            'handlers': ['console', 'collect'],
             'level': 'INFO',
         }
-    }
+    },
 }
 
 APPEND_SLASH = False
