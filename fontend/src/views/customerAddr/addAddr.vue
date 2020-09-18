@@ -31,6 +31,17 @@
             >
           </a-select>
         </a-form-model-item>
+        <a-form-model-item label="地址类别" prop="addr_type">
+          <a-select>
+            <a-select-option value="0">
+              common
+            </a-select-option>
+            <a-select-option value="1">
+              other
+            </a-select-option>
+          </a-select>
+        </a-form-model-item>
+
         <a-form-model-item label="国家" prop="country">
           <a-input v-model="form.country" placeholder="非必填项目" />
         </a-form-model-item>
@@ -55,7 +66,13 @@ export default {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
       customers: [],
-      form: { customer: '', country: '', city: '', addr: '' },
+      form: {
+        customer: '',
+        addr_type: 1,
+        country: '',
+        city: '',
+        addr: ''
+      },
       rules: {
         customer: [
           {
@@ -81,7 +98,6 @@ export default {
     },
     submit() {
       postCustomerAddr(this.form).then(res => {
-        console.log(res)
         this.$emit('getData')
         this.visible = false
       })
