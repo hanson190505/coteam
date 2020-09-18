@@ -1,0 +1,235 @@
+[2020-09-17 12:37:47,536][Thread-6:140657602558752][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/staffs/1/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 23, in authenticate
+    token = request.headers['authorization']
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 388, in __getitem__
+    return super().__getitem__(key.replace('_', '-'))
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 320, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'authorization'
+[2020-09-17 14:32:47,501][Thread-1:140128423938848][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/ali202000002/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 67, in update
+    serializer.is_valid(raise_exception=True)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 430, in run_validation
+    value = self.to_internal_value(data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 483, in to_internal_value
+    for field in fields:
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 366, in _writable_fields
+    for field in self.fields.values():
+  File "/usr/local/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 360, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 1022, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 1099, in get_field_names
+    serializer_class=self.__class__.__name__
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the OrdersSerializer serializer.",)
+[2020-09-18 07:12:40,336][Thread-1:139740484573984][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 47, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/usr/src/api/api/views.py", line 43, in get_queryset
+    self.queryset['test'] = 'test'
+TypeError: 'QuerySet' object does not support item assignment
+[2020-09-18 07:13:46,906][Thread-1:139998398122784][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 60, in list
+    serializer.data['test'] = 'test'
+TypeError: list indices must be integers or slices, not str
+[2020-09-18 07:16:00,012][Thread-1:140428087601952][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 60, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 529, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'OrderCatalog' object has no attribute 'sub_order'
+[2020-09-18 07:17:19,243][Thread-1:140222996794144][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 60, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 535, in to_representation
+    for value in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 535, in <listcomp>
+    for value in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 460, in to_representation
+    return getattr(obj, self.slug_field)
+TypeError: getattr(): attribute name must be string
+[2020-09-18 17:59:46,281][Thread-1:139743623605024][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/customer_addr/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.

@@ -10,7 +10,11 @@
     <!-- 搜索框 -->
     <el-row :gutter="20">
       <el-col :span="6">
-        <el-input v-model="search" size="mini" placeholder="关键字搜索:订单/日期/客户/地址/备注" />
+        <el-input
+          v-model="search"
+          size="mini"
+          placeholder="关键字搜索:订单/日期/客户/地址/备注"
+        />
       </el-col>
       <el-col :span="2">
         <el-button type="primary" @click="clearnSearchText">清除</el-button>
@@ -43,12 +47,18 @@
       <el-table-column type="selection" width="60"></el-table-column>
       <el-table-column label="订单编号" align="center" width="120">
         <template slot-scope="scope">
-          <span class="col-cont" v-html="showDate(scope.row.order_number)"></span>
+          <span
+            class="col-cont"
+            v-html="showDate(scope.row.order_number)"
+          ></span>
         </template>
       </el-table-column>
       <el-table-column label="客户名称" width="120" align="center">
         <template slot-scope="scope">
-          <span class="col-cont" v-html="showDate(scope.row.customer.lite_name)"></span>
+          <span
+            class="col-cont"
+            v-html="showDate(scope.row.customer.lite_name)"
+          ></span>
         </template>
       </el-table-column>
       <el-table-column label="下单日期" width="100" align="center">
@@ -56,24 +66,49 @@
           <span class="col-cont" v-html="showDate(scope.row.order_date)"></span>
         </template>
       </el-table-column>
-      <el-table-column label="订单交期" prop="deliver_date" width="100" align="center"></el-table-column>
+      <el-table-column
+        label="订单交期"
+        prop="deliver_date"
+        width="100"
+        align="center"
+      ></el-table-column>
       <el-table-column label="汇率" width="70" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.ex_rate }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="订单金额($)" prop="order_amount" width="100" align="center"></el-table-column>
-      <el-table-column label="出货地址" width="300" :show-overflow-tooltip="true" align="center">
+      <el-table-column
+        label="订单金额($)"
+        prop="order_amount"
+        width="100"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        label="出货地址"
+        width="300"
+        :show-overflow-tooltip="true"
+        align="center"
+      >
         <template slot-scope="scope">
           <span class="col-cont" v-html="showDate(scope.row.ship_addr)"></span>
         </template>
       </el-table-column>
-      <el-table-column label="备注" width="150" :show-overflow-tooltip="true" align="center">
+      <el-table-column
+        label="备注"
+        width="150"
+        :show-overflow-tooltip="true"
+        align="center"
+      >
         <template slot-scope="scope">
           <span class="col-cont" v-html="showDate(scope.row.text)"></span>
         </template>
       </el-table-column>
-      <el-table-column label="业务" prop="sales" width="80" align="center"></el-table-column>
+      <el-table-column
+        label="业务"
+        prop="sales"
+        width="80"
+        align="center"
+      ></el-table-column>
       <el-table-column label="状态" align="center">
         <template slot-scope="scope">
           <el-select size="mini" v-model="scope.row.is_done" clearable disabled>
@@ -87,9 +122,14 @@
         </template>
       </el-table-column>
       <!-- 快捷搜索 -->
-      <el-table-column label="操作" fixed="right" width="60" align="center">
+      <el-table-column label="操作" fixed="right" width="120" align="center">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="mini">查看</el-button>
+          <el-button @click="handleClick(scope.row)" type="text" size="mini"
+            >查看</el-button
+          >
+          <el-button type="text" @click="handleDelete(scope.$index, scope.row)"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -108,7 +148,7 @@
 
 <script>
 import AddOrder from './addorder'
-import { getOrderList } from '@/api/order'
+import { getOrderList, patchOrder, patchSubOrder } from '@/api/order'
 import dateSearch from '@/components/common/dateSearch'
 export default {
   components: {
@@ -143,6 +183,32 @@ export default {
       window.sessionStorage.setItem('order_number', row.order_number)
       // this.$router.push('orders/' + row.order_number + '/')
       this.$router.push(`orders/${row.order_number}/`)
+    },
+    // 删除订单
+    handleDelete(index, row) {
+      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
+        .then(() => {
+          patchOrder(row.order_number, { is_delete: 1 }).then(res => {
+            this.tableData.splice(index, 1)
+            row.sub_orders.map(item => {
+              patchSubOrder(item, { is_delete: 1 }).then(res => {})
+            })
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+          })
+        })
+        .catch(() => {
+          this.$message({
+            type: 'info',
+            message: '删除失败!'
+          })
+        })
     },
     // 控制表格多选
     handleSelectionChange(val) {
@@ -225,8 +291,8 @@ export default {
       getOrderList()
         .then(res => {
           this.loading = false
-          this.tableData = res.data
-          this.count = res.data.length
+          this.tableData = res.data.results
+          this.count = res.data.count
         })
         .catch(error => {})
     }

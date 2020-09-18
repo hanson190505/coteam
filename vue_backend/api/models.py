@@ -53,10 +53,20 @@ class Customers(models.Model):
 
 
 class CustomerAddr(models.Model):
-    customer = models.ForeignKey(Customers, verbose_name='客户地址', on_delete=models.CASCADE)
+    """
+    客户地址
+    """
+    ADDR_TYPE = {
+        (0, 'common'),
+        (1, 'other')
+    }
+    addr_type = models.IntegerField(default=1, choices=ADDR_TYPE)
+    customer = models.ForeignKey(Customers, on_delete=models.CASCADE)
     country = models.CharField(max_length=64, null=True, blank=True)
     city = models.CharField(max_length=64, null=True, blank=True)
     addr = models.CharField(max_length=256, null=True, blank=True)
+    input_date = models.DateField(auto_now=True)
+    is_delete = models.IntegerField(default=0)
     
     def __str__(self):
         return '{}-{}'.format(self.country, self.city)
@@ -79,8 +89,8 @@ class OrderCatalog(models.Model):
     sales = models.ForeignKey(UserInfo, verbose_name='业务',
                               on_delete=models.CASCADE, null=True, blank=True)
     input_date = models.DateField("录入日期", auto_now=datetime.now)
-    ex_rate = models.DecimalField("汇率", max_digits=10, decimal_places=2)
-    order_amount = models.DecimalField("金额", max_digits=20, decimal_places=4)
+    ex_rate = models.DecimalField("汇率", max_digits=10, decimal_places=4)
+    order_amount = models.DecimalField("金额", max_digits=20, decimal_places=3)
     order_pic = models.CharField(max_length=128, null=True, blank=True)
     is_done = models.IntegerField('状态', choices=ORDER_STATUS, default=0)
     text = models.CharField('备注', max_length=480, default='选填')
@@ -116,7 +126,7 @@ class SubOrder(models.Model):
     pro_qt = models.DecimalField(
         verbose_name='数量(个)', max_digits=20, decimal_places=1)
     pro_price = models.DecimalField(
-        verbose_name='单价($)', max_digits=20, decimal_places=4)
+        verbose_name='单价($)', max_digits=20, decimal_places=3)
     pro_weight = models.DecimalField(
         verbose_name='单重(g)', max_digits=20, decimal_places=1)
     order_number = models.ForeignKey(OrderCatalog, on_delete=models.CASCADE, verbose_name='订单编号',

@@ -26,6 +26,7 @@ const routes = [{
         path: '/orders',
         name: 'orders',
         component: () => import('@/views/order/orderlist.vue'),
+        // component: () => import('@/views/order'),
       },
       {
         path: '/orders/:pk/',
@@ -41,6 +42,11 @@ const routes = [{
         path: '/customers',
         name: 'customers',
         component: () => import('@/views/customers/customerlist.vue'),
+      },
+      {
+        path: '/customer_addr',
+        name: 'customer_addr',
+        component: () => import('@/views/customerAddr'),
       },
       {
         path: '/purchases',

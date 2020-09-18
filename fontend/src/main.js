@@ -10,6 +10,35 @@ import * as filters from './filters' // global filters
 import JSEncrypt from 'jsencrypt';
 import CKEditor from 'ckeditor4-vue';
 
+import {
+  Table,
+  Pagination,
+  Button,
+  Popconfirm,
+  Carousel,
+  Icon,
+  Input,
+  FormModel,
+  Modal,
+  Select,
+  Drawer
+} from 'ant-design-vue';
+
+Vue.use(Table, Pagination)
+Vue.component(Button.name, Button)
+Vue.component(Popconfirm.name, Popconfirm)
+Vue.component(Carousel.name, Carousel)
+Vue.component(Icon.name, Icon)
+Vue.component(Input.name, Input)
+Vue.component(Modal.name, Modal)
+Vue.component(FormModel.name, FormModel)
+Vue.component(FormModel.Item.name, FormModel.Item)
+Vue.component(Select.name, Select)
+Vue.component(Select.Option.name, Select.Option)
+Vue.component(Drawer.name, Drawer)
+
+
+
 Vue.use(Element, {
   size: 'mini',
   zIndex: 3000

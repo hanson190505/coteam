@@ -14,6 +14,7 @@
       <el-submenu index="1">
         <template slot="title">客户管理</template>
         <el-menu-item index="/customers">客户列表</el-menu-item>
+        <el-menu-item index="/customer_addr">地址管理</el-menu-item>
       </el-submenu>
       <el-submenu index="2">
         <template slot="title">订单管理</template>
@@ -57,7 +58,7 @@ export default {
   // v-if="window.localStorage.getItem('permissions')===1"
   data() {
     return {
-      activeIndex: '1',
+      activeIndex: '1'
     }
   },
   methods: {
@@ -70,9 +71,9 @@ export default {
     logout() {
       this.$store.dispatch('userInfo/logout')
       this.$router.push('/login')
-    },
+    }
   },
-  created() {},
+  created() {}
 }
 </script>
 

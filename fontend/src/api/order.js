@@ -29,11 +29,10 @@ export function postOrder(data) {
     })
 }
 
-export function patchOrder(pk, params, data) {
+export function patchOrder(pk, data) {
     return request({
         url: `orders/${pk}/`,
         method: 'patch',
-        params: params,
         data: qs.stringify(data)
     })
 }
@@ -52,11 +51,10 @@ export function getSubOrder(pk, params) {
     })
 }
 
-export function patchSubOrder(pk, params, data) {
+export function patchSubOrder(pk, data) {
     return request({
         url: `suborders/${pk}/`,
         method: 'patch',
-        params: params,
         data: qs.stringify(data)
     })
 }

@@ -37,6 +37,7 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
             return [UserTokenPermission()]
 
     def create(self, request, *args, **kwargs):
+        print(request.data)
         file = request.data['file']
         owner = request.data['owner']
         file_name = request.data['number']
@@ -67,7 +68,10 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
                 with open(path+file.name, "wb+") as f:
                     for chunk in file.chunks():
                         f.write(chunk)
+
             upload_img = Image()
+            if owner == 'order':
+                upload_img.order_number_id = file_name
             upload_img.md5 = md5
             upload_img.path = sub_path+file.name
             upload_img.owner = owner

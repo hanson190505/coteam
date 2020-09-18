@@ -6,8 +6,9 @@ from rest_framework.response import Response
 from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerializer, PurchaseOrderSerializer, \
     PurchaseDetailSerializer, PostPurchaseOrderSerializer, PostSubOrderSerializer, PostOrdersSerializer, \
     PostPurchaseDetailSerializer, ShipOrderSerializer, ShipDetailSerializer, PostShipDetailSerializer, \
-    HomeIndexSerializer
-from api.models import OrderCatalog, Customers, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail
+    HomeIndexSerializer, CustomerAddrSerializer
+from api.models import OrderCatalog, Customers, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail, \
+    CustomerAddr
 from rest_framework.viewsets import ModelViewSet
 from middleware.pagenation import SubOrderPagination
 from user.authentications import GetTokenAuthentication
@@ -31,6 +32,7 @@ class OrdersViewSet(ModelViewSet):
     filterset_fields = ['order_number', 'order_date', 'is_done',
                         'ship_addr', 'text', 'customer', 'deliver_date', 'ex_rate']
     authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
 
     def perform_create(self, serializer):
         serializer.save(sales=self.request.user)
@@ -44,6 +46,7 @@ class OrdersViewSet(ModelViewSet):
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         st = self.request.query_params.get('st')
+        page = self.paginate_queryset(queryset)
         if st == 'addorder':
             subtoken = uuid.uuid4().hex
             cache.set(subtoken, 'addorder', 60*60*24)
@@ -53,6 +56,9 @@ class OrdersViewSet(ModelViewSet):
                 'subtoken': subtoken
             }
             return Response(data)
+        elif page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         else:
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
@@ -85,6 +91,7 @@ class CustomerViewSet(ModelViewSet):
     def list(self, request, *args, **kwargs):
         # 自定义list时,不能取消下面这段代码,否则前端不能及时获取新增数据
         queryset = self.filter_queryset(self.get_queryset())
+
         st = self.request.query_params.get('st')
         if st == 'addcustomer':
             subtoken = uuid.uuid4().hex
@@ -97,6 +104,13 @@ class CustomerViewSet(ModelViewSet):
             return Response(data)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+
+class CustomerAddrViewSet(ModelViewSet):
+    queryset = CustomerAddr.objects.filter(is_delete=0).order_by('addr_type')
+    serializer_class = CustomerAddrSerializer
+    authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
 
 
 class SubOrderViewSet(ModelViewSet):

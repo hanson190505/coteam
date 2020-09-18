@@ -87,3 +87,7 @@ export function toThousandFilter(num) {
 export function uppercaseFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
+
+export function addrType(num) {
+  return Number(num) === 0 ? 'common' : 'other'
+}

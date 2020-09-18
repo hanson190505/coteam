@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from api.models import Customers, OrderCatalog, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail
+from api.models import Customers, OrderCatalog, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail, \
+    CustomerAddr
 from webapi.models import HomeIndex
 
 
@@ -11,6 +12,13 @@ class CustomersSerializer(serializers.ModelSerializer):
         exclude = ['is_delete']
 
 
+class CustomerAddrSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CustomerAddr
+        fields = "__all__"
+
+
 class OrdersSerializer(serializers.ModelSerializer):
     sales = serializers.StringRelatedField()
     order_image = serializers.SlugRelatedField(
@@ -18,10 +26,11 @@ class OrdersSerializer(serializers.ModelSerializer):
         read_only=True,
         slug_field='path'
     )
+    sub_orders = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
 
     class Meta:
         model = OrderCatalog
-        exclude = ['is_delete']
+        fields = "__all__"
         depth = 1
 
 
@@ -30,7 +39,7 @@ class PostOrdersSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderCatalog
-        exclude = ['is_delete']
+        fields = "__all__"
 
 
 class PostSubOrderSerializer(serializers.ModelSerializer):

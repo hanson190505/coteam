@@ -18,6 +18,13 @@ module.exports = {
             }
         },
     },
+    css: {
+        loaderOptions: {
+            less: {
+                javascriptEnabled: true
+            }
+        }
+    },
     chainWebpack(config) {
         config.module
             .rule('svg')
@@ -107,6 +114,13 @@ if (process.env.NODE_ENV == 'production' && encryption == false) {
                     '@': resolve('src'),
                 }
             },
+        },
+        css: {
+            loaderOptions: {
+                less: {
+                    javascriptEnabled: true
+                }
+            }
         },
         chainWebpack(config) {
             config.module

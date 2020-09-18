@@ -12,3 +12,321 @@
 [2020-09-16 15:11:17,484][MainThread:140031417757000][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
 [2020-09-16 15:12:36,213][MainThread:140031417757000][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
 [2020-09-16 15:12:37,127][MainThread:140680710892872][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-16 16:35:09,114][Thread-1:140680664472352][task_id:django.request][log.py:228][WARNING][Not Found: /api/staffs/null/]
+[2020-09-16 16:55:47,212][MainThread:140680710892872][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/upload/views.py changed, reloading.]
+[2020-09-16 16:55:48,190][MainThread:140090667384136][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-16 16:59:22,291][MainThread:140090667384136][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/upload/views.py changed, reloading.]
+[2020-09-16 16:59:23,242][MainThread:140135475916104][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-16 17:03:17,108][MainThread:140135475916104][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/upload/views.py changed, reloading.]
+[2020-09-16 17:03:18,083][MainThread:139861477997896][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-16 17:07:46,469][MainThread:139861477997896][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/upload/views.py changed, reloading.]
+[2020-09-16 17:07:47,325][MainThread:139995362733384][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-16 17:10:20,605][Thread-1:139995316402976][task_id:django.request][log.py:228][WARNING][Not Found: /api/upload/[object Object]/]
+[2020-09-16 17:10:20,610][Thread-2:139995315342112][task_id:django.request][log.py:228][WARNING][Not Found: /api/upload/[object Object]/]
+[2020-09-16 17:10:20,612][Thread-9:139995306343200][task_id:django.request][log.py:228][WARNING][Not Found: /api/upload/[object Object]/]
+[2020-09-16 17:11:15,165][Thread-9:139995306343200][task_id:django.request][log.py:228][WARNING][Not Found: /api/upload/[object Object]/]
+[2020-09-16 17:11:37,134][Thread-9:139995306343200][task_id:django.request][log.py:228][WARNING][Not Found: /api/upload/[object Object]/]
+[2020-09-16 17:12:25,143][MainThread:139995362733384][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/upload/views.py changed, reloading.]
+[2020-09-16 17:12:26,056][MainThread:140486749691208][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-16 17:16:07,918][Thread-2:140486701947680][task_id:django.request][log.py:228][WARNING][Not Found: /api/upload/[object Object]/]
+[2020-09-17 03:42:34,081][MainThread:140486749691208][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-17 03:42:35,188][MainThread:139625070017864][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 04:49:39,254][Thread-1:139625023597344][task_id:django.request][log.py:228][WARNING][Not Found: /api/staffs/null/]
+[2020-09-17 06:38:13,861][MainThread:139625070017864][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 06:38:14,792][MainThread:140085265521992][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 11:53:51,794][MainThread:140085265521992][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 11:53:53,078][MainThread:140713205579080][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 11:54:55,189][MainThread:140713205579080][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 11:54:56,021][MainThread:140591438409032][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 11:55:54,278][MainThread:140591438409032][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 11:55:55,149][MainThread:139689302441288][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 11:56:21,461][MainThread:139689302441288][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 11:56:22,508][MainThread:139722942479688][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 11:56:44,808][MainThread:139722942479688][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 11:56:45,651][MainThread:140421064289608][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 11:58:01,812][MainThread:140421064289608][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 11:58:02,759][MainThread:140657648979272][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 12:37:47,536][Thread-6:140657602558752][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/staffs/1/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 23, in authenticate
+    token = request.headers['authorization']
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 388, in __getitem__
+    return super().__getitem__(key.replace('_', '-'))
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 320, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'authorization'
+[2020-09-17 14:30:35,149][MainThread:140657648979272][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-17 14:30:36,153][MainThread:140676022685000][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 14:32:39,146][MainThread:140676022685000][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-17 14:32:40,153][MainThread:140128470359368][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-17 14:32:47,501][Thread-1:140128423938848][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/ali202000002/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 67, in update
+    serializer.is_valid(raise_exception=True)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 235, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 430, in run_validation
+    value = self.to_internal_value(data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 483, in to_internal_value
+    for field in fields:
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 366, in _writable_fields
+    for field in self.fields.values():
+  File "/usr/local/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 360, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 1022, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 1099, in get_field_names
+    serializer_class=self.__class__.__name__
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the OrdersSerializer serializer.",)
+[2020-09-17 14:33:32,279][MainThread:140128470359368][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-17 14:33:33,262][MainThread:139649463082312][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:12:28,579][MainThread:139649463082312][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 07:12:29,631][MainThread:139740530904392][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:12:40,336][Thread-1:139740484573984][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 47, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/usr/src/api/api/views.py", line 43, in get_queryset
+    self.queryset['test'] = 'test'
+TypeError: 'QuerySet' object does not support item assignment
+[2020-09-18 07:13:10,715][MainThread:139740530904392][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 07:13:11,713][MainThread:139712794721608][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:13:40,546][MainThread:139712794721608][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 07:13:41,616][MainThread:139998444543304][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:13:46,906][Thread-1:139998398122784][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 60, in list
+    serializer.data['test'] = 'test'
+TypeError: list indices must be integers or slices, not str
+[2020-09-18 07:14:15,453][MainThread:139998444543304][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 07:14:16,335][MainThread:139994472090952][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:14:46,669][MainThread:139994472090952][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 07:14:47,730][MainThread:139628341214536][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:15:53,420][MainThread:139628341214536][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-18 07:15:54,372][MainThread:140428134022472][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:16:00,012][Thread-1:140428087601952][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 60, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 513, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 529, in get_attribute
+    relationship = get_attribute(instance, self.source_attrs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 93, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'OrderCatalog' object has no attribute 'sub_order'
+[2020-09-18 07:17:12,744][MainThread:140428134022472][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-18 07:17:13,761][MainThread:140223043214664][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:17:19,243][Thread-1:140222996794144][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/orders/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 60, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 535, in to_representation
+    for value in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 535, in <listcomp>
+    for value in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/relations.py", line 460, in to_representation
+    return getattr(obj, self.slug_field)
+TypeError: getattr(): attribute name must be string
+[2020-09-18 07:17:57,243][MainThread:140223043214664][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-18 07:17:58,247][MainThread:139692777229640][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:21:17,966][MainThread:139692777229640][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-18 07:21:18,857][MainThread:139904778022216][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:22:54,919][MainThread:140040365063496][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 07:25:48,746][MainThread:140693597224264][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 08:07:24,079][MainThread:140693597224264][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-18 08:07:25,046][MainThread:140712913562952][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 08:18:05,919][MainThread:140712913562952][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-18 08:18:06,981][MainThread:140217382083912][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 08:18:20,668][MainThread:140217382083912][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-18 08:18:21,668][MainThread:140559496940872][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 14:48:06,268][MainThread:140559496940872][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/serializer.py changed, reloading.]
+[2020-09-18 14:48:07,609][MainThread:140006368349512][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 14:50:49,405][MainThread:140006368349512][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 14:50:50,799][MainThread:139827007470920][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 14:52:06,443][MainThread:139827007470920][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/vuebackend/urls.py changed, reloading.]
+[2020-09-18 14:52:08,028][MainThread:140027952348488][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 14:53:03,067][MainThread:140027952348488][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 14:53:04,233][MainThread:140640944758088][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 17:59:12,578][MainThread:140640944758088][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-18 17:59:13,564][MainThread:139743670287688][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 17:59:46,281][Thread-1:139743623605024][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/customer_addr/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-18 18:00:41,220][MainThread:140220617583944][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 20:08:42,602][MainThread:140220617583944][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-18 20:08:43,679][MainThread:139769586736456][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 20:08:52,334][MainThread:139769586736456][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-18 20:08:53,209][MainThread:139889476042056][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-18 20:10:40,333][MainThread:139889476042056][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-18 20:10:41,222][MainThread:140131942927688][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
