@@ -152,6 +152,28 @@ class SubOrder(models.Model):
         verbose_name_plural = '订单明细'
 
 
+class OrderModel(models.Model):
+    """模具"""
+    MODEL_ATR = [
+        (1, '自有'),
+        (2, '工厂')
+    ]
+    order_number = models.ForeignKey('OrderCatalog', on_delete=models.CASCADE, related_name='order_model')
+    supplier = models.ForeignKey('Customers', on_delete=models.CASCADE, related_name='customer_model')
+    number = models.CharField(max_length=64, null=True, blank=True)
+    atr = models.IntegerField(default=1, choices=MODEL_ATR)
+    size = models.CharField(max_length=64, null=True, blank=True)
+    construct = models.CharField(max_length=64, null=True, blank=True)
+    pro_date = models.DateField(auto_now=True)
+    useful_life = models.IntegerField(null=True, blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    remarks = models.CharField(max_length=256, null=True, blank=True)
+    is_delete = models.IntegerField(default=0)
+
+    def __str__(self):
+        return '{}-{}'.format(self.order_number, self.number)
+
+
 class PurchaseOrder(models.Model):
     """采购订单"""
 

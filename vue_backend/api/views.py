@@ -6,13 +6,12 @@ from rest_framework.response import Response
 from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerializer, PurchaseOrderSerializer, \
     PurchaseDetailSerializer, PostPurchaseOrderSerializer, PostSubOrderSerializer, PostOrdersSerializer, \
     PostPurchaseDetailSerializer, ShipOrderSerializer, ShipDetailSerializer, PostShipDetailSerializer, \
-    HomeIndexSerializer, CustomerAddrSerializer
+    HomeIndexSerializer, CustomerAddrSerializer, OrderModelsSerializer
 from api.models import OrderCatalog, Customers, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail, \
-    CustomerAddr
+    CustomerAddr, OrderModel
 from rest_framework.viewsets import ModelViewSet
 from middleware.pagenation import SubOrderPagination
 from user.authentications import GetTokenAuthentication
-
 
 # 获取两个日期之间的查询参数
 from webapi.models import HomeIndex
@@ -49,7 +48,7 @@ class OrdersViewSet(ModelViewSet):
         page = self.paginate_queryset(queryset)
         if st == 'addorder':
             subtoken = uuid.uuid4().hex
-            cache.set(subtoken, 'addorder', 60*60*24)
+            cache.set(subtoken, 'addorder', 60 * 60 * 24)
             data = {
                 'msg': 'addorder',
                 'status': 200,
@@ -95,7 +94,7 @@ class CustomerViewSet(ModelViewSet):
         st = self.request.query_params.get('st')
         if st == 'addcustomer':
             subtoken = uuid.uuid4().hex
-            cache.set(subtoken, 'addcustomer', 60*60*24)
+            cache.set(subtoken, 'addcustomer', 60 * 60 * 24)
             data = {
                 'msg': 'addcustomer',
                 'status': 200,
@@ -176,6 +175,13 @@ class SubOrderViewSet(ModelViewSet):
         else:
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data)
+
+
+class OrderModelsViewSet(ModelViewSet):
+    queryset = OrderModel.objects.filter(is_delete=0).order_by('order_number')
+    serializer_class = is_delete = OrderModelsSerializer
+    authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
 
 
 class PurchaseOrderViewSet(ModelViewSet):
@@ -316,4 +322,3 @@ class HomeIndexViewSet(ModelViewSet):
     serializer_class = HomeIndexSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
-
