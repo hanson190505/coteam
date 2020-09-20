@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from api.models import Customers, OrderCatalog, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail, \
-    CustomerAddr, OrderModel
+    CustomerAddr, OrderModel, OrderToModel
 from webapi.models import HomeIndex
 
 
@@ -39,7 +39,13 @@ class OrderModelsSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderModel
         fields = "__all__"
-        depth = 1
+
+
+class OrderToModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = OrderToModel
+        fields = "__all__"
 
 
 class PostOrdersSerializer(serializers.ModelSerializer):

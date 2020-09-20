@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from user.models import UserInfo
+from django.utils import timezone
 from django.contrib.postgres.fields import HStoreField, ArrayField
 
 
@@ -156,15 +157,21 @@ class OrderModel(models.Model):
     """模具"""
     MODEL_ATR = [
         (1, '自有'),
-        (2, '工厂')
+        (2, '工厂'),
+        (3, '样品')
     ]
-    order_number = models.ForeignKey('OrderCatalog', on_delete=models.CASCADE, related_name='order_model')
+    MODEL_MATERIAL = [
+        (1, '铜模'),
+        (2, '钢模')
+    ]
+    order_number = models.ManyToManyField('OrderCatalog', through='OrderToModel')
     supplier = models.ForeignKey('Customers', on_delete=models.CASCADE, related_name='customer_model')
-    number = models.CharField(max_length=64, null=True, blank=True)
+    number = models.CharField(max_length=64, default='default')
     atr = models.IntegerField(default=1, choices=MODEL_ATR)
+    material = models.IntegerField(default=1, )
     size = models.CharField(max_length=64, null=True, blank=True)
     construct = models.CharField(max_length=64, null=True, blank=True)
-    pro_date = models.DateField(auto_now=True)
+    pro_date = models.DateTimeField(default=timezone.now)
     useful_life = models.IntegerField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     remarks = models.CharField(max_length=256, null=True, blank=True)
@@ -172,6 +179,13 @@ class OrderModel(models.Model):
 
     def __str__(self):
         return '{}-{}'.format(self.order_number, self.number)
+
+
+class OrderToModel(models.Model):
+    order_number = models.ForeignKey('OrderCatalog', on_delete=models.CASCADE)
+    model = models.ForeignKey('OrderModel', on_delete=models.CASCADE)
+    input_date = models.DateTimeField(default=timezone.now)
+    is_delete = models.IntegerField(default=0)
 
 
 class PurchaseOrder(models.Model):

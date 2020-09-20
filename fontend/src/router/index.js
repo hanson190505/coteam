@@ -49,6 +49,11 @@ const routes = [{
         component: () => import('@/views/customerAddr'),
       },
       {
+        path: '/order_model',
+        name: 'order_model',
+        component: () => import('@/views/orderModel'),
+      },
+      {
         path: '/purchases',
         name: 'purchases',
         component: () => import('@/views/purchase/purchase.vue'),

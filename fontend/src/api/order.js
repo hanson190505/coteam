@@ -69,3 +69,47 @@ export function postSubOrder(data) {
         data: qs.stringify(data)
     })
 }
+
+export function getOrderModels(params) {
+    return request({
+        url: 'order_model/',
+        params: params
+    })
+}
+
+export function patchOrderModel(pk, data) {
+    return request({
+        url: `order_model/${pk}/`,
+        method: 'patch',
+        data: qs.stringify(data)
+    })
+}
+
+export function postOrderModel(data) {
+    return request({
+        url: 'order_model/',
+        method: 'post',
+        params: {
+            subtoken: window.sessionStorage.getItem('subtoken')
+        },
+        data: qs.stringify(data)
+    })
+}
+
+export function getOrderToModel(params) {
+    return request({
+        url: 'order_to_model/',
+        params: params
+    })
+}
+
+export function postOrderToModel(data) {
+    return request({
+        url: 'order_to_model/',
+        method: 'post',
+        params: {
+            subtoken: window.sessionStorage.getItem('subtoken')
+        },
+        data: qs.stringify(data)
+    })
+}

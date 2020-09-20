@@ -1,6 +1,6 @@
 <template>
   <div>
-    <add-addr @getData="getData"></add-addr>
+    <!-- <add-addr @getData="getData"></add-addr> -->
     <a-table
       :columns="columns"
       rowKey="id"
@@ -10,7 +10,7 @@
       bordered
     >
       <template
-        v-for="col in ['country', 'city', 'addr']"
+        v-for="col in ['atr', 'size', 'remarks', 'construct']"
         :slot="col"
         slot-scope="text, record, index"
       >
@@ -24,24 +24,17 @@
           <template v-else> {{ text }}</template>
         </div>
       </template>
-      <template slot="addr_type" slot-scope="text, record, index">
-        <div key="addr_type">
-          <a-select
+      <!-- <template slot="addr_type" slot-scope="text, record, index">
+        <div :key="addr_type">
+          <a-input
             v-if="record.editable"
-            @select="handleSelect"
-            :default-value="text"
-          >
-            <!-- 不设置 default-value 的话, 选择框会很小-->
-            <a-select-option
-              v-for="(item, index) in ['common', 'other']"
-              :key="index"
-              :value="index"
-              >{{ item }}</a-select-option
-            >
-          </a-select>
-          <template v-else> {{ text | addrType }}</template>
+            style="margin: -5px 0"
+            :value="text"
+            @change="e => handleChange(e.target.value, index, 'addr_type')"
+          />
+          {{ text | addrType }}
         </div>
-      </template>
+      </template> -->
       <template slot="operation" slot-scope="text, record, index">
         <div class="editable-row-operations">
           <span v-if="record.editable">
@@ -72,47 +65,67 @@
 </template>
 
 <script>
-import {
-  getCustomerAddr,
-  postCustomerAddr,
-  patchCustomerAddr
-} from '@/api/customer'
-import addAddr from './addAddr'
+import { getOrderModels, patchOrderModel, postOrderModel } from '@/api/order'
+// import addAddr from './addAddr'
 const columns = [
   {
-    title: '客户',
-    dataIndex: 'customer',
-    width: '10%',
-    scopedSlots: { customRender: 'customer' }
+    title: '供应商',
+    dataIndex: 'supplier',
+    width: '5%',
+    scopedSlots: { customRender: 'supplier' }
   },
   {
-    title: '类别',
-    dataIndex: 'addr_type',
-    width: '10%',
-    scopedSlots: { customRender: 'addr_type' }
+    title: '编号',
+    dataIndex: 'number',
+    width: '5%',
+    scopedSlots: { customRender: 'number' }
   },
   {
-    title: '国家',
-    dataIndex: 'country',
-    width: '10%',
-    scopedSlots: { customRender: 'country' }
+    title: '属性',
+    dataIndex: 'atr',
+    width: '3%',
+    scopedSlots: { customRender: 'atr' }
   },
   {
-    title: '城市',
-    dataIndex: 'city',
-    width: '10%',
-    scopedSlots: { customRender: 'city' }
+    title: '材质',
+    dataIndex: 'material',
+    width: '3%',
+    scopedSlots: { customRender: 'material' }
   },
   {
-    title: '录入日期',
-    dataIndex: 'input_date',
-    width: '10%',
-    scopedSlots: { customRender: 'input_date' }
+    title: '尺寸',
+    dataIndex: 'size',
+    width: '8%',
+    scopedSlots: { customRender: 'size' }
   },
   {
-    title: '详细地址',
-    dataIndex: 'addr',
-    scopedSlots: { customRender: 'addr' }
+    title: '构造',
+    dataIndex: 'construct',
+    width: '5%',
+    scopedSlots: { customRender: 'construct' }
+  },
+  {
+    title: '生产日期',
+    dataIndex: 'pro_date',
+    width: '10%',
+    scopedSlots: { customRender: 'pro_date' }
+  },
+  {
+    title: '使用寿命',
+    dataIndex: 'useful_life',
+    width: '5%',
+    scopedSlots: { customRender: 'useful_life' }
+  },
+  {
+    title: '单价',
+    dataIndex: 'price',
+    width: '8%',
+    scopedSlots: { customRender: 'price' }
+  },
+  {
+    title: '备注',
+    dataIndex: 'remarks',
+    scopedSlots: { customRender: 'remarks' }
   },
   {
     title: 'opration',
@@ -122,7 +135,7 @@ const columns = [
 ]
 export default {
   components: {
-    addAddr
+    // addAddr
   },
   data() {
     return {
@@ -130,7 +143,6 @@ export default {
       pagination: {},
       loading: false,
       editingKey: '',
-      editingRow: 0,
       columns
     }
   },
@@ -138,14 +150,10 @@ export default {
     this.getData()
   },
   methods: {
-    // 地址类别选择后,修改对应数据
-    handleSelect(v) {
-      this.data[this.editingRow].addr_type = v
-    },
     // 获取数据
     getData() {
       this.loading = true
-      getCustomerAddr().then(res => {
+      getOrderModels().then(res => {
         let pagination = { ...this.pagination }
         pagination.total = res.data.count
         this.loading = false
@@ -166,7 +174,6 @@ export default {
       const target = newData[index]
       if (target) {
         target.editable = true
-        this.editingRow = index
         this.data = newData
       }
     },
@@ -174,7 +181,7 @@ export default {
       let newData = [...this.data]
       let target = newData[index]
       if (target) {
-        patchCustomerAddr(id, target)
+        patchOrderModel(id, target)
           .then(res => {
             target.editable = false
             this.data = newData
@@ -186,7 +193,6 @@ export default {
       }
     },
     cancel(index) {
-      // TODO:取消之后下拉选择数据恢复原样.暴力方案是重新获取后台数据??
       let newData = [...this.data]
       let target = newData[index]
       if (target) {

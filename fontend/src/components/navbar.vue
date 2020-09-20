@@ -25,6 +25,7 @@
         <template slot="title">采购管理</template>
         <el-menu-item index="/purchases">采购列表</el-menu-item>
         <el-menu-item index="/purchasedetails">采购明细</el-menu-item>
+        <el-menu-item index="/order_model">模具列表</el-menu-item>
       </el-submenu>
       <el-submenu index="4">
         <template slot="title">出货管理</template>

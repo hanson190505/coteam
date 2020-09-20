@@ -6,9 +6,9 @@ from rest_framework.response import Response
 from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerializer, PurchaseOrderSerializer, \
     PurchaseDetailSerializer, PostPurchaseOrderSerializer, PostSubOrderSerializer, PostOrdersSerializer, \
     PostPurchaseDetailSerializer, ShipOrderSerializer, ShipDetailSerializer, PostShipDetailSerializer, \
-    HomeIndexSerializer, CustomerAddrSerializer, OrderModelsSerializer
+    HomeIndexSerializer, CustomerAddrSerializer, OrderModelsSerializer, OrderToModelSerializer
 from api.models import OrderCatalog, Customers, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail, \
-    CustomerAddr, OrderModel
+    CustomerAddr, OrderModel, OrderToModel
 from rest_framework.viewsets import ModelViewSet
 from middleware.pagenation import SubOrderPagination
 from user.authentications import GetTokenAuthentication
@@ -180,6 +180,13 @@ class SubOrderViewSet(ModelViewSet):
 class OrderModelsViewSet(ModelViewSet):
     queryset = OrderModel.objects.filter(is_delete=0).order_by('order_number')
     serializer_class = is_delete = OrderModelsSerializer
+    authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
+
+
+class OrderToModelViewSet(ModelViewSet):
+    queryset = OrderToModel.objects.filter(is_delete=0).order_by('id')
+    serializer_class = OrderToModelSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
 

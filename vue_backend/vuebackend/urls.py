@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.urls import path, include, re_path
 from rest_framework import routers
 from api.views import OrdersViewSet, CustomerViewSet, SubOrderViewSet, PurchaseOrderViewSet, PurchaseDetailViewSet, \
-    ShipOrderViewSet, ShipDetailViewSet, HomeIndexViewSet, CustomerAddrViewSet, OrderModelsViewSet
+    ShipOrderViewSet, ShipDetailViewSet, HomeIndexViewSet, CustomerAddrViewSet, OrderModelsViewSet, OrderToModelViewSet
 from upload.views import ImageUploadVieSet
 from user.views import UserApiViewSet, SendEmail
 from vuebackend import settings
@@ -40,6 +40,7 @@ router.register('product_type', ProductTypeViewSet)
 router.register('home_index', HomeIndexViewSet)
 router.register('customer_addr', CustomerAddrViewSet)
 router.register('order_model', OrderModelsViewSet)
+router.register('order_to_model', OrderToModelViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
