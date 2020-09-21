@@ -186,13 +186,7 @@ export default {
       }
     },
     cancel(index) {
-      // TODO:取消之后下拉选择数据恢复原样.暴力方案是重新获取后台数据??
-      let newData = [...this.data]
-      let target = newData[index]
-      if (target) {
-        target.editable = false
-        this.data = newData
-      }
+      this.getData()
     },
     onDelete(id, index) {
       patchCustomerAddr(id, { is_delete: 1 })

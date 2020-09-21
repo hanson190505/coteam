@@ -27,7 +27,8 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-            >{{ item.lite_name }}</a-select-option>
+              >{{ item.lite_name }}</a-select-option
+            >
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="attribute" prop="atr">
@@ -78,25 +79,26 @@ export default {
       wrapperCol: { span: 14 },
       customers: [],
       form: {
-        suppliser: '',
+        supplier: '',
         atr: Number,
         material: Number,
         size: '',
         construct: '',
         pro_date: '',
         useful_life: '',
-        price: 0,
+        price: '',
         remarks: ''
       },
       rules: {
-        customer: [
+        supplier: [
           {
             required: true,
-            message: 'Please select customer',
+            message: 'Please select supplier',
             trigger: 'change'
           }
         ],
-        addr: [{ required: true, message: 'Please input addr' }]
+        pro_date: [{ required: true, message: 'Please select date' }],
+        price: [{ required: true, message: 'Please input price' }]
       }
     }
   },
@@ -112,13 +114,18 @@ export default {
       }
     },
     submit() {
-      console.log('====================================')
-      console.log(this.form.pro_date)
-      console.log('====================================')
-      postOrderModel(this.form).then(res => {
-        this.$emit('getData')
-        this.visible = false
-      })
+      this.form.pro_date = this.form.pro_date.format('YYYY-MM-DD')
+      postOrderModel(this.form)
+        .then(res => {
+          this.$emit('getData')
+          this.visible = false
+          this.$message.success('提交成功')
+        })
+        .catch(err => {
+          this.$message.error('提交失败,请重新录入')
+          this.visible = false
+          this.form = {}
+        })
     },
     showDrawer() {
       this.visible = true

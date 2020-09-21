@@ -91,3 +91,32 @@ export function uppercaseFirst(string) {
 export function addrType(num) {
   return Number(num) === 0 ? 'common' : 'other'
 }
+
+/**
+ * 0 => '自有', 1 => '工厂', 2 => '样品'
+ * @param {number} num
+ */
+export function modelAttr(num) {
+  if (num === 0) {
+    return '自有'
+  }
+  if (num === 1) {
+    return '工厂'
+  }
+  if (num === 2) {
+    return '样品'
+  }
+}
+
+/**
+ * 0 => '铜模', 1 => '钢模'
+ * @param {number} num
+ */
+export function modelMaterial(num) {
+  if (num === 0) {
+    return '铜模'
+  }
+  if (num === 1) {
+    return '钢模'
+  }
+}

@@ -154,23 +154,24 @@ class SubOrder(models.Model):
 
 
 def make_model_number():
-    # now_id = OrderModel.objects.last().id + 1
-    # if now_id:
-    #     return '{}-{}'.format('ct-model', now_id)
-    # else:
-    return '{}-{}'.format('ct-model', 1)
+    obj = OrderModel.objects.last()
+    if obj is None:
+        return '{}-{}'.format('ct-model', 1)
+    else:
+        now_id = OrderModel.objects.last().id + 1
+        return '{}-{}'.format('ct-model', now_id)
 
 
 class OrderModel(models.Model):
     """模具"""
     MODEL_ATR = [
-        (1, '自有'),
-        (2, '工厂'),
-        (3, '样品')
+        (0, '自有'),
+        (1, '工厂'),
+        (2, '样品')
     ]
     MODEL_MATERIAL = [
-        (1, '铜模'),
-        (2, '钢模')
+        (0, '铜模'),
+        (1, '钢模')
     ]
     order_number = models.ManyToManyField('OrderCatalog', through='OrderToModel')
     supplier = models.ForeignKey('Customers', on_delete=models.CASCADE, related_name='customer_model')

@@ -7,10 +7,14 @@
       :data-source="data"
       :pagination="pagination"
       :loading="loading"
+      :row-selection="{
+        selectedRowKeys: selectedRowKeys,
+        onChange: onSelectChange
+      }"
       bordered
     >
       <template
-        v-for="col in ['atr', 'size', 'remarks', 'construct']"
+        v-for="col in ['size', 'remarks', 'construct', 'material']"
         :slot="col"
         slot-scope="text, record, index"
       >
@@ -24,22 +28,50 @@
           <template v-else>{{ text }}</template>
         </div>
       </template>
-      <!-- <template slot="addr_type" slot-scope="text, record, index">
-        <div :key="addr_type">
-          <a-input
+      <template slot="atr" slot-scope="text, record, index">
+        <div key="atr">
+          <a-select
             v-if="record.editable"
-            style="margin: -5px 0"
-            :value="text"
-            @change="e => handleChange(e.target.value, index, 'addr_type')"
-          />
-          {{ text | addrType }}
+            @select="handleSelect"
+            :default-value="text"
+          >
+            <!-- 不设置 default-value 的话, 选择框会很小-->
+            <a-select-option
+              v-for="(item, index) in ['自有', '工厂', '样品']"
+              :key="index"
+              :value="index"
+              >{{ item }}</a-select-option
+            >
+          </a-select>
+          <template v-else> {{ text | modelAttr }}</template>
         </div>
-      </template>-->
+      </template>
+      <template slot="material" slot-scope="text, record, index">
+        <div key="material">
+          <a-select
+            v-if="record.editable"
+            @select="handleSelectMaterial"
+            :default-value="text"
+          >
+            <!-- 不设置 default-value 的话, 选择框会很小-->
+            <a-select-option
+              v-for="(item, index) in ['铜模', '钢模']"
+              :key="index"
+              :value="index"
+              >{{ item }}</a-select-option
+            >
+          </a-select>
+          <template v-else> {{ text | modelMaterial }}</template>
+        </div>
+      </template>
       <template slot="operation" slot-scope="text, record, index">
         <div class="editable-row-operations">
           <span v-if="record.editable">
             <a @click="() => save(record.id, index)">Save</a>
-            <a-popconfirm title="Sure to cancel?" @confirm="() => cancel(index)">
+            <a-popconfirm
+              title="Sure to cancel?"
+              @confirm="() => cancel(index, record)"
+            >
               <a>Cancel</a>
             </a-popconfirm>
           </span>
@@ -110,7 +142,7 @@ const columns = [
   {
     title: '使用寿命',
     dataIndex: 'useful_life',
-    width: '5%',
+    width: '8%',
     scopedSlots: { customRender: 'useful_life' }
   },
   {
@@ -122,6 +154,7 @@ const columns = [
   {
     title: '备注',
     dataIndex: 'remarks',
+    width: '15%',
     scopedSlots: { customRender: 'remarks' }
   },
   {
@@ -140,11 +173,18 @@ export default {
       pagination: {},
       loading: false,
       editingKey: '',
+      editingRow: 0,
+      selectedRowKeys: [],
       columns
     }
   },
   mounted() {
     this.getData()
+  },
+  computed: {
+    hasSelected() {
+      return this.selectedRowKeys.length > 0
+    }
   },
   methods: {
     // 获取数据
@@ -171,6 +211,7 @@ export default {
       const target = newData[index]
       if (target) {
         target.editable = true
+        this.editingRow = index
         this.data = newData
       }
     },
@@ -189,16 +230,11 @@ export default {
           })
       }
     },
-    cancel(index) {
-      let newData = [...this.data]
-      let target = newData[index]
-      if (target) {
-        target.editable = false
-        this.data = newData
-      }
+    cancel(index, record) {
+      this.getData()
     },
     onDelete(id, index) {
-      patchCustomerAddr(id, { is_delete: 1 })
+      patchOrderModel(id, { is_delete: 1 })
         .then(res => {
           this.data.splice(index, 1)
           this.$message.success('删除成功')
@@ -206,6 +242,16 @@ export default {
         .catch(err => {
           this.$message.error('删除失败')
         })
+    },
+    handleSelect(v) {
+      this.data[this.editingRow].atr = v
+    },
+    handleSelectMaterial(v) {
+      this.data[this.editingRow].material = v
+    },
+    onSelectChange(selectedRowKeys) {
+      console.log('selectedRowKeys changed: ', selectedRowKeys)
+      this.selectedRowKeys = selectedRowKeys
     }
   }
 }
