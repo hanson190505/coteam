@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <add-addr @getData="getData"></add-addr> -->
+    <add-model @getData="getData"></add-model>
     <a-table
       :columns="columns"
       rowKey="id"
@@ -21,7 +21,7 @@
             :value="text"
             @change="e => handleChange(e.target.value, index, col)"
           />
-          <template v-else> {{ text }}</template>
+          <template v-else>{{ text }}</template>
         </div>
       </template>
       <!-- <template slot="addr_type" slot-scope="text, record, index">
@@ -34,15 +34,12 @@
           />
           {{ text | addrType }}
         </div>
-      </template> -->
+      </template>-->
       <template slot="operation" slot-scope="text, record, index">
         <div class="editable-row-operations">
           <span v-if="record.editable">
             <a @click="() => save(record.id, index)">Save</a>
-            <a-popconfirm
-              title="Sure to cancel?"
-              @confirm="() => cancel(index)"
-            >
+            <a-popconfirm title="Sure to cancel?" @confirm="() => cancel(index)">
               <a>Cancel</a>
             </a-popconfirm>
           </span>
@@ -66,30 +63,30 @@
 
 <script>
 import { getOrderModels, patchOrderModel, postOrderModel } from '@/api/order'
-// import addAddr from './addAddr'
+import addModel from './addModel'
 const columns = [
   {
     title: '供应商',
     dataIndex: 'supplier',
-    width: '5%',
+    width: '8%',
     scopedSlots: { customRender: 'supplier' }
   },
   {
     title: '编号',
     dataIndex: 'number',
-    width: '5%',
+    width: '10%',
     scopedSlots: { customRender: 'number' }
   },
   {
     title: '属性',
     dataIndex: 'atr',
-    width: '3%',
+    width: '5%',
     scopedSlots: { customRender: 'atr' }
   },
   {
     title: '材质',
     dataIndex: 'material',
-    width: '3%',
+    width: '5%',
     scopedSlots: { customRender: 'material' }
   },
   {
@@ -135,7 +132,7 @@ const columns = [
 ]
 export default {
   components: {
-    // addAddr
+    addModel
   },
   data() {
     return {

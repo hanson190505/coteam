@@ -4,11 +4,11 @@ import router from './router'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/base.css'
-import store from './store';
+import store from './store'
 import './icons' // icon
 import * as filters from './filters' // global filters
-import JSEncrypt from 'jsencrypt';
-import CKEditor from 'ckeditor4-vue';
+import JSEncrypt from 'jsencrypt'
+import CKEditor from 'ckeditor4-vue'
 
 import {
   Table,
@@ -21,8 +21,9 @@ import {
   FormModel,
   Modal,
   Select,
-  Drawer
-} from 'ant-design-vue';
+  Drawer,
+  DatePicker
+} from 'ant-design-vue'
 
 Vue.use(Table, Pagination)
 Vue.component(Button.name, Button)
@@ -36,8 +37,7 @@ Vue.component(FormModel.Item.name, FormModel.Item)
 Vue.component(Select.name, Select)
 Vue.component(Select.Option.name, Select.Option)
 Vue.component(Drawer.name, Drawer)
-
-
+Vue.component(DatePicker.name, DatePicker)
 
 Vue.use(Element, {
   size: 'mini',
@@ -54,7 +54,7 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 //JSEncrypt加密方法(参数1:数据，参数2：公钥)
-Vue.prototype.$jsEncrypt = function (data, pub_key) {
+Vue.prototype.$jsEncrypt = function(data, pub_key) {
   let encrypt = new JSEncrypt()
   encrypt.setPublicKey(pub_key)
   let en_data = encrypt.encrypt(data.toString())

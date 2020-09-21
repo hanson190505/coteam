@@ -111,6 +111,11 @@ class CustomerAddrViewSet(ModelViewSet):
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
 
+    def perform_create(self, serializer):
+        print(serializer)
+        print(self.request.data)
+        serializer.save()
+
 
 class SubOrderViewSet(ModelViewSet):
     queryset = SubOrder.objects.filter(is_delete=0).order_by('status')

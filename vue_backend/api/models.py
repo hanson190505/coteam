@@ -153,6 +153,14 @@ class SubOrder(models.Model):
         verbose_name_plural = '订单明细'
 
 
+def make_model_number():
+    # now_id = OrderModel.objects.last().id + 1
+    # if now_id:
+    #     return '{}-{}'.format('ct-model', now_id)
+    # else:
+    return '{}-{}'.format('ct-model', 1)
+
+
 class OrderModel(models.Model):
     """模具"""
     MODEL_ATR = [
@@ -166,12 +174,12 @@ class OrderModel(models.Model):
     ]
     order_number = models.ManyToManyField('OrderCatalog', through='OrderToModel')
     supplier = models.ForeignKey('Customers', on_delete=models.CASCADE, related_name='customer_model')
-    number = models.CharField(max_length=64, default='default')
+    number = models.CharField(max_length=64, default=make_model_number)
     atr = models.IntegerField(default=1, choices=MODEL_ATR)
     material = models.IntegerField(default=1, )
     size = models.CharField(max_length=64, null=True, blank=True)
     construct = models.CharField(max_length=64, null=True, blank=True)
-    pro_date = models.DateTimeField(default=timezone.now)
+    pro_date = models.DateField()
     useful_life = models.IntegerField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     remarks = models.CharField(max_length=256, null=True, blank=True)

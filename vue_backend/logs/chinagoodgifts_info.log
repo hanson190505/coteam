@@ -433,3 +433,977 @@ django.db.utils.ProgrammingError: column api_ordermodel.material does not exist
 LINE 1: ...api_ordermodel"."number", "api_ordermodel"."atr", "api_order...
                                                              ^
 
+[2020-09-21 04:52:06,020][MainThread:139892243324232][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 04:52:44,588][Thread-1:139892196641568][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/staffs/null/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+[2020-09-21 04:53:03,365][Thread-2:139892194007840][task_id:django.request][log.py:228][WARNING][Not Found: /product/]
+[2020-09-21 04:53:03,375][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon-precomposed.png]
+[2020-09-21 04:53:03,380][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon.png]
+[2020-09-21 04:53:03,384][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-21 04:53:03,389][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon-precomposed.png]
+[2020-09-21 04:53:03,393][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon.png]
+[2020-09-21 04:53:03,397][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-21 04:53:03,403][Thread-2:139892194007840][task_id:django.request][log.py:228][WARNING][Not Found: /product/]
+[2020-09-21 04:53:03,410][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon-precomposed.png]
+[2020-09-21 04:53:03,414][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon.png]
+[2020-09-21 04:53:03,419][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-21 04:53:03,423][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon-precomposed.png]
+[2020-09-21 04:53:03,428][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /apple-touch-icon.png]
+[2020-09-21 04:53:03,432][Thread-3:139892192946976][task_id:django.request][log.py:228][WARNING][Not Found: /favicon.ico]
+[2020-09-21 04:53:39,800][Thread-1:139892196641568][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/staffs/null/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+[2020-09-21 04:54:39,317][Thread-1:139892196641568][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/customer_addr/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "api_customeraddr" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "api_customeraddr" WHERE "...
+                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/pagination.py", line 206, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 70, in page
+    number = self.validate_number(number)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 48, in validate_number
+    if number > self.num_pages:
+  File "/usr/local/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 97, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "/usr/local/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 91, in count
+    return c()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 397, in count
+    return self.query.get_count(using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 517, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 502, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1151, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "api_customeraddr" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "api_customeraddr" WHERE "...
+                                          ^
+
+[2020-09-21 04:54:51,929][Thread-1:139892196641568][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/customer_addr/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "api_customeraddr" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "api_customeraddr" WHERE "...
+                                          ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/pagination.py", line 206, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 70, in page
+    number = self.validate_number(number)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 48, in validate_number
+    if number > self.num_pages:
+  File "/usr/local/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 97, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "/usr/local/lib/python3.7/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.7/site-packages/django/core/paginator.py", line 91, in count
+    return c()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 397, in count
+    return self.query.get_count(using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 517, in get_count
+    number = obj.get_aggregation(using, ['__count'])['__count']
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 502, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1151, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "api_customeraddr" does not exist
+LINE 1: SELECT COUNT(*) AS "__count" FROM "api_customeraddr" WHERE "...
+                                          ^
+
+[2020-09-21 04:58:41,426][Thread-6:139892190538528][task_id:django.request][log.py:228][WARNING][Not Found: /product/]
+[2020-09-21 05:03:55,704][MainThread:139892243324232][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:03:56,325][MainThread:139856839798088][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:08:51,730][MainThread:139856839798088][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:08:52,321][MainThread:140449705692488][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:09:12,141][MainThread:140449705692488][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:09:12,759][MainThread:139995876093256][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:09:19,912][MainThread:139677902933320][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:10:17,815][MainThread:140592744815944][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:17:45,870][MainThread:140592744815944][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:17:46,462][MainThread:140067393559880][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:47:06,029][Thread-2:140067346877216][task_id:django.request][log.py:228][WARNING][Bad Request: /api/order_model/]
+[2020-09-21 05:48:12,318][Thread-2:140067346877216][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 466, in __init__
+    val = kwargs.pop(field.attname)
+KeyError: 'number'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 472, in __init__
+    val = field.get_default()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 829, in get_default
+    return self._get_default()
+  File "/usr/src/api/api/models.py", line 157, in make_model_number
+    now_id = OrderModel.objects.latest().id + 1
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 660, in latest
+    return self.reverse()._earliest(*fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 644, in _earliest
+    "earliest() and latest() require either fields as positional "
+ValueError: earliest() and latest() require either fields as positional arguments or 'get_latest_by' in the model's Meta.
+[2020-09-21 05:50:20,023][MainThread:140067393559880][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:50:20,645][MainThread:139866311638344][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:51:07,671][Thread-1:139866264955680][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 466, in __init__
+    val = kwargs.pop(field.attname)
+KeyError: 'number'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 472, in __init__
+    val = field.get_default()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 829, in get_default
+    return self._get_default()
+  File "/usr/src/api/api/models.py", line 157, in make_model_number
+    now_id = OrderModel.objects.latest().id + 1
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 660, in latest
+    return self.reverse()._earliest(*fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 644, in _earliest
+    "earliest() and latest() require either fields as positional "
+ValueError: earliest() and latest() require either fields as positional arguments or 'get_latest_by' in the model's Meta.
+[2020-09-21 05:51:36,334][MainThread:139866311638344][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:51:36,990][MainThread:140342420761928][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:51:53,716][MainThread:140342420761928][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:51:54,322][MainThread:139755637402952][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:52:00,414][Thread-1:139755590810400][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 466, in __init__
+    val = kwargs.pop(field.attname)
+KeyError: 'number'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 472, in __init__
+    val = field.get_default()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 829, in get_default
+    return self._get_default()
+  File "/usr/src/api/api/models.py", line 157, in make_model_number
+    now_id = OrderModel.objects.last().id + 1
+AttributeError: 'NoneType' object has no attribute 'id'
+[2020-09-21 05:52:16,366][MainThread:139755637402952][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:52:16,981][MainThread:139879124077896][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:52:23,348][Thread-1:139879077395232][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 466, in __init__
+    val = kwargs.pop(field.attname)
+KeyError: 'number'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 472, in __init__
+    val = field.get_default()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 829, in get_default
+    return self._get_default()
+  File "/usr/src/api/api/models.py", line 157, in make_model_number
+    now_id = OrderModel.objects.last().id + 1
+AttributeError: 'NoneType' object has no attribute 'id'
+[2020-09-21 05:55:38,332][MainThread:139879124077896][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:55:38,952][MainThread:140007024364872][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 05:58:14,873][MainThread:140007024364872][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 05:58:15,476][MainThread:139923914640712][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:02:00,115][MainThread:139923914640712][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:02:00,742][MainThread:139655600225608][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:02:55,224][MainThread:139655600225608][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:02:55,828][MainThread:140036287286600][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:03:41,409][MainThread:140036287286600][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:03:42,036][MainThread:140593695309128][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:04:09,494][Thread-1:140593648626464][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-21 06:04:26,777][MainThread:140593695309128][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:04:27,375][MainThread:140185007775048][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:08:13,927][MainThread:140185007775048][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:08:14,540][MainThread:140500143357256][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:08:26,814][Thread-1:140500096674592][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 757, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 675, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-21 06:33:54,618][MainThread:140500143357256][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-21 06:33:55,276][MainThread:139629374471496][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:34:03,289][MainThread:139629374471496][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
+[2020-09-21 06:34:03,929][MainThread:140591101492552][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:34:34,480][MainThread:140591101492552][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:34:35,121][MainThread:140168256720200][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:34:54,471][Thread-1:140168210037536][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "pro_date" violates not-null constraint
+DETAIL:  Failing row contains (3, ct-model-1, 1, 1, , , null, null, 100.00, test, 0, alibaba).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "pro_date" violates not-null constraint
+DETAIL:  Failing row contains (3, ct-model-1, 1, 1, , , null, null, 100.00, test, 0, alibaba).
+
+[2020-09-21 06:36:08,051][MainThread:140168256720200][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:36:08,731][MainThread:139693965966664][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:36:16,566][Thread-1:139693919284000][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'getset_descriptor'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1390, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1335, in as_sql
+    for obj in self.query.objs
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1335, in <listcomp>
+    for obj in self.query.objs
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1334, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1275, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    ) from e
+TypeError: Field 'useful_life' expected a number but got <attribute 'day' of 'datetime.date' objects>.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 951, in create
+    raise TypeError(msg)
+TypeError: Got a `TypeError` when calling `OrderModel.objects.create()`. This may be because you have a writable field on the serializer class that is not a valid argument to `OrderModel.objects.create()`. You may need to make the field read-only, or override the OrderModelsSerializer.create() method to handle this correctly.
+Original exception was:
+ Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1772, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'getset_descriptor'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1390, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1335, in as_sql
+    for obj in self.query.objs
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1335, in <listcomp>
+    for obj in self.query.objs
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1334, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1275, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 821, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 816, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    ) from e
+TypeError: Field 'useful_life' expected a number but got <attribute 'day' of 'datetime.date' objects>.
+
+[2020-09-21 06:37:46,186][MainThread:139693965966664][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:37:46,814][MainThread:139626910715208][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:37:58,867][Thread-1:139626864032544][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 559, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-21 06:38:34,882][MainThread:139626910715208][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:38:35,497][MainThread:139738615442760][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:38:40,502][Thread-1:139738568760096][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 466, in __init__
+    val = kwargs.pop(field.attname)
+KeyError: 'pro_date'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 472, in __init__
+    val = field.get_default()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 829, in get_default
+    return self._get_default()
+TypeError: descriptor 'date' of 'datetime.datetime' object needs an argument
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 951, in create
+    raise TypeError(msg)
+TypeError: Got a `TypeError` when calling `OrderModel.objects.create()`. This may be because you have a writable field on the serializer class that is not a valid argument to `OrderModel.objects.create()`. You may need to make the field read-only, or override the OrderModelsSerializer.create() method to handle this correctly.
+Original exception was:
+ Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 466, in __init__
+    val = kwargs.pop(field.attname)
+KeyError: 'pro_date'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 472, in __init__
+    val = field.get_default()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/__init__.py", line 829, in get_default
+    return self._get_default()
+TypeError: descriptor 'date' of 'datetime.datetime' object needs an argument
+
+[2020-09-21 06:41:39,148][MainThread:139738615442760][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:41:39,747][MainThread:139728164871496][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:41:46,630][Thread-1:139728118188832][task_id:django.request][log.py:228][WARNING][Bad Request: /api/order_model/]
+[2020-09-21 06:43:04,222][MainThread:139728164871496][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:43:04,960][MainThread:139806261521736][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:43:12,162][Thread-1:139806214839072][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 559, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-21 06:43:48,396][Thread-1:139806214839072][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 559, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-21 06:44:16,480][MainThread:139806261521736][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:44:17,148][MainThread:140697198153032][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:44:28,607][Thread-1:140697151470368][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 20, in create
+    headers = self.get_success_headers(serializer.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 559, in data
+    ret = super().data
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 261, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 526, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/fields.py", line 1289, in to_representation
+    'Expected a `date`, but got a `datetime`. Refusing to coerce, '
+AssertionError: Expected a `date`, but got a `datetime`. Refusing to coerce, as this may mean losing timezone information. Use a custom read-only field and deal with timezone issues explicitly.
+[2020-09-21 06:45:02,912][MainThread:140697198153032][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-21 06:45:03,515][MainThread:140113986714952][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-21 06:45:52,571][Thread-1:140113940032288][task_id:django.request][log.py:228][WARNING][Bad Request: /api/order_model/]
+[2020-09-21 06:47:13,786][Thread-1:140113940032288][task_id:django.request][log.py:228][WARNING][Bad Request: /api/order_model/]
+[2020-09-21 06:48:56,218][Thread-1:140113940032288][task_id:django.request][log.py:228][WARNING][Bad Request: /api/order_model/]
+[2020-09-21 06:49:17,984][Thread-1:140113940032288][task_id:django.request][log.py:228][WARNING][Bad Request: /api/order_model/]
