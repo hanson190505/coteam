@@ -1598,3 +1598,4 @@ DETAIL:  Failing row contains (8, null, 1, , , 2020-09-15, null, 1000.00, , 0, a
 [2020-09-22 06:24:14,423][MainThread:140083843763528][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/migrations/0006_auto_20200921_0603.py changed, reloading.]
 [2020-09-22 06:24:15,006][MainThread:140614199688520][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
 [2020-09-22 06:24:56,457][Thread-1:140614153095968][task_id:django.request][log.py:228][WARNING][Not Found: /api/staffs/null/]
+[2020-09-22 08:31:23,687][MainThread:140224537935176][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]

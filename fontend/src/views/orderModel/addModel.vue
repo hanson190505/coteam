@@ -28,7 +28,8 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-            >{{ item.lite_name }}</a-select-option>
+              >{{ item.lite_name }}</a-select-option
+            >
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="attribute" prop="atr">
@@ -119,11 +120,12 @@ export default {
         .then(res => {
           this.$emit('getData')
           this.visible = false
+          this.$emit('hideOrderTable')
           this.$message.success('提交成功')
         })
         .catch(err => {
           this.$message.error('提交失败,请重新录入')
-          this.visible = false
+          this.onClose()
           this.form = {}
         })
     },
@@ -133,6 +135,7 @@ export default {
     },
     onClose() {
       this.visible = false
+      this.$emit('hideOrderTable')
     }
   }
 }
