@@ -180,7 +180,7 @@ class OrderModel(models.Model):
     material = models.IntegerField(default=1, )
     size = models.CharField(max_length=64, null=True, blank=True)
     construct = models.CharField(max_length=64, null=True, blank=True)
-    pro_date = models.DateField()
+    pro_date = models.DateField(default=datetime.now)
     useful_life = models.IntegerField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     remarks = models.CharField(max_length=256, null=True, blank=True)

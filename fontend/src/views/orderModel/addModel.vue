@@ -9,6 +9,7 @@
       width="40%"
       :body-style="{ paddingBottom: '80px' }"
       @close="onClose"
+      :destroyOnClose="true"
     >
       <a-form-model
         ref="addModelForm"
@@ -27,8 +28,7 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-              >{{ item.lite_name }}</a-select-option
-            >
+            >{{ item.lite_name }}</a-select-option>
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="attribute" prop="atr">
@@ -129,6 +129,7 @@ export default {
     },
     showDrawer() {
       this.visible = true
+      this.$emit('hideOrderTable')
     },
     onClose() {
       this.visible = false

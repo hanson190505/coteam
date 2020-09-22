@@ -30,48 +30,35 @@
       </template>
       <template slot="atr" slot-scope="text, record, index">
         <div key="atr">
-          <a-select
-            v-if="record.editable"
-            @select="handleSelect"
-            :default-value="text"
-          >
+          <a-select v-if="record.editable" @select="handleSelect" :default-value="text">
             <!-- 不设置 default-value 的话, 选择框会很小-->
             <a-select-option
               v-for="(item, index) in ['自有', '工厂', '样品']"
               :key="index"
               :value="index"
-              >{{ item }}</a-select-option
-            >
+            >{{ item }}</a-select-option>
           </a-select>
-          <template v-else> {{ text | modelAttr }}</template>
+          <template v-else>{{ text | modelAttr }}</template>
         </div>
       </template>
       <template slot="material" slot-scope="text, record, index">
         <div key="material">
-          <a-select
-            v-if="record.editable"
-            @select="handleSelectMaterial"
-            :default-value="text"
-          >
+          <a-select v-if="record.editable" @select="handleSelectMaterial" :default-value="text">
             <!-- 不设置 default-value 的话, 选择框会很小-->
             <a-select-option
               v-for="(item, index) in ['铜模', '钢模']"
               :key="index"
               :value="index"
-              >{{ item }}</a-select-option
-            >
+            >{{ item }}</a-select-option>
           </a-select>
-          <template v-else> {{ text | modelMaterial }}</template>
+          <template v-else>{{ text | modelMaterial }}</template>
         </div>
       </template>
       <template slot="operation" slot-scope="text, record, index">
         <div class="editable-row-operations">
           <span v-if="record.editable">
             <a @click="() => save(record.id, index)">Save</a>
-            <a-popconfirm
-              title="Sure to cancel?"
-              @confirm="() => cancel(index, record)"
-            >
+            <a-popconfirm title="Sure to cancel?" @confirm="() => cancel(index, record)">
               <a>Cancel</a>
             </a-popconfirm>
           </span>
@@ -249,6 +236,7 @@ export default {
     handleSelectMaterial(v) {
       this.data[this.editingRow].material = v
     },
+    //选中行的id
     onSelectChange(selectedRowKeys) {
       console.log('selectedRowKeys changed: ', selectedRowKeys)
       this.selectedRowKeys = selectedRowKeys
