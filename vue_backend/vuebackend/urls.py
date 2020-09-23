@@ -45,6 +45,7 @@ router.register('order_to_model', OrderToModelViewSet)
 urlpatterns = [
     path('api/', include(router.urls)),
     path('api/sendmail/', SendEmail.as_view()),
+    # path('api/order_to_model/', order_to_model),
     path('', include('webapi.urls'))
 ]
 

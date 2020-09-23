@@ -1,6 +1,7 @@
 import uuid
 from django.core.cache import cache
 from django.db.models import Q
+from django.http import HttpResponse
 from rest_framework import status, exceptions
 from rest_framework.response import Response
 from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerializer, PurchaseOrderSerializer, \
@@ -10,6 +11,7 @@ from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerial
 from api.models import OrderCatalog, Customers, SubOrder, PurchaseOrder, PurchaseDetail, ShipOrder, ShipDetail, \
     CustomerAddr, OrderModel, OrderToModel
 from rest_framework.viewsets import ModelViewSet
+from rest_framework import viewsets
 from middleware.pagenation import SubOrderPagination
 from user.authentications import GetTokenAuthentication
 
@@ -111,11 +113,6 @@ class CustomerAddrViewSet(ModelViewSet):
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
 
-    def perform_create(self, serializer):
-        print(serializer)
-        print(self.request.data)
-        serializer.save()
-
 
 class SubOrderViewSet(ModelViewSet):
     queryset = SubOrder.objects.filter(is_delete=0).order_by('status')
@@ -194,6 +191,23 @@ class OrderToModelViewSet(ModelViewSet):
     serializer_class = OrderToModelSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
+
+    def create(self, request, *args, **kwargs):
+        # print(self.request.data)
+        model = self.request.data['model']
+        order_number = self.request.data['order_number']
+        model_obj = OrderModel.objects.filter(id=model).first()
+        order_number_obj = OrderCatalog.objects.filter(order_number=order_number).first()
+        obj = OrderToModel()
+        obj.model = model_obj
+        obj.order_number = order_number_obj
+        obj.save()
+        return Response(status=status.HTTP_201_CREATED)
+
+# def order_to_model(request):
+#     if request.method == 'POST':
+#         print(request.body)
+#         return HttpResponse('haha')
 
 
 class PurchaseOrderViewSet(ModelViewSet):

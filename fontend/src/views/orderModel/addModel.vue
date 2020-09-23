@@ -1,8 +1,6 @@
 <template>
   <div>
-    <a-button type="primary" @click="showDrawer">
-      <a-icon type="plus" />New Model
-    </a-button>
+    <a-button type="primary" @click="showDrawer">New Model</a-button>
     <a-drawer
       title="Create New Model"
       :visible="visible"
@@ -28,8 +26,7 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-              >{{ item.lite_name }}</a-select-option
-            >
+            >{{ item.lite_name }}</a-select-option>
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="attribute" prop="atr">
@@ -119,8 +116,8 @@ export default {
       postOrderModel(this.form)
         .then(res => {
           this.$emit('getData')
-          this.visible = false
-          this.$emit('hideOrderTable')
+          this.$emit('getNewModelData', res.data)
+          this.onClose()
           this.$message.success('提交成功')
         })
         .catch(err => {
@@ -131,11 +128,11 @@ export default {
     },
     showDrawer() {
       this.visible = true
-      this.$emit('hideOrderTable')
+      this.$emit('hideOrderTable', false)
     },
     onClose() {
       this.visible = false
-      this.$emit('hideOrderTable')
+      this.$emit('hideOrderTable', true)
     }
   }
 }

@@ -1346,3 +1346,1495 @@ Traceback (most recent call last):
 django.db.utils.IntegrityError: null value in column "number" violates not-null constraint
 DETAIL:  Failing row contains (8, null, 1, , , 2020-09-15, null, 1000.00, , 0, alibaba, 1).
 
+[2020-09-23 06:31:40,132][Thread-18:140603735456544][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (2, 2020-09-23 06:31:40.094823+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (2, 2020-09-23 06:31:40.094823+00, 0, null, null).
+
+[2020-09-23 06:35:05,523][Thread-20:140603731237664][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (3, 2020-09-23 06:35:05.479567+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (3, 2020-09-23 06:35:05.479567+00, 0, null, null).
+
+[2020-09-23 06:36:33,455][Thread-23:140603728853792][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+[2020-09-23 06:36:38,764][Thread-23:140603728853792][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+[2020-09-23 06:38:56,601][Thread-2:140191738108704][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+[2020-09-23 06:38:57,735][Thread-2:140191738108704][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 25, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+[2020-09-23 06:39:23,397][Thread-2:140191738108704][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 23, in authenticate
+    token = request.headers['authorization']
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 388, in __getitem__
+    return super().__getitem__(key.replace('_', '-'))
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 320, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'authorization'
+[2020-09-23 06:40:27,751][Thread-2:140191738108704][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (4, 2020-09-23 06:40:27.710975+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (4, 2020-09-23 06:40:27.710975+00, 0, null, null).
+
+[2020-09-23 06:41:24,560][Thread-2:140191738108704][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (5, 2020-09-23 06:41:24.528632+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (5, 2020-09-23 06:41:24.528632+00, 0, null, null).
+
+[2020-09-23 06:42:31,582][Thread-2:140708343921440][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (6, 2020-09-23 06:42:31.536423+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (6, 2020-09-23 06:42:31.536423+00, 0, null, null).
+
+[2020-09-23 06:46:38,119][Thread-2:140708343921440][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (7, 2020-09-23 06:46:38.087085+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (7, 2020-09-23 06:46:38.087085+00, 0, null, null).
+
+[2020-09-23 06:48:00,497][Thread-2:140708343921440][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (8, 2020-09-23 06:48:00.469485+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (8, 2020-09-23 06:48:00.469485+00, 0, null, null).
+
+[2020-09-23 06:59:06,647][Thread-2:140276089502496][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (9, 2020-09-23 06:59:06.594423+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (9, 2020-09-23 06:59:06.594423+00, 0, null, null).
+
+[2020-09-23 06:59:28,287][Thread-1:139986525895456][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (10, 2020-09-23 06:59:28.242672+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (10, 2020-09-23 06:59:28.242672+00, 0, null, null).
+
+[2020-09-23 07:00:12,567][Thread-2:139790132468512][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (11, 2020-09-23 07:00:12.521161+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (11, 2020-09-23 07:00:12.521161+00, 0, null, null).
+
+[2020-09-23 07:01:21,523][Thread-2:139790132468512][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (12, 2020-09-23 07:01:21.491922+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (12, 2020-09-23 07:01:21.491922+00, 0, null, null).
+
+[2020-09-23 07:01:33,107][Thread-2:139790132468512][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (13, 2020-09-23 07:01:33.077585+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (13, 2020-09-23 07:01:33.077585+00, 0, null, null).
+
+[2020-09-23 07:01:36,867][Thread-2:139790132468512][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (14, 2020-09-23 07:01:36.833645+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (14, 2020-09-23 07:01:36.833645+00, 0, null, null).
+
+[2020-09-23 07:04:44,703][Thread-2:140510446922528][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 500, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: OrderToModel() got an unexpected keyword argument 'sales'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/src/api/api/views.py", line 195, in perform_create
+    serializer.save(sales=self.request.user)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 951, in create
+    raise TypeError(msg)
+TypeError: Got a `TypeError` when calling `OrderToModel.objects.create()`. This may be because you have a writable field on the serializer class that is not a valid argument to `OrderToModel.objects.create()`. You may need to make the field read-only, or override the OrderToModelSerializer.create() method to handle this correctly.
+Original exception was:
+ Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 431, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 500, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: OrderToModel() got an unexpected keyword argument 'sales'
+
+[2020-09-23 07:05:16,485][Thread-2:140524019944224][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (15, 2020-09-23 07:05:16.437742+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/src/api/api/views.py", line 195, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (15, 2020-09-23 07:05:16.437742+00, 0, null, null).
+
+[2020-09-23 07:05:55,823][Thread-2:140487298394912][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 507, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 422, in finalize_response
+    % type(response)
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+[2020-09-23 07:08:17,221][Thread-2:139989984516896][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 199, in create
+    serializer = OrderToModelSerializer(dat=request.data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 117, in __init__
+    super().__init__(**kwargs)
+TypeError: __init__() got an unexpected keyword argument 'dat'
+[2020-09-23 07:08:39,838][Thread-1:140225931320096][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (16, 2020-09-23 07:08:39.793984+00, 0, null, null).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 433, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "model_id" violates not-null constraint
+DETAIL:  Failing row contains (16, 2020-09-23 07:08:39.793984+00, 0, null, null).
+
+[2020-09-23 07:23:55,588][Thread-2:140318208060192][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 196, in create
+    print(self.request.data.model)
+AttributeError: 'QueryDict' object has no attribute 'model'
+[2020-09-23 07:26:10,837][Thread-2:140626171366176][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 201, in create
+    obj.save()
+TypeError: save() missing 1 required positional argument: 'self'
+[2020-09-23 07:26:54,643][Thread-2:140625012497184][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 199, in create
+    obj.model = model
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/fields/related_descriptors.py", line 219, in __set__
+    self.field.remote_field.model._meta.object_name,
+ValueError: Cannot assign "'22'": "OrderToModel.model" must be a "OrderModel" instance.
+[2020-09-23 07:33:25,869][Thread-3:140385732979488][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/order_to_model/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'model'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 196, in create
+    model = self.request.data['model']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'model'

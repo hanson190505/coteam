@@ -46,6 +46,7 @@ class OrderToModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderToModel
         fields = "__all__"
+        depth = 1
 
 
 class PostOrdersSerializer(serializers.ModelSerializer):

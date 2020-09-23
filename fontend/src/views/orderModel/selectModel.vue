@@ -9,16 +9,19 @@
       :body-style="{ paddingBottom: '80px' }"
       @close="onClose"
     >
-      <model-table ref="selectmodeltable" :selectingShow="true"></model-table>
+      <!-- <model-table ref="modelref" :selectingShow="true"></model-table> -->
+      <order-tomodel :selectingShow="true"></order-tomodel>
     </a-drawer>
   </div>
 </template>
 
 <script>
 import modelTable from './modelTable'
+import orderTomodel from './orderTomodel'
 export default {
   components: {
-    modelTable
+    modelTable,
+    orderTomodel
   },
   data() {
     return {
@@ -26,15 +29,12 @@ export default {
     }
   },
   methods: {
-    // selectModel() {
-    //   this.$refs.selectmodeltable.selectingTableShow('aaa')
-    //   this.visible = !this.visible
-    // },
     selectModel() {
       this.visible = true
       this.$emit('hideOrderTable')
     },
     onClose() {
+      this.$emit('getNewModel', '123')
       this.visible = false
       this.$emit('hideOrderTable')
     }
