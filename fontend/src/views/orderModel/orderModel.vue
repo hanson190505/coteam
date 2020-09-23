@@ -10,12 +10,6 @@
 
 <script>
 const columns = [
-  // {
-  //   title: '订单编号',
-  //   dataIndex: 'order_number.order_number',
-  //   width: '8%',
-  //   scopedSlots: { customRender: 'order_number' }
-  // },
   {
     title: '供应商',
     dataIndex: 'supplier',
@@ -68,9 +62,6 @@ export default {
   },
   methods: {
     onDelete(id) {
-      console.log('====================================')
-      console.log(id)
-      console.log('====================================')
       this.$emit('deleteNewModelRow', id)
     }
   }
