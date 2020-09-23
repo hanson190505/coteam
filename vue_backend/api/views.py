@@ -204,10 +204,20 @@ class OrderToModelViewSet(ModelViewSet):
         obj.save()
         return Response(status=status.HTTP_201_CREATED)
 
-# def order_to_model(request):
-#     if request.method == 'POST':
-#         print(request.body)
-#         return HttpResponse('haha')
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        order_number = self.request.query_params.get('order_number')
+        page = self.paginate_queryset(queryset)
+        if order_number:
+            order_model_list = self.queryset.filter(order_number_id=order_number)
+            serializer = self.get_serializer(order_model_list, many=True)
+            return Response(serializer.data)
+        elif page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        else:
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
 
 
 class PurchaseOrderViewSet(ModelViewSet):

@@ -193,6 +193,7 @@ class OrderModel(models.Model):
 class OrderToModel(models.Model):
     order_number = models.ForeignKey('OrderCatalog', on_delete=models.CASCADE)
     model = models.ForeignKey('OrderModel', on_delete=models.CASCADE)
+    sale_price = models.DecimalField(decimal_places=3, max_digits=15, null=True, blank=True)
     input_date = models.DateTimeField(default=timezone.now)
     is_delete = models.IntegerField(default=0)
 

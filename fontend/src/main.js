@@ -22,10 +22,10 @@ import {
   Modal,
   Select,
   Drawer,
-  DatePicker
+  DatePicker,
 } from 'ant-design-vue'
 
-Vue.use(Table, Pagination)
+Vue.use(Pagination)
 Vue.component(Button.name, Button)
 Vue.component(Popconfirm.name, Popconfirm)
 Vue.component(Carousel.name, Carousel)
@@ -38,6 +38,7 @@ Vue.component(Select.name, Select)
 Vue.component(Select.Option.name, Select.Option)
 Vue.component(Drawer.name, Drawer)
 Vue.component(DatePicker.name, DatePicker)
+Vue.component(Table.name, Table)
 
 Vue.use(Element, {
   size: 'mini',
@@ -54,7 +55,7 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
 //JSEncrypt加密方法(参数1:数据，参数2：公钥)
-Vue.prototype.$jsEncrypt = function(data, pub_key) {
+Vue.prototype.$jsEncrypt = function (data, pub_key) {
   let encrypt = new JSEncrypt()
   encrypt.setPublicKey(pub_key)
   let en_data = encrypt.encrypt(data.toString())
