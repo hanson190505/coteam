@@ -48,6 +48,7 @@
       <el-table-column label="产品颜色" width="120">
         <template slot-scope="scope">
           <span>{{ scope.row.sub_order.pro_color }}</span>
+          <add-product-color :parentProColor="scope.row.sub_order"></add-product-color>
         </template>
       </el-table-column>
       <el-table-column label="产品包装" width="120">
@@ -67,10 +68,12 @@
       </el-table-column>
       <el-table-column label="产品重量(kg)" width="100">
         <template slot-scope="scope">
-          <span>{{
+          <span>
+            {{
             (scope.row.sub_order.pro_weight * 1 * scope.row.sub_order.pro_qt) /
-              1000
-          }}</span>
+            1000
+            }}
+          </span>
         </template>
       </el-table-column>
       <el-table-column label="出货重量(kg)" width="120" prop="ship_weight">
@@ -84,10 +87,7 @@
         </template>
       </el-table-column>
     </el-table>
-    <pagi-nation
-      @pagination="pagination"
-      :getDataTotal="dataTotal"
-    ></pagi-nation>
+    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
   </div>
 </template>
 
@@ -95,6 +95,7 @@
 import pagiNation from '@/components/common/pagiNation'
 import dateSearch from '@/components/common/dateSearch'
 import backendSearchVue from '@/components/common/backendSearch.vue'
+import addProductColor from '@/components/common/addProductColor'
 export default {
   name: 'shipDetail',
   data() {
@@ -106,7 +107,8 @@ export default {
   components: {
     pagiNation,
     backendSearchVue,
-    dateSearch
+    dateSearch,
+    addProductColor
   },
   methods: {
     //日期搜索
@@ -127,6 +129,8 @@ export default {
         params = { page: 1, page_size: 10 }
       }
       this.$store.dispatch('shipStore/setShipDetailData', params).then(res => {
+        console.log(res)
+
         this.loading = false
         this.dataTotal = res.data.count
       })

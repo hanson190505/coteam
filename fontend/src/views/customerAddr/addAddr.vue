@@ -1,7 +1,7 @@
 <template>
   <div>
     <a-button type="primary" @click="showDrawer">
-      <a-icon type="plus" /> New Addr
+      <a-icon type="plus" />New Addr
     </a-button>
     <a-drawer
       title="Create New Addr"
@@ -27,26 +27,26 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-              >{{ item.lite_name }}</a-select-option
-            >
+            >{{ item.lite_name }}</a-select-option>
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="地址类别" prop="addr_type">
           <a-select>
-            <a-select-option value="0">
-              common
-            </a-select-option>
-            <a-select-option value="1">
-              other
-            </a-select-option>
+            <a-select-option value="0">common</a-select-option>
+            <a-select-option value="1">other</a-select-option>
           </a-select>
         </a-form-model-item>
-
+        <a-form-model-item label="联系人" prop="linkman">
+          <a-input v-model="form.linkman" />
+        </a-form-model-item>
         <a-form-model-item label="国家" prop="country">
           <a-input v-model="form.country" placeholder="非必填项目" />
         </a-form-model-item>
         <a-form-model-item label="城市" prop="city">
           <a-input v-model="form.city" placeholder="非必填项目" />
+        </a-form-model-item>
+        <a-form-model-item label="邮编" prop="postcode">
+          <a-input v-model="form.postcode" placeholder="非必填项目" />
         </a-form-model-item>
         <a-form-model-item label="详细地址" prop="addr">
           <a-input v-model="form.addr" type="textarea" />

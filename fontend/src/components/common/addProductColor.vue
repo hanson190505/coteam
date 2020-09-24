@@ -4373,11 +4373,11 @@ export default {
       // console.log(this.parentProColor.$index)
       // console.log(this.parentProColor.row.pro_color)
       if (this.parentProColor) {
-        if (this.parentProColor.row.pro_color === 0) {
+        if (this.parentProColor.pro_color === 0) {
           this.colorList = []
         } else {
           let l = []
-          this.parentProColor.row.pro_color.split('|').forEach(el => {
+          this.parentProColor.pro_color.split('|').forEach(el => {
             if (el !== '') {
               l.push(JSON.parse(el))
             }

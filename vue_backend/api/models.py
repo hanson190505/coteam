@@ -63,6 +63,8 @@ class CustomerAddr(models.Model):
     }
     addr_type = models.IntegerField(default=1, choices=ADDR_TYPE)
     customer = models.ForeignKey(Customers, on_delete=models.CASCADE)
+    linkman = models.CharField(max_length=64, null=True, blank=True)
+    postcode = models.CharField(max_length=10, null=True, blank=True)
     country = models.CharField(max_length=64, null=True, blank=True)
     city = models.CharField(max_length=64, null=True, blank=True)
     addr = models.CharField(max_length=256, null=True, blank=True)

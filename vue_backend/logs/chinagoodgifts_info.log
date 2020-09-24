@@ -3490,3 +3490,23 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+[2020-09-24 03:09:19,060][MainThread:140028048678216][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-24 03:09:19,647][MainThread:140397361810760][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-24 03:10:01,008][MainThread:140397361810760][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/models.py changed, reloading.]
+[2020-09-24 03:10:01,603][MainThread:139694321900872][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-24 03:18:32,813][Thread-2:139694272674592][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:18:32,856][Thread-1:139694275308320][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:19:51,528][Thread-1:139694275308320][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:19:51,571][Thread-2:139694272674592][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:20:15,950][Thread-1:139694275308320][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:20:15,982][Thread-2:139694272674592][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:20:56,183][Thread-1:139694275308320][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:20:56,223][Thread-2:139694272674592][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:22:07,360][Thread-1:139694275308320][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 03:22:07,399][Thread-2:139694272674592][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 04:49:27,895][Thread-5:139694270565152][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 04:51:17,876][Thread-4:139694272674592][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 04:52:39,975][Thread-5:139694270565152][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 04:54:03,427][Thread-5:139694270565152][task_id:django.request][log.py:228][WARNING][Bad Request: /api/shipdetails/]
+[2020-09-24 04:56:11,594][Thread-3:139694275308320][task_id:django.request][log.py:228][WARNING][Not Found: /api/suborders/undefined/]
+[2020-09-24 04:57:31,747][Thread-6:139694269504288][task_id:django.request][log.py:228][WARNING][Not Found: /api/suborders/undefined/]

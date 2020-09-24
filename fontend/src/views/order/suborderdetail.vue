@@ -2,17 +2,12 @@
   <div>
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item :to="{ path: '/orders' }"
-        >订单管理</el-breadcrumb-item
-      >
+      <el-breadcrumb-item :to="{ path: '/orders' }">订单管理</el-breadcrumb-item>
       <el-breadcrumb-item>明细列表</el-breadcrumb-item>
     </el-breadcrumb>
     <el-row>
       <el-col :span="4">
-        <backend-search
-          v-on:getSearchSuborder="getSearchSuborder"
-          @parentMethod="pagination"
-        ></backend-search>
+        <backend-search v-on:getSearchSuborder="getSearchSuborder" @parentMethod="pagination"></backend-search>
       </el-col>
       <el-col :span="2">
         <order-status @handleFilter="pagination"></order-status>
@@ -38,11 +33,7 @@
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)"
     >
-      <el-table-column
-        type="selection"
-        width="60"
-        align="center"
-      ></el-table-column>
+      <el-table-column type="selection" width="60" align="center"></el-table-column>
       <el-table-column prop="tag" label="标签" width="80" align="center" fixed>
         <template slot-scope="scope">
           <el-popover
@@ -52,52 +43,28 @@
             :content="popoverContent"
             :disabled="popoverDisable(scope.row)"
           >
-            <el-tag
-              :type="scope.row.type"
-              disable-transitions
-              slot="reference"
-              >{{ scope.row.tag }}</el-tag
-            >
+            <el-tag :type="scope.row.type" disable-transitions slot="reference">{{ scope.row.tag }}</el-tag>
           </el-popover>
         </template>
       </el-table-column>
       <el-table-column label="客户" align="center" width="100" fixed>
         <template slot-scope="scope">
-          <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.customer)"
-          ></span>
+          <span class="col-cont" v-html="showDate(scope.row.order_number.customer)"></span>
         </template>
       </el-table-column>
       <el-table-column label="订单编号" align="center" width="140" fixed>
         <template slot-scope="scope">
-          <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.order_number)"
-          ></span>
+          <span class="col-cont" v-html="showDate(scope.row.order_number.order_number)"></span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="下单日期"
-        align="center"
-        width="100"
-        sortable
-        prop="order_date"
-        fixed
-      >
+      <el-table-column label="下单日期" align="center" width="100" sortable prop="order_date" fixed>
         <template slot-scope="scope">
-          <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.order_date)"
-          ></span>
+          <span class="col-cont" v-html="showDate(scope.row.order_number.order_date)"></span>
         </template>
       </el-table-column>
       <el-table-column label="订单交期" align="center" width="100">
         <template slot-scope="scope">
-          <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.deliver_date)"
-          ></span>
+          <span class="col-cont" v-html="showDate(scope.row.order_number.deliver_date)"></span>
         </template>
       </el-table-column>
       <el-table-column label="产品名称" align="center" width="100">
@@ -117,7 +84,7 @@
       </el-table-column>
       <el-table-column label="产品颜色" align="center" width="120">
         <template slot-scope="scope">
-          <add-product-color :parentProColor="scope"></add-product-color>
+          <add-product-color :parentProColor="scope.row"></add-product-color>
         </template>
       </el-table-column>
       <el-table-column label="产品包装" align="center" width="120">
@@ -125,12 +92,7 @@
           <span class="col-cont" v-html="showDate(scope.row.pro_pack)"></span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="产品描述"
-        align="center"
-        width="140"
-        :show-overflow-tooltip="true"
-      >
+      <el-table-column label="产品描述" align="center" width="140" :show-overflow-tooltip="true">
         <template slot-scope="scope">
           <span class="col-cont" v-html="showDate(scope.row.pro_desc)"></span>
         </template>
@@ -152,82 +114,46 @@
       </el-table-column>
       <el-table-column label="汇率" align="center" width="70">
         <template slot-scope="scope">
-          <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.ex_rate)"
-          ></span>
+          <span class="col-cont" v-html="showDate(scope.row.order_number.ex_rate)"></span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="订单金额($)"
-        align="center"
-        width="100"
-        prop="sub_amount"
-      >
+      <el-table-column label="订单金额($)" align="center" width="100" prop="sub_amount">
         <template slot-scope="scope">
           <span>{{ scope.row.sub_amount | toThousandFilter }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="订单金额(¥)"
-        align="center"
-        width="100"
-        prop="rmb_amount"
-      >
+      <el-table-column label="订单金额(¥)" align="center" width="100" prop="rmb_amount">
         <template slot-scope="scope">
           <span>
             {{
-              (scope.row.sub_amount * scope.row.order_number.ex_rate)
-                | toThousandFilter
+            (scope.row.sub_amount * scope.row.order_number.ex_rate)
+            | toThousandFilter
             }}
           </span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="采购金额(¥)"
-        align="center"
-        width="100"
-        prop="purchaseAmount"
-      >
+      <el-table-column label="采购金额(¥)" align="center" width="100" prop="purchaseAmount">
         <template slot-scope="scope">
           <span>{{ scope.row.purchaseAmount | toThousandFilter }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="出货金额(¥)"
-        align="center"
-        width="100"
-        prop="shipAmount"
-      >
+      <el-table-column label="出货金额(¥)" align="center" width="100" prop="shipAmount">
         <template slot-scope="scope">
           <span>{{ scope.row.shipAmount | toThousandFilter }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="毛利(¥)"
-        align="center"
-        width="100"
-        prop="profit_rmb"
-      >
+      <el-table-column label="毛利(¥)" align="center" width="100" prop="profit_rmb">
         <template slot-scope="scope">
           <span>{{ scope.row.profit_rmb | toThousandFilter }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="毛利($)"
-        align="center"
-        width="100"
-        prop="profit_usd"
-      >
+      <el-table-column label="毛利($)" align="center" width="100" prop="profit_usd">
         <template slot-scope="scope">
           <span>{{ scope.row.profit_usd | toThousandFilter }}</span>
         </template>
       </el-table-column>
     </el-table>
-    <pagi-nation
-      @pagination="pagination"
-      :getDataTotal="dataTotal"
-    ></pagi-nation>
+    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
   </div>
 </template>
 

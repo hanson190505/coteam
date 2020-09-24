@@ -21,35 +21,27 @@
             :value="text"
             @change="e => handleChange(e.target.value, index, col)"
           />
-          <template v-else> {{ text }}</template>
+          <template v-else>{{ text }}</template>
         </div>
       </template>
       <template slot="addr_type" slot-scope="text, record, index">
         <div key="addr_type">
-          <a-select
-            v-if="record.editable"
-            @select="handleSelect"
-            :default-value="text"
-          >
+          <a-select v-if="record.editable" @select="handleSelect" :default-value="text">
             <!-- 不设置 default-value 的话, 选择框会很小-->
             <a-select-option
               v-for="(item, index) in ['common', 'other']"
               :key="index"
               :value="index"
-              >{{ item }}</a-select-option
-            >
+            >{{ item }}</a-select-option>
           </a-select>
-          <template v-else> {{ text | addrType }}</template>
+          <template v-else>{{ text | addrType }}</template>
         </div>
       </template>
       <template slot="operation" slot-scope="text, record, index">
         <div class="editable-row-operations">
           <span v-if="record.editable">
             <a @click="() => save(record.id, index)">Save</a>
-            <a-popconfirm
-              title="Sure to cancel?"
-              @confirm="() => cancel(index)"
-            >
+            <a-popconfirm title="Sure to cancel?" @confirm="() => cancel(index)">
               <a>Cancel</a>
             </a-popconfirm>
           </span>
@@ -92,6 +84,12 @@ const columns = [
     scopedSlots: { customRender: 'addr_type' }
   },
   {
+    title: '联系人',
+    dataIndex: 'linkman',
+    width: '10%',
+    scopedSlots: { customRender: 'linkman' }
+  },
+  {
     title: '国家',
     dataIndex: 'country',
     width: '10%',
@@ -104,10 +102,10 @@ const columns = [
     scopedSlots: { customRender: 'city' }
   },
   {
-    title: '录入日期',
-    dataIndex: 'input_date',
+    title: '邮编',
+    dataIndex: 'postcode',
     width: '10%',
-    scopedSlots: { customRender: 'input_date' }
+    scopedSlots: { customRender: 'postcode' }
   },
   {
     title: '详细地址',
