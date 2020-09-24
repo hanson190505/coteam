@@ -14,7 +14,6 @@ serverkey
 fontend/test
 vue_backend/image
 apps
-migrations
 weblearn/node_modules
 # local env files
 .env.local
