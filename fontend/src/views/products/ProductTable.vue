@@ -65,7 +65,7 @@
       <el-table-column width="150" label="颜色">
         <template slot-scope="scope">
           <add-product-color
-            :parentProColor="scope"
+            :parentProColor="scope.row"
             @getProColor="handleSelect"
             @delProColor="delProColor"
             :addColorBtn="(childAddColorBtn = false)"

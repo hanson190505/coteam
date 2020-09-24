@@ -46,9 +46,7 @@
         <el-menu-item index="/staffs">用户列表</el-menu-item>
       </el-submenu>
       <el-menu-item index="#">{{ this.$store.getters.name }}</el-menu-item>
-      <el-menu-item index="8">
-        <el-button type="info" @click="logout" size="medium">退出</el-button>
-      </el-menu-item>
+      <el-button type="info" @click="logout" size="medium">退出</el-button>
     </el-menu>
   </div>
 </template>
