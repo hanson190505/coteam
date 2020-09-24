@@ -196,11 +196,13 @@ class OrderToModelViewSet(ModelViewSet):
         # print(self.request.data)
         model = self.request.data['model']
         order_number = self.request.data['order_number']
+        sale_price = self.request.data['sale_price']
         model_obj = OrderModel.objects.filter(id=model).first()
         order_number_obj = OrderCatalog.objects.filter(order_number=order_number).first()
         obj = OrderToModel()
         obj.model = model_obj
         obj.order_number = order_number_obj
+        obj.sale_price = sale_price
         obj.save()
         return Response(status=status.HTTP_201_CREATED)
 

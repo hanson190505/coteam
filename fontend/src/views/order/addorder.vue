@@ -442,7 +442,6 @@ export default {
       this.dialogVisible = true
       this.newModelData.push(res)
     },
-    // TODO:增加模具销售价格,数据写入服务器失败,读取数据展示失败
     getSalePrice(val) {
       let newData = [...this.newModelData]
       let target = newData.find(item => item.id === val.id)

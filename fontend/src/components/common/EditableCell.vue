@@ -17,7 +17,7 @@
 <script>
 export default {
   props: {
-    text: Number
+    text: String
   },
   data() {
     return {

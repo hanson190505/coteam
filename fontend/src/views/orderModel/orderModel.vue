@@ -59,7 +59,7 @@ const columns = [
     scopedSlots: { customRender: 'price' }
   },
   {
-    title: '销售价',
+    title: '销售价($)',
     dataIndex: 'sale_price',
     width: '8%',
     scopedSlots: { customRender: 'sale_price' }
@@ -88,6 +88,7 @@ export default {
   props: {
     modelData: Array
   },
+  mounted() {},
   methods: {
     onCellChange(key, dataIndex, value) {
       this.$emit('setSalePrice', { id: key, val: value })

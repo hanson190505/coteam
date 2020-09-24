@@ -604,9 +604,10 @@ export default {
     getOrder(number).then(res => {
       this.orderdetail = res.data
       getOrderToModel({ order_number: number }).then(res => {
-        this.newModelData = res.data.map(item => {
+        let modelData = res.data.map(item => {
           return item.model
         })
+        this.newModelData = res.data
       })
       getSubOrderList({ order_number: number }).then(res => {
         this.suborderdetail = res.data
