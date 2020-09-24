@@ -3,18 +3,10 @@
     <el-card>
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path: '/orders' }"
-          >订单管理</el-breadcrumb-item
-        >
+        <el-breadcrumb-item :to="{ path: '/orders' }">订单管理</el-breadcrumb-item>
         <el-breadcrumb-item>订单明细</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-form
-        ref="form"
-        :model="orderdetail"
-        label-width="80px"
-        size="mini"
-        inline-message
-      >
+      <el-form ref="form" :model="orderdetail" label-width="80px" size="mini" inline-message>
         <el-row>
           <el-col :span="6">
             <el-form-item label="订单编号" prop="order_number">
@@ -41,20 +33,12 @@
           </el-col>
           <el-col :span="4">
             <el-form-item label="汇率" prop="ex_rate">
-              <el-input
-                v-model="orderdetail.ex_rate"
-                :disabled="formdisabl"
-              ></el-input>
+              <el-input v-model="orderdetail.ex_rate" :disabled="formdisabl"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
             <el-form-item label="完成状态" prop="is_done">
-              <el-select
-                size="mini"
-                v-model="orderdetail.is_done"
-                clearable
-                :disabled="formdisabl"
-              >
+              <el-select size="mini" v-model="orderdetail.is_done" clearable :disabled="formdisabl">
                 <el-option
                   v-for="item in Options"
                   :key="item.value"
@@ -130,23 +114,16 @@
         <el-row>
           <el-col :span="24">
             <el-form-item label="备注">
-              <el-input
-                v-model="orderdetail.text"
-                :disabled="formdisabl"
-              ></el-input>
+              <el-input v-model="orderdetail.text" :disabled="formdisabl"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <!-- 模具 -->
-        <order-model :modelData="newModelData"></order-model>
+        <order-model :modelData="newModelData" :checkCulumns="2"></order-model>
         <!-- 图片功能区 -->
         <el-row>
           <el-col :span="18">
-            <upload-pic
-              :number="orderdetail.order_number"
-              :owner="'order'"
-              @sendPicUrl="getPicUrl"
-            ></upload-pic>
+            <upload-pic :number="orderdetail.order_number" :owner="'order'" @sendPicUrl="getPicUrl"></upload-pic>
             <div v-for="(item, index) in orderdetail.order_image" :key="index">
               <span>{{ item }}</span>
             </div>
@@ -154,39 +131,22 @@
           <el-col :span="6">
             <!-- <pic-carousel :proPicUrl="pic_url" ref="picCar"></pic-carousel> -->
             <div class="order-img">
-              <img
-                :src="this.orderdetail.order_pic"
-                @click="imgLook"
-                class="orderImg"
-              />
+              <img :src="this.orderdetail.order_pic" @click="imgLook" class="orderImg" />
             </div>
           </el-col>
         </el-row>
       </el-form>
-      <el-button type="primary" @click="editOrderDetail" v-show="editOrder"
-        >修改订单</el-button
-      >
-      <el-button type="warning" @click="saveOrderDetail" v-show="saveOrder"
-        >保存订单</el-button
-      >
+      <el-button type="primary" @click="editOrderDetail" v-show="editOrder">修改订单</el-button>
+      <el-button type="warning" @click="saveOrderDetail" v-show="saveOrder">保存订单</el-button>
       <el-button type="primary" @click="addSubOrderRow">新增明细</el-button>
       <el-button type="primary" @click="purchaseDetail">采购详情</el-button>
       <el-button type="primary" @click="shipDetail">出货详情</el-button>
 
-      <el-table
-        :data="suborderdetail"
-        style="width: 99.9%"
-        show-summary
-        highlight-current-row
-      >
+      <el-table :data="suborderdetail" style="width: 99.9%" show-summary highlight-current-row>
         <!-- <el-table-column type="selection" width="40"></el-table-column> -->
         <el-table-column label="产品名称" width="150" fixed>
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_name"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_name"></el-input>
             <span v-else>{{ scope.row.pro_name }}</span>
           </template>
         </el-table-column>
@@ -212,11 +172,7 @@
         </el-table-column>
         <el-table-column label="产品尺寸" width="120" fixed>
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_size"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_size"></el-input>
             <span v-else>{{ scope.row.pro_size }}</span>
           </template>
         </el-table-column>
@@ -232,31 +188,19 @@
         </el-table-column>
         <el-table-column label="产品包装" width="120">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_pack"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_pack"></el-input>
             <span v-else>{{ scope.row.pro_pack }}</span>
           </template>
         </el-table-column>
         <el-table-column label="描述" width="150">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_desc"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_desc"></el-input>
             <span v-else>{{ scope.row.pro_desc }}</span>
           </template>
         </el-table-column>
         <el-table-column label="数量" prop="pro_qt" width="120">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_qt"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_qt"></el-input>
             <span v-else>{{ scope.row.pro_qt }}</span>
           </template>
         </el-table-column>
@@ -273,11 +217,7 @@
         </el-table-column>
         <el-table-column label="重量(g)" width="80">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_weight"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_weight"></el-input>
             <span v-else>{{ scope.row.pro_weight }}</span>
           </template>
         </el-table-column>
@@ -289,11 +229,7 @@
         </el-table-column>-->
         <el-table-column label="金额($)" prop="sub_amount" width="120">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.sub_amount"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.sub_amount"></el-input>
             <span v-else>{{ scope.row.sub_amount | toThousandFilter }}</span>
           </template>
         </el-table-column>
@@ -303,14 +239,8 @@
               type="text"
               @click="editSubOrderRow(scope.$index, scope.row)"
               v-show="editOrder"
-              >修改</el-button
-            >
-            <el-button
-              size="mini"
-              type="text"
-              @click="delSubOrderRow(scope.$index, scope.row)"
-              >删除</el-button
-            >
+            >修改</el-button>
+            <el-button size="mini" type="text" @click="delSubOrderRow(scope.$index, scope.row)">删除</el-button>
             <!-- <el-button type="text" @click="addSubOrderRow(scope.row)">新增</el-button> -->
           </template>
         </el-table-column>
@@ -604,9 +534,6 @@ export default {
     getOrder(number).then(res => {
       this.orderdetail = res.data
       getOrderToModel({ order_number: number }).then(res => {
-        let modelData = res.data.map(item => {
-          return item.model
-        })
         this.newModelData = res.data
       })
       getSubOrderList({ order_number: number }).then(res => {
