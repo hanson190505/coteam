@@ -74,30 +74,34 @@ LOGGING = {
         # 默认的
         'default': {
             'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            # 'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_info.log"),  # 日志文件
-            'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-            'backupCount': 3,  # 最多备份几个
+            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'when': 'midnight',
+            'backupCount': 15,  # 最多备份几个
             'formatter': 'standard',
             'encoding': 'utf-8',
         },
         # 专门用来记错误日志
         'error': {
             'level': 'ERROR',
-            'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
-            'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-            'backupCount': 5,
+            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'when': 'midnight',
+            'backupCount': 15,
             'formatter': 'standard',
             'encoding': 'utf-8',
         },
         # 专门定义一个收集特定信息的日志
         'collect': {
             'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_collect.log"),
-            'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-            'backupCount': 5,
+            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'when': 'midnight',
+            'backupCount': 15,
             'formatter': 'collect',
             'encoding': "utf-8"
         }

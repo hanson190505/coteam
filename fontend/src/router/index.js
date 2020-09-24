@@ -79,6 +79,11 @@ const routes = [{
         component: () => import('@/views/user/index.vue'),
       },
       {
+        path: '/get_logs',
+        name: 'get_logs',
+        component: () => import('@/views/backendLogs/index.vue'),
+      },
+      {
         path: '/products',
         name: 'products',
         component: () => import('@/views/products/index.vue'),

@@ -1,9 +1,12 @@
+import os
 import uuid
 from django.core.cache import cache
 from django.db.models import Q
 from django.http import HttpResponse
 from rest_framework import status, exceptions
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from api.serializer import OrdersSerializer, CustomersSerializer, SubOrderSerializer, PurchaseOrderSerializer, \
     PurchaseDetailSerializer, PostPurchaseOrderSerializer, PostSubOrderSerializer, PostOrdersSerializer, \
     PostPurchaseDetailSerializer, ShipOrderSerializer, ShipDetailSerializer, PostShipDetailSerializer, \
@@ -16,6 +19,7 @@ from middleware.pagenation import SubOrderPagination
 from user.authentications import GetTokenAuthentication
 
 # 获取两个日期之间的查询参数
+from vuebackend.settings import BASE_LOG_DIR
 from webapi.models import HomeIndex
 
 
@@ -360,3 +364,14 @@ class HomeIndexViewSet(ModelViewSet):
     serializer_class = HomeIndexSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
+
+
+class GetLogsViewSet(APIView):
+    # authentication_classes = GetTokenAuthentication,
+
+    def get(self, request):
+        l_dir = os.listdir(path=BASE_LOG_DIR)
+
+        with open('logs/chinagoodgifts_info.log', "r") as f:
+            log_line = f.readline()
+        return Response({'l_dir':l_dir})

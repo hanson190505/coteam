@@ -44,9 +44,12 @@
       <el-submenu index="7" v-if="checkpermission()">
         <template slot="title">系统管理</template>
         <el-menu-item index="/staffs">用户列表</el-menu-item>
+        <el-menu-item index="/get_logs">系统日志</el-menu-item>
       </el-submenu>
       <el-menu-item index="#">{{ this.$store.getters.name }}</el-menu-item>
-      <el-button type="info" @click="logout" size="medium">退出</el-button>
+      <el-button type="info" @click="logout" size="medium" class="check-out"
+        >退出</el-button
+      >
     </el-menu>
   </div>
 </template>
@@ -76,4 +79,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.check-out {
+  height: 60px;
+}
+</style>
