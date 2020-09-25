@@ -1,14 +1,19 @@
-[2020-09-24 16:41:42,895][MainThread:139770072792392][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/vuebackend/settings.py changed, reloading.]
-[2020-09-24 16:41:43,797][MainThread:139984609828168][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-24 16:42:58,777][MainThread:139984609828168][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/vuebackend/settings.py changed, reloading.]
-[2020-09-24 16:42:59,683][MainThread:140034642259272][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-24 16:49:59,846][MainThread:140034642259272][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
-[2020-09-24 16:50:00,722][MainThread:139636254035272][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-24 16:51:33,799][MainThread:139636254035272][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
-[2020-09-24 16:51:34,797][MainThread:140428251012424][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-24 16:52:21,312][MainThread:140428251012424][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
-[2020-09-24 16:52:22,242][MainThread:140396985670984][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-24 16:52:26,852][Thread-1:140396938988320][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/get_logs/]
+2020-09-25 02:44:32,389|MainThread:140005963779400|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 02:50:29,777|MainThread:140005963779400|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 02:50:30,469|MainThread:140684559367496|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 02:57:01,467|MainThread:140684559367496|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 02:57:02,150|MainThread:140158952004936|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 03:04:34,264|MainThread:140158952004936|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 03:04:34,880|MainThread:140502809681224|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 03:05:24,255|MainThread:140502809681224|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 03:05:24,816|MainThread:140336703728968|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:21:39,390|MainThread:140336703728968|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:21:40,110|MainThread:140229845798216|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:22:25,664|MainThread:140229845798216|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:22:26,369|MainThread:140043417738568|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:24:47,344|MainThread:140043417738568|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:24:47,935|MainThread:140067729247560|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:27:27,235|Thread-1:140067682564896|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -28,10 +33,306 @@ Traceback (most recent call last):
     raise exc
   File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
     response = handler(request, *args, **kwargs)
-  File "/usr/src/api/api/views.py", line 378, in get
-    return Response({l_dir:l_dir})
-TypeError: unhashable type: 'list'
-[2020-09-24 16:52:44,423][MainThread:140396985670984][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
-[2020-09-24 16:52:45,342][MainThread:140152990862664][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-24 16:54:26,110][MainThread:140152990862664][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
-[2020-09-24 16:54:27,057][MainThread:140170325564744][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+  File "/usr/src/api/api/views.py", line 380, in get
+    with open(params, "r") as f:
+TypeError: expected str, bytes or os.PathLike object, not QueryDict
+2020-09-25 06:28:27,996|MainThread:140067729247560|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:28:28,622|MainThread:140502486916424|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:28:34,684|Thread-1:140502440233760|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 377, in get
+    if params[0] == 'get_options':
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 0
+2020-09-25 06:29:05,650|MainThread:140502486916424|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:29:06,281|MainThread:139635417718088|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:29:12,902|MainThread:139635417718088|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:29:13,522|MainThread:140113261985096|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:29:22,681|Thread-1:140113215564576|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 380, in get
+    with open(params['0'], "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'chinagoodgifts_info.log'
+2020-09-25 06:30:27,818|MainThread:140113261985096|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:30:28,425|MainThread:140589562187080|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:30:35,751|Thread-1:140589516028704|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 380, in get
+    with open(BASE_LOG_DIR+params['0'], "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/src/api/logschinagoodgifts_info.log'
+2020-09-25 06:31:09,621|MainThread:140589562187080|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:31:10,234|MainThread:140069317021000|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:31:17,186|Thread-1:140069270338336|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 380, in get
+    with open('/' + BASE_LOG_DIR+params['0'], "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '//usr/src/api/logschinagoodgifts_info.log'
+2020-09-25 06:31:37,499|MainThread:140069317021000|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:31:38,091|MainThread:140168042556744|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:31:46,211|Thread-1:140167995874080|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 383, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+2020-09-25 06:34:14,410|MainThread:140168042556744|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:34:15,012|MainThread:140529430039880|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:34:27,196|Thread-1:140529383357216|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 384, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+2020-09-25 06:35:14,439|MainThread:140529430039880|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.
+2020-09-25 06:35:15,010|MainThread:140414930808136|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader
+2020-09-25 06:35:19,878|Thread-1:140414884125472|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 384, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+2020-09-25 06:37:29,189|MainThread:140414930808136|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/vuebackend/settings.py changed, reloading.
+2020-09-25 06:37:29,773|MainThread:140472130436424|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader|
+2020-09-25 06:37:44,620|MainThread:140584715771208|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader|
+2020-09-25 06:38:29,125|Thread-1:140584669088544|task_id:django.request|log.py:228|ERROR|Internal Server Error: /api/get_logs/|
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 384, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+2020-09-25 06:44:33,301|MainThread:140584715771208|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/vuebackend/settings.py changed, reloading.|
+[2020-09-25 06:44:33,890][MainThread:139819152858440][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
+[2020-09-25 06:44:43,179][Thread-1:139819106175776][task_id:django.request][log.py:228][ERROR][Internal Server Error: /api/get_logs/]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 384, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+[2020-09-25 06:48:30,114][MainThread:139819152858440][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/vuebackend/settings.py changed, reloading.]
+INFO 2020-09-25 06:51:51,248 autoreload 74 140236963945800 Watching for file changes with StatReloader
+ERROR 2020-09-25 06:54:53,742 log 74 140236917263136 Internal Server Error: /api/get_logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 384, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+INFO 2020-09-25 06:55:49,124 autoreload 74 140236963945800 /usr/src/api/vuebackend/settings.py changed, reloading.
+2020-09-25 06:55:49,759|MainThread:139742107790664|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader|
+2020-09-25 06:59:07,626|MainThread:139742107790664|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/api/views.py changed, reloading.|
+2020-09-25 06:59:08,217|MainThread:139649666465096|task_id:django.utils.autoreload|autoreload.py:598|INFO|Watching for file changes with StatReloader|
+2020-09-25 07:00:01,995|MainThread:139649666465096|task_id:django.utils.autoreload|autoreload.py:222|INFO|/usr/src/api/vuebackend/settings.py changed, reloading.|
+2020-09-25 07:00:02,595|MainThread:140699184024904|task_id:django.utils.autoreload|autoreload.py:598|INFO
+2020-09-25 07:06:19,553|MainThread:140699184024904|task_id:django.utils.autoreload|autoreload.py:222|INFO
+2020-09-25 07:06:20,170|MainThread:139642855669064|task_id:django.utils.autoreload|autoreload.py:598|Watching for file changes with StatReloader|INFO
+2020-09-25 07:06:45,169|MainThread:139642855669064|task_id:django.utils.autoreload|autoreload.py:222|/usr/src/api/api/views.py changed, reloading.|INFO
+2020-09-25 07:06:45,836|MainThread:139870769646920|task_id:django.utils.autoreload|autoreload.py:598|Watching for file changes with StatReloader|INFO
+2020-09-25 07:06:51,402|Thread-1:139870722964256|task_id:django.request|log.py:228|Internal Server Error: /api/get_logs/|ERROR
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 385, in get
+    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+IndexError: list index out of range
+2020-09-25 07:22:49,668|MainThread:139870769646920|task_id:django.utils.autoreload|autoreload.py:222|/usr/src/api/vuebackend/settings.py changed, reloading.|INFO
+2020-09-25 07:22:50,297|MainThread:140293860404552|task_id:django.utils.autoreload|autoreload.py:598|Watching for file changes with StatReloader|INFO
+2020-09-25 07:23:04,684|MainThread:140293860404552|task_id:django.utils.autoreload|autoreload.py:222|/usr/src/api/vuebackend/settings.py changed, reloading.|INFO
+2020-09-25 07:23:05,315|MainThread:140115735252296|task_id:django.utils.autoreload|autoreload.py:598|Watching for file changes with StatReloader|INFO
+2020-09-25 07:24:17,410|MainThread:140115735252296|task_id:django.utils.autoreload|autoreload.py:222|/usr/src/api/vuebackend/settings.py changed, reloading.|INFO

@@ -371,7 +371,19 @@ class GetLogsViewSet(APIView):
 
     def get(self, request):
         l_dir = os.listdir(path=BASE_LOG_DIR)
-
-        with open('logs/chinagoodgifts_info.log', "r") as f:
-            log_line = f.readline()
-        return Response({'l_dir':l_dir})
+        l_log = []
+        params = self.request.query_params
+        if params:
+            if params['0'] == 'get_options':
+                return Response({'l_dir': l_dir})
+            else:
+                with open(BASE_LOG_DIR+'/'+params['0'], "r") as f:
+                    for line in f:
+                        print(line)
+                        l_split = line.strip('\n').split('|')
+                        print(l_split)
+                        l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
+                                          levelname=l_split[4], message=l_split[5]))
+                return Response({'l_log': l_log})
+        else:
+            return Response({'msg': 'please send params'})

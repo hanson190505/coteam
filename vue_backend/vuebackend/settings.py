@@ -37,91 +37,142 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # ALLOWED_HOSTS = ['*']
 
 BASE_LOG_DIR = os.path.join(BASE_DIR, "logs")
+# LOGGING = {
+#     'version': 1,  # 保留字
+#     'disable_existing_loggers': False,  # 禁用已经存在的logger实例
+#     # 日志文件的格式
+#     'formatters': {
+#         # 详细的日志格式
+#         'standard': {
+#             # 'format': '[%(asctime)s][%(threadName)s:%(thread)d][task_id:%(name)s][%(filename)s:%(lineno)d]'
+#             #           '[%(levelname)s][%(message)s]'
+#             'format': '%(asctime)s|%(threadName)s:%(thread)d|task_id:%(name)s|%(filename)s:%(lineno)d|'
+#                       '%(message)s|%(levelname)s'
+#         },
+#         # 简单的日志格式
+#         'simple': {
+#             'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'
+#         },
+#         # 定义一个特殊的日志格式
+#         'collect': {
+#             'format': '%(message)s'
+#         }
+#     },
+#     # 过滤器
+#     'filters': {
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     # 处理器
+#     'handlers': {
+#         # 在终端打印
+#         'console': {
+#             'level': 'DEBUG',
+#             'filters': ['require_debug_true'],  # 只有在Django debug为True时才在屏幕打印日志
+#             'class': 'logging.StreamHandler',  #
+#             'formatter': 'simple'
+#         },
+#         # 默认的
+#         'default': {
+#             'level': 'INFO',
+#             # 'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
+#             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
+#             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_info.log"),  # 日志文件
+#             # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+#             'when': 'midnight',
+#             'backupCount': 15,  # 最多备份几个
+#             'formatter': 'standard',
+#             'encoding': 'utf-8',
+#         },
+#         # 专门用来记错误日志
+#         'error': {
+#             'level': 'ERROR',
+#             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
+#             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
+#             # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+#             'when': 'midnight',
+#             'backupCount': 15,
+#             'formatter': 'standard',
+#             'encoding': 'utf-8',
+#         },
+#         # 专门定义一个收集特定信息的日志
+#         'collect': {
+#             'level': 'INFO',
+#             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
+#             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_collect.log"),
+#             # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+#             'when': 'midnight',
+#             'backupCount': 15,
+#             'formatter': 'collect',
+#             'encoding': "utf-8"
+#         }
+#     },
+#     'loggers': {
+#        # 默认的logger应用如下配置
+#         '': {
+#             'handlers': ['default', 'console', 'error'],  # 上线之后可以把'console'移除
+#             'level': 'DEBUG',
+#             'propagate': True,  # 向不向更高级别的logger传递
+#         },
+#         # 名为 'collect'的logger还单独处理
+#         'collect': {
+#             'handlers': ['console', 'collect'],
+#             'level': 'INFO',
+#         }
+#     },
+# }
 LOGGING = {
-    'version': 1,  # 保留字
-    'disable_existing_loggers': False,  # 禁用已经存在的logger实例
-    # 日志文件的格式
+    # 版本
+    'version': 1,
+    # 是否禁止默认配置的记录器
+    'disable_existing_loggers': False,
     'formatters': {
-        # 详细的日志格式
         'standard': {
-            'format': '[%(asctime)s][%(threadName)s:%(thread)d][task_id:%(name)s][%(filename)s:%(lineno)d]'
-                      '[%(levelname)s][%(message)s]'
-        },
-        # 简单的日志格式
-        'simple': {
-            'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'
-        },
-        # 定义一个特殊的日志格式
-        'collect': {
-            'format': '%(message)s'
+            'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "method": "%(method)s", "username": "%(username)s", "sip": "%(sip)s", "dip": "%(dip)s", "path": "%(path)s", "status_code": "%(status_code)s", "reason_phrase": "%(reason_phrase)s", "func": "%(module)s.%(funcName)s:%(lineno)d",  "message": "%(message)s"}',
+            'datefmt': '%Y-%m-%d %H:%M:%S'
         }
     },
     # 过滤器
     'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
+        'request_info': {'()': 'middleware.handlelogs.RequestLogFilter'},
     },
-    # 处理器
     'handlers': {
-        # 在终端打印
+        # 标准输出
         'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],  # 只有在Django debug为True时才在屏幕打印日志
-            'class': 'logging.StreamHandler',  #
-            'formatter': 'simple'
-        },
-        # 默认的
-        'default': {
-            'level': 'INFO',
-            # 'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
-            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
-            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_info.log"),  # 日志文件
-            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-            'when': 'midnight',
-            'backupCount': 15,  # 最多备份几个
-            'formatter': 'standard',
-            'encoding': 'utf-8',
-        },
-        # 专门用来记错误日志
-        'error': {
             'level': 'ERROR',
-            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
-            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
-            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-            'when': 'midnight',
-            'backupCount': 15,
-            'formatter': 'standard',
-            'encoding': 'utf-8',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard'
         },
-        # 专门定义一个收集特定信息的日志
-        'collect': {
-            'level': 'INFO',
-            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
-            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_collect.log"),
-            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-            'when': 'midnight',
-            'backupCount': 15,
-            'formatter': 'collect',
-            'encoding': "utf-8"
-        }
+        # 自定义 handlers，输出到文件
+        'restful_api': {
+            'level': 'DEBUG',
+            # 时间滚动切分
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': os.path.join(BASE_LOG_DIR, 'web-log.log'),
+            'formatter': 'standard',
+            # 调用过滤器
+            'filters': ['request_info'],
+            # 每天凌晨切分
+            'when': 'MIDNIGHT',
+            # 保存 30 天
+            'backupCount': 30,
+        },
     },
     'loggers': {
-       # 默认的logger应用如下配置
-        '': {
-            'handlers': ['default', 'console', 'error'],  # 上线之后可以把'console'移除
-            'level': 'DEBUG',
-            'propagate': True,  # 向不向更高级别的logger传递
+        'django': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False
         },
-        # 名为 'collect'的logger还单独处理
-        'collect': {
-            'handlers': ['console', 'collect'],
+        'web.log': {
+            'handlers': ['restful_api'],
             'level': 'INFO',
-        }
-    },
+            # 此记录器处理过的消息就不再让 django 记录器再次处理了
+            'propagate': False
+        },
+    }
 }
-
-APPEND_SLASH = False
 # Application definition
 
 INSTALLED_APPS = [
@@ -179,6 +230,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.handlelogs.RequestLogMiddleware'
 ]
 # 跨域设置
 CORS_ORIGIN_ALLOW_ALL = True

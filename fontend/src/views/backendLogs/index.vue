@@ -1,28 +1,19 @@
 <template>
   <div>
-    {{ logsData }}
+    <log-select></log-select>
   </div>
 </template>
 
 <script>
 import { getLogs } from '@/api/getLogs'
+import logSelect from './logSelect'
 export default {
+  components: { logSelect },
   data() {
-    return {
-      logsData: ''
-    }
+    return {}
   },
-  mounted() {
-    this.getData()
-  },
-  methods: {
-    getData() {
-      getLogs().then(res => {
-        console.log(res)
-        this.logsData = res.data
-      })
-    }
-  }
+  mounted() {},
+  methods: {}
 }
 </script>
 
