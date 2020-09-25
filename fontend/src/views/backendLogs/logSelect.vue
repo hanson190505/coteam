@@ -10,7 +10,12 @@
       @blur="handleBlur"
       @change="handleChange"
     >
-      <a-select-option v-for="(item, index) in list_dir" :key="index" :value="item">{{ item }}</a-select-option>
+      <a-select-option
+        v-for="(item, index) in list_dir"
+        :key="index"
+        :value="item"
+        >{{ item }}</a-select-option
+      >
     </a-select>
     <a-table :columns="columns" :data-source="logsData" bordered></a-table>
   </div>
@@ -54,7 +59,8 @@ export default {
   methods: {
     handleChange(value) {
       getLogs(value).then(res => {
-        this.logsData = res.data.l_log
+        console.log(res)
+        // this.logsData = res.data.l_log
       })
     },
     handleBlur() {

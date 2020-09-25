@@ -46,8 +46,8 @@ BASE_LOG_DIR = os.path.join(BASE_DIR, "logs")
 #         'standard': {
 #             # 'format': '[%(asctime)s][%(threadName)s:%(thread)d][task_id:%(name)s][%(filename)s:%(lineno)d]'
 #             #           '[%(levelname)s][%(message)s]'
-#             'format': '%(asctime)s|%(threadName)s:%(thread)d|task_id:%(name)s|%(filename)s:%(lineno)d|'
-#                       '%(message)s|%(levelname)s'
+#             'format': '{"asctime":"%(asctime)s", "levelname":"%(levelname)s", "threadName":"%(thread)s", "filename":"%(filename)s", "module":"%(module)s", "lineno":"%(lineno)d", "funcName":"%(funcName)s","message":"%(message)s"}'
+#
 #         },
 #         # 简单的日志格式
 #         'simple': {
@@ -109,11 +109,11 @@ BASE_LOG_DIR = os.path.join(BASE_DIR, "logs")
 #         }
 #     },
 #     'loggers': {
-#        # 默认的logger应用如下配置
+#         # 默认的logger应用如下配置
 #         '': {
-#             'handlers': ['default', 'console', 'error'],  # 上线之后可以把'console'移除
+#             'handlers': ['default', 'error'],  # 上线之后可以把'console'移除
 #             'level': 'DEBUG',
-#             'propagate': True,  # 向不向更高级别的logger传递
+#             'propagate': False,  # 向不向更高级别的logger传递
 #         },
 #         # 名为 'collect'的logger还单独处理
 #         'collect': {
@@ -230,6 +230,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 自定义日志处理
     'middleware.handlelogs.RequestLogMiddleware'
 ]
 # 跨域设置
@@ -269,7 +270,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vuebackend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 # 部署时还要配置__init__.py文件
@@ -290,9 +290,9 @@ CACHES = {
         'LOCATION': os.environ.get("REDISHOST", 'redis://redis:6379/1'),
         'TIMEOUT': 60,
         "OPTIONS": {
-                    "CLIENT_CLASS": "django_redis.client.DefaultClient",
-                    "PASSWORD": os.environ.get("REDIS_PASSWORD"),
-                }
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": os.environ.get("REDIS_PASSWORD"),
+        }
     }
 }
 
@@ -322,7 +322,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -335,7 +334,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
