@@ -4365,6 +4365,7 @@ export default {
   methods: {
     //处理父组件传来的颜色数据
     handleParentColor() {
+      // console.log(this.ProductColor)
       if (this.ProductColor) {
         if (this.ProductColor.pro_color.length === 0) {
           this.colorList = []
@@ -4379,7 +4380,6 @@ export default {
         }
       }
       console.log(this.parentProColor)
-      // console.log(this.parentProColor.row.pro_color)
       if (this.parentProColor) {
         if (this.parentProColor.row.pro_color === 0) {
           this.colorList = []

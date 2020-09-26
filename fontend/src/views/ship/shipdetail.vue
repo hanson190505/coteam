@@ -47,8 +47,9 @@
       </el-table-column>
       <el-table-column label="产品颜色" width="120">
         <template slot-scope="scope">
-          <span>{{ scope.row.sub_order.pro_color }}</span>
-          <add-product-color :parentProColor="scope.row.sub_order"></add-product-color>
+          <add-product-color
+            :ProductColor="scope.row.sub_order"
+          ></add-product-color>
         </template>
       </el-table-column>
       <el-table-column label="产品包装" width="120">
@@ -70,8 +71,10 @@
         <template slot-scope="scope">
           <span>
             {{
-            (scope.row.sub_order.pro_weight * 1 * scope.row.sub_order.pro_qt) /
-            1000
+              (scope.row.sub_order.pro_weight *
+                1 *
+                scope.row.sub_order.pro_qt) /
+                1000
             }}
           </span>
         </template>
@@ -87,7 +90,10 @@
         </template>
       </el-table-column>
     </el-table>
-    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
+    <pagi-nation
+      @pagination="pagination"
+      :getDataTotal="dataTotal"
+    ></pagi-nation>
   </div>
 </template>
 

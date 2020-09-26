@@ -1,6 +1,10 @@
 <template>
   <div>
-    <el-dialog :visible.sync="checkshipDisplay" width="90%" :before-close="handleClose">
+    <el-dialog
+      :visible.sync="checkshipDisplay"
+      width="90%"
+      :before-close="handleClose"
+    >
       <h3 class="purchase-title">出 货 单</h3>
       <hr />
       <el-form :model="shipOrderData" ref="shipOrderData" label-width="80px">
@@ -64,12 +68,18 @@
         <el-row>
           <el-col :span="6">
             <el-form-item label="重量(kg)">
-              <el-input v-model="shipOrderData.ship_weight" :disabled="shipOrderChange"></el-input>
+              <el-input
+                v-model="shipOrderData.ship_weight"
+                :disabled="shipOrderChange"
+              ></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
             <el-form-item label="费用(¥)">
-              <el-input v-model="shipOrderData.ship_cost" :disabled="shipOrderChange"></el-input>
+              <el-input
+                v-model="shipOrderData.ship_cost"
+                :disabled="shipOrderChange"
+              ></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
@@ -86,10 +96,18 @@
       </el-form>
       <el-button type="primary" @click="changeShipOrder">修改出货</el-button>
       <el-button type="primary" @click="addShipDetail">新增明细</el-button>
-      <el-table :data="shipDetailData" style="width: 99.9%" show-summary highlight-current-row>
+      <el-table
+        :data="shipDetailData"
+        style="width: 99.9%"
+        show-summary
+        highlight-current-row
+      >
         <el-table-column label="订单编号" width="140" fixed>
-          <template slot-scope="scope">
+          <template v-if="scope.row.id" slot-scope="scope">
             <span>{{ scope.row.sub_order.order_number.order_number }}</span>
+          </template>
+          <template v-else>
+            <span>{{ scope.row.sub_order.order_number }}</span>
           </template>
         </el-table-column>
         <el-table-column label="产品名称" width="120" fixed>
@@ -104,7 +122,9 @@
         </el-table-column>
         <el-table-column label="产品颜色" width="120" fixed>
           <template slot-scope="scope">
-            <span>{{ scope.row.sub_order.pro_color }}</span>
+            <add-product-color
+              :ProductColor="scope.row.sub_order"
+            ></add-product-color>
           </template>
         </el-table-column>
         <el-table-column label="产品包装" width="100" fixed>
@@ -126,10 +146,10 @@
           <template slot-scope="scope">
             <span>
               {{
-              (scope.row.sub_order.pro_weight *
-              1 *
-              scope.row.sub_order.pro_qt) /
-              1000
+                (scope.row.sub_order.pro_weight *
+                  1 *
+                  scope.row.sub_order.pro_qt) /
+                  1000
               }}
             </span>
           </template>
@@ -147,13 +167,24 @@
         <el-table-column label="操作" width="120" align="center">
           <template slot-scope="scope">
             <!-- <el-button @click="changeShipDetail(scope.row)" type="text" size="mini">修改</el-button> -->
-            <el-button @click="handleDelete(scope.$index, scope.row)" type="text" size="mini">删除</el-button>
+            <el-button
+              @click="handleDelete(scope.$index, scope.row)"
+              type="text"
+              size="mini"
+              >删除</el-button
+            >
           </template>
         </el-table-column>
       </el-table>
       <el-button type="primary" @click="submitShipData">提 交</el-button>
-      <el-dialog :visible.sync="subdialogVisable" width="99%" :append-to-body="true">
-        <suborder-detail @getSelectSuborder="getSelectSuborder"></suborder-detail>
+      <el-dialog
+        :visible.sync="subdialogVisable"
+        width="99%"
+        :append-to-body="true"
+      >
+        <suborder-detail
+          @getSelectSuborder="getSelectSuborder"
+        ></suborder-detail>
         <!-- <suborder-detail></suborder-detail> -->
         <span slot="footer">
           <el-button @click="handleSelectSuborder">确 定</el-button>
@@ -165,6 +196,7 @@
 
 <script>
 import suborderDetail from '@/views/order/suborderdetail'
+import addProductColor from '@/components/common/addProductColor'
 import { getSubToken, delSubtoken } from '@/api/token'
 import { getCustomer } from '@/api/customer'
 import {
@@ -179,7 +211,8 @@ import { patchSubOrder } from '@/api/order'
 export default {
   name: 'addShip',
   components: {
-    suborderDetail
+    suborderDetail,
+    addProductColor
   },
   data() {
     return {
@@ -292,18 +325,18 @@ export default {
                   i.ship_number = shipOrderId
                   i.sub_order = i.sub_order.id
                   postShipDetail(i).then(res => {
-                    patchSubOrder(i.sub_order.id, '', { is_ship: 0 })
+                    patchSubOrder(i.sub_order, { is_ship: 1 })
                       .then(res => {
                         this.$notify({
                           title: 'succsess',
-                          message: `${i.order_number.order_number} 提交成功`,
+                          message: '提交成功',
                           type: 'success'
                         })
                       })
                       .catch(error => {
                         this.$notify.error({
                           title: 'error',
-                          message: `${i.order_number.order_number} 提交失败,请刷新重录`,
+                          message: '提交失败,请刷新重录',
                           duration: 0
                         })
                       })
@@ -313,14 +346,14 @@ export default {
                     .then(res => {
                       this.$notify({
                         title: 'succsess',
-                        message: `${i.sub_order.order_number} 修改成功`,
+                        message: '修改成功',
                         type: 'success'
                       })
                     })
                     .catch(error => {
                       this.$notify.error({
                         title: 'error',
-                        message: `${i.sub_order.order_number} 修改失败,请刷新重录`,
+                        message: '修改失败,请刷新重录',
                         duration: 0
                       })
                     })
@@ -336,7 +369,6 @@ export default {
             })
         })
         promise.then(res => {
-          console.log('123456')
           delSubtoken()
         })
       }
