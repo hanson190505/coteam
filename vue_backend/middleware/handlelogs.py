@@ -119,5 +119,15 @@ class RequestLogMiddleware(MiddlewareMixin):
 
         return response
 
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        # print(request)
+        # print(self)
+        pass
+
+    def process_exception(self, request, exception):
+        import traceback
+        logger = logging.getLogger('web.log')
+        logger.error(traceback.format_exc())
+
 
 

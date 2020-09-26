@@ -1,44 +1,651 @@
-{"time": "2020-09-25 07:25:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:25:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:25:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:40:27", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:40:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:40:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:41:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:41:27", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:41:27", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 07:41:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 10:12:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:120",  "message": "system-auto"}
-{"time": "2020-09-25 10:12:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:120",  "message": "system-auto"}
-{"time": "2020-09-25 10:22:36", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 10:22:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/purchasedetails/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 10:22:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/purchases/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 12:21:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/purchasedetails/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 12:21:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/purchases/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 12:21:43", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/shiporders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:45:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:45:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/products/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:45:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/product_type/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:46:20", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:46:22", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:49:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:49:27", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:49:29", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:49:32", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:49:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:50:42", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:50:46", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:50:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:51:28", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:51:29", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:51:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:52:48", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:55:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:55:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:56:32", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:56:34", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:56:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:59:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:59:12", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:59:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
-{"time": "2020-09-25 14:59:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/get_logs/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:15:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:15:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:15:27", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:15:29", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:03", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customer_addr/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:39", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customer_addr/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:39", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customer_addr/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:42", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:43", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:16:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:17:06", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customer_addr/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:17:36", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/upload/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:129",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.ForeignKeyViolation: insert or update on table "upload_image" violates foreign key constraint "upload_image_order_number_id_afd38fb6_fk_api_order"
+DETAIL:  Key (order_number_id)=(test-alibaba-001) is not present in table "api_ordercatalog".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/upload/views.py", line 81, in create
+    upload_img.save()
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 887, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/base.py", line 926, in _do_insert
+    using=using, raw=raw,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 1204, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/compiler.py", line 1391, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.7/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.7/site-packages/django/db/backends/utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: insert or update on table "upload_image" violates foreign key constraint "upload_image_order_number_id_afd38fb6_fk_api_order"
+DETAIL:  Key (order_number_id)=(test-alibaba-001) is not present in table "api_ordercatalog".
+
+"}
+{"time": "2020-09-26 02:17:36", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/upload/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:47", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:20:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:22:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:22:53", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:23:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:23:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:23:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:23:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:26:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:28:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:28:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:28:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:28:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:28:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:01", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:01", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:01", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:01", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:37", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:37", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:29:52", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:39:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:40:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:33", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:33", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:33", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:33", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:37", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:37", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:37", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:41:39", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:44:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:44:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:44:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:44:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:44:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:51:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:51:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:51:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:51:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:52:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:53:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:53:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:53:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:53:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:53:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:54:54", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:55:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:55:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:55:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:55:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:55:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:55:29", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:16", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:28", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:28", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:28", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:28", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:53", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:53", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:53", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:57:53", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:59:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:59:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:59:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:59:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:59:45", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 02:59:54", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:02:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:02:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:02:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:02:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:02:38", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:04:36", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:04:36", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:04:36", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:04:36", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:04:36", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:09", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:43", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:05:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:31", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:34", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:35", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:35", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:35", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:09:35", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:11:22", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:11:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:11:38", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:26", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:30", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:33", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:13:43", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:34", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:34", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:34", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:34", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:44", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:52", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:58", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:17:58", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:17:58", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:09", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:09", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:19:10", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:10", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:19:10", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:19:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:21:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:21:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:21:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:21:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:17", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:29", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:22:29", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:22:29", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:20", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:20", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:24", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:30", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:36", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:23:36", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:23:36", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:24:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:24:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:24:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:24:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:25:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:25:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:25:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:25:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:07", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:12", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:13", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:16", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:24", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:31", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:31", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:28:31", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:56", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:56", "level": "ERROR", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'sale_price'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/src/api/api/views.py", line 203, in create
+    sale_price = self.request.data['sale_price']
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'sale_price'
+"}
+{"time": "2020-09-26 03:28:57", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:28:57", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:29:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:29:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:29:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:29:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:29:10", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:51", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:31:57", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:33:11", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:33:11", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:33:12", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:33:12", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:33:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:36:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:36:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:36:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:36:08", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:36:16", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:36:24", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:40", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:40", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:40", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:40", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:44", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:45", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:45", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:45", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:45", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:48", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:37:55", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:38:18", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:38:38", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:00", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:01", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:24", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "400", "reason_phrase": "Bad Request", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:39:51", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:00", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:03", "level": "ERROR", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "none", "reason_phrase": "none", "func": "handlelogs.process_exception:130",  "message": "Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
+    self.perform_authentication(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 23, in authenticate
+    token = request.headers['authorization']
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 388, in __getitem__
+    return super().__getitem__(key.replace('_', '-'))
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 320, in __getitem__
+    return self._store[key.lower()][1]
+KeyError: 'authorization'
+"}
+{"time": "2020-09-26 03:40:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_model/", "status_code": "500", "reason_phrase": "Internal Server Error", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:04", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/favicon.ico", "status_code": "404", "reason_phrase": "Not Found", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:24", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:24", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:24", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:40:25", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:43:34", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:08", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:10", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/customers/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:45:20", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:11", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:11", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:11", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:11", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:14", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:15", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:46:18", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:48:53", "level": "INFO", "method": "POST", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/upload/", "status_code": "201", "reason_phrase": "Created", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:48:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:48:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:48:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:48:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:48:58", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:49:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:49:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:49:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:49:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:49:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:51:18", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:51:18", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:51:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:51:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:51:19", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:46", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:46", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:54:55", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:56:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:56:17", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:56:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:56:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:56:21", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:02", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/staffs/1/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:02", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:03", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/image/order/2020-9/test-alibaba-001.png", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:23", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:40", "level": "INFO", "method": "PATCH", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:47", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:49", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:49", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/orders/test-alibaba-001/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/image/order/2020-9/test-alibaba-001.png", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/suborders/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}
+{"time": "2020-09-26 03:57:50", "level": "INFO", "method": "GET", "username": "AnonymousUser", "sip": "172.18.0.1", "dip": "172.18.0.4", "path": "/api/order_to_model/", "status_code": "200", "reason_phrase": "OK", "func": "handlelogs.__call__:118",  "message": "system-auto"}

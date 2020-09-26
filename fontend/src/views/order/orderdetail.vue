@@ -3,10 +3,18 @@
     <el-card>
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path: '/orders' }">订单管理</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/orders' }"
+          >订单管理</el-breadcrumb-item
+        >
         <el-breadcrumb-item>订单明细</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-form ref="form" :model="orderdetail" label-width="80px" size="mini" inline-message>
+      <el-form
+        ref="form"
+        :model="orderdetail"
+        label-width="80px"
+        size="mini"
+        inline-message
+      >
         <el-row>
           <el-col :span="6">
             <el-form-item label="订单编号" prop="order_number">
@@ -16,7 +24,7 @@
           <el-col :span="6">
             <el-form-item label="客户名称">
               <el-select
-                v-model="orderdetail.customer"
+                v-model="orderdetail.customer.lite_name"
                 filterable
                 placeholder="请选择"
                 @visible-change="selectTest"
@@ -33,12 +41,20 @@
           </el-col>
           <el-col :span="4">
             <el-form-item label="汇率" prop="ex_rate">
-              <el-input v-model="orderdetail.ex_rate" :disabled="formdisabl"></el-input>
+              <el-input
+                v-model="orderdetail.ex_rate"
+                :disabled="formdisabl"
+              ></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
             <el-form-item label="完成状态" prop="is_done">
-              <el-select size="mini" v-model="orderdetail.is_done" clearable :disabled="formdisabl">
+              <el-select
+                size="mini"
+                v-model="orderdetail.is_done"
+                clearable
+                :disabled="formdisabl"
+              >
                 <el-option
                   v-for="item in Options"
                   :key="item.value"
@@ -114,39 +130,81 @@
         <el-row>
           <el-col :span="24">
             <el-form-item label="备注">
-              <el-input v-model="orderdetail.text" :disabled="formdisabl"></el-input>
+              <el-input
+                v-model="orderdetail.text"
+                :disabled="formdisabl"
+              ></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <!-- 模具 -->
-        <order-model :modelData="newModelData" :checkCulumns="2"></order-model>
+        <el-row>
+          <el-col :span="4">
+            <add-model
+              @hideOrderTable="dialogStatus2"
+              @getNewModelData="getNewModel"
+            ></add-model>
+          </el-col>
+          <el-col :span="4">
+            <a-button type="primary" @click="selectModel"
+              >select model</a-button
+            >
+          </el-col>
+        </el-row>
+        <order-model
+          :modelData="newModelData"
+          @deleteNewModelRow="deleteModel"
+          @setSalePrice="getSalePrice"
+          :checkCulumns="orderModelColumn"
+        ></order-model>
         <!-- 图片功能区 -->
         <el-row>
           <el-col :span="18">
-            <upload-pic :number="orderdetail.order_number" :owner="'order'" @sendPicUrl="getPicUrl"></upload-pic>
+            <upload-pic
+              :number="orderdetail.order_number"
+              :owner="'order'"
+              @sendPicUrl="getPicUrl"
+            ></upload-pic>
             <div v-for="(item, index) in orderdetail.order_image" :key="index">
               <span>{{ item }}</span>
             </div>
           </el-col>
           <el-col :span="6">
-            <!-- <pic-carousel :proPicUrl="pic_url" ref="picCar"></pic-carousel> -->
-            <div class="order-img">
-              <img :src="this.orderdetail.order_pic" @click="imgLook" class="orderImg" />
-            </div>
+            <pic-carousel :proPicUrl="picUrl" ref="picCar"></pic-carousel>
+            <!-- <div class="order-img">
+              <img
+                :src="this.orderdetail.order_pic"
+                @click="imgLook"
+                class="orderImg"
+              />
+            </div> -->
           </el-col>
         </el-row>
       </el-form>
-      <el-button type="primary" @click="editOrderDetail" v-show="editOrder">修改订单</el-button>
-      <el-button type="warning" @click="saveOrderDetail" v-show="saveOrder">保存订单</el-button>
+      <el-button type="primary" @click="editOrderDetail" v-show="editOrder"
+        >修改订单</el-button
+      >
+      <el-button type="warning" @click="saveOrderDetail" v-show="saveOrder"
+        >保存订单</el-button
+      >
       <el-button type="primary" @click="addSubOrderRow">新增明细</el-button>
       <el-button type="primary" @click="purchaseDetail">采购详情</el-button>
       <el-button type="primary" @click="shipDetail">出货详情</el-button>
 
-      <el-table :data="suborderdetail" style="width: 99.9%" show-summary highlight-current-row>
+      <el-table
+        :data="suborderdetail"
+        style="width: 99.9%"
+        show-summary
+        highlight-current-row
+      >
         <!-- <el-table-column type="selection" width="40"></el-table-column> -->
         <el-table-column label="产品名称" width="150" fixed>
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_name"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.pro_name"
+            ></el-input>
             <span v-else>{{ scope.row.pro_name }}</span>
           </template>
         </el-table-column>
@@ -172,7 +230,11 @@
         </el-table-column>
         <el-table-column label="产品尺寸" width="120" fixed>
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_size"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.pro_size"
+            ></el-input>
             <span v-else>{{ scope.row.pro_size }}</span>
           </template>
         </el-table-column>
@@ -188,19 +250,31 @@
         </el-table-column>
         <el-table-column label="产品包装" width="120">
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_pack"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.pro_pack"
+            ></el-input>
             <span v-else>{{ scope.row.pro_pack }}</span>
           </template>
         </el-table-column>
         <el-table-column label="描述" width="150">
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_desc"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.pro_desc"
+            ></el-input>
             <span v-else>{{ scope.row.pro_desc }}</span>
           </template>
         </el-table-column>
         <el-table-column label="数量" prop="pro_qt" width="120">
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_qt"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.pro_qt"
+            ></el-input>
             <span v-else>{{ scope.row.pro_qt }}</span>
           </template>
         </el-table-column>
@@ -217,7 +291,11 @@
         </el-table-column>
         <el-table-column label="重量(g)" width="80">
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_weight"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.pro_weight"
+            ></el-input>
             <span v-else>{{ scope.row.pro_weight }}</span>
           </template>
         </el-table-column>
@@ -229,7 +307,11 @@
         </el-table-column>-->
         <el-table-column label="金额($)" prop="sub_amount" width="120">
           <template slot-scope="scope">
-            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.sub_amount"></el-input>
+            <el-input
+              v-if="scope.row.status"
+              size="mini"
+              v-model="scope.row.sub_amount"
+            ></el-input>
             <span v-else>{{ scope.row.sub_amount | toThousandFilter }}</span>
           </template>
         </el-table-column>
@@ -239,13 +321,36 @@
               type="text"
               @click="editSubOrderRow(scope.$index, scope.row)"
               v-show="editOrder"
-            >修改</el-button>
-            <el-button size="mini" type="text" @click="delSubOrderRow(scope.$index, scope.row)">删除</el-button>
+              >修改</el-button
+            >
+            <el-button
+              size="mini"
+              type="text"
+              @click="delSubOrderRow(scope.$index, scope.row)"
+              >删除</el-button
+            >
             <!-- <el-button type="text" @click="addSubOrderRow(scope.row)">新增</el-button> -->
           </template>
         </el-table-column>
       </el-table>
-      <el-button type="primary" @click="firstSaveSuborder">提交修改</el-button>
+      <!-- 选择现有模具 -->
+      <a-drawer
+        :visible="visible"
+        width="90%"
+        height="50%"
+        placement="top"
+        :body-style="{ paddingBottom: '80px' }"
+        @close="onClose"
+      >
+        <!-- <model-table ref="modelref" :selectingShow="true"></model-table> -->
+        <order-tomodel
+          :selectingShow="true"
+          @getNewModelData="getNewModel"
+        ></order-tomodel>
+      </a-drawer>
+      <el-button type="primary" @click="firstSaveSuborder"
+        >保存订单明细修改</el-button
+      >
       <el-dialog :visible.sync="imgdialogVisible" width="96%">
         <div>
           <img :src="orderdetail.order_pic" width="99%" />
@@ -265,21 +370,32 @@ import {
   getOrder,
   getSubOrderList,
   patchOrder,
-  getOrderToModel
+  getOrderToModel,
+  postOrderToModel
 } from '@/api/order'
 import addProductColor from '@/components/common/addProductColor'
 import uploadPic from '@/components/common/uploadPic'
 import orderModel from '../orderModel/orderModel'
+import addModel from '../orderModel/addModel'
+import orderTomodel from '../orderModel/orderTomodel'
+import selectModel from '../orderModel/selectModel'
+import picCarousel from '../../components/common/picCarousel'
 export default {
   name: 'OrderDetail',
   components: {
     addProductColor,
     uploadPic,
-    orderModel
+    orderModel,
+    addModel,
+    orderTomodel,
+    selectModel,
+    picCarousel
   },
   data() {
     return {
+      orderModelColumn: 1,
       newModelData: [],
+      submitModelData: [],
       customerAddr: [],
       childAddColorBtn: true,
       btn: 'btn',
@@ -302,6 +418,7 @@ export default {
       rmbOrderAmount: 0,
       suborderdetail: [],
       customerData: [],
+      visible: false,
       //控制订单明细表修改,保存按钮显示及功能
       editSubOrder: true,
       saveSubOrder: false,
@@ -320,7 +437,7 @@ export default {
         { value: 1, label: '紧急' }
       ],
       fileList: [],
-      //TODO:重做订单管理页面
+      picUrl: [],
       //放大图片弹出框
       getPicUrl(pirurl) {},
       imgdialogVisible: false,
@@ -329,6 +446,13 @@ export default {
         token: window.sessionStorage.getItem('token')
       }
     }
+  },
+  computed: {
+    // picUrl() {
+    //   return this.suborderdetail.order_image.map(item => {
+    //     return process.env.VUE_APP_API_PIC_URL + item
+    //   })
+    // }
   },
   methods: {
     //客户名称选择时,调用后台客户数据
@@ -364,9 +488,19 @@ export default {
       this.formdisabl = true
       this.editOrder = true
       this.saveOrder = false
+      this.beforeSubmitOrder()
       patchOrder(this.orderdetail.order_number, '', this.orderdetail)
         .then(res => {
           this.$message('订单修改成功')
+          this.submitModelData.forEach(element => {
+            if (el.sale_price) {
+              postOrderToModel(element)
+                .then(res => {})
+                .catch(err => {})
+            } else {
+              this.$message('请输入模具销售价')
+            }
+          })
         })
         .catch(_ => {
           this.$message('网络错误,刷新重试')
@@ -527,13 +661,62 @@ export default {
           this.customerAddr = res.data.results
         })
       }
+    },
+    //模具相关操作
+    beforeSubmitOrder() {
+      let newModelData = [...this.newModelData]
+      newModelData.forEach(el => {
+        this.submitModelData.push({
+          order_number: this.orderdetail.order_number,
+          model: el.id,
+          sale_price: el.sale_price
+        })
+      })
+    },
+    //打开新增模具后隐藏订单
+    hideOrderTable() {
+      this.dialogVisible = false
+    },
+    selectModel() {
+      this.visible = true
+      this.hideOrderTable()
+    },
+    onClose() {
+      this.visible = false
+      this.dialogVisible = true
+    },
+    dialogStatus2(bol) {
+      this.dialogVisible = bol
+    },
+    getNewModel(res) {
+      this.visible = false
+      this.dialogVisible = true
+      this.orderModelColumn = 1
+      this.newModelData.push(res)
+    },
+    getSalePrice(val) {
+      let newData = [...this.newModelData]
+      let target = newData.find(item => item.id === val.id)
+      if (target) {
+        target.sale_price = val.val
+        this.newModelData = newData
+      }
+    },
+    deleteModel(id) {
+      let newModelData = [...this.newModelData]
+      this.newModelData = newModelData.filter(item => item.id !== id)
+      // console.log(this.newModelData)
     }
   },
   beforeCreate() {
     let number = window.sessionStorage.getItem('order_number')
     getOrder(number).then(res => {
       this.orderdetail = res.data
-      getOrderToModel({ order_number: number }).then(res => {
+      this.picUrl = res.data.order_image.map(item => {
+        return process.env.VUE_APP_API_PIC_URL + item
+      })
+      getOrderToModel({ order_number: res.data.order_number }).then(res => {
+        this.orderModelColumn = 2
         this.newModelData = res.data
       })
       getSubOrderList({ order_number: number }).then(res => {

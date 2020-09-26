@@ -1,8 +1,15 @@
 <template>
   <div>
-    <el-tag v-for="(item, index) in colorList" :key="index" :color="item.html_color">{{item.value}}</el-tag>
+    <el-tag
+      v-for="(item, index) in colorList"
+      :key="index"
+      :color="item.html_color"
+      >{{ item.value }}</el-tag
+    >
     <el-popover placement="left-end" width="300" trigger="click">
-      <el-button type="primary" size="mini" @click="addColor(parentProColor)">+</el-button>
+      <el-button type="primary" size="mini" @click="addColor(parentProColor)"
+        >+</el-button
+      >
       <el-table :data="colorList" :header-row-style="colorTableHeader">
         <el-table-column width="120">
           <template slot-scope="scope">
@@ -20,10 +27,10 @@
           <template slot-scope="scope">
             <div
               :style="{
-              backgroundColor: scope.row.html_color,
-              width: '80px',
-              height: '30px'
-            }"
+                backgroundColor: scope.row.html_color,
+                width: '80px',
+                height: '30px'
+              }"
             ></div>
           </template>
         </el-table-column>
@@ -40,7 +47,8 @@
         @click="visible = !PopoverVisible"
         size="mini"
         :disabled="addColorBtn"
-      >+</el-button>
+        >+</el-button
+      >
     </el-popover>
   </div>
 </template>
@@ -4370,14 +4378,14 @@ export default {
           this.colorList = l
         }
       }
-      // console.log(this.parentProColor.$index)
+      console.log(this.parentProColor)
       // console.log(this.parentProColor.row.pro_color)
       if (this.parentProColor) {
-        if (this.parentProColor.pro_color === 0) {
+        if (this.parentProColor.row.pro_color === 0) {
           this.colorList = []
         } else {
           let l = []
-          this.parentProColor.pro_color.split('|').forEach(el => {
+          this.parentProColor.row.pro_color.split('|').forEach(el => {
             if (el !== '') {
               l.push(JSON.parse(el))
             }
