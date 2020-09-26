@@ -493,7 +493,7 @@ export default {
         .then(res => {
           this.$message('订单修改成功')
           this.submitModelData.forEach(element => {
-            if (el.sale_price) {
+            if (element.sale_price) {
               postOrderToModel(element)
                 .then(res => {})
                 .catch(err => {})
@@ -663,6 +663,7 @@ export default {
       }
     },
     //模具相关操作
+    // TODO:订单已录入模具,要实现添加新模具,同时新增两套以上模具不成功
     beforeSubmitOrder() {
       let newModelData = [...this.newModelData]
       newModelData.forEach(el => {
