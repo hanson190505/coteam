@@ -131,7 +131,9 @@ LOGGING = {
         'standard': {
             'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "method": "%(method)s", "username": "%(username)s", "sip": "%(sip)s", "dip": "%(dip)s", "path": "%(path)s", "status_code": "%(status_code)s", "reason_phrase": "%(reason_phrase)s", "func": "%(module)s.%(funcName)s:%(lineno)d",  "message": "%(message)s"}',
             'datefmt': '%Y-%m-%d %H:%M:%S'
-        }
+        },
+        'simple': {'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'},
+        'console': {'format': '%(message)s'}
     },
     # 过滤器
     'filters': {
@@ -140,13 +142,23 @@ LOGGING = {
     'handlers': {
         # 标准输出
         'console': {
-            'level': 'ERROR',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'standard'
+            'formatter': 'console'
+        },
+        'error': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
+            'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
+            # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
+            'when': 'midnight',
+            'backupCount': 30,
+            'formatter': 'simple',
+            'encoding': 'utf-8',
         },
         # 自定义 handlers，输出到文件
         'restful_api': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             # 时间滚动切分
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': os.path.join(BASE_LOG_DIR, 'web-log.log'),
@@ -154,20 +166,27 @@ LOGGING = {
             # 调用过滤器
             'filters': ['request_info'],
             # 每天凌晨切分
-            'when': 'MIDNIGHT',
+            'when': 'midnight',
             # 保存 30 天
             'backupCount': 30,
+            'encoding': 'utf-8',
         },
     },
     'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'ERROR',
-            'propagate': False
-        },
+        # 'django': {
+        #     'handlers': ['console'],
+        #     'level': 'DEBUG',
+        #     'propagate': False
+        # },
         'web.log': {
             'handlers': ['restful_api'],
             'level': 'INFO',
+            # 此记录器处理过的消息就不再让 django 记录器再次处理了
+            'propagate': True
+        },
+        'error.log': {
+            'handlers': ['error'],
+            'level': 'ERROR',
             # 此记录器处理过的消息就不再让 django 记录器再次处理了
             'propagate': False
         },

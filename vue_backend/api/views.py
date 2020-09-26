@@ -1,3 +1,4 @@
+import json
 import os
 import uuid
 from django.core.cache import cache
@@ -381,9 +382,8 @@ class GetLogsViewSet(APIView):
                     for line in f:
                         # print(line)
                         # l_log.append(line.strip('\n'))
-                        l_split = line.strip('\n').split('|')
-                        l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
-                                          levelname=l_split[4], message=l_split[5]))
+                        l_split = json.loads(line.strip('\n'))
+                        l_log.append(l_split)
                 return Response({'l_log': l_log})
         else:
             return Response({'msg': 'please send params'})

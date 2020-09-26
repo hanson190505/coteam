@@ -13,7 +13,7 @@ class CommonLog(object):
     """
     日志记录
     """
-    def __init__(self, logger, logname='web-log'):
+    def __init__(self, logger, logname):
         self.logname = os.path.join(BASE_LOG_DIR, '%s' % logname)
         self.logger = logger
         self.logger.setLevel(logging.DEBUG)
@@ -80,6 +80,9 @@ class RequestLogFilter(logging.Filter):
         record.username = getattr(local, 'username', 'none')
         record.status_code = getattr(local, 'status_code', 'none')
         record.reason_phrase = getattr(local, 'reason_phrase', 'none')
+        record.get = getattr(local, 'get', 'none')
+        record.post = getattr(local, 'post', 'none')
+        record.agent = getattr(local, 'agent', 'none')
 
         return True
 
@@ -109,6 +112,9 @@ class RequestLogMiddleware(MiddlewareMixin):
         local.path = request.path
         local.method = request.method
         local.username = request.user
+        local.get = request.GET
+        local.post = request.POST
+        local.agent = request.META.get('HTTP_USER_AGENT', '')
         local.sip = request.META.get('REMOTE_ADDR', '')
         local.dip = socket.gethostbyname(socket.gethostname())
 
@@ -120,14 +126,29 @@ class RequestLogMiddleware(MiddlewareMixin):
         return response
 
     def process_view(self, request, view_func, view_args, view_kwargs):
-        # print(request)
+        # print('request.path_info:{}'.format(request.path_info))
+        # print('request.GET:{}'.format(request.GET))
+        # print('request.POST:{}'.format(request.POST))
+        # print('request.body:{}'.format(request.body))
+        # print('request.path:{}'.format(request.path))
+        # print('request.method:{}'.format(request.method))
+        # print('request.user:{}'.format(request.user))
+        # print('request.META.get("QUERY_STRING"):{}'.format(request.META.get('QUERY_STRING', '')))
+        # print('request.META.get("REMOTE_ADDR"):{}'.format(request.META.get('REMOTE_ADDR', '')))
+        # print('request.META.get("HTTP_USER_AGENT"):{}'.format(request.META.get('HTTP_USER_AGENT', '')))
+        # print('request.current_app:{}'.format(request.current_app))
         # print(self)
+        pass
+
+    def process_response(self, request, response):
+        # print('response{}'.format(response))
         pass
 
     def process_exception(self, request, exception):
         import traceback
-        logger = logging.getLogger('web.log')
+        logger = logging.getLogger('error.log')
         logger.error(traceback.format_exc())
+
 
 
 
