@@ -1,28 +1,9 @@
-[2020-09-25 12:20:30,098][MainThread:140170325564744][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/api/views.py changed, reloading.]
-[2020-09-25 12:38:50,139][MainThread:140642734705992][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-25 12:42:02,041][MainThread:140642734705992][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/vuebackend/settings.py changed, reloading.]
-[2020-09-25 12:48:54,075][MainThread:140247307222344][task_id:django.utils.autoreload][autoreload.py:598][INFO][Watching for file changes with StatReloader]
-[2020-09-25 12:56:57,952][MainThread:140247307222344][task_id:django.utils.autoreload][autoreload.py:222][INFO][/usr/src/api/vuebackend/settings.py changed, reloading.]
-{"asctime":2020-09-25 12:56:58,896}
-{"asctime":2020-09-25 12:58:10,777}
-{"asctime":2020-09-25 12:58:11,733, "levelname":INFO, ""}
-{"asctime":2020-09-25 12:59:03,254, "levelname":INFO, ""}
-{"asctime":2020-09-25 12:59:04,424, "levelname":INFO, "threadName":}
-{"asctime":2020-09-25 12:59:17,454, "levelname":INFO, "threadName":}
-{"asctime":2020-09-25 12:59:18,504, "levelname":INFO, "threadName":139819024923976, ""}
-{"asctime":2020-09-25 12:59:49,098, "levelname":INFO, "threadName":139819024923976, ""}
-{"asctime":2020-09-25 12:59:50,105, "levelname":INFO, "threadName":140233754737992, "filename":}
-{"asctime":2020-09-25 13:00:03,115, "levelname":INFO, "threadName":140233754737992, "filename":}
-{"asctime":2020-09-25 13:00:04,162, "levelname":INFO, "threadName":140311674219848, "filename":autoreload.py, ""}
-{"asctime":2020-09-25 13:00:27,306, "levelname":INFO, "threadName":140311674219848, "filename":autoreload.py, ""}
-{"asctime":2020-09-25 13:00:28,286, "levelname":INFO, "threadName":140263823261000, "filename":autoreload.py, "module":autoreload, ""}
-{"asctime":2020-09-25 13:00:46,834, "levelname":INFO, "threadName":140263823261000, "filename":autoreload.py, "module":autoreload, ""}
-{"asctime":2020-09-25 13:00:47,780, "levelname":INFO, "threadName":140282096024904, "filename":autoreload.py, "module":autoreload, "lineno":598, ""}
-{"asctime":2020-09-25 13:01:01,772, "levelname":INFO, "threadName":140282096024904, "filename":autoreload.py, "module":autoreload, "lineno":222, ""}
-{"asctime":2020-09-25 13:01:02,722, "levelname":INFO, "threadName":139795561061704, "filename":autoreload.py, "module":autoreload, "lineno":598, "funcName":run_with_reloader}
-{"asctime":2020-09-25 13:01:33,227, "levelname":INFO, "threadName":139795561061704, "filename":autoreload.py, "module":autoreload, "lineno":222, "funcName":trigger_reload}
-{"asctime":2020-09-25 13:01:34,071, "levelname":INFO, "threadName":139642783120712, "filename":autoreload.py, "module":autoreload, "lineno":598, "funcName":run_with_reloader,"message":Watching for file changes with StatReloader}
-{"asctime":2020-09-25 13:02:09,674, "levelname":ERROR, "threadName":139642736438048, "filename":log.py, "module":log, "lineno":228, "funcName":log_response,"message":Internal Server Error: /api/get_logs/}
+{"asctime":"2020-09-27 01:25:25,097", "levelname":"INFO", "threadName":"139892691389216", "filename":"handlelogs.py", "module":"handlelogs", "lineno":"123", "funcName":"__call__","message":"system-auto"}
+{"asctime":"2020-09-27 01:25:25,250", "levelname":"INFO", "threadName":"139892691389216", "filename":"handlelogs.py", "module":"handlelogs", "lineno":"123", "funcName":"__call__","message":"system-auto"}
+{"asctime":"2020-09-27 01:25:55,480", "levelname":"INFO", "threadName":"139892738071880", "filename":"autoreload.py", "module":"autoreload", "lineno":"222", "funcName":"trigger_reload","message":"/usr/src/api/vuebackend/settings.py changed, reloading."}
+{"asctime":"2020-09-27 01:25:56,069", "levelname":"INFO", "threadName":"140198622883144", "filename":"autoreload.py", "module":"autoreload", "lineno":"598", "funcName":"run_with_reloader","message":"Watching for file changes with StatReloader"}
+{"asctime":"2020-09-27 01:27:11,148", "levelname":"INFO", "threadName":"140198622883144", "filename":"autoreload.py", "module":"autoreload", "lineno":"222", "funcName":"trigger_reload","message":"/usr/src/api/vuebackend/settings.py changed, reloading."}
+{"asctime":"2020-09-27 01:27:54,682", "levelname":"ERROR", "threadName":"139697519962912", "filename":"log.py", "module":"log", "lineno":"228", "funcName":"log_response","message":"Internal Server Error: /api/get_logs/"}
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -43,83 +24,11 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
     response = handler(request, *args, **kwargs)
   File "/usr/src/api/api/views.py", line 385, in get
-    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
-IndexError: list index out of range
-{"asctime":2020-09-25 13:42:47,781, "levelname":INFO, "threadName":139642783120712, "filename":autoreload.py, "module":autoreload, "lineno":222, "funcName":trigger_reload,"message":/usr/src/api/vuebackend/settings.py changed, reloading.}
-{"asctime":2020-09-25 13:42:48,723, "levelname":INFO, "threadName":139896345591112, "filename":autoreload.py, "module":autoreload, "lineno":598, "funcName":run_with_reloader,"message":Watching for file changes with StatReloader}
-{"asctime":2020-09-25 13:42:57,701, "levelname":ERROR, "threadName":139896298908448, "filename":log.py, "module":log, "lineno":228, "funcName":log_response,"message":Internal Server Error: /api/get_logs/}
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
-    response = self.handle_exception(exc)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
-    raise exc
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "/usr/src/api/api/views.py", line 385, in get
-    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
-IndexError: list index out of range
-{"asctime":2020-09-25 14:01:31,665, "levelname":INFO, "threadName":139896345591112, "filename":autoreload.py, "module":autoreload, "lineno":222, "funcName":trigger_reload,"message":/usr/src/api/vuebackend/settings.py changed, reloading.}
-{"asctime":2020-09-25 14:01:32,564, "levelname":INFO, "threadName":140135047118152, "filename":autoreload.py, "module":autoreload, "lineno":598, "funcName":run_with_reloader,"message":Watching for file changes with StatReloader}
-{"asctime":2020-09-25 14:01:41,532, "levelname":ERROR, "threadName":140135000435488, "filename":log.py, "module":log, "lineno":228, "funcName":log_response,"message":Internal Server Error: /api/get_logs/}
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
-    response = self.handle_exception(exc)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
-    raise exc
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "/usr/src/api/api/views.py", line 385, in get
-    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
-IndexError: list index out of range
-{"asctime":2020-09-25 14:05:06,076, "levelname":INFO, "threadName":140135047118152, "filename":autoreload.py, "module":autoreload, "lineno":222, "funcName":trigger_reload,"message":/usr/src/api/vuebackend/settings.py changed, reloading.}
-{"asctime":2020-09-25 14:08:00,976, "levelname":INFO, "threadName":140355663347016, "filename":autoreload.py, "module":autoreload, "lineno":598, "funcName":run_with_reloader,"message":"Watching for file changes with StatReloader"}
-{"asctime":2020-09-25 14:09:58,214, "levelname":INFO, "threadName":140355663347016, "filename":autoreload.py, "module":autoreload, "lineno":222, "funcName":trigger_reload,"message":"/usr/src/api/vuebackend/settings.py changed, reloading."}
-{"asctime":"2020-09-25 14:09:59,226", "levelname":"INFO", "threadName":"139824529997128", "filename":"autoreload.py", "module":"autoreload", "lineno":"598", "funcName":"run_with_reloader","message":"Watching for file changes with StatReloader"}
-{"asctime":"2020-09-25 14:10:05,248", "levelname":"ERROR", "threadName":"139824483314464", "filename":"log.py", "module":"log", "lineno":"228", "funcName":"log_response","message":"Internal Server Error: /api/get_logs/"}
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
-    response = self.handle_exception(exc)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
-    raise exc
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "/usr/src/api/api/views.py", line 385, in get
-    l_log.append(dict(asctime=l_split[0], threadName=l_split[1], task_id=l_split[2], filename=l_split[3],
-IndexError: list index out of range
-{"asctime":"2020-09-25 14:44:49,001", "levelname":"INFO", "threadName":"139824529997128", "filename":"autoreload.py", "module":"autoreload", "lineno":"222", "funcName":"trigger_reload","message":"/usr/src/api/vuebackend/settings.py changed, reloading."}
+    l_split = json.loads(line.strip('\n'))
+  File "/usr/local/lib/python3.7/json/__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.7/json/decoder.py", line 340, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 5 (char 4)
+{"asctime":"2020-09-27 01:32:13,208", "levelname":"INFO", "threadName":"140046265331016", "filename":"autoreload.py", "module":"autoreload", "lineno":"598", "funcName":"run_with_reloader","message":"Watching for file changes with StatReloader"}
+{"asctime":"2020-09-27 01:34:21,360", "levelname":"INFO", "threadName":"140046265331016", "filename":"autoreload.py", "module":"autoreload", "lineno":"222", "funcName":"trigger_reload","message":"/usr/src/api/vuebackend/settings.py changed, reloading."}

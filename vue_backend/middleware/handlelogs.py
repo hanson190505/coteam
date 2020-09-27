@@ -74,7 +74,6 @@ class RequestLogFilter(logging.Filter):
     def filter(self, record):
         record.sip = getattr(local, 'sip', 'none')
         record.dip = getattr(local, 'dip', 'none')
-        record.body = getattr(local, 'body', 'none')
         record.path = getattr(local, 'path', 'none')
         record.method = getattr(local, 'method', 'none')
         record.username = getattr(local, 'username', 'none')
@@ -138,6 +137,14 @@ class RequestLogMiddleware(MiddlewareMixin):
         # print('request.META.get("HTTP_USER_AGENT"):{}'.format(request.META.get('HTTP_USER_AGENT', '')))
         # print('request.current_app:{}'.format(request.current_app))
         # print(self)
+        local.path = request.path
+        local.method = request.method
+        local.username = request.user
+        local.get = request.GET
+        local.post = request.POST
+        local.agent = request.META.get('HTTP_USER_AGENT', '')
+        local.sip = request.META.get('REMOTE_ADDR', '')
+        local.dip = socket.gethostbyname(socket.gethostname())
         pass
 
     def process_response(self, request, response):

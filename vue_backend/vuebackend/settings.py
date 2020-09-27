@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
 import os
 import sys
 
@@ -37,6 +36,7 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 # ALLOWED_HOSTS = ['*']
 
 BASE_LOG_DIR = os.path.join(BASE_DIR, "logs")
+
 # LOGGING = {
 #     'version': 1,  # 保留字
 #     'disable_existing_loggers': False,  # 禁用已经存在的logger实例
@@ -146,7 +146,7 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'console'
         },
-        'error': {
+        'web_error': {
             'level': 'ERROR',
             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
@@ -178,6 +178,11 @@ LOGGING = {
         #     'level': 'DEBUG',
         #     'propagate': False
         # },
+        'django.request': {
+            'handlers': ['web_error'],
+            'level': 'INFO',
+            'propagate': False,
+        },
         'web.log': {
             'handlers': ['restful_api'],
             'level': 'INFO',
@@ -185,7 +190,7 @@ LOGGING = {
             'propagate': True
         },
         'error.log': {
-            'handlers': ['error'],
+            'handlers': ['web_error'],
             'level': 'ERROR',
             # 此记录器处理过的消息就不再让 django 记录器再次处理了
             'propagate': False
