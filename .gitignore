@@ -15,6 +15,7 @@ fontend/test
 vue_backend/image
 apps
 weblearn/node_modules
+logs
 # local env files
 .env.local
 .env.*.local
