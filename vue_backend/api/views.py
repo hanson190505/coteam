@@ -383,6 +383,7 @@ class GetLogsViewSet(APIView):
                         # print(line)
                         # l_log.append(line.strip('\n'))
                         l_split = json.loads(line.strip('\n'))
+
                         l_log.append(l_split)
                 return Response({'l_log': l_log})
         else:

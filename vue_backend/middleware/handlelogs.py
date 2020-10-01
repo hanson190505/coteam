@@ -3,6 +3,7 @@ import logging
 import os
 import socket
 import threading
+import time
 
 from django.utils.deprecation import MiddlewareMixin
 
@@ -82,6 +83,7 @@ class RequestLogFilter(logging.Filter):
         record.get = getattr(local, 'get', 'none')
         record.post = getattr(local, 'post', 'none')
         record.agent = getattr(local, 'agent', 'none')
+        record.time_stamp = getattr(local, 'time_stamp', 'none')
 
         return True
 
@@ -116,6 +118,7 @@ class RequestLogMiddleware(MiddlewareMixin):
         local.agent = request.META.get('HTTP_USER_AGENT', '')
         local.sip = request.META.get('REMOTE_ADDR', '')
         local.dip = socket.gethostbyname(socket.gethostname())
+        local.time_stamp = time.time_ns()
 
         response = self.get_response(request)
         local.status_code = response.status_code
@@ -137,14 +140,14 @@ class RequestLogMiddleware(MiddlewareMixin):
         # print('request.META.get("HTTP_USER_AGENT"):{}'.format(request.META.get('HTTP_USER_AGENT', '')))
         # print('request.current_app:{}'.format(request.current_app))
         # print(self)
-        local.path = request.path
-        local.method = request.method
-        local.username = request.user
-        local.get = request.GET
-        local.post = request.POST
-        local.agent = request.META.get('HTTP_USER_AGENT', '')
-        local.sip = request.META.get('REMOTE_ADDR', '')
-        local.dip = socket.gethostbyname(socket.gethostname())
+        # local.path = request.path
+        # local.method = request.method
+        # local.username = request.user
+        # local.get = request.GET
+        # local.post = request.POST
+        # local.agent = request.META.get('HTTP_USER_AGENT', '')
+        # local.sip = request.META.get('REMOTE_ADDR', '')
+        # local.dip = socket.gethostbyname(socket.gethostname())
         pass
 
     def process_response(self, request, response):

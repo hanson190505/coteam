@@ -37,91 +37,18 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 BASE_LOG_DIR = os.path.join(BASE_DIR, "logs")
 
-# LOGGING = {
-#     'version': 1,  # 保留字
-#     'disable_existing_loggers': False,  # 禁用已经存在的logger实例
-#     # 日志文件的格式
-#     'formatters': {
-#         # 详细的日志格式
-#         'standard': {
-#             # 'format': '[%(asctime)s][%(threadName)s:%(thread)d][task_id:%(name)s][%(filename)s:%(lineno)d]'
-#             #           '[%(levelname)s][%(message)s]'
-#             'format': '{"asctime":"%(asctime)s", "levelname":"%(levelname)s", "threadName":"%(thread)s", "filename":"%(filename)s", "module":"%(module)s", "lineno":"%(lineno)d", "funcName":"%(funcName)s","message":"%(message)s"}'
-#
-#         },
-#         # 简单的日志格式
-#         'simple': {
-#             'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'
-#         },
-#         # 定义一个特殊的日志格式
-#         'collect': {
-#             'format': '%(message)s'
-#         }
-#     },
-#     # 过滤器
-#     'filters': {
-#         'require_debug_true': {
-#             '()': 'django.utils.log.RequireDebugTrue',
-#         },
-#     },
-#     # 处理器
-#     'handlers': {
-#         # 在终端打印
-#         'console': {
-#             'level': 'DEBUG',
-#             'filters': ['require_debug_true'],  # 只有在Django debug为True时才在屏幕打印日志
-#             'class': 'logging.StreamHandler',  #
-#             'formatter': 'simple'
-#         },
-#         # 默认的
-#         'default': {
-#             'level': 'INFO',
-#             # 'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件，自动切
-#             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
-#             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_info.log"),  # 日志文件
-#             # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-#             'when': 'midnight',
-#             'backupCount': 15,  # 最多备份几个
-#             'formatter': 'standard',
-#             'encoding': 'utf-8',
-#         },
-#         # 专门用来记错误日志
-#         'error': {
-#             'level': 'ERROR',
-#             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
-#             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_err.log"),  # 日志文件
-#             # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-#             'when': 'midnight',
-#             'backupCount': 15,
-#             'formatter': 'standard',
-#             'encoding': 'utf-8',
-#         },
-#         # 专门定义一个收集特定信息的日志
-#         'collect': {
-#             'level': 'INFO',
-#             'class': 'logging.handlers.TimedRotatingFileHandler',  # 保存到文件，自动切
-#             'filename': os.path.join(BASE_LOG_DIR, "chinagoodgifts_collect.log"),
-#             # 'maxBytes': 1024 * 1024 * 50,  # 日志大小 50M
-#             'when': 'midnight',
-#             'backupCount': 15,
-#             'formatter': 'collect',
-#             'encoding': "utf-8"
-#         }
-#     },
-#     'loggers': {
-#         # 默认的logger应用如下配置
-#         '': {
-#             'handlers': ['default', 'error'],  # 上线之后可以把'console'移除
-#             'level': 'DEBUG',
-#             'propagate': False,  # 向不向更高级别的logger传递
-#         },
-#         # 名为 'collect'的logger还单独处理
-#         'collect': {
-#             'handlers': ['console', 'collect'],
-#             'level': 'INFO',
-#         }
-#     },
-# }
+# 邮件配置
+ADMINS = [('hanson', os.environ.get("ADMIN_EMAIL"))]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.163.com'  # 如果是 163 改成 smtp.163.com
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")  # 帐号
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")  # 授权码（****）
+EMAIL_SUBJECT_PREFIX = '[django] '
+EMAIL_TIMEOUT = 3
+DEFAULT_FROM_EMAIL = SERVER_EMAIL = EMAIL_HOST_USER
+
 LOGGING = {
     # 版本
     'version': 1,
@@ -129,7 +56,10 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'standard': {
-            'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "method": "%(method)s", "username": "%(username)s", "sip": "%(sip)s", "dip": "%(dip)s", "path": "%(path)s", "status_code": "%(status_code)s", "reason_phrase": "%(reason_phrase)s", "func": "%(module)s.%(funcName)s:%(lineno)d",  "message": "%(message)s"}',
+            'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "method": "%(method)s", "username": "%('
+                      'username)s", "sip": "%(sip)s", "dip": "%(dip)s", "path": "%(path)s", "status_code": "%('
+                      'status_code)s", "reason_phrase": "%(reason_phrase)s", "func": "%(module)s.%(funcName)s:%('
+                      'lineno)d",  "message": "%(message)s", "get":"%(get)s", "post":"%(post)s", "agent":"%(agent)s", "time_stamp":"%(time_stamp)s"}',
             'datefmt': '%Y-%m-%d %H:%M:%S'
         },
         'simple': {'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'},
@@ -156,6 +86,11 @@ LOGGING = {
             'formatter': 'simple',
             'encoding': 'utf-8',
         },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
         # 自定义 handlers，输出到文件
         'restful_api': {
             'level': 'INFO',
@@ -179,9 +114,9 @@ LOGGING = {
         #     'propagate': False
         # },
         'django.request': {
-            'handlers': ['web_error'],
+            'handlers': ['web_error', 'mail_admins'],
             'level': 'INFO',
-            'propagate': False,
+            'propagate': True,
         },
         'web.log': {
             'handlers': ['restful_api'],
@@ -189,12 +124,12 @@ LOGGING = {
             # 此记录器处理过的消息就不再让 django 记录器再次处理了
             'propagate': True
         },
-        'error.log': {
-            'handlers': ['web_error'],
-            'level': 'ERROR',
-            # 此记录器处理过的消息就不再让 django 记录器再次处理了
-            'propagate': False
-        },
+        # 'error.log': {
+        #     'handlers': ['web_error', 'mail_admins'],
+        #     'level': 'ERROR',
+        #     # 此记录器处理过的消息就不再让 django 记录器再次处理了
+        #     'propagate': True
+        # },
     }
 }
 # Application definition

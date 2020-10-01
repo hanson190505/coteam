@@ -17,35 +17,64 @@
         >{{ item }}</a-select-option
       >
     </a-select>
-    <a-table :columns="columns" :data-source="logsData" bordered></a-table>
+    <a-table
+      :columns="columns"
+      :data-source="logsData"
+      rowKey="time_stamp"
+      bordered
+    ></a-table>
   </div>
 </template>
 <script>
 import { getLogs } from '@/api/getLogs'
 const columns = [
   {
-    title: 'asctime',
-    dataIndex: 'asctime'
+    title: 'time',
+    dataIndex: 'time'
   },
   {
-    title: 'threadName',
-    dataIndex: 'threadName'
+    title: 'username',
+    dataIndex: 'username'
   },
   {
-    title: 'task_id',
-    dataIndex: 'task_id'
+    title: 'status_code',
+    dataIndex: 'status_code'
   },
   {
-    title: 'filename',
-    dataIndex: 'filename'
+    title: 'sip',
+    dataIndex: 'sip'
   },
   {
-    title: 'levelname',
-    dataIndex: 'levelname'
+    title: 'dip',
+    dataIndex: 'dip'
   },
   {
-    title: 'message',
-    dataIndex: 'message'
+    title: 'reason_phrase',
+    dataIndex: 'reason_phrase'
+  },
+  {
+    title: 'level',
+    dataIndex: 'level'
+  },
+  {
+    title: 'method',
+    dataIndex: 'method'
+  },
+  {
+    title: 'get',
+    dataIndex: 'get'
+  },
+  {
+    title: 'post',
+    dataIndex: 'post'
+  },
+  {
+    title: 'path',
+    dataIndex: 'path'
+  },
+  {
+    title: 'agent',
+    dataIndex: 'agent'
   }
 ]
 export default {
@@ -59,8 +88,8 @@ export default {
   methods: {
     handleChange(value) {
       getLogs(value).then(res => {
-        console.log(res)
-        // this.logsData = res.data.l_log
+        // console.log(res)
+        this.logsData = res.data.l_log
       })
     },
     handleBlur() {
