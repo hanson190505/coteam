@@ -116,7 +116,7 @@ class RequestLogMiddleware(MiddlewareMixin):
         local.get = request.GET
         local.post = request.POST
         local.agent = request.META.get('HTTP_USER_AGENT', '')
-        local.sip = request.META.get('REMOTE_ADDR', '')
+        local.sip = request.META.get('HTTP_X_FORWARDED_FOR', '')
         local.dip = socket.gethostbyname(socket.gethostname())
         local.time_stamp = time.time_ns()
 
@@ -135,7 +135,7 @@ class RequestLogMiddleware(MiddlewareMixin):
         # print('request.path:{}'.format(request.path))
         # print('request.method:{}'.format(request.method))
         # print('request.user:{}'.format(request.user))
-        # print('request.META.get("QUERY_STRING"):{}'.format(request.META.get('QUERY_STRING', '')))
+        # print('request.META:{}'.format(request.META))
         # print('request.META.get("REMOTE_ADDR"):{}'.format(request.META.get('REMOTE_ADDR', '')))
         # print('request.META.get("HTTP_USER_AGENT"):{}'.format(request.META.get('HTTP_USER_AGENT', '')))
         # print('request.current_app:{}'.format(request.current_app))
