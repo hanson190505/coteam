@@ -371,7 +371,8 @@ import {
   getSubOrderList,
   patchOrder,
   getOrderToModel,
-  postOrderToModel
+  postOrderToModel,
+  patchOrderToModel
 } from '@/api/order'
 import addProductColor from '@/components/common/addProductColor'
 import uploadPic from '@/components/common/uploadPic'
@@ -469,7 +470,6 @@ export default {
       this.editOrder = false
       this.saveOrder = true
       this.uploadbtnstatus = false
-      console.log('修改订单')
     },
     //图片处理相关
     handleRemove() {},
@@ -491,12 +491,24 @@ export default {
       this.beforeSubmitOrder()
       patchOrder(this.orderdetail.order_number, '', this.orderdetail)
         .then(res => {
-          this.$message('订单修改成功')
+          this.$message.success('订单修改成功')
           this.submitModelData.forEach(element => {
             if (element.sale_price) {
-              postOrderToModel(element)
-                .then(res => {})
-                .catch(err => {})
+              if (!element.hasOwnProperty('id')) {
+                postOrderToModel(element)
+                  .then(res => {
+                    this.$message.success('新增模具成功')
+                    this.getData()
+                  })
+                  .catch(err => {})
+              } else {
+                patchOrderToModel(element.id, element)
+                  .then(res => {
+                    this.$message.success('模具更新成功')
+                    this.getData()
+                  })
+                  .catch(res => {})
+              }
             } else {
               this.$message('请输入模具销售价')
             }
@@ -612,8 +624,8 @@ export default {
           type: 'warning'
         })
           .then(() => {
-            console.log(index)
-            console.log(row)
+            // console.log(index)
+            // console.log(row)
             this.suborderdetail.splice(index, 1)
             patchSubOrder(row.id, '', { is_delete: 1 }).then(res => {
               this.$message({
@@ -667,11 +679,20 @@ export default {
     beforeSubmitOrder() {
       let newModelData = [...this.newModelData]
       newModelData.forEach(el => {
-        this.submitModelData.push({
-          order_number: this.orderdetail.order_number,
-          model: el.id,
-          sale_price: el.sale_price
-        })
+        if (!el.hasOwnProperty('id')) {
+          this.submitModelData.push({
+            order_number: this.orderdetail.order_number,
+            model: el.model.id,
+            sale_price: el.sale_price
+          })
+        } else {
+          this.submitModelData.push({
+            order_number: this.orderdetail.order_number,
+            model: el.model.id,
+            sale_price: el.sale_price,
+            id: el.id
+          })
+        }
       })
     },
     //打开新增模具后隐藏订单
@@ -692,8 +713,8 @@ export default {
     getNewModel(res) {
       this.visible = false
       this.dialogVisible = true
-      this.orderModelColumn = 1
-      this.newModelData.push(res)
+      this.orderModelColumn = 2
+      this.newModelData.push({ model: res })
     },
     getSalePrice(val) {
       let newData = [...this.newModelData]
@@ -707,29 +728,35 @@ export default {
       let newModelData = [...this.newModelData]
       this.newModelData = newModelData.filter(item => item.id !== id)
       // console.log(this.newModelData)
+    },
+    getData() {
+      let number = window.sessionStorage.getItem('order_number')
+      getOrder(number).then(res => {
+        this.orderdetail = res.data
+        this.picUrl = res.data.order_image.map(item => {
+          return process.env.VUE_APP_API_PIC_URL + item
+        })
+        getOrderToModel({ order_number: res.data.order_number }).then(res => {
+          this.orderModelColumn = 2
+          this.newModelData = res.data
+          console.log('====================================')
+          console.log(res.data)
+          console.log('====================================')
+        })
+        getSubOrderList({ order_number: number }).then(res => {
+          this.suborderdetail = res.data
+          res.data.forEach(el => {
+            el.status = 0
+          })
+          if (res.data.length === 0) {
+          }
+        })
+      })
+      getSubToken()
     }
   },
-  beforeCreate() {
-    let number = window.sessionStorage.getItem('order_number')
-    getOrder(number).then(res => {
-      this.orderdetail = res.data
-      this.picUrl = res.data.order_image.map(item => {
-        return process.env.VUE_APP_API_PIC_URL + item
-      })
-      getOrderToModel({ order_number: res.data.order_number }).then(res => {
-        this.orderModelColumn = 2
-        this.newModelData = res.data
-      })
-      getSubOrderList({ order_number: number }).then(res => {
-        this.suborderdetail = res.data
-        res.data.forEach(el => {
-          el.status = 0
-        })
-        if (res.data.length === 0) {
-        }
-      })
-    })
-    getSubToken()
+  mounted() {
+    this.getData()
   }
 }
 </script>

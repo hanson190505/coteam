@@ -113,3 +113,11 @@ export function postOrderToModel(data) {
         data: qs.stringify(data)
     })
 }
+
+export function patchOrderToModel(pk, data) {
+    return request({
+        url: `order_to_model/${pk}/`,
+        method: 'patch',
+        data: qs.stringify(data)
+    })
+}
