@@ -59,7 +59,8 @@ LOGGING = {
             'format': '{"time": "%(asctime)s", "level": "%(levelname)s", "method": "%(method)s", "username": "%('
                       'username)s", "sip": "%(sip)s", "dip": "%(dip)s", "path": "%(path)s", "status_code": "%('
                       'status_code)s", "reason_phrase": "%(reason_phrase)s", "func": "%(module)s.%(funcName)s:%('
-                      'lineno)d",  "message": "%(message)s", "get":"%(get)s", "post":"%(post)s", "agent":"%(agent)s", "time_stamp":"%(time_stamp)s"}',
+                      'lineno)d",  "message": "%(message)s", "get":"%(get)s", "post":"%(post)s", "agent":"%(agent)s", '
+                      '"time_stamp":"%(time_stamp)s"}',
             'datefmt': '%Y-%m-%d %H:%M:%S'
         },
         'simple': {'format': '[%(levelname)s][%(asctime)s][%(filename)s:%(lineno)d]%(message)s'},
