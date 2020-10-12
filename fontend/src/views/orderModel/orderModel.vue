@@ -1,31 +1,16 @@
 <template>
   <div>
-    <a-table
-      :columns="checkModelData"
-      rowKey="model.id"
-      :data-source="modelData"
-      bordered
-      size="small"
-    >
+    <a-table :columns="checkModelData" rowKey="id" :data-source="modelData" bordered size="small">
       <template slot="sale_price" slot-scope="text, record, index">
-        <editable-cell
-          :text="text"
-          @change="onCellChange(record.id, 'sale_price', $event)"
-        />
+        <editable-cell :text="text" @change="onCellChange(record.id, 'sale_price', $event)" />
       </template>
       <template slot="operation" slot-scope="text, record, index">
-        <a-button type="primary" @click="onDelete(record.id)" size="small"
-          >delete</a-button
-        >
+        <a-button type="primary" @click="onDelete(record.id)" size="small">delete</a-button>
       </template>
       <template slot="footer" slot-scope="currentPageData">
         <span class="table-footer-span">模具费</span>
-        <span class="table-footer-span"
-          >采购合计(¥){{ sumBuy(currentPageData) }}</span
-        >
-        <span class="table-footer-span"
-          >销售合计($):{{ sumModel(currentPageData) }}</span
-        >
+        <span class="table-footer-span">采购合计(¥){{ sumBuy(currentPageData) }}</span>
+        <span class="table-footer-span">销售合计($):{{ sumModel(currentPageData) }}</span>
       </template>
     </a-table>
   </div>
