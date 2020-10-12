@@ -9,8 +9,8 @@
       :body-style="{ paddingBottom: '80px' }"
       @close="onClose"
     >
-      <!-- <model-table ref="modelref" :selectingShow="true"></model-table> -->
-      <order-tomodel :selectingShow="true"></order-tomodel>
+      <model-table ref="modelref"></model-table>
+      <!-- <order-tomodel :selectingShow="true"></order-tomodel> -->
     </a-drawer>
   </div>
 </template>

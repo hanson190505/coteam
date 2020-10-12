@@ -4379,7 +4379,7 @@ export default {
           this.colorList = l
         }
       }
-      console.log(this.parentProColor)
+      // console.log(this.parentProColor)
       if (this.parentProColor) {
         if (this.parentProColor.row.pro_color === 0) {
           this.colorList = []

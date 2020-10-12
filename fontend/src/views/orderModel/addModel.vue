@@ -26,7 +26,8 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-            >{{ item.lite_name }}</a-select-option>
+              >{{ item.lite_name }}</a-select-option
+            >
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="attribute" prop="atr">
