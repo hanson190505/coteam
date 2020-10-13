@@ -30,36 +30,26 @@
       </template>
       <template slot="atr" slot-scope="text, record, index">
         <div key="atr">
-          <a-select
-            v-if="record.editable"
-            @select="handleSelect"
-            :default-value="text"
-          >
+          <a-select v-if="record.editable" @select="handleSelect" :default-value="text">
             <!-- 不设置 default-value 的话, 选择框会很小-->
             <a-select-option
               v-for="(item, index) in ['自有', '工厂', '样品']"
               :key="index"
               :value="index"
-              >{{ item }}</a-select-option
-            >
+            >{{ item }}</a-select-option>
           </a-select>
           <template v-else>{{ text | modelAttr }}</template>
         </div>
       </template>
       <template slot="material" slot-scope="text, record, index">
         <div key="material">
-          <a-select
-            v-if="record.editable"
-            @select="handleSelectMaterial"
-            :default-value="text"
-          >
+          <a-select v-if="record.editable" @select="handleSelectMaterial" :default-value="text">
             <!-- 不设置 default-value 的话, 选择框会很小-->
             <a-select-option
               v-for="(item, index) in ['铜模', '钢模']"
               :key="index"
               :value="index"
-              >{{ item }}</a-select-option
-            >
+            >{{ item }}</a-select-option>
           </a-select>
           <template v-else>{{ text | modelMaterial }}</template>
         </div>
@@ -68,10 +58,7 @@
         <div class="editable-row-operations">
           <span v-if="record.editable">
             <a @click="() => save(record.id, index)">Save</a>
-            <a-popconfirm
-              title="Sure to cancel?"
-              @confirm="() => cancel(index, record)"
-            >
+            <a-popconfirm title="Sure to cancel?" @confirm="() => cancel(index, record)">
               <a>Cancel</a>
             </a-popconfirm>
           </span>
@@ -102,77 +89,77 @@ const columns = [
     title: '供应商',
     dataIndex: 'supplier',
     width: '8%',
-    scopedSlots: { customRender: 'supplier' },
+    scopedSlots: { customRender: 'supplier' }
   },
   {
     title: '编号',
     dataIndex: 'number',
     width: '10%',
-    scopedSlots: { customRender: 'number' },
+    scopedSlots: { customRender: 'number' }
   },
   {
     title: '属性',
     dataIndex: 'atr',
     width: '5%',
-    scopedSlots: { customRender: 'atr' },
+    scopedSlots: { customRender: 'atr' }
   },
   {
     title: '材质',
     dataIndex: 'material',
     width: '5%',
-    scopedSlots: { customRender: 'material' },
+    scopedSlots: { customRender: 'material' }
   },
   {
     title: '尺寸',
     dataIndex: 'size',
     width: '8%',
-    scopedSlots: { customRender: 'size' },
+    scopedSlots: { customRender: 'size' }
   },
   {
     title: '构造',
     dataIndex: 'construct',
     width: '5%',
-    scopedSlots: { customRender: 'construct' },
+    scopedSlots: { customRender: 'construct' }
   },
   {
     title: '生产日期',
     dataIndex: 'pro_date',
     width: '10%',
-    scopedSlots: { customRender: 'pro_date' },
+    scopedSlots: { customRender: 'pro_date' }
   },
   {
     title: '使用寿命',
     dataIndex: 'useful_life',
     width: '8%',
-    scopedSlots: { customRender: 'useful_life' },
+    scopedSlots: { customRender: 'useful_life' }
   },
   {
     title: '单价',
     dataIndex: 'price',
     width: '8%',
-    scopedSlots: { customRender: 'price' },
+    scopedSlots: { customRender: 'price' }
   },
   {
     title: '备注',
     dataIndex: 'remarks',
     width: '15%',
-    scopedSlots: { customRender: 'remarks' },
+    scopedSlots: { customRender: 'remarks' }
   },
   {
     title: 'opration',
     dataIndex: 'opration',
-    scopedSlots: { customRender: 'operation' },
-  },
+    scopedSlots: { customRender: 'operation' }
+  }
 ]
 export default {
   components: {
-    addModel,
+    addModel
   },
   props: {
     selectingShow: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data() {
     return {
@@ -184,7 +171,7 @@ export default {
       selectedRowKeys: [],
       selectData: [],
       tableSelecting: false,
-      columns,
+      columns
     }
   },
   mounted() {
@@ -193,13 +180,13 @@ export default {
   computed: {
     hasSelected() {
       return this.selectedRowKeys.length > 0
-    },
+    }
   },
   methods: {
     // 获取数据
     getData() {
       this.loading = true
-      getOrderModels().then((res) => {
+      getOrderModels().then(res => {
         let pagination = { ...this.pagination }
         pagination.total = res.data.count
         this.loading = false
@@ -229,12 +216,12 @@ export default {
       let target = newData[index]
       if (target) {
         patchOrderModel(id, target)
-          .then((res) => {
+          .then(res => {
             target.editable = false
             this.data = newData
             this.$message.success('修改成功')
           })
-          .catch((err) => {
+          .catch(err => {
             this.$message.error('修改失败')
           })
       }
@@ -244,11 +231,11 @@ export default {
     },
     onDelete(id, index) {
       patchOrderModel(id, { is_delete: 1 })
-        .then((res) => {
+        .then(res => {
           this.data.splice(index, 1)
           this.$message.success('删除成功')
         })
-        .catch((err) => {
+        .catch(err => {
           this.$message.error('删除失败')
         })
     },
@@ -261,15 +248,17 @@ export default {
     //选中行的id
     onSelectChange(key, row) {
       this.selectedRowKeys = key
-      row.forEach((el) => {
+      row.forEach(el => {
         el.sale_price = 0
       })
       this.selectData = row
     },
     submit() {
-      this.$emit('getNewModelData', this.selectData)
-    },
-  },
+      this.selectData.forEach(el => {
+        this.$emit('getNewModelData', el)
+      })
+    }
+  }
 }
 </script>
 

@@ -3,18 +3,10 @@
     <el-card>
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path: '/orders' }"
-          >订单管理</el-breadcrumb-item
-        >
+        <el-breadcrumb-item :to="{ path: '/orders' }">订单管理</el-breadcrumb-item>
         <el-breadcrumb-item>订单明细</el-breadcrumb-item>
       </el-breadcrumb>
-      <el-form
-        ref="form"
-        :model="orderdetail"
-        label-width="80px"
-        size="mini"
-        inline-message
-      >
+      <el-form ref="form" :model="orderdetail" label-width="80px" size="mini" inline-message>
         <el-row>
           <el-col :span="6">
             <el-form-item label="订单编号" prop="order_number">
@@ -41,20 +33,12 @@
           </el-col>
           <el-col :span="4">
             <el-form-item label="汇率" prop="ex_rate">
-              <el-input
-                v-model="orderdetail.ex_rate"
-                :disabled="formdisabl"
-              ></el-input>
+              <el-input v-model="orderdetail.ex_rate" :disabled="formdisabl"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="6">
             <el-form-item label="完成状态" prop="is_done">
-              <el-select
-                size="mini"
-                v-model="orderdetail.is_done"
-                clearable
-                :disabled="formdisabl"
-              >
+              <el-select size="mini" v-model="orderdetail.is_done" clearable :disabled="formdisabl">
                 <el-option
                   v-for="item in Options"
                   :key="item.value"
@@ -130,25 +114,17 @@
         <el-row>
           <el-col :span="24">
             <el-form-item label="备注">
-              <el-input
-                v-model="orderdetail.text"
-                :disabled="formdisabl"
-              ></el-input>
+              <el-input v-model="orderdetail.text" :disabled="formdisabl"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <!-- 模具 -->
         <el-row>
           <el-col :span="4">
-            <add-model
-              @hideOrderTable="dialogStatus2"
-              @getNewModelData="getNewModel"
-            ></add-model>
+            <add-model @hideOrderTable="dialogStatus2" @getNewModelData="getNewModel"></add-model>
           </el-col>
           <el-col :span="4">
-            <a-button type="primary" @click="selectModel"
-              >select model</a-button
-            >
+            <a-button type="primary" @click="selectModel">select model</a-button>
           </el-col>
         </el-row>
         <order-model
@@ -160,15 +136,13 @@
         <add-order-model
           :visible="addOrderModelVisible"
           :addOrderModelData="addOrderModelData"
+          @pushModelData="pushModelData"
+          @delNewAddModel="delNewAddModel"
         ></add-order-model>
         <!-- 图片功能区 -->
         <el-row>
           <el-col :span="18">
-            <upload-pic
-              :number="orderdetail.order_number"
-              :owner="'order'"
-              @sendPicUrl="getPicUrl"
-            ></upload-pic>
+            <upload-pic :number="orderdetail.order_number" :owner="'order'" @sendPicUrl="getPicUrl"></upload-pic>
             <div v-for="(item, index) in orderdetail.order_image" :key="index">
               <span>{{ item }}</span>
             </div>
@@ -185,30 +159,17 @@
           </el-col>
         </el-row>
       </el-form>
-      <el-button type="primary" @click="editOrderDetail" v-show="editOrder"
-        >修改订单</el-button
-      >
-      <el-button type="warning" @click="saveOrderDetail" v-show="saveOrder"
-        >保存订单</el-button
-      >
+      <el-button type="primary" @click="editOrderDetail" v-show="editOrder">修改订单</el-button>
+      <el-button type="warning" @click="saveOrderDetail" v-show="saveOrder">保存订单</el-button>
       <el-button type="primary" @click="addSubOrderRow">新增明细</el-button>
       <el-button type="primary" @click="purchaseDetail">采购详情</el-button>
       <el-button type="primary" @click="shipDetail">出货详情</el-button>
 
-      <el-table
-        :data="suborderdetail"
-        style="width: 99.9%"
-        show-summary
-        highlight-current-row
-      >
+      <el-table :data="suborderdetail" style="width: 99.9%" show-summary highlight-current-row>
         <!-- <el-table-column type="selection" width="40"></el-table-column> -->
         <el-table-column label="产品名称" width="150" fixed>
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_name"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_name"></el-input>
             <span v-else>{{ scope.row.pro_name }}</span>
           </template>
         </el-table-column>
@@ -234,11 +195,7 @@
         </el-table-column>
         <el-table-column label="产品尺寸" width="120" fixed>
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_size"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_size"></el-input>
             <span v-else>{{ scope.row.pro_size }}</span>
           </template>
         </el-table-column>
@@ -254,31 +211,19 @@
         </el-table-column>
         <el-table-column label="产品包装" width="120">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_pack"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_pack"></el-input>
             <span v-else>{{ scope.row.pro_pack }}</span>
           </template>
         </el-table-column>
         <el-table-column label="描述" width="150">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_desc"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_desc"></el-input>
             <span v-else>{{ scope.row.pro_desc }}</span>
           </template>
         </el-table-column>
         <el-table-column label="数量" prop="pro_qt" width="120">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_qt"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_qt"></el-input>
             <span v-else>{{ scope.row.pro_qt }}</span>
           </template>
         </el-table-column>
@@ -295,11 +240,7 @@
         </el-table-column>
         <el-table-column label="重量(g)" width="80">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.pro_weight"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.pro_weight"></el-input>
             <span v-else>{{ scope.row.pro_weight }}</span>
           </template>
         </el-table-column>
@@ -311,11 +252,7 @@
         </el-table-column>-->
         <el-table-column label="金额($)" prop="sub_amount" width="120">
           <template slot-scope="scope">
-            <el-input
-              v-if="scope.row.status"
-              size="mini"
-              v-model="scope.row.sub_amount"
-            ></el-input>
+            <el-input v-if="scope.row.status" size="mini" v-model="scope.row.sub_amount"></el-input>
             <span v-else>{{ scope.row.sub_amount | toThousandFilter }}</span>
           </template>
         </el-table-column>
@@ -325,14 +262,8 @@
               type="text"
               @click="editSubOrderRow(scope.$index, scope.row)"
               v-show="editOrder"
-              >修改</el-button
-            >
-            <el-button
-              size="mini"
-              type="text"
-              @click="delSubOrderRow(scope.$index, scope.row)"
-              >删除</el-button
-            >
+            >修改</el-button>
+            <el-button size="mini" type="text" @click="delSubOrderRow(scope.$index, scope.row)">删除</el-button>
             <!-- <el-button type="text" @click="addSubOrderRow(scope.row)">新增</el-button> -->
           </template>
         </el-table-column>
@@ -346,16 +277,10 @@
         :body-style="{ paddingBottom: '80px' }"
         @close="onClose"
       >
-        <model-table
-          ref="modelref"
-          :selectingShow="true"
-          @getNewModelData="getNewModel"
-        ></model-table>
+        <model-table ref="modelref" :selectingShow="true" @getNewModelData="getNewModel"></model-table>
         <!-- <order-tomodel :selectingShow="true" @getNewModelData="getNewModel"></order-tomodel> -->
       </a-drawer>
-      <el-button type="primary" @click="firstSaveSuborder"
-        >保存订单明细修改</el-button
-      >
+      <el-button type="primary" @click="firstSaveSuborder">保存订单明细修改</el-button>
       <el-dialog :visible.sync="imgdialogVisible" width="96%">
         <div>
           <img :src="orderdetail.order_pic" width="99%" />
@@ -377,7 +302,7 @@ import {
   patchOrder,
   getOrderToModel,
   postOrderToModel,
-  patchOrderToModel,
+  patchOrderToModel
 } from '@/api/order'
 import addProductColor from '@/components/common/addProductColor'
 import uploadPic from '@/components/common/uploadPic'
@@ -399,7 +324,7 @@ export default {
     selectModel,
     modelTable,
     addOrderModel,
-    picCarousel,
+    picCarousel
   },
   data() {
     return {
@@ -421,7 +346,7 @@ export default {
         order_amount: 0,
         ship_addr: '',
         text: '',
-        order_pic: '',
+        order_pic: ''
       },
       actionUrl: process.env.VUE_APP_ACTION_URL,
       //订单表合计金额(人民币)
@@ -444,11 +369,11 @@ export default {
         { value: 2, label: '五金' },
         { value: 3, label: 'USB' },
         { value: 4, label: '移动电源' },
-        { value: 5, label: '其他' },
+        { value: 5, label: '其他' }
       ],
       Options: [
         { value: 0, label: '正常' },
-        { value: 1, label: '紧急' },
+        { value: 1, label: '紧急' }
       ],
       fileList: [],
       picUrl: [],
@@ -457,8 +382,8 @@ export default {
       imgdialogVisible: false,
       //图片上传附加数据
       uploadData: {
-        token: window.sessionStorage.getItem('token'),
-      },
+        token: window.sessionStorage.getItem('token')
+      }
     }
   },
   computed: {
@@ -472,7 +397,7 @@ export default {
     //客户名称选择时,调用后台客户数据
     selectTest(v) {
       if (v === true) {
-        getCustomer().then((res) => {
+        getCustomer().then(res => {
           this.customerData = res.data
         })
       }
@@ -503,31 +428,31 @@ export default {
       this.saveOrder = false
       this.beforeSubmitOrder()
       patchOrder(this.orderdetail.order_number, '', this.orderdetail)
-        .then((res) => {
+        .then(res => {
           this.$message.success('订单修改成功')
-          this.submitModelData.forEach((element) => {
+          this.submitModelData.forEach(element => {
             if (element.sale_price) {
               if (!element.hasOwnProperty('id')) {
                 postOrderToModel(element)
-                  .then((res) => {
+                  .then(res => {
                     this.$message.success('新增模具成功')
                     this.getData()
                   })
-                  .catch((err) => {})
+                  .catch(err => {})
               } else {
                 patchOrderToModel(element.id, element)
-                  .then((res) => {
+                  .then(res => {
                     this.$message.success('模具更新成功')
                     this.getData()
                   })
-                  .catch((res) => {})
+                  .catch(res => {})
               }
             } else {
               this.$message('请输入模具销售价')
             }
           })
         })
-        .catch((_) => {
+        .catch(_ => {
           this.$message('网络错误,刷新重试')
         })
     },
@@ -552,7 +477,7 @@ export default {
       if (!window.sessionStorage.getItem('subtoken')) {
         this.$message.error('请勿重复提交,或刷新重试')
       } else {
-        this.suborderdetail.forEach((el) => {
+        this.suborderdetail.forEach(el => {
           if (el.hasOwnProperty('id')) {
             if (el.status === 1) {
               patchSubOrder(el.id, '', el).then(() => {
@@ -565,10 +490,10 @@ export default {
           } else {
             el.status = 0
             postSubOrder(el)
-              .then((res) => {
+              .then(res => {
                 this.saveOrderDetail()
               })
-              .catch((res) => {
+              .catch(res => {
                 const h = this.$createElement
                 this.$notify({
                   title: '警告',
@@ -576,7 +501,7 @@ export default {
                     'i',
                     { style: 'color: teal' },
                     '网络错误,请刷新重试'
-                  ),
+                  )
                 })
               })
           }
@@ -600,7 +525,7 @@ export default {
         order_number: this.orderdetail.order_number,
         // sub_ex_rate: this.orderdetail.ex_rate,
         sub_amount: 0,
-        status: 1,
+        status: 1
       }
       this.suborderdetail.push(newValue)
     },
@@ -615,42 +540,42 @@ export default {
         this.$confirm('数据未保存,确定删除?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
-          type: 'warning',
+          type: 'warning'
         })
           .then(() => {
             this.suborderdetail.splice(index, 1)
             this.$message({
               type: 'success',
-              message: '删除成功!',
+              message: '删除成功!'
             })
           })
           .catch(() => {
             this.$message({
               type: 'info',
-              message: '已取消删除',
+              message: '已取消删除'
             })
           })
       } else {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
-          type: 'warning',
+          type: 'warning'
         })
           .then(() => {
             // console.log(index)
             // console.log(row)
             this.suborderdetail.splice(index, 1)
-            patchSubOrder(row.id, '', { is_delete: 1 }).then((res) => {
+            patchSubOrder(row.id, '', { is_delete: 1 }).then(res => {
               this.$message({
                 type: 'success',
-                message: '删除成功!',
+                message: '删除成功!'
               })
             })
           })
           .catch(() => {
             this.$message({
               type: 'info',
-              message: '删除失败!',
+              message: '删除失败!'
             })
           })
       }
@@ -682,7 +607,7 @@ export default {
     //获取后台客户地址数据
     selectShipAddr(v) {
       if (v === true) {
-        getCustomerAddr().then((res) => {
+        getCustomerAddr().then(res => {
           this.customerAddr = res.data.results
         })
       }
@@ -691,19 +616,19 @@ export default {
     // TODO:订单已录入模具,要实现添加新模具,同时新增两套以上模具不成功
     beforeSubmitOrder() {
       let newModelData = [...this.newModelData]
-      newModelData.forEach((el) => {
+      newModelData.forEach(el => {
         if (!el.hasOwnProperty('id')) {
           this.submitModelData.push({
             order_number: this.orderdetail.order_number,
             model: el.model.id,
-            sale_price: el.sale_price,
+            sale_price: el.sale_price
           })
         } else {
           this.submitModelData.push({
             order_number: this.orderdetail.order_number,
             model: el.model.id,
             sale_price: el.sale_price,
-            id: el.id,
+            id: el.id
           })
         }
       })
@@ -724,15 +649,44 @@ export default {
       this.dialogVisible = bol
     },
     getNewModel(res) {
-      this.visible = false
-      this.dialogVisible = true
-      // this.orderModelColumn = 2
-      this.addOrderModelData = res
-      this.addOrderModelVisible = true
+      let modelData = []
+      this.newModelData.forEach(el => {
+        modelData.push(el.model.number)
+      })
+      if (modelData.indexOf(res.number) !== -1) {
+        this.$message.error(`${res.number}已存在,请重新选择`)
+      } else {
+        this.addOrderModelData.push(res)
+        this.visible = false
+        this.dialogVisible = true
+        this.addOrderModelVisible = true
+      }
+    },
+    //新增模具后,更新现有模具数据显示
+    pushModelData() {
+      getOrderToModel({
+        order_number: window.sessionStorage.getItem('order_number')
+      }).then(res => {
+        this.newModelData = res.data
+      })
+    },
+    //删除新选择的模具
+    delNewAddModel(id) {
+      let addOrderModelData = [...this.addOrderModelData]
+      let promise = new Promise((resolve, reject) => {
+        this.addOrderModelData = addOrderModelData.filter(
+          item => item.id !== id
+        )
+        resolve(true)
+      }).then(() => {
+        if (this.addOrderModelData.length === 0) {
+          this.addOrderModelVisible = false
+        }
+      })
     },
     getSalePrice(val) {
       let newData = [...this.newModelData]
-      let target = newData.find((item) => item.id === val.id)
+      let target = newData.find(item => item.id === val.id)
       if (target) {
         target.sale_price = val.val
         this.newModelData = newData
@@ -740,23 +694,29 @@ export default {
     },
     deleteModel(id) {
       let newModelData = [...this.newModelData]
-      this.newModelData = newModelData.filter((item) => item.id !== id)
-      // console.log(this.newModelData)
+      this.newModelData = newModelData.filter(item => item.id !== id)
+      patchOrderToModel(id, { is_delete: 1 })
+        .then(res => {
+          this.$message.success('删除成功')
+        })
+        .catch(err => {
+          this.$message.error('删除失败,刷新重试')
+        })
     },
     getData() {
       let number = window.sessionStorage.getItem('order_number')
-      getOrder(number).then((res) => {
+      getOrder(number).then(res => {
         this.orderdetail = res.data
-        this.picUrl = res.data.order_image.map((item) => {
+        this.picUrl = res.data.order_image.map(item => {
           return process.env.VUE_APP_API_PIC_URL + item
         })
-        getOrderToModel({ order_number: res.data.order_number }).then((res) => {
+        getOrderToModel({ order_number: res.data.order_number }).then(res => {
           this.orderModelColumn = 2
           this.newModelData = res.data
         })
-        getSubOrderList({ order_number: number }).then((res) => {
+        getSubOrderList({ order_number: number }).then(res => {
           this.suborderdetail = res.data
-          res.data.forEach((el) => {
+          res.data.forEach(el => {
             el.status = 0
           })
           if (res.data.length === 0) {
@@ -764,11 +724,11 @@ export default {
         })
       })
       getSubToken()
-    },
+    }
   },
   mounted() {
     this.getData()
-  },
+  }
 }
 </script>
 

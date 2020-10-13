@@ -185,7 +185,7 @@ class SubOrderViewSet(ModelViewSet):
 
 
 class OrderModelsViewSet(ModelViewSet):
-    queryset = OrderModel.objects.filter(is_delete=0).order_by('order_number')
+    queryset = OrderModel.objects.filter(is_delete=0).order_by('id')
     serializer_class = is_delete = OrderModelsSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
@@ -198,7 +198,6 @@ class OrderToModelViewSet(ModelViewSet):
     pagination_class = SubOrderPagination
 
     def create(self, request, *args, **kwargs):
-        # print(self.request.data)
         model = self.request.data['model']
         order_number = self.request.data['order_number']
         sale_price = self.request.data['sale_price']
@@ -209,7 +208,7 @@ class OrderToModelViewSet(ModelViewSet):
         obj.order_number = order_number_obj
         obj.sale_price = sale_price
         obj.save()
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(status.HTTP_201_CREATED)
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())

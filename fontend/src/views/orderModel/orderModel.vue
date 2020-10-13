@@ -1,31 +1,28 @@
 <template>
   <div>
-    <a-table
-      :columns="checkModelData"
-      rowKey="id"
-      :data-source="modelData"
-      bordered
-      size="small"
-    >
+    <a-table :columns="checkModelData" rowKey="id" :data-source="modelData" bordered size="small">
       <template slot="sale_price" slot-scope="text, record, index">
-        <editable-cell
-          :text="text"
+        <!-- <editable-cell
+          :text="record.sale_price"
           @change="onCellChange(record.id, 'sale_price', $event)"
-        />
+        />-->
+        <a-input v-model="record.sale_price"></a-input>
       </template>
       <template slot="operation" slot-scope="text, record, index">
-        <a-button type="primary" @click="onDelete(record.id)" size="small"
-          >delete</a-button
+        <a-popconfirm
+          title="Are you sure delete?"
+          ok-text="Yes"
+          cancel-text="No"
+          @confirm="onDelete(record.id)"
+          @cancel="cancel"
         >
+          <a-button type="primary" size="small">delete</a-button>
+        </a-popconfirm>
       </template>
       <template slot="footer" slot-scope="currentPageData">
         <span class="table-footer-span">模具费</span>
-        <span class="table-footer-span"
-          >采购合计(¥){{ sumBuy(currentPageData) }}</span
-        >
-        <span class="table-footer-span"
-          >销售合计($):{{ sumModel(currentPageData) }}</span
-        >
+        <span class="table-footer-span">采购合计(¥){{ sumBuy(currentPageData) }}</span>
+        <span class="table-footer-span">销售合计($):{{ sumModel(currentPageData) }}</span>
       </template>
     </a-table>
   </div>
@@ -67,7 +64,7 @@ const columns = [
   {
     title: '销售价($)',
     dataIndex: 'sale_price',
-    width: '8%',
+    width: '13%',
     scopedSlots: { customRender: 'sale_price' }
   },
   {
@@ -162,7 +159,12 @@ export default {
       this.$emit('setSalePrice', { id: key, val: value })
     },
     onDelete(id) {
+      console.log(id)
+
       this.$emit('deleteNewModelRow', id)
+    },
+    cancel(e) {
+      this.$message.error('Click on No')
     },
     sumModel(currentData) {
       let values = currentData.map(item => {

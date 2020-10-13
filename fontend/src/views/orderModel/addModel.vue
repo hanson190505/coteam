@@ -26,8 +26,7 @@
               v-for="(item, index) in customers"
               :key="index"
               :value="item.lite_name"
-              >{{ item.lite_name }}</a-select-option
-            >
+            >{{ item.lite_name }}</a-select-option>
           </a-select>
         </a-form-model-item>
         <a-form-model-item label="attribute" prop="atr">
@@ -117,6 +116,7 @@ export default {
       postOrderModel(this.form)
         .then(res => {
           this.$emit('getData')
+          res.data.sale_price = 0
           this.$emit('getNewModelData', res.data)
           this.onClose()
           this.$message.success('提交成功')

@@ -10,19 +10,9 @@
       @blur="handleBlur"
       @change="handleChange"
     >
-      <a-select-option
-        v-for="(item, index) in list_dir"
-        :key="index"
-        :value="item"
-        >{{ item }}</a-select-option
-      >
+      <a-select-option v-for="(item, index) in list_dir" :key="index" :value="item">{{ item }}</a-select-option>
     </a-select>
-    <a-table
-      :columns="columns"
-      :data-source="logsData"
-      rowKey="time_stamp"
-      bordered
-    ></a-table>
+    <a-table :columns="columns" :data-source="logsData" rowKey="time_stamp" bordered></a-table>
   </div>
 </template>
 <script>
@@ -92,9 +82,7 @@ export default {
         this.logsData = res.data.l_log
       })
     },
-    handleBlur() {
-      console.log('blur')
-    },
+    handleBlur() {},
     handleFocus() {
       getLogs('get_options').then(res => {
         this.list_dir = res.data.l_dir

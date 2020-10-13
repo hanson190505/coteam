@@ -27,93 +27,99 @@
 </template>
 
 <script>
-import { getOrderModels, patchOrderModel, postOrderModel } from '@/api/order'
+import { postOrderToModel } from '@/api/order'
 const columns = [
   {
     title: '供应商',
     dataIndex: 'supplier',
     width: '8%',
-    scopedSlots: { customRender: 'supplier' },
+    scopedSlots: { customRender: 'supplier' }
   },
   {
     title: '编号',
     dataIndex: 'number',
     width: '10%',
-    scopedSlots: { customRender: 'number' },
+    scopedSlots: { customRender: 'number' }
   },
   {
     title: '构造',
     dataIndex: 'construct',
     width: '5%',
-    scopedSlots: { customRender: 'construct' },
+    scopedSlots: { customRender: 'construct' }
   },
   {
     title: '生产日期',
     dataIndex: 'pro_date',
     width: '10%',
-    scopedSlots: { customRender: 'pro_date' },
+    scopedSlots: { customRender: 'pro_date' }
   },
   {
     title: '采购单价',
     dataIndex: 'price',
     width: '8%',
-    scopedSlots: { customRender: 'price' },
+    scopedSlots: { customRender: 'price' }
   },
   {
     title: '销售单价($)',
     dataIndex: 'sale_price',
     width: '13%',
-    scopedSlots: { customRender: 'sale_price' },
+    scopedSlots: { customRender: 'sale_price' }
   },
   {
     title: '备注',
     dataIndex: 'remarks',
     width: '15%',
-    scopedSlots: { customRender: 'remarks' },
+    scopedSlots: { customRender: 'remarks' }
   },
   {
     title: 'opration',
     dataIndex: 'opration',
-    scopedSlots: { customRender: 'operation' },
-  },
+    scopedSlots: { customRender: 'operation' }
+  }
 ]
 export default {
   props: {
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     addOrderModelData: {
       type: Array,
-      default: [],
-    },
+      default: []
+    }
   },
   data() {
     return {
       editingKey: '',
       editingRow: 0,
       salePrice: 0,
-      columns,
+      columns
     }
   },
   mounted() {},
   computed: {},
   methods: {
     save(id, index) {
-      //TODO: 点击保存===(上传之前确定销售单价不为0)上传订单-模具数据===删除此条内容===更新已有模具显示内容
-      console.log(this.addOrderModelData[index].sale_price)
+      let sale_price = this.addOrderModelData[index].sale_price
+      let order_number = window.sessionStorage.getItem('order_number')
+      let newOrderToModelData = {}
+      if (sale_price === 0) {
+        this.$message.error('请输入模具销售单价')
+      } else {
+        newOrderToModelData.sale_price = sale_price
+        newOrderToModelData.order_number = order_number
+        newOrderToModelData.model = id
+        postOrderToModel(newOrderToModelData).then(res => {
+          this.$message.success('模具添加成功')
+          this.$emit('pushModelData')
+          this.$emit('delNewAddModel', id)
+        })
+      }
     },
     onDelete(id, index) {
-      patchOrderModel(id, { is_delete: 1 })
-        .then((res) => {
-          this.data.splice(index, 1)
-          this.$message.success('删除成功')
-        })
-        .catch((err) => {
-          this.$message.error('删除失败')
-        })
-    },
-  },
+      this.$emit('delNewAddModel', id)
+    }
+  }
 }
 </script>
 
