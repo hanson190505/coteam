@@ -1,8 +1,10 @@
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
 from django.views.generic import ListView, DetailView, TemplateView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.throttling import UserRateThrottle
+from rest_framework.views import APIView
 
 from middleware.pagenation import SubOrderPagination
 from upload.models import Image
@@ -145,3 +147,29 @@ class SearchView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         pass
+
+
+class SendMailView(APIView):
+    authentication_classes = []
+    permission_classes = []
+    throttle_scope = 'sendmail'
+
+    def get(self, request, *args, **kwargs):
+        from django.core.mail import BadHeaderError, send_mail
+        title = request.GET.get('title')
+        name = request.GET.get('name')
+        email = request.GET.get('email')
+        desc = request.GET.get('desc')
+        subject = '{}'.format(title)
+        message = 'Customer:{}\nEmail:{}\nDesc:{}'.format(name, email, desc)
+        from_email = request.GET.get('from_email', 'hanjiwen30@163.com')
+        if subject and message and from_email:
+            try:
+                # send_mail(subject, message, from_email, ['infochinagoodgifts@gmail.com'])
+                send_mail(subject, message, from_email, ['hanjiwen31@163.com'])
+            except BadHeaderError:
+                return Response({'msg': 'Invalid header found.', 'type': 'warning'})
+            # return HttpResponseRedirect('/contact/thanks/')
+            return Response({'msg': 'thanks', 'type': 'success'})
+        else:
+            return Response({'msg': 'Make sure all fields are entered and valid.', 'type': 'warning'})

@@ -2,71 +2,59 @@
 {% load static %}
 {% load image %}
 {% block meta %}
-  <meta description="{{ home_text.seo_desc }}">
+	<meta description="{{ home_text.seo_desc }}">
 {% endblock %}
 {% block title %}
-  {{ home_text.seo_title }}
+	{{ home_text.seo_title }}
 {% endblock %}
-
+{% block banner %}
+	<div class="unit-wrapper bg-dark">
+		<div class="container">
+			{% for banner in banners %}
+				<img src="{% image base_url banner.path %}" alt="" class="img-fluid w-100">
+			{% endfor %}
+			<div class="banner-text text-center">
+				<p class="display-2 text-light font-weight-bolder">Coming soon</p>
+				<h2 class="text-light">This is descThis is descThis is descThis is descThis is descThis i</h2>
+				<h2 class="text-light">This is descThis is descThis is descThis is </h2>
+			</div>
+		<div class="banner-btn text-center">
+			<button type="button" class="btn btn-outline-primary">Learn Morn</button>
+			<button type="button" class="btn btn-outline-primary">View New</button>
+		</div>
+		</div>
+	</div>
+{% endblock %}
 {% block content %}
-  <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    {#    <ol class="carousel-indicators">#}
-    {#        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>#}
-    {#        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>#}
-    {#        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>#}
-    {#    </ol>#}
-    <div class="carousel-inner">
-      {% for banner in banners %}
-        <div class="carousel-item">
-          <img src="{% image base_url banner.path %}" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-	<div class="banner-top"></div>
-  <p></p>
-  <div class="row">
-    {% for home in is_home %}
-      <div class="col-12 col-md-6 text-center">
-        <img src="{% image base_url home.path %}" alt="" class="img-fluid rounded" width="400px">
-      </div>
-    {% endfor %}
-  </div>
-  <p></p>
-  <div class="row">
-    <div class="col-4 text-center">
-      <h1>Factory</h1>
-    </div>
-    <div class="col-4 text-center">
-      <h1>Message</h1>
-    </div>
-    <div class="col-4 text-center">
-      <h1>Customer</h1>
-    </div>
-  </div>
+	<div class="container">
+	<div class="row">
+		{% for home in is_home %}
+			<div class="col-12 col-md-6 text-center">
+				<img src="{% image base_url home.path %}" alt="" class="img-fluid rounded" width="400px">
+			</div>
+		{% endfor %}
+	</div>
+	</div>
+		{% include 'webapi/contact.html' %}
+{#	<p></p>#}
+{#	<div class="row">#}
+{#		<div class="col-4 text-center">#}
+{#			<h1>Factory</h1>#}
+{#		</div>#}
+{#		<div class="col-4 text-center">#}
+{#			<h1>Message</h1>#}
+{#		</div>#}
+{#		<div class="col-4 text-center">#}
+{#			<h1>Customer</h1>#}
+{#		</div>#}
+{#	</div>#}
 {% endblock %}
 {% block style %}
 	<style>
-		.banner-top {
-			background-color: #16c6c6;
-			height: 40rem;
-		}
 	</style>
 {% endblock %}
 {% block script %}
-  <script>
+	<script>
       $(function () {
           {#  为首页轮播图添加active类名#}
           $(".carousel-item:first").addClass("active")
@@ -99,6 +87,29 @@
           {#        }#}
           {#    })#}
           {# })#}
+					$("#sendMailForm").submit(function () {
+					    const title = $("#sendMailFormTitle:input").val()
+					    const name = $("#sendMailFormName:input").val()
+							const email = $("#sendMailFormEmail1:input").val()
+							const desc = $("#sendMailFormText").val()
+              $.ajax({
+									url:"/send_mail/",
+									type:"GET",
+									data: {title:title, name:name, email:email, desc:desc},
+									success:function (data) {
+										alert('Thank you')
+                  },
+                  statusCode:{
+									    '429':function () {
+												alert('Please do not submit again. Wait for 1 minute and try again')
+                      },
+                      '500':function () {
+												alert('Failed to send,Please try again!')
+                      }
+									}
+							})
+							return false;
+          })
       })
-  </script>
+	</script>
 {% endblock %}

@@ -167,11 +167,13 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',),
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
+        'rest_framework.throttling.UserRateThrottle',
+        'rest_framework.throttling.ScopedRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/min',
-        'user': '100/min'
+        'anon': '1000/min',
+        'user': '1000/min',
+        'sendmail': '2/min'
     }
 }
 
