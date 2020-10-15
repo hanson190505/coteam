@@ -30,7 +30,9 @@
 	<div class="row">
 		{% for home in is_home %}
 			<div class="col-12 col-md-6 text-center">
+				<a href="{% url 'product_detail' home.pro_number_id %}">
 				<img src="{% image base_url home.path %}" alt="" class="img-fluid rounded" width="400px">
+				</a>
 			</div>
 		{% endfor %}
 	</div>

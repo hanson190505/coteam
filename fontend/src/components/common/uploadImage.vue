@@ -1,11 +1,9 @@
 <template>
   <div class="clearfix">
-    <a-upload
-      :file-list="fileList"
-      :remove="handleRemove"
-      :before-upload="beforeUpload"
-    >
-      <a-button> <a-icon type="upload" /> Select File </a-button>
+    <a-upload :file-list="fileList" :remove="handleRemove" :before-upload="beforeUpload">
+      <a-button>
+        <a-icon type="upload" />Select File
+      </a-button>
     </a-upload>
     <a-button
       type="primary"
@@ -13,9 +11,7 @@
       :loading="uploading"
       style="margin-top: 16px"
       @click="handleUpload"
-    >
-      {{ uploading ? 'Uploading' : 'Start Upload' }}
-    </a-button>
+    >{{ uploading ? 'Uploading' : 'Start Upload' }}</a-button>
   </div>
 </template>
 <script>
@@ -28,7 +24,6 @@ export default {
     }
   },
   methods: {
-    //   TODO:重构图片上传
     handleRemove(file) {
       const index = this.fileList.indexOf(file)
       const newFileList = this.fileList.slice()

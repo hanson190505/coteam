@@ -13,7 +13,7 @@
               <el-option
                 v-for="item in productTypeData"
                 :key="item.id"
-                :label="item.parent_category + '--' + item.category"
+                :label="item.category"
                 :value="item.id"
               ></el-option>
             </el-select>
@@ -223,11 +223,12 @@ export default {
     selectTest(v) {
       if (v === true) {
         getProductType().then(res => {
-          res.data.results.forEach(el => {
-            if (el.parent_category !== null) {
-              this.productTypeData.push(el)
-            }
-          })
+          // res.data.results.forEach(el => {
+          //   if (el.parent_category !== null) {
+          //     this.productTypeData.push(el)
+          //   }
+          // })
+          this.productTypeData = res.data.results
         })
       }
     },

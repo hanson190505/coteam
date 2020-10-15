@@ -2,6 +2,8 @@ from datetime import datetime
 from django.db import models
 from ckeditor.fields import RichTextField
 
+from vuebackend import settings
+
 
 class ProductsType(models.Model):
     category = models.CharField('产品总类', max_length=32, null=True, blank=True)

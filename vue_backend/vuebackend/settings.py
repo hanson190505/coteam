@@ -308,3 +308,4 @@ MEDIA_URL = '/image/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image/')
 
 WEB_IMAGE_SERVER_PATH = os.environ.get('WEB_IMAGE_SERVER_PATH')
+WEB_BASE_URL = os.environ.get('WEB_BASE_URL')

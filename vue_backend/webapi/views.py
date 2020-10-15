@@ -116,11 +116,12 @@ class ProductDetailView(DetailView):
         return context
 
 
-class HomeIndexView(TemplateView):
+class HomeIndexView(ListView):
     template_name = 'webapi/index.html'
+    model = Products
+    context_object_name = 'products_list'
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        # TODO:首页产品图片，应该显示热销或者新款产品
         context = super().get_context_data(**kwargs)
         context['banners'] = Image.objects.filter(is_banner=1)
         context['is_home'] = Image.objects.filter(is_home=1)

@@ -65,7 +65,7 @@
       <el-table-column width="150" label="颜色">
         <template slot-scope="scope">
           <add-product-color
-            :parentProColor="scope.row"
+            :parentProColor="scope"
             @getProColor="handleSelect"
             @delProColor="delProColor"
             :addColorBtn="(childAddColorBtn = false)"
@@ -141,6 +141,9 @@ export default {
         this.productsData = res.data.results
         this.loading = false
         this.dataTotal = res.data.count
+        console.log('====================================')
+        console.log(res)
+        console.log('====================================')
       })
     },
     //查看详情

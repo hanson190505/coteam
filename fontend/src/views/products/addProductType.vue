@@ -13,7 +13,7 @@
     >
       <el-table-column label="产品类别" align="center" width="150" fiexd>
         <template slot-scope="scope">
-          <el-select
+          <!-- <el-select
             v-if="scope.row.status === 1"
             v-model="scope.row.category"
             filterable
@@ -27,13 +27,8 @@
               :value="item.id"
             ></el-option>
           </el-select>
-          <span v-else>{{ scope.row.category}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="产品子类" align="center" width="120" fiexd>
-        <template slot-scope="scope">
-          <el-input v-if="scope.row.status === 1" v-model="scope.row.category"></el-input>
-          <span v-else>{{ scope.row.category }}</span>
+          <span v-else>{{ scope.row.category}}</span>-->
+          <el-input v-model="scope.row.category" size="normal" clearable></el-input>
         </template>
       </el-table-column>
       <el-table-column label="提交日期" align="center" width="120" fiexd>
@@ -64,7 +59,7 @@
 import {
   postProductType,
   getProductType,
-  patchProductType,
+  patchProductType
 } from '@/api/products'
 import pagiNation from '@/components/common/pagiNation'
 import { delTableRow } from '@/utils/delTablerow'
@@ -74,23 +69,23 @@ export default {
       productsTypeData: [],
       productTypeDataSelect: [],
       dataTotal: 0,
-      loading: true,
+      loading: true
     }
   },
   props: {
     visible: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   components: {
-    pagiNation,
+    pagiNation
   },
   methods: {
     //调用后台类别数据
     selectTest(v) {
       if (v === true) {
-        getProductType().then((res) => {
+        getProductType().then(res => {
           this.productTypeDataSelect = res.data.results
           // console.log(res.data)
         })
@@ -100,8 +95,8 @@ export default {
       if (!params) {
         params = { page: 1, page_size: 10 }
       }
-      getProductType(params).then((res) => {
-        res.data.results.forEach((el) => {
+      getProductType(params).then(res => {
+        res.data.results.forEach(el => {
           el.status = 0
         })
         this.productsTypeData = res.data.results
@@ -113,22 +108,22 @@ export default {
       this.productsTypeData.push({
         category: '',
         sub_type: '',
-        status: 1,
+        status: 1
       })
     },
     //提交新目录
     handleSubmit(row) {
       postProductType(row)
-        .then((res) => {
+        .then(res => {
           this.$notify({
             message: '提交成功',
-            type: 'success',
+            type: 'success'
           })
           row.status = 0
         })
-        .catch((err) => {
+        .catch(err => {
           this.$notify.error({
-            message: '提交失败',
+            message: '提交失败'
           })
         })
     },
@@ -138,16 +133,16 @@ export default {
     handleSave(row) {
       if (row.id) {
         patchProductType(row.id, row)
-          .then((res) => {
+          .then(res => {
             this.$notify({
               message: '修改成功',
-              type: 'success',
+              type: 'success'
             })
             row.status = 0
           })
-          .catch((err) => {
+          .catch(err => {
             this.$notify.error({
-              message: '修改失败',
+              message: '修改失败'
             })
           })
       } else {
@@ -160,42 +155,42 @@ export default {
         this.$confirm('数据未保存,确定删除?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
-          type: 'warning',
+          type: 'warning'
         })
           .then(() => {
             this.productsTypeData.splice(index, 1)
             this.$message({
               type: 'success',
-              message: '删除成功!',
+              message: '删除成功!'
             })
           })
           .catch(() => {
             this.$message({
               type: 'info',
-              message: '已取消删除',
+              message: '已取消删除'
             })
           })
       } else {
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
-          type: 'warning',
+          type: 'warning'
         })
           .then(() => {
             console.log(index)
             console.log(row)
             this.productsTypeData.splice(index, 1)
-            patchProductType(row.id, { is_delete: 1 }).then((res) => {
+            patchProductType(row.id, { is_delete: 1 }).then(res => {
               this.$message({
                 type: 'success',
-                message: '删除成功!',
+                message: '删除成功!'
               })
             })
           })
           .catch(() => {
             this.$message({
               type: 'info',
-              message: '删除失败!',
+              message: '删除失败!'
             })
           })
       }
@@ -205,14 +200,14 @@ export default {
       let promise = new Promise((resolve, reject) => {
         this.$emit('closeAddproductType')
         resolve()
-      }).then((res) => {
+      }).then(res => {
         done()
       })
-    },
+    }
   },
   created() {
     this.pagination()
-  },
+  }
 }
 </script>
 
