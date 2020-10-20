@@ -8,24 +8,7 @@
 	<div class="container">
   <div class="row">
     {#  产品页侧面导航#}
-    <div class="col-sm-0 col-md-2">
-      {#      <div class="list-group">#}
-      {#        <a href="{% url 'products' %}" class="list-group-item list-group-item-action">ALL PRODUCTS</a>#}
-      {#        {% for product_type in product_type_list %}#}
-      {#          <a href="{% url 'product_type' pro_type=product_type.id %}"#}
-      {#             class="list-group-item list-group-item-action">{{ product_type.category }}#}
-      {#          </a>#}
-      {#        {% endfor %}#}
-      {#      </div>#}
-      <nav class="nav flex-column">
-        <a class="nav-link active" href="{% url 'products' %}">ALL</a>
-        {% for product_type in product_type_list %}
-          <a href="{% url 'product_type' pro_type=product_type.id %}"
-             class="nav-link">{{ product_type.category }}
-          </a>
-        {% endfor %}
-      </nav>
-    </div>
+    {% include 'webapi/product_list_nav.html' %}
     {#  产品页正文内容#}
     <div class="col-sm-12 col-md-10">
       <div class="row">

@@ -174,3 +174,10 @@ class SendMailView(APIView):
             return Response({'msg': 'thanks', 'type': 'success'})
         else:
             return Response({'msg': 'Make sure all fields are entered and valid.', 'type': 'warning'})
+
+
+# def page_not_found(request):
+#     """
+#     404、500处理函数
+#     """
+#     return render(request, '404.html')
