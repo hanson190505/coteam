@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 const JavaScriptObfuscator = require('webpack-obfuscator')
 
-const encryption = true // 打包后的代码是否加密
+const encryption = false // 打包后的代码是否加密
 
 module.exports = {
   publicPath: '/cms/',
@@ -201,8 +201,7 @@ if (process.env.NODE_ENV == 'production' && encryption == true) {
     },
     configureWebpack: {
       plugins: [
-        new JavaScriptObfuscator(
-          {
+        new JavaScriptObfuscator({
             rotateUnicodeArray: true, // 必须为true
             compact: true, // 紧凑 从输出混淆代码中删除换行符。
             controlFlowFlattening: false, // 此选项极大地影响了运行速度降低1.5倍的性能。 启用代码控制流展平。控制流扁平化是源代码的结构转换，阻碍了程序理解。
