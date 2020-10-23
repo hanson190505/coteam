@@ -46,7 +46,8 @@
       </el-table-column>
       <el-table-column label="所属" align="center" width="80">
         <template slot-scope="scope">
-          <span>{{ scope.row.owner }}</span>
+          <el-input v-if="scope.row.is_edit === 1" v-model="scope.row.owner"></el-input>
+          <span v-else>{{ scope.row.owner }}</span>
         </template>
       </el-table-column>
       <el-table-column label="首页展示" align="center" width="80">

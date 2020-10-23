@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load image %}
+{% block title %}
+Chinagoodgifts coteam about
+{% endblock %}
+{% block content %}
+  <p></p>
+  <div class="container">
+  <div class="text-center about-image-wrapper">
+    <img src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">
+  </div>
+  <div class="about-content">
+    {% include 'webapi/contact.html' %}
+  </div>
+  </div>
+{% endblock %}
+{% block script %}
+  <script>
+    $(function () {
+      $("#sendMailForm").submit(function () {
+              const title = $("#sendMailFormTitle:input").val()
+              const name = $("#sendMailFormName:input").val()
+              const email = $("#sendMailFormEmail1:input").val()
+              const desc = $("#sendMailFormText").val()
+              $.ajax({
+                  url: "/send_mail/",
+                  type: "GET",
+                  data: {title: title, name: name, email: email, desc: desc},
+                  success: function (data) {
+                      alert('Thank you')
+                  },
+                  statusCode: {
+                      '429': function () {
+                          alert('Please do not submit again. Wait for 1 minute and try again')
+                      },
+                      '500': function () {
+                          alert('Failed to send,Please try again!')
+                      }
+                  }
+              })
+              return false;
+          })
+    })
+  </script>
+{% endblock %}

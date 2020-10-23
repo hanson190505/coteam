@@ -78,6 +78,7 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
             upload_img.is_home = request.data['is_home']
             upload_img.home_index = request.data['home_index']
             upload_img.is_banner = request.data['is_banner']
+            upload_img.image_alt = request.data['image_alt']
             upload_img.save()
         return Response({'file': upload_img.path, 'id': upload_img.id, 'status': 1000}, status=status.HTTP_201_CREATED)
 

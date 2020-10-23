@@ -17,19 +17,28 @@
 			</li>
 		</ul>
 		<hr>
-		<div class="row">
-			<div class="col-12 col-md-4">
-				<p class="pr-2">Copyright © 2020 Coteam Inc.</p>
-			</div>
-			<div class="col-12 col-md-2">
-				<a href="#" class="pr-2"><a href="{% url 'products' %}">Products</a></a>
-			</div>
-			<div class="col-12 col-md-2">
-				<a href="#" class="pr-2">Site Map</a>
-			</div>
-			<div class="col-12 col-md-4">
-				{% include 'layout/attention.html' %}
-			</div>
+    <ul class="list-inline">
+      <li class="list-inline-item"><small>Copyright © 2020 Coteam Inc.</small></li>
+      <li class="list-inline-item"><a href="{% url 'products' %}">Products</a></li>
+      <li class="list-inline-item"><a href="{% url 'about' %}">About</a></li>
+      <li class="list-inline-item">{% include 'layout/attention.html' %}</li>
+    </ul>
+{#		<div class="row">#}
+{#			<div class="col-12 col-md-3">#}
+{#        <small>Copyright © 2020 Coteam Inc.</small>#}
+{#			</div>#}
+{#			<div class="col-12 col-md-2">#}
+{#				<a href="{% url 'products' %}">Products</a>#}
+{#			</div>#}
+{#      <div class="col-12 col-md-2">#}
+{#				<a href="{% url 'about' %}">About</a>#}
+{#			</div>#}
+{#			<div class="col-12 col-md-2">#}
+{#				<a href="#">Site Map</a>#}
+{#			</div>#}
+{#			<div class="col-12 col-md-3">#}
+{#				{% include 'layout/attention.html' %}#}
+{#			</div>#}
 		</div>
 	</div>
 </div>

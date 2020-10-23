@@ -141,9 +141,6 @@ export default {
         this.productsData = res.data.results
         this.loading = false
         this.dataTotal = res.data.count
-        console.log('====================================')
-        console.log(res)
-        console.log('====================================')
       })
     },
     //查看详情

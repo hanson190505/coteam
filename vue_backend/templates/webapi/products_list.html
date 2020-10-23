@@ -5,32 +5,78 @@
 {% endblock %}
 {% block content %}
   <p></p>
-	<div class="container">
-  <div class="row">
-    {#  产品页侧面导航#}
-    {% include 'webapi/product_list_nav.html' %}
-    {#  产品页正文内容#}
-    <div class="col-sm-12 col-md-10">
-      <div class="row">
-        {% for prodcuct in products_list %}
-          <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="card text-center">
-              <a href="{% url 'product_detail' prodcuct.id %}">
-                <img src="{% image base_url prodcuct.pro_image.first.path %}" class="card-img-top img-fluid"
-                     alt="{{ prodcuct.seo_title }}">
-              </a>
-              <div class="card-body">
+  <div class="container">
+    <div class="row">
+      {#  产品页侧面导航#}
+      {% include 'webapi/product_list_nav.html' %}
+      {#  产品页正文内容#}
+      <div class="col-sm-12 col-md-10">
+        <div class="row">
+          {% for prodcuct in products_list %}
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card text-center">
                 <a href="{% url 'product_detail' prodcuct.id %}">
-                  <h5 class="card-title">{{ prodcuct.seo_title }}</h5>
+                  <img src="{% image base_url prodcuct.pro_image.first.path %}" class="card-img-top img-fluid"
+                       alt="{{ prodcuct.seo_title }}">
                 </a>
-                <p class="card-text">{{ prodcuct.seo_desc }}</p>
+                <div class="card-body">
+                  <a href="{% url 'product_detail' prodcuct.id %}">
+                    <h5 class="card-title">{{ prodcuct.seo_title }}</h5>
+                  </a>
+                  <p class="card-text">{{ prodcuct.seo_desc }}</p>
+                  <button type="button" class="btn btn-primary btn-lg btn-block btn-sm" id="product-list-contact-btn"
+                          data-target="#product-list-contact-modal" data-toggle="modal"
+                          data-whatever="{{ web_base_url }}product/{{ prodcuct.id }}">contact us
+                  </button>
+                </div>
               </div>
+              <p></p>
             </div>
-            <p></p>
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
-	</div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="product-list-contact-modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          {% include 'webapi/contact.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block script %}
+  <script>
+      $(function () {
+          $('#product-list-contact-modal').on('show.bs.modal', function (event) {
+              const button = $(event.relatedTarget) // Button that triggered the modal
+              const recipient = button.data('whatever') // Extract info from data-* attributes
+              $("#sendMailForm").submit(function () {
+                  const title = $("#sendMailFormTitle:input").val()+'|'+ recipient
+                  const name = $("#sendMailFormName:input").val()
+                  const email = $("#sendMailFormEmail1:input").val()
+                  const desc = $("#sendMailFormText").val()
+                  $.ajax({
+                      url: "/send_mail/",
+                      type: "GET",
+                      data: {title: title, name: name, email: email, desc: desc},
+                      success: function (data) {
+                          alert('Thank you')
+                      },
+                      statusCode: {
+                          '429': function () {
+                              alert('Please do not submit again. Wait for 1 minute and try again')
+                          },
+                          '500': function () {
+                              alert('Failed to send,Please try again!')
+                          }
+                      }
+                  })
+                  return false;
+              })
+          })
+      })
+  </script>
 {% endblock %}

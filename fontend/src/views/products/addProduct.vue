@@ -310,7 +310,7 @@ export default {
     },
     handlePatchImageTable(id) {
       this.imageData.forEach(el => {
-        patchImage({ pro_number: id }, el.id)
+        patchImage(el.id, { pro_number: id })
           .then(res => {
             this.pic_url.push(process.env.VUE_APP_API_PIC_URL + res.data.path)
             this.$refs.imageTable.clearSelect()

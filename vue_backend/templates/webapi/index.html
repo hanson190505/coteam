@@ -2,61 +2,62 @@
 {% load static %}
 {% load image %}
 {% block meta %}
-	<meta description="{{ home_text.seo_desc }}">
+  <meta name="description" content="{{ home_text.seo_desc }}">
 {% endblock %}
 {% block title %}
-	{{ home_text.seo_title }}
+  {{ home_text.seo_title }}
 {% endblock %}
 {% block banner %}
-	<div class="unit-wrapper bg-dark">
-		<div class="container">
-			{% for banner in banners %}
-				<img src="{% image base_url banner.path %}" alt="" class="img-fluid w-100">
-			{% endfor %}
-			<div class="banner-text text-center">
-				<p class="display-2 text-light font-weight-bolder">Coming soon</p>
-				<h2 class="text-light">This is descThis is descThis is descThis is descThis is descThis i</h2>
-				<h2 class="text-light">This is descThis is descThis is descThis is </h2>
-			</div>
-		<div class="banner-btn text-center" style="padding-bottom: 10px">
-			<button type="button" class="btn btn-outline-primary mr-5">Learn Morn</button>
-			<button type="button" class="btn btn-outline-primary">View New</button>
-		</div>
-		</div>
-	</div>
+  <div class="unit-wrapper bg-dark">
+    <div class="container">
+      {% for banner in banners %}
+        <img src="{% image base_url banner.path %}" alt="" class="img-fluid w-100">
+      {% endfor %}
+      <div class="banner-text text-center">
+        <p class="display-2 text-light font-weight-bolder">Coming soon</p>
+        <h2 class="text-light">We are a professional manufacturer of electronic peripheral products</h2>
+        <h2 class="text-light">We provide a variety of customized product solutions</h2>
+      </div>
+      {#          banner栏按钮待开发#}
+      {#      		<div class="banner-btn text-center" style="padding-bottom: 10px">#}
+      {#      			<button type="button" class="btn btn-outline-primary mr-5 contact-mail">Learn Morn</button>#}
+      {#      			<button type="button" class="btn btn-outline-primary">View New</button>#}
+      {#      		</div>#}
+    </div>
+  </div>
 {% endblock %}
 {% block content %}
-	<div class="container">
-	<div class="row">
-		{% for home in is_home %}
-			<div class="col-12 col-md-6 text-center">
-				<a href="{% url 'product_detail' home.pro_number_id %}">
-				<img src="{% image base_url home.path %}" alt="" class="img-fluid rounded" width="400px">
-				</a>
-			</div>
-		{% endfor %}
-	</div>
-	</div>
-		{% include 'webapi/contact.html' %}
-{#	<p></p>#}
-{#	<div class="row">#}
-{#		<div class="col-4 text-center">#}
-{#			<h1>Factory</h1>#}
-{#		</div>#}
-{#		<div class="col-4 text-center">#}
-{#			<h1>Message</h1>#}
-{#		</div>#}
-{#		<div class="col-4 text-center">#}
-{#			<h1>Customer</h1>#}
-{#		</div>#}
-{#	</div>#}
+  <div class="container">
+    <div class="row">
+      {% for home in is_home %}
+        <div class="col-12 col-md-6 text-center">
+          <a href="{% url 'product_detail' home.pro_number_id %}">
+            <img src="{% image base_url home.path %}" alt="" class="img-fluid rounded" width="400px">
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+    {% include 'webapi/contact.html' %}
+  {#	<p></p>#}
+  {#	<div class="row">#}
+  {#		<div class="col-4 text-center">#}
+  {#			<h1>Factory</h1>#}
+  {#		</div>#}
+  {#		<div class="col-4 text-center">#}
+  {#			<h1>Message</h1>#}
+  {#		</div>#}
+  {#		<div class="col-4 text-center">#}
+  {#			<h1>Customer</h1>#}
+  {#		</div>#}
+  {#	</div>#}
 {% endblock %}
 {% block style %}
-	<style>
-	</style>
+  <style>
+  </style>
 {% endblock %}
 {% block script %}
-	<script>
+  <script>
       $(function () {
           {#  为首页轮播图添加active类名#}
           $(".carousel-item:first").addClass("active")
@@ -89,29 +90,29 @@
           {#        }#}
           {#    })#}
           {# })#}
-					$("#sendMailForm").submit(function () {
-					    const title = $("#sendMailFormTitle:input").val()
-					    const name = $("#sendMailFormName:input").val()
-							const email = $("#sendMailFormEmail1:input").val()
-							const desc = $("#sendMailFormText").val()
+          $("#sendMailForm").submit(function () {
+              const title = $("#sendMailFormTitle:input").val()
+              const name = $("#sendMailFormName:input").val()
+              const email = $("#sendMailFormEmail1:input").val()
+              const desc = $("#sendMailFormText").val()
               $.ajax({
-									url:"/send_mail/",
-									type:"GET",
-									data: {title:title, name:name, email:email, desc:desc},
-									success:function (data) {
-										alert('Thank you')
+                  url: "/send_mail/",
+                  type: "GET",
+                  data: {title: title, name: name, email: email, desc: desc},
+                  success: function (data) {
+                      alert('Thank you')
                   },
-                  statusCode:{
-									    '429':function () {
-												alert('Please do not submit again. Wait for 1 minute and try again')
+                  statusCode: {
+                      '429': function () {
+                          alert('Please do not submit again. Wait for 1 minute and try again')
                       },
-                      '500':function () {
-												alert('Failed to send,Please try again!')
+                      '500': function () {
+                          alert('Failed to send,Please try again!')
                       }
-									}
-							})
-							return false;
+                  }
+              })
+              return false;
           })
       })
-	</script>
+  </script>
 {% endblock %}

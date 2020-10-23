@@ -79,6 +79,7 @@ class ProductListView(ListView):
         # Add in a QuerySet of all the books
         context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
+        context['web_base_url'] = settings.WEB_BASE_URL
         return context
 
     def get(self, request, *args, **kwargs):
@@ -113,6 +114,7 @@ class ProductDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
+        context['web_base_url'] = settings.WEB_BASE_URL
         return context
 
 
@@ -176,8 +178,11 @@ class SendMailView(APIView):
             return Response({'msg': 'Make sure all fields are entered and valid.', 'type': 'warning'})
 
 
-# def page_not_found(request):
-#     """
-#     404、500处理函数
-#     """
-#     return render(request, '404.html')
+class AboutTemplateView(TemplateView):
+    template_name = 'webapi/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
+        context['about_image'] = get_object_or_404(Image, owner='about')
+        return context
