@@ -26,6 +26,9 @@ export function request(config) {
         config.headers.content_type = 'application/x-www-form-urlencoded'
       }
     }
+    // if (!token || !localToken) {
+    //   config.headers.authorization = ''
+    // }
     // console.log('打印请求拦截');
     // console.log(config);
     return config

@@ -7,10 +7,11 @@ from rest_framework.response import Response
 class UserTokenAuthentication(BaseAuthentication):
 
 	def authenticate(self, request):
-		token = request.headers['authorization']
-		user = cache.get(token)
-		if user.u_name == 'admin':
-			return user, token
+		if 'authorization' in request.headers:
+			token = request.headers['authorization']
+			user = cache.get(token)
+			if user.u_name == 'admin':
+				return user, token
 		else:
 			msg = 'Invalid basic header. Credentials string should not contain spaces.'
 			raise exceptions.AuthenticationFailed(msg)
@@ -20,10 +21,11 @@ class GetTokenAuthentication(BaseAuthentication):
 
 	def authenticate(self, request):
 		# 这个request是drf封装之后的request
-		token = request.headers['authorization']
-		user = cache.get(token)
-		if token and user.is_use == 1:
-			return user, token
+		if 'authorization' in request.headers:
+			token = request.headers['authorization']
+			user = cache.get(token)
+			if token and user.is_use == 1:
+				return user, token
 		else:
 			msg = 'Invalid basic header. Credentials string should not contain spaces.'
 			raise exceptions.AuthenticationFailed(msg)
