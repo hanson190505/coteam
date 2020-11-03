@@ -1,15 +1,18 @@
 <template>
-  <webapi-table></webapi-table>
+  <div>
+    <child-table></child-table>
+  </div>
 </template>
 
 <script>
-import webapiTable from './child/webapiTable'
+import childTable from './child/childTable';
 export default {
-  components: {
-    webapiTable,
-  },
+  components:{
+    childTable
+  }
 }
 </script>
 
 <style>
+
 </style>

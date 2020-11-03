@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store';
+import {ifAxisCrossZero} from "echarts/src/coord/axisHelper";
 
 Vue.use(VueRouter)
 
@@ -115,6 +116,7 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/login') {
     return next()
   }
+
   let tokenStr = store.getters.token
   let localToken = window.localStorage.getItem('token')
   if (!tokenStr && !localToken) {

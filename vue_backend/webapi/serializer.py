@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from webapi.models import ProductsType, Products
+from webapi.models import ProductsType, Products, HomeIndex
 
 
 class ProductsSerializer(serializers.ModelSerializer):
@@ -29,4 +29,6 @@ class ProductTypeRetrieveSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductsType
         fields = '__all__'
+
+
 

@@ -1,4 +1,17 @@
-[ERROR][2020-10-24 07:31:02,412][log.py:228]Internal Server Error: /api/staffs/null/
+[ERROR][2020-11-03 02:34:48,760][log.py:228]Internal Server Error: /api/staffs/null/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+  File "/usr/src/api/user/authentications.py", line 27, in authenticate
+    if token and user.is_use == 1:
+AttributeError: 'NoneType' object has no attribute 'is_use'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -24,12 +37,16 @@ Traceback (most recent call last):
     request.user
   File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
     self._authenticate()
+  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
+    raise exc.with_traceback(info[2])
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
+    yield
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
+    self._authenticate()
   File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
     user_auth_tuple = authenticator.authenticate(self)
-  File "/usr/src/api/user/authentications.py", line 23, in authenticate
-    token = request.headers['authorization']
-  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 388, in __getitem__
-    return super().__getitem__(key.replace('_', '-'))
-  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 320, in __getitem__
-    return self._store[key.lower()][1]
-KeyError: 'authorization'
+  File "/usr/src/api/user/authentications.py", line 27, in authenticate
+    if token and user.is_use == 1:
+rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'

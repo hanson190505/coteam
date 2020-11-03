@@ -101,13 +101,37 @@
       </el-row>
       <el-row>
         <el-col :span="8">
-          <el-form-item label="seo标题">
-            <el-input v-model="addProductData.seo_title"></el-input>
+            <el-form-item label="seo标题">
+                  <el-select
+                    v-model="addProductData.seo_title"
+                    filterable
+                    placeholder="请选择"
+                    @visible-change="selectWebApi"
+                  >
+                    <el-option
+                      v-for="item in webApiData"
+                      :key="item.seo_title"
+                      :label="item.seo_title"
+                      :value="item.seo_title"
+                    ></el-option>
+                  </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="16">
           <el-form-item label="seo描述">
-            <el-input v-model="addProductData.seo_desc"></el-input>
+             <el-select
+                    v-model="addProductData.seo_desc"
+                    filterable
+                    placeholder="请选择"
+                    @visible-change="selectWebApi"
+                  >
+                    <el-option
+                      v-for="item in webApiData"
+                      :key="item.seo_desc"
+                      :label="item.seo_desc"
+                      :value="item.seo_desc"
+                    ></el-option>
+                  </el-select>
           </el-form-item>
         </el-col>
       </el-row>
@@ -167,6 +191,7 @@ import addProductColor from '@/components/common/addProductColor'
 import imageTable from '../imageManage/imageTable'
 import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
+import { getWebapi } from "@/api/webapi";
 export default {
   name: 'addProduct',
   components: {
@@ -194,6 +219,7 @@ export default {
     return {
       imageData: [],
       PicDialogTableVisible: false,
+      webApiData:[],
       productTypeData: [],
       // addProductData: {
       //   pro_color: '',
@@ -231,6 +257,11 @@ export default {
           this.productTypeData = res.data.results
         })
       }
+    },
+    selectWebApi(v){
+      getWebapi().then(res=>{
+        this.webApiData = res.data.results
+      })
     },
     //删除颜色
     delProColor(value, index) {

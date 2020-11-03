@@ -186,3 +186,4 @@ class AboutTemplateView(TemplateView):
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['about_image'] = get_object_or_404(Image, owner='about')
         return context
+
