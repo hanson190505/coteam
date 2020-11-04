@@ -2,7 +2,7 @@
   <div>
     <el-row>
       <el-col :span="4">
-        <backend-searchVue @parentMethod="pagination"></backend-searchVue>
+        <backend-searchVue @parentMethod="pagination" :keyWords="keyWords"></backend-searchVue>
       </el-col>
       <el-col :span="8">
         <date-search @dateSearchDate="dateSearchDate"></date-search>
@@ -139,6 +139,7 @@ export default {
       dataTotal: 0,
       baseurl: process.env.VUE_APP_API_PIC_URL,
       productDataSelect: [],
+      keyWords:['owner', 'is_banner', 'image_alt']
     }
   },
   methods: {

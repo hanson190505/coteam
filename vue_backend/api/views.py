@@ -35,8 +35,8 @@ class OrdersViewSet(ModelViewSet):
     queryset = OrderCatalog.objects.filter(
         is_delete=0).order_by('-order_date')
     serializer_class = OrdersSerializer
-    filterset_fields = ['order_number', 'order_date', 'is_done',
-                        'ship_addr', 'text', 'customer', 'deliver_date', 'ex_rate']
+    # filterset_fields = ['order_number', 'order_date', 'is_done',
+    #                     'ship_addr', 'text', 'customer', 'deliver_date', 'ex_rate']
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
 

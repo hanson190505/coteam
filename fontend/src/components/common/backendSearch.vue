@@ -21,6 +21,9 @@
 <script>
 export default {
   name: 'backendSearch',
+  props:{
+    keyWords:Array
+  },
   data() {
     return {
       search: ''
@@ -34,10 +37,12 @@ export default {
     },
     sendSearch() {
       const search = this.search
+
+      let params = {}
+      this.keyWords.forEach(el => {
+        params[el] = search
+      });
       if (search) {
-        let params = {
-          param: search
-        }
         this.$emit('parentMethod', params)
       }
     },

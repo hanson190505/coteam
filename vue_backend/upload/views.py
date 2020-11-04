@@ -1,5 +1,7 @@
 from datetime import datetime
 import os
+
+from django.db.models import Q
 from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -21,20 +23,28 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
     pagination_class = SubOrderPagination
     authentication_classes = GetTokenAuthentication,
-    permission_classes = UserTokenPermission
-    filterset_fields = ['is_banner']
+    permission_classes = UserTokenPermission,
 
-    def get_authenticators(self):
-        if self.request.method == 'GET':
-            return []
-        else:
-            return [GetTokenAuthentication()]
+    def get_queryset(self):
+        owner = self.request.query_params.get('owner', None)
+        is_banner = self.request.query_params.get('banner_title', None)
+        image_alt = self.request.query_params.get('image_alt', None)
+        if owner is not None:
+            self.queryset = self.queryset.filter(
+                Q(owner__icontains=owner) | Q(is_banner=is_banner) | Q(image_alt__icontains=image_alt))
+        return self.queryset
 
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            return []
-        else:
-            return [UserTokenPermission()]
+    # def get_authenticators(self):
+    #     if self.request.method == 'GET':
+    #         return []
+    #     else:
+    #         return [GetTokenAuthentication()]
+    #
+    # def get_permissions(self):
+    #     if self.request.method == 'GET':
+    #         return []
+    #     else:
+    #         return [UserTokenPermission()]
 
     def create(self, request, *args, **kwargs):
         print(request.data)
@@ -60,12 +70,12 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
         else:
             # 保存图片
             if os.path.exists(path):
-                with open(path+file.name, "wb+") as f:
+                with open(path + file.name, "wb+") as f:
                     for chunk in file.chunks():
                         f.write(chunk)
             else:
                 os.makedirs(path)
-                with open(path+file.name, "wb+") as f:
+                with open(path + file.name, "wb+") as f:
                     for chunk in file.chunks():
                         f.write(chunk)
 
@@ -73,7 +83,7 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
             if owner == 'order':
                 upload_img.order_number_id = file_name
             upload_img.md5 = md5
-            upload_img.path = sub_path+file.name
+            upload_img.path = sub_path + file.name
             upload_img.owner = owner
             upload_img.is_home = request.data['is_home']
             upload_img.home_index = request.data['home_index']
@@ -84,7 +94,7 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-        path = 'image/'+instance.path
+        path = 'image/' + instance.path
         os.remove(path)
         self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -93,6 +103,6 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
 class getExrateApiview(APIView):
     authentication_classes = GetTokenAuthentication,
 
-    def get(self,request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         data = juhe.get_Ex_Rate()
         return Response(data)

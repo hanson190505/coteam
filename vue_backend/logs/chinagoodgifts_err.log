@@ -1,17 +1,86 @@
-[ERROR][2020-11-03 02:34:48,760][log.py:228]Internal Server Error: /api/staffs/null/
+[ERROR][2020-11-04 09:37:15,493][log.py:228]Internal Server Error: /api/upload/
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
-    yield
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
-    self._authenticate()
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
-    user_auth_tuple = authenticator.authenticate(self)
-  File "/usr/src/api/user/authentications.py", line 27, in authenticate
-    if token and user.is_use == 1:
-AttributeError: 'NoneType' object has no attribute 'is_use'
-
-During handling of the above exception, another exception occurred:
-
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/usr/src/api/upload/views.py", line 32, in get_queryset
+    self.queryset = self.queryset.filter(Q(owner__icontains=owner) | Q(banner_title__icontains=banner_title))
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 904, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 923, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1350, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1373, in _add_q
+    check_filterable,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1381, in _add_q
+    check_filterable=check_filterable,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1250, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1087, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1483, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'banner_title' into field. Choices are: home_index, id, image_alt, is_banner, is_edit, is_home, is_used, md5, order_number, order_number_id, owner, path, pro_number, pro_number_id, up_date
+[ERROR][2020-11-04 09:37:22,724][log.py:228]Internal Server Error: /api/upload/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/usr/src/api/upload/views.py", line 32, in get_queryset
+    self.queryset = self.queryset.filter(Q(owner__icontains=owner) | Q(banner_title__icontains=banner_title))
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 904, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/query.py", line 923, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1350, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1373, in _add_q
+    check_filterable,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1381, in _add_q
+    check_filterable=check_filterable,
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1250, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1087, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "/usr/local/lib/python3.7/site-packages/django/db/models/sql/query.py", line 1483, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'banner_title' into field. Choices are: home_index, id, image_alt, is_banner, is_edit, is_home, is_used, md5, order_number, order_number_id, owner, path, pro_number, pro_number_id, up_date
+[ERROR][2020-11-04 09:57:27,846][log.py:228]Internal Server Error: /api/upload/
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -31,22 +100,10 @@ Traceback (most recent call last):
     raise exc
   File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
     self.initial(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
-    self.perform_authentication(request)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
-    request.user
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
-    self._authenticate()
-  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
-    self.gen.throw(type, value, traceback)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
-    raise exc.with_traceback(info[2])
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
-    yield
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
-    self._authenticate()
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
-    user_auth_tuple = authenticator.authenticate(self)
-  File "/usr/src/api/user/authentications.py", line 27, in authenticate
-    if token and user.is_use == 1:
-rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 411, in initial
+    self.check_permissions(request)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 331, in check_permissions
+    for permission in self.get_permissions():
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 278, in get_permissions
+    return [permission() for permission in self.permission_classes]
+TypeError: 'BasePermissionMetaclass' object is not iterable
