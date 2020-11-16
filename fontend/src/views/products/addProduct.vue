@@ -1,186 +1,205 @@
 <template>
-  <el-dialog title :visible.sync="addProductVisble" width="95%" :before-close="close">
-    <el-form :model="addProductData" ref="addProductData" label-width="70px">
-      <el-row>
-        <el-col :span="4">
-          <el-form-item label="类别">
-            <el-select
-              v-model="addProductData.sub_type"
-              filterable
-              placeholder="请选择"
-              @visible-change="selectTest"
-            >
-              <el-option
-                v-for="item in productTypeData"
-                :key="item.id"
-                :label="item.category"
-                :value="item.id"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="编号">
-            <el-input v-model="addProductData.pro_number"></el-input>
-            <!-- <span>{{ addProductData.pro_number }}</span> -->
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="名称">
-            <el-input v-model="addProductData.pro_name"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="尺寸">
-            <el-input v-model="addProductData.pro_size"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="重量(g)">
-            <el-input v-model="addProductData.pro_weight"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="规格">
-            <el-input v-model="addProductData.pro_model"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="4">
-          <el-form-item label="包装">
-            <el-input v-model="addProductData.pro_pack"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="单价">
-            <el-input v-model="addProductData.pro_price"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="新品">
-            <el-select v-model="addProductData.is_new">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="热销">
-            <el-select v-model="addProductData.is_hot">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="折扣">
-            <el-select v-model="addProductData.is_discount">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="4">
-          <el-form-item label="折扣数">
-            <el-input v-model="addProductData.pro_discount"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="8">
-          <el-form-item label="seo标题">
-            <el-select
-              v-model="addProductData.seo_title"
-              filterable
-              placeholder="请选择"
-              @visible-change="selectWebApi"
-            >
-              <el-option
-                v-for="item in webApiData"
-                :key="item.seo_title"
-                :label="item.seo_title"
-                :value="item.seo_title"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-        <el-col :span="16">
-          <el-form-item label="seo描述">
-            <el-select
-              v-model="addProductData.seo_desc"
-              filterable
-              placeholder="请选择"
-              @visible-change="selectWebApi"
-            >
-              <el-option
-                v-for="item in webApiData"
-                :key="item.seo_desc"
-                :label="item.seo_desc"
-                :value="item.seo_desc"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="24">
-          <el-form-item label="颜色">
-            <add-product-color
-              :ProductColor="addProductData"
-              @getProColor="handleSelect"
-              @delProColor="delProColor"
-              :addColorBtn="(childAddColorBtn = false)"
-            ></add-product-color>
-          </el-form-item>
-        </el-col>
-      </el-row>
-      <!-- 添加图片 -->
-      <el-row>
-        <el-button type="primary" @click="selectPic">选择图片</el-button>
-        <el-col :span="18">
-          <upload-pic
-            :number="addProductData.pro_number"
-            :owner="'product'"
-            @sendPicUrl="getPicUrl"
-          ></upload-pic>
-          <div v-for="(item, index) in pic_url" :key="index">
-            <span>{{ item }}</span>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <pic-carousel :proPicUrl="pic_url" ref="picCar"></pic-carousel>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="24">
-          <!-- <el-form-item> -->
-          <ckeditor v-model="addProductData.pro_desc" :config="editorConfig" @ready="prefill"></ckeditor>
-          <!-- </el-form-item> -->
-        </el-col>
-      </el-row>
-    </el-form>
-    <el-button type="primary" @click="onSubmit">创建</el-button>
-    <el-button type="primary" @click="handleSave">保存</el-button>
-    <el-dialog :visible.sync="PicDialogTableVisible" width="95%" :append-to-body="true">
-      <image-table @patchImageTable="patchImageTable" ref="imageTable"></image-table>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="selectImage">确 定</el-button>
-      </div>
+  <div class="home">
+    <el-dialog
+      title
+      :visible.sync="addProductVisble"
+      width="95%"
+      :before-close="close"
+      @opened="opened"
+      :destroy-on-close="true"
+    >
+      <el-form :model="addProductData" ref="addProductData" label-width="70px">
+        <el-row>
+          <el-col :span="4">
+            <el-form-item label="类别">
+              <el-select
+                v-model="addProductData.sub_type"
+                filterable
+                placeholder="请选择"
+                @visible-change="selectTest"
+              >
+                <el-option
+                  v-for="item in productTypeData"
+                  :key="item.id"
+                  :label="item.category"
+                  :value="item.id"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="编号">
+              <el-input v-model="addProductData.pro_number"></el-input>
+              <!-- <span>{{ addProductData.pro_number }}</span> -->
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="名称">
+              <el-input v-model="addProductData.pro_name"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="尺寸">
+              <el-input v-model="addProductData.pro_size"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="重量(g)">
+              <el-input v-model="addProductData.pro_weight"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="规格">
+              <el-input v-model="addProductData.pro_model"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="4">
+            <el-form-item label="包装">
+              <el-input v-model="addProductData.pro_pack"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="单价">
+              <el-input v-model="addProductData.pro_price"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="新品">
+              <el-select v-model="addProductData.is_new">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="热销">
+              <el-select v-model="addProductData.is_hot">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="折扣">
+              <el-select v-model="addProductData.is_discount">
+                <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="折扣数">
+              <el-input v-model="addProductData.pro_discount"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="8">
+            <el-form-item label="seo标题">
+              <el-select
+                v-model="addProductData.seo_title"
+                filterable
+                placeholder="请选择"
+                @visible-change="selectWebApi"
+              >
+                <el-option
+                  v-for="item in webApiData"
+                  :key="item.seo_title"
+                  :label="item.seo_title"
+                  :value="item.seo_title"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="16">
+            <el-form-item label="seo描述">
+              <el-select
+                v-model="addProductData.seo_desc"
+                filterable
+                placeholder="请选择"
+                @visible-change="selectWebApi"
+              >
+                <el-option
+                  v-for="item in webApiData"
+                  :key="item.seo_desc"
+                  :label="item.seo_desc"
+                  :value="item.seo_desc"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <el-form-item label="颜色">
+              <add-product-color
+                :ProductColor="addProductData"
+                @getProColor="handleSelect"
+                @delProColor="delProColor"
+                :addColorBtn="(childAddColorBtn = false)"
+              ></add-product-color>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <!-- 添加图片 -->
+        <el-row>
+          <el-button type="primary" @click="selectPic">选择图片</el-button>
+          <el-col :span="18">
+            <upload-pic
+              :number="addProductData.pro_number"
+              :owner="'product'"
+              @sendPicUrl="getPicUrl"
+            ></upload-pic>
+            <div v-for="(item, index) in pic_url" :key="index">
+              <span>{{ item }}</span>
+            </div>
+          </el-col>
+          <el-col :span="6">
+            <pic-carousel :proPicUrl="pic_url" ref="picCar"></pic-carousel>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="24">
+            <!-- <ckeditor
+            v-model="addProductData.pro_desc"
+            :config="editorConfig"
+            @ready="prefill"
+          ></ckeditor> -->
+            <div id="demo1"></div>
+          </el-col>
+        </el-row>
+      </el-form>
+      <el-button type="primary" @click="onSubmit">创建</el-button>
+      <el-button type="primary" @click="handleSave">保存</el-button>
+      <el-dialog
+        :visible.sync="PicDialogTableVisible"
+        width="95%"
+        :append-to-body="true"
+      >
+        <image-table
+          @patchImageTable="patchImageTable"
+          ref="imageTable"
+        ></image-table>
+        <div slot="footer" class="dialog-footer">
+          <el-button type="primary" @click="selectImage">确 定</el-button>
+        </div>
+      </el-dialog>
     </el-dialog>
-  </el-dialog>
+  </div>
 </template>
 <script>
 import { getProductType } from '@/api/products'
@@ -192,6 +211,7 @@ import imageTable from '../imageManage/imageTable'
 import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
 import { getWebapi } from '@/api/webapi'
+import wangEditor from 'wangeditor'
 export default {
   name: 'addProduct',
   components: {
@@ -246,14 +266,28 @@ export default {
             items: ['Format', 'Font', 'FontSize']
           },
           {
-            name: 'colors',
-            items: ['textColor ']
+            name: 'colors'
           }
         ]
-      }
+      },
+      editor: null,
+      editorData: ''
     }
   },
   methods: {
+    //打开dialog的之后,创建富文本对象
+    opened() {
+      const editor = new wangEditor('#demo1')
+      // 配置 onchange 回调函数，将数据同步到 vue 中
+      // editor.config.onchange = newHtml => {
+      //   this.addProductData.pro_desc = newHtml
+      // }
+      // 创建编辑器
+      editor.create()
+      editor.txt.html(this.addProductData.pro_desc)
+      this.editor = editor
+    },
+    //wangeditor
     //调用后台类别数据
     selectTest(v) {
       if (v === true) {
@@ -297,8 +331,13 @@ export default {
       this.pic_url.push(picurl.url)
       this.pic_id = picurl.id
     },
+    //获取wangeditor数据
+    getEditorData() {
+      this.addProductData.pro_desc = this.editor.txt.html()
+    },
     //提交
     onSubmit() {
+      this.getEditorData()
       postProducts(this.addProductData)
         .then(res => {
           patchImage(this.pic_id, { pro_number: res.data.id }).then(res => {
@@ -325,6 +364,7 @@ export default {
     },
     //修改后保存
     handleSave() {
+      this.getEditorData()
       patchProducts(this.addProductData.id, this.addProductData)
         .then(res => {
           this.$notify({

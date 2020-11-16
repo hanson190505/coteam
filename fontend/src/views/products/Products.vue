@@ -1,7 +1,10 @@
 <template>
   <div>
     <date-search @dateSearchDate="dateSearchDate"></date-search>
-    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
+    <pagi-nation
+      @pagination="pagination"
+      :getDataTotal="dataTotal"
+    ></pagi-nation>
   </div>
 </template>
 

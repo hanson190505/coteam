@@ -15,7 +15,10 @@
       :addProductVisble="addProductVisible"
       @closeAddProductDialog="closeAddProductDialog"
     ></add-product>
-    <addProduct-type :visible="addproductTypeVisible" @closeAddproductType="closeAddproductType"></addProduct-type>
+    <addProduct-type
+      :visible="addproductTypeVisible"
+      @closeAddproductType="closeAddproductType"
+    ></addProduct-type>
   </div>
 </template>
 
@@ -23,17 +26,18 @@
 import ProductTable from './ProductTable'
 import addProductType from './addProductType'
 import addProduct from './addProduct'
+import wangEditor from 'wangeditor'
 export default {
   components: {
     ProductTable,
     addProductType,
-    addProduct,
+    addProduct
   },
   data() {
     return {
       productsData: { pro_color: '' },
       addproductTypeVisible: false,
-      addProductVisible: false,
+      addProductVisible: false
     }
   },
   methods: {
@@ -54,15 +58,15 @@ export default {
       this.productsData = { pro_color: '' }
     },
     checkproductData(data) {
-      data.pro_image.forEach((el) => {
+      data.pro_image.forEach(el => {
         this.$refs.addProductComponent.getPicUrl({
-          url: process.env.VUE_APP_API_PIC_URL + el,
+          url: process.env.VUE_APP_API_PIC_URL + el
         })
       })
       this.addProductVisible = true
       this.productsData = data
-    },
-  },
+    }
+  }
 }
 </script>
 
