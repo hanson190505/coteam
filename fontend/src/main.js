@@ -8,7 +8,7 @@ import store from './store'
 import './icons' // icon
 import * as filters from './filters' // global filters
 import JSEncrypt from 'jsencrypt'
-import CKEditor from 'ckeditor4-vue'
+// import CKEditor from 'ckeditor4-vue'
 
 import {
   Table,
@@ -45,7 +45,7 @@ Vue.use(Element, {
   zIndex: 3000
 })
 
-Vue.use(CKEditor)
+// Vue.use(CKEditor)
 
 Vue.config.productionTip = false
 //全局注册vuex实例,store
