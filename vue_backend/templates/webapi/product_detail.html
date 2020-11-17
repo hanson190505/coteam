@@ -35,29 +35,32 @@
 				</a>
 			</div>
 			<div class="col-sm-12 col-md-6">
+				<div class="pro-title bg-light">
+					<p>hahaha</p>
+				</div>
 				<table class="product-tab">
 					<tr>
-						<td>Type:</td>
+						<td class="font-weight-bold">Type:</td>
 						<td>{{ product_detail.sub_type }}</td>
 					</tr>
 					<tr>
-						<td>Name:</td>
+						<td class="font-weight-bold">Name:</td>
 						<td>{{ product_detail.pro_name }}</td>
 					</tr>
 					<tr>
-						<td>Size:</td>
+						<td class="font-weight-bold">Size:</td>
 						<td>{{ product_detail.pro_size }}</td>
 					</tr>
 					<tr>
-						<td>Weight:</td>
+						<td class="font-weight-bold">Weight:</td>
 						<td>{{ product_detail.pro_weight }}g</td>
 					</tr>
 					<tr>
-						<td>Pack:</td>
+						<td class="font-weight-bold">Pack:</td>
 						<td>{{ product_detail.pro_pack }}</td>
 					</tr>
 					<tr>
-						<td>Price:</td>
+						<td class="font-weight-bold">Price:</td>
 						<td>${{ product_detail.pro_price }}</td>
 					</tr>
 				</table>
@@ -87,8 +90,11 @@
       .product-tab td {
           padding-bottom: 0.5em;
           padding-right: 0.5em;
-          font-size: 1.5em;
+          font-size: 1em;
       }
+			.pro-title{
+					font-size: 1.5em;
+			}
 	</style>
 {% endblock %}
 {% block script %}
