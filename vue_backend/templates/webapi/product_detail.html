@@ -14,13 +14,13 @@
 		</nav>
 		<div class="row">
 			<div class="col-sm-12 col-md-6">
-				{#      <img src="{% image base_url product_detail.pro_image.last.path %}" class="img-fluid img-thumbnail"#}
-				{#           alt="{{ product_detail.seo_title }}" height="100px">#}
+{#				      <img src="{% image base_url product_detail.pro_image.last.path %}" class="img-fluid img-thumbnail"#}
+{#				           alt="{{ product_detail.seo_title }}" height="100px">#}
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
-						{% for p_iamge in product_detail.pro_image.iterator %}
+						{% for p_image in product_detail.pro_image.iterator %}
 							<div class="carousel-item">
-								<img src="{% image base_url p_iamge.path %}" class="img-fluid" alt="{{ product_detail.seo_title }}">
+								<img src="{% image base_url p_image.path %}" class="img-fluid" alt="{{ product_detail.seo_title }}">
 							</div>
 						{% endfor %}
 					</div>
@@ -35,53 +35,27 @@
 				</a>
 			</div>
 			<div class="col-sm-12 col-md-6">
+      <p class="detail-title d-md-none d-xl-none">detail-title</p>
 				<div class="pro-title bg-light">
-					<p>Product Detail</p>
+					<h4>Product Detail</h4>
 				</div>
-				<ul style="font-size:1em" class="list-group">
-					<li class="list-group-item"><strong>Type:</strong>&nbsp;{{ product_detail.sub_type }}</li>
-					<li class="list-group-item"><strong>Name:</strong>&nbsp;{{ product_detail.pro_name }}</li>
-					<li class="list-group-item"><strong>Size:</strong>&nbsp;{{ product_detail.pro_size }}</li>
-					<li class="list-group-item"><strong>Weight:</strong>&nbsp;{{ product_detail.pro_weight }}</li>
-					<li class="list-group-item"><strong>Pack:</strong>&nbsp;{{ product_detail.pro_pack }}</li>
-					<li class="list-group-item"><strong>Proposed price:</strong>&nbsp;{{ product_detail.pro_price }}</li>
+				<ul class="list-group list-group-flush ">
+					<li class="list-group-item"><strong class="float-left">Type:</strong><span class="float-right">{{ product_detail.sub_type }}</span></li>
+					<li class="list-group-item"><h4 class="float-left">Name:</h4>&nbsp;<h5 class="float-right">{{ product_detail.pro_name }}</h5></li>
+					<li class="list-group-item"><h4 class="float-left">Size:</h4>&nbsp;<h5 class="float-right">{{ product_detail.pro_size }}</h5></li>
+					<li class="list-group-item"><h4 class="float-left">Weight:</h4>&nbsp;<h5 class="float-right">{{ product_detail.pro_weight }}</h5></li>
+					<li class="list-group-item"><h4>StandardPack:</h4>&nbsp;{{ product_detail.pro_pack }}</li>
+					<li class="list-group-item"><h4>Price:</h4>&nbsp;<button type="button" class="btn btn-primary btn-sm" id="product-list-contact-btn"
+								data-target="#product-list-contact-modal" data-toggle="modal"
+								data-whatever="{{ web_base_url }}product/{{ product_detail.id }}">contact us
+				</button></li>
 					<li class="list-group-item">
-						<strong>Color:</strong>&nbsp;
+						<h4>Color:</h4>&nbsp;
 						{% for color in color_list %}
 						<button type="button" style="background-color: {{ color }}" class="btn pro-color"></button>
 					{% endfor %}
 					</li>
 				</ul>
-				<table class="product-tab">
-					<tr>
-						<td class="font-weight-bold">Type:</td>
-						<td>{{ product_detail.sub_type }}</td>
-					</tr>
-					<tr>
-						<td class="font-weight-bold">Name:</td>
-						<td>{{ product_detail.pro_name }}</td>
-					</tr>
-					<tr>
-						<td class="font-weight-bold">Size:</td>
-						<td>{{ product_detail.pro_size }}</td>
-					</tr>
-					<tr>
-						<th class="font-weight-bold">Weight:</th>
-						<td>{{ product_detail.pro_weight }}g</td>
-					</tr>
-					<tr>
-						<td class="font-weight-bold">Pack:</td>
-						<td>{{ product_detail.pro_pack }}</td>
-					</tr>
-{#					<tr>#}
-{#						<td class="font-weight-bold">Proposed price:</td>#}
-{#						<td>${{ product_detail.pro_price }}&nbsp; <small>This is the minimum configuration price, please contact us for other prices</small></td>#}
-{#					</tr>#}
-				</table>
-				<button type="button" class="btn btn-primary btn-lg btn-block btn-sm" id="product-list-contact-btn"
-								data-target="#product-list-contact-modal" data-toggle="modal"
-								data-whatever="{{ web_base_url }}product/{{ product_detail.id }}">contact us
-				</button>
 			</div>
 		</div>
 		<p></p>
@@ -110,6 +84,10 @@
 					height: 2em;
 					width: 2em;
 			}
+      .list-group-item{
+          padding-bottom: 0;
+          padding-top: 2px;
+      }
 	</style>
 {% endblock %}
 {% block script %}
@@ -142,6 +120,7 @@
                   return false;
               })
           })
+          $('.carousel-item:first').addClass('active')
       })
 	</script>
 {% endblock %}

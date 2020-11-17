@@ -1,9 +1,8 @@
-from django.http import Http404, HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect
+from django.http import Http404
+from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic import ListView, DetailView, TemplateView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.throttling import UserRateThrottle
 from rest_framework.views import APIView
 
 from middleware.pagenation import SubOrderPagination
@@ -119,8 +118,8 @@ class ProductDetailView(DetailView):
         color_list = []
         for i in color_list_temp:
             if i != '':
-                color_list.append(i.replace('{', '').replace('}', '').strip().split(',')[1].split(':')[1].replace('"', ''))
-        print(color_list)
+                color_list.append(
+                    i.replace('{', '').replace('}', '').strip().split(',')[1].split(':')[1].replace('"', ''))
         context['color_list'] = color_list
         return context
 
@@ -192,4 +191,3 @@ class AboutTemplateView(TemplateView):
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['about_image'] = get_object_or_404(Image, owner='about')
         return context
-
