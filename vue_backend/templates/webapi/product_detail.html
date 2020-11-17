@@ -36,8 +36,22 @@
 			</div>
 			<div class="col-sm-12 col-md-6">
 				<div class="pro-title bg-light">
-					<p>hahaha</p>
+					<p>Product Detail</p>
 				</div>
+				<ul style="font-size:1em" class="list-group">
+					<li class="list-group-item"><strong>Type:</strong>&nbsp;{{ product_detail.sub_type }}</li>
+					<li class="list-group-item"><strong>Name:</strong>&nbsp;{{ product_detail.pro_name }}</li>
+					<li class="list-group-item"><strong>Size:</strong>&nbsp;{{ product_detail.pro_size }}</li>
+					<li class="list-group-item"><strong>Weight:</strong>&nbsp;{{ product_detail.pro_weight }}</li>
+					<li class="list-group-item"><strong>Pack:</strong>&nbsp;{{ product_detail.pro_pack }}</li>
+					<li class="list-group-item"><strong>Proposed price:</strong>&nbsp;{{ product_detail.pro_price }}</li>
+					<li class="list-group-item">
+						<strong>Color:</strong>&nbsp;
+						{% for color in color_list %}
+						<button type="button" style="background-color: {{ color }}" class="btn pro-color"></button>
+					{% endfor %}
+					</li>
+				</ul>
 				<table class="product-tab">
 					<tr>
 						<td class="font-weight-bold">Type:</td>
@@ -52,17 +66,17 @@
 						<td>{{ product_detail.pro_size }}</td>
 					</tr>
 					<tr>
-						<td class="font-weight-bold">Weight:</td>
+						<th class="font-weight-bold">Weight:</th>
 						<td>{{ product_detail.pro_weight }}g</td>
 					</tr>
 					<tr>
 						<td class="font-weight-bold">Pack:</td>
 						<td>{{ product_detail.pro_pack }}</td>
 					</tr>
-					<tr>
-						<td class="font-weight-bold">Price:</td>
-						<td>${{ product_detail.pro_price }}</td>
-					</tr>
+{#					<tr>#}
+{#						<td class="font-weight-bold">Proposed price:</td>#}
+{#						<td>${{ product_detail.pro_price }}&nbsp; <small>This is the minimum configuration price, please contact us for other prices</small></td>#}
+{#					</tr>#}
 				</table>
 				<button type="button" class="btn btn-primary btn-lg btn-block btn-sm" id="product-list-contact-btn"
 								data-target="#product-list-contact-modal" data-toggle="modal"
@@ -92,8 +106,9 @@
           padding-right: 0.5em;
           font-size: 1em;
       }
-			.pro-title{
-					font-size: 1.5em;
+			.pro-color{
+					height: 2em;
+					width: 2em;
 			}
 	</style>
 {% endblock %}
@@ -127,7 +142,6 @@
                   return false;
               })
           })
-					$('.carousel-item:first').addClass('active');
       })
 	</script>
 {% endblock %}

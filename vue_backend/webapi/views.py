@@ -115,6 +115,13 @@ class ProductDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['web_base_url'] = settings.WEB_BASE_URL
+        color_list_temp = context["product_detail"].pro_color.split('|')
+        color_list = []
+        for i in color_list_temp:
+            if i != '':
+                color_list.append(i.replace('{', '').replace('}', '').strip().split(',')[1].split(':')[1].replace('"', ''))
+        print(color_list)
+        context['color_list'] = color_list
         return context
 
 
@@ -141,7 +148,6 @@ class SearchView(TemplateView):
         if keyword is None:
             pass
         else:
-            print(keyword)
             context['products'] = get_list_or_404(Products,
                                                   seo_desc__icontains=keyword, seo_title__icontains=keyword,
                                                   pro_name__icontains=keyword, pro_number__icontains=keyword,

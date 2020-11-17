@@ -155,6 +155,13 @@
             </el-form-item>
           </el-col>
         </el-row>
+        capacities = models.CharField('容量', max_length=128, default='custom')
+        moq = models.IntegerField('起订量', default=100) imprint_methods =
+        models.CharField('logo工艺', max_length=128, default='custom')
+        imprint_location = models.CharField('logo位置', max_length=64,
+        default='custom') imprint_size = models.CharField('logo尺寸',
+        max_length=128, default='custom') material = models.CharField('材质',
+        max_length=64, default='custom')
         <!-- 添加图片 -->
         <el-row>
           <el-button type="primary" @click="selectPic">选择图片</el-button>
