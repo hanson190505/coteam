@@ -46,17 +46,17 @@ class ProductsViewSet(viewsets.ModelViewSet):
     permission_classes = UserTokenPermission,
     filterset_fields = ['seo_title', 'sub_type', 'is_hot']
 
-    def get_authenticators(self):
-        if self.request.method == 'GET':
-            return []
-        else:
-            return [GetTokenAuthentication()]
-
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            return []
-        else:
-            return [UserTokenPermission()]
+    # def get_authenticators(self):
+    #     if self.request.method == 'GET':
+    #         return []
+    #     else:
+    #         return [GetTokenAuthentication()]
+    #
+    # def get_permissions(self):
+    #     if self.request.method == 'GET':
+    #         return []
+    #     else:
+    #         return [UserTokenPermission()]
 
     def create(self, request, *args, **kwargs):
         serializer = ProductsSerializer(data=request.data)

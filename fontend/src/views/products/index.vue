@@ -35,7 +35,12 @@ export default {
   },
   data() {
     return {
-      productsData: { pro_color: '' },
+      productsData: {
+        pro_color: '',
+        imprint_methods: [],
+        capacities: [],
+        imprint_location: []
+      },
       addproductTypeVisible: false,
       addProductVisible: false
     }
@@ -55,7 +60,12 @@ export default {
     },
     closeAddProductDialog() {
       this.addProductVisible = false
-      this.productsData = { pro_color: '' }
+      this.productsData = {
+        pro_color: '',
+        imprint_methods: [],
+        imprint_location: [],
+        capacities: []
+      }
     },
     checkproductData(data) {
       data.pro_image.forEach(el => {

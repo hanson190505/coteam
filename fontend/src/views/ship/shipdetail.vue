@@ -135,8 +135,6 @@ export default {
         params = { page: 1, page_size: 10 }
       }
       this.$store.dispatch('shipStore/setShipDetailData', params).then(res => {
-        console.log(res)
-
         this.loading = false
         this.dataTotal = res.data.count
       })

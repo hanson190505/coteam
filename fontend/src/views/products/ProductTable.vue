@@ -74,13 +74,25 @@
       </el-table-column>
       <el-table-column label="操作" fixed="right" width="120" align="center">
         <template slot-scope="scope">
-          <el-button @click="handleCheck(scope.row)" type="text" size="mini">查看</el-button>
-          <el-button @click="handleSave(scope.row)" type="text" size="mini">保存</el-button>
-          <el-button @click="handleDel(scope.$index, scope.row)" type="text" size="mini">删除</el-button>
+          <el-button @click="handleCheck(scope.row)" type="text" size="mini"
+            >查看</el-button
+          >
+          <el-button @click="handleSave(scope.row)" type="text" size="mini"
+            >保存</el-button
+          >
+          <el-button
+            @click="handleDel(scope.$index, scope.row)"
+            type="text"
+            size="mini"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
-    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
+    <pagi-nation
+      @pagination="pagination"
+      :getDataTotal="dataTotal"
+    ></pagi-nation>
   </div>
 </template>
 
@@ -145,6 +157,15 @@ export default {
     },
     //查看详情
     handleCheck(row) {
+      if (!Array.isArray(row.imprint_methods)) {
+        row.imprint_methods = row.imprint_methods.split(',')
+      }
+      if (!Array.isArray(row.imprint_location)) {
+        row.imprint_location = row.imprint_location.split(',')
+      }
+      if (!Array.isArray(row.capacities)) {
+        row.capacities = row.capacities.split(',')
+      }
       this.$emit('checkproductData', row)
     },
     //保存修改

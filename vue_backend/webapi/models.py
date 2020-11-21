@@ -25,6 +25,7 @@ class Products(models.Model):
     pub_date = models.DateField('添加日期', auto_now=datetime.now)
     pro_number = models.CharField('产品编号', unique=True, max_length=32)
     pro_name = models.CharField('产品名称', max_length=30, default='product')
+    # TODO:产品价格需要根据产品容量、起订量等因素调整.
     pro_price = models.DecimalField('产品单价', max_digits=10, decimal_places=2, default=100)
     click_num = models.IntegerField("点击数", default=0)
     sold_num = models.IntegerField("商品销售量", default=0)

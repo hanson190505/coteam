@@ -1,4 +1,4 @@
-[ERROR][2020-11-17 06:19:36,436][log.py:228]Internal Server Error: /product/1
+[ERROR][2020-11-21 08:04:22,621][log.py:228]Internal Server Error: /api/products/3/
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -6,16 +6,30 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
     return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    color_dict.update(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:19:39,730][log.py:228]Internal Server Error: /product/1
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 68, in update
+    self.perform_update(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 78, in perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "/usr/src/api/webapi/serializer.py", line 22, in update
+    super(ProductsSerializer, self).update()
+TypeError: update() missing 2 required positional arguments: 'instance' and 'validated_data'
+[ERROR][2020-11-21 08:04:24,533][log.py:228]Internal Server Error: /api/products/3/
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -23,16 +37,30 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
     return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    color_dict.update(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:19:40,721][log.py:228]Internal Server Error: /product/1
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 68, in update
+    self.perform_update(serializer)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 78, in perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "/usr/src/api/webapi/serializer.py", line 22, in update
+    super(ProductsSerializer, self).update()
+TypeError: update() missing 2 required positional arguments: 'instance' and 'validated_data'
+[ERROR][2020-11-21 08:07:20,013][log.py:228]Internal Server Error: /api/products/3/
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -40,16 +68,24 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
     return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    color_dict.update(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:21:15,994][log.py:228]Internal Server Error: /product/1
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 70, in update
+    super(ProductsViewSet, self).update()
+TypeError: update() missing 1 required positional argument: 'request'
+[ERROR][2020-11-21 08:08:09,242][log.py:228]Internal Server Error: /api/products/3/
 Traceback (most recent call last):
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
     response = get_response(request)
@@ -57,196 +93,20 @@ Traceback (most recent call last):
     response = self.process_exception_by_middleware(e, request)
   File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
     return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:21:17,319][log.py:228]Internal Server Error: /product/1
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 507, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 422, in finalize_response
+    % type(response)
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+[ERROR][2020-11-21 08:14:18,552][log.py:228]Internal Server Error: /api/products/3/
 Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:21:18,685][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:21:22,738][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:21:24,038][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:21:43,205][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(i)
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:22:05,908][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(dict(i))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:22:20,372][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 122, in get_context_data
-    print(i)
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:25:18,553][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 123, in get_context_data
-    print(dict('{"value": "123 C", "html_color": "#FFC72C"}'))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:25:28,485][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 123, in get_context_data
-    print(dict({"value": "123 C", "html_color": "#FFC72C"}))
-ValueError: dictionary update sequence element #0 has length 1; 2 is required
-[ERROR][2020-11-17 06:26:42,193][log.py:228]Internal Server Error: /product/1
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/base.py", line 97, in dispatch
-    return handler(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/django/views/generic/detail.py", line 107, in get
-    context = self.get_context_data(object=self.object)
-  File "/usr/src/api/webapi/views.py", line 123, in get_context_data
-    print(dict(color_list))
-ValueError: dictionary update sequence element #0 has length 40; 2 is required
-[ERROR][2020-11-17 14:49:01,732][log.py:228]Internal Server Error: /api/staffs/null/
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
-    yield
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
-    self._authenticate()
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
-    user_auth_tuple = authenticator.authenticate(self)
-  File "/usr/src/api/user/authentications.py", line 27, in authenticate
-    if token and user.is_use == 1:
-AttributeError: 'NoneType' object has no attribute 'is_use'
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 76, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'imprint_location'
 
 During handling of the above exception, another exception occurred:
 
@@ -267,24 +127,155 @@ Traceback (most recent call last):
     self.raise_uncaught_exception(exc)
   File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
     raise exc
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 493, in dispatch
-    self.initial(request, *args, **kwargs)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 410, in initial
-    self.perform_authentication(request)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 324, in perform_authentication
-    request.user
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
-    self._authenticate()
-  File "/usr/local/lib/python3.7/contextlib.py", line 130, in __exit__
-    self.gen.throw(type, value, traceback)
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 78, in wrap_attributeerrors
-    raise exc.with_traceback(info[2])
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 74, in wrap_attributeerrors
-    yield
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 220, in user
-    self._authenticate()
-  File "/usr/local/lib/python3.7/site-packages/rest_framework/request.py", line 373, in _authenticate
-    user_auth_tuple = authenticator.authenticate(self)
-  File "/usr/src/api/user/authentications.py", line 27, in authenticate
-    if token and user.is_use == 1:
-rest_framework.request.WrappedAttributeError: 'NoneType' object has no attribute 'is_use'
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 69, in update
+    print(request.data['imprint_location'])
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 78, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'imprint_location'
+[ERROR][2020-11-21 09:21:47,036][log.py:228]Internal Server Error: /api/products/3/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 76, in update
+    request.data['imprint_location'] = ','.join(s)
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 467, in __setitem__
+    self._assert_mutable()
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 464, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+[ERROR][2020-11-21 09:21:49,075][log.py:228]Internal Server Error: /api/products/3/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 76, in update
+    request.data['imprint_location'] = ','.join(s)
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 467, in __setitem__
+    self._assert_mutable()
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 464, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+[ERROR][2020-11-21 09:32:49,923][log.py:228]Internal Server Error: /api/products/3/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 77, in update
+    request.data.updata({'imprint_location': imprint_location})
+AttributeError: 'QueryDict' object has no attribute 'updata'
+[ERROR][2020-11-21 09:33:04,636][log.py:228]Internal Server Error: /api/products/3/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 77, in update
+    request.data.update({'imprint_location': imprint_location})
+  File "/usr/local/lib/python3.7/site-packages/django/utils/datastructures.py", line 204, in update
+    self.setlistdefault(key).append(value)
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 496, in setlistdefault
+    self._assert_mutable()
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 464, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable
+[ERROR][2020-11-21 09:35:08,592][log.py:228]Internal Server Error: /api/products/3/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/viewsets.py", line 114, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.7/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/src/api/webapi/views.py", line 76, in update
+    request.data.setdefault('imprint_location', imprint_location)
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 518, in setdefault
+    self._assert_mutable()
+  File "/usr/local/lib/python3.7/site-packages/django/http/request.py", line 464, in _assert_mutable
+    raise AttributeError("This QueryDict instance is immutable")
+AttributeError: This QueryDict instance is immutable

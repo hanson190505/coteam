@@ -23,6 +23,7 @@ import {
   Select,
   Drawer,
   DatePicker,
+  Checkbox
 } from 'ant-design-vue'
 
 Vue.use(Pagination)
@@ -39,6 +40,8 @@ Vue.component(Select.Option.name, Select.Option)
 Vue.component(Drawer.name, Drawer)
 Vue.component(DatePicker.name, DatePicker)
 Vue.component(Table.name, Table)
+Vue.component(Checkbox.name, Checkbox)
+Vue.component(Checkbox.Group.name, Checkbox.Group)
 
 Vue.use(Element, {
   size: 'mini',

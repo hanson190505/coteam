@@ -61,8 +61,8 @@
             </el-form-item>
           </el-col>
           <el-col :span="4">
-            <el-form-item label="单价">
-              <el-input v-model="addProductData.pro_price"></el-input>
+            <el-form-item label="MOQ">
+              <el-input v-model="addProductData.moq"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="4">
@@ -89,7 +89,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
+          <!-- <el-col :span="4">
             <el-form-item label="折扣">
               <el-select v-model="addProductData.is_discount">
                 <el-option
@@ -105,8 +105,62 @@
             <el-form-item label="折扣数">
               <el-input v-model="addProductData.pro_discount"></el-input>
             </el-form-item>
+          </el-col> -->
+        </el-row>
+        <el-row>
+          <el-col :span="12" :offset="0">
+            <el-form-item label="logo工艺">
+              <el-checkbox-group
+                v-model="addProductData.imprint_methods"
+                size="normal"
+                @change="hanleImpintMethods"
+              >
+                <el-checkbox
+                  v-for="item in imprintMethodsList"
+                  :key="item"
+                  :label="item"
+                >
+                  {{ item }}
+                </el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+          </el-col>
+          <el-col :span="12" :offset="0">
+            <el-form-item label="logo位置">
+              <el-checkbox-group
+                v-model="addProductData.imprint_location"
+                size="normal"
+              >
+                <el-checkbox
+                  v-for="item in imprintLocationList"
+                  :key="item"
+                  :label="item"
+                >
+                  {{ item }}
+                </el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
           </el-col>
         </el-row>
+        <el-row>
+          <el-col :span="24" :offset="0">
+            <el-form-item label="容量">
+              <el-checkbox-group
+                v-model="addProductData.capacities"
+                size="normal"
+              >
+                <el-checkbox
+                  v-for="item in capacitiesList"
+                  :key="item"
+                  :label="item"
+                >
+                  {{ item }}
+                </el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+          </el-col>
+        </el-row>
+
         <el-row>
           <el-col :span="8">
             <el-form-item label="seo标题">
@@ -156,12 +210,11 @@
           </el-col>
         </el-row>
         capacities = models.CharField('容量', max_length=128, default='custom')
-        moq = models.IntegerField('起订量', default=100) imprint_methods =
-        models.CharField('logo工艺', max_length=128, default='custom')
-        imprint_location = models.CharField('logo位置', max_length=64,
-        default='custom') imprint_size = models.CharField('logo尺寸',
-        max_length=128, default='custom') material = models.CharField('材质',
-        max_length=64, default='custom')
+        moq = models.IntegerField('起订量', default=100) imprint_location =
+        models.CharField('logo位置', max_length=64, default='custom')
+        imprint_size = models.CharField('logo尺寸', max_length=128,
+        default='custom') material = models.CharField('材质', max_length=64,
+        default='custom')
         <!-- 添加图片 -->
         <el-row>
           <el-button type="primary" @click="selectPic">选择图片</el-button>
@@ -219,6 +272,10 @@ import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
 import { getWebapi } from '@/api/webapi'
 import wangEditor from 'wangeditor'
+
+const imprintMethodsList = ['Silkscreen', 'Laser Engrave', 'UV', 'FCP']
+// const imprintLocationList = ['Side', 'Front', 'Backend', 'custom']
+
 export default {
   name: 'addProduct',
   components: {
@@ -237,7 +294,10 @@ export default {
       type: Object,
       default: function() {
         return {
-          pro_color: ''
+          pro_color: '',
+          imprint_methods: [],
+          imprint_location: [],
+          capacities: []
         }
       }
     }
@@ -248,10 +308,6 @@ export default {
       PicDialogTableVisible: false,
       webApiData: [],
       productTypeData: [],
-      // addProductData: {
-      //   pro_color: '',
-      //   pro_pic: ''
-      // },
       pic_url: [],
       pic_id: '',
       options: [
@@ -259,29 +315,48 @@ export default {
         { label: '否', value: 0 }
       ],
       childAddColorBtn: true,
-      editorConfig: {
-        toolbar: [
-          // ['Source'],
-          // ['Styles', 'Format'],
-          // ['Font', 'FontSize', 'FontColor'],
-          // ['Bold', 'Italic'],
-          // ['Undo', 'Redo'],
-          // ['Image'],
-          // ['About']
-          {
-            name: 'styles',
-            items: ['Format', 'Font', 'FontSize']
-          },
-          {
-            name: 'colors'
-          }
-        ]
-      },
       editor: null,
-      editorData: ''
+      editorData: '',
+      imprintMethodsList: [
+        'Silkscreen',
+        'Laser Engrave',
+        'UV',
+        'FCP',
+        'custom'
+      ],
+      imprintLocationList: ['Side', 'Front', 'Backend', 'custom'],
+      capacitiesList: [
+        '128MB',
+        '256MB',
+        '512MB',
+        '1GB',
+        '2GB',
+        '4GB',
+        '8GB',
+        '16GB',
+        '32GB',
+        '64GB',
+        '128GB',
+        '1800mAh',
+        '2000mAh',
+        '2200mAh',
+        '2600mAh',
+        '2800mAh',
+        '3000mAh',
+        '3200mAh',
+        '4000mAh',
+        '5000mAh',
+        '8000mAh',
+        '10000mAh',
+        'custom'
+      ]
     }
   },
   methods: {
+    //imprint_methods
+    hanleImpintMethods(value) {
+      // this.addProduct.imprint_methods = this.imprintMethods.toString()
+    },
     //打开dialog的之后,创建富文本对象
     opened() {
       const editor = new wangEditor('#demo1')
@@ -341,6 +416,24 @@ export default {
     //获取wangeditor数据
     getEditorData() {
       this.addProductData.pro_desc = this.editor.txt.html()
+      let im = this.addProductData.imprint_methods
+      if (im.length === 0) {
+        im = 'custom'
+      } else {
+        this.addProductData.imprint_methods = im.toString()
+      }
+      let iml = this.addProductData.imprint_location
+      if (iml.length === 0) {
+        iml = 'custom'
+      } else {
+        this.addProductData.imprint_location = iml.toString()
+      }
+      let imCapacities = this.addProductData.capacities
+      if (imCapacities.length === 0) {
+        imCapacities = 'custom'
+      } else {
+        this.addProductData.capacities = imCapacities.toString()
+      }
     },
     //提交
     onSubmit() {
@@ -374,6 +467,7 @@ export default {
       this.getEditorData()
       patchProducts(this.addProductData.id, this.addProductData)
         .then(res => {
+          this.$emit('closeAddProductDialog')
           this.$notify({
             message: '提交成功',
             type: 'success'
