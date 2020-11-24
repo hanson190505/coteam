@@ -3,6 +3,9 @@
 {% block title %}
 	{{ product_detail.seo_title }}
 {% endblock %}
+{% block meta %}
+  <meta name="description" content="{{ product_detail.seo_desc }}">
+{% endblock %}
 {% block content %}
 	<p></p>
 	<div class="container">
@@ -35,26 +38,39 @@
 				</a>
 			</div>
 			<div class="col-sm-12 col-md-6">
-      <p class="detail-title d-md-none d-xl-none">detail-title</p>
+{#      <p class="detail-title d-md-none d-xl-none">detail-title</p>#}
 				<div class="pro-title bg-light">
 					<h4>Product Detail</h4>
 				</div>
 				<ul class="list-group list-group-flush ">
 					<li class="list-group-item"><strong class="float-left">Type:</strong><span class="float-right">{{ product_detail.sub_type }}</span></li>
-					<li class="list-group-item"><h4 class="float-left">Name:</h4>&nbsp;<h5 class="float-right">{{ product_detail.pro_name }}</h5></li>
-					<li class="list-group-item"><h4 class="float-left">Size:</h4>&nbsp;<h5 class="float-right">{{ product_detail.pro_size }}</h5></li>
-					<li class="list-group-item"><h4 class="float-left">Weight:</h4>&nbsp;<h5 class="float-right">{{ product_detail.pro_weight }}</h5></li>
-					<li class="list-group-item"><h4>StandardPack:</h4>&nbsp;{{ product_detail.pro_pack }}</li>
-					<li class="list-group-item"><h4>Price:</h4>&nbsp;<button type="button" class="btn btn-primary btn-sm" id="product-list-contact-btn"
+					<li class="list-group-item"><strong class="float-left">Name:</strong>&nbsp;<span class="float-right">{{ product_detail.pro_name }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Material:</strong>&nbsp;<span class="float-right">{{ product_detail.material }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Item Size(inch):</strong>&nbsp;<span class="float-right">{{ product_detail.pro_size }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Weight(g):</strong>&nbsp;<span class="float-right">{{ product_detail.pro_weight }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Capacities:</strong>&nbsp;<span class="float-right">{{ product_detail.capacities }}</span></li>
+					<li class="list-group-item"><strong class="float-left">StandardPack:</strong>&nbsp;<span class="float-right">{{ product_detail.pro_pack }}</span></li>
+					<li class="list-group-item"><strong class="float-left">MOQ:</strong>&nbsp;<span class="float-right">{{ product_detail.moq }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Imprint Size:</strong>&nbsp;<span class="float-right">{{ product_detail.imprint_size }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Imprint Location:</strong>&nbsp;<span class="float-right">{{ product_detail.imprint_location }}</span></li>
+					<li class="list-group-item"><strong class="float-left">Imprint Methods:</strong>&nbsp;<span class="float-right">{{ product_detail.imprint_methods }}</span></li>
+					<li class="list-group-item">
+						<strong class="float-left">Color:</strong>&nbsp;
+						{% for color in color_list %}
+						<button type="button" style="background-color: {{ color }}" class="btn pro-color float-right"></button>
+					{% endfor %}
+					</li>
+        <li class="list-group-item"><strong>Price:</strong>&nbsp;<button type="button" class="btn btn-primary btn-sm float-right" id="product-list-contact-btn"
 								data-target="#product-list-contact-modal" data-toggle="modal"
 								data-whatever="{{ web_base_url }}product/{{ product_detail.id }}">contact us
 				</button></li>
-					<li class="list-group-item">
-						<h4>Color:</h4>&nbsp;
-						{% for color in color_list %}
-						<button type="button" style="background-color: {{ color }}" class="btn pro-color"></button>
-					{% endfor %}
-					</li>
+        <li class="list-group-item"><strong>Shipping instructions:</strong>
+        <small>
+Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.
+          We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company.
+You can also appoint a courier company and use your own courier account.
+        </small>
+        </li>
 				</ul>
 			</div>
 		</div>

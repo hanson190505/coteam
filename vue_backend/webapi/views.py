@@ -69,6 +69,7 @@ class ProductsViewSet(viewsets.ModelViewSet):
 class ProductListView(ListView):
     model = Products
     context_object_name = 'products_list'
+    paginate_by = 16
 
     # template_name = 'webapi/products_list.html'
 
@@ -83,9 +84,8 @@ class ProductListView(ListView):
 
     def get(self, request, *args, **kwargs):
         # 根据url后缀查询数据,按产品种类
-        suffix = request.get_full_path()
-        if suffix.split('/')[-1]:
-            self.object_list = self.get_queryset().filter(sub_type=suffix.split('/')[-1]).filter(is_delete=0)
+        if 'pro_type' in kwargs:
+            self.object_list = self.get_queryset().filter(sub_type=kwargs['pro_type']).filter(is_delete=0)
         else:
             self.object_list = self.get_queryset().filter(is_delete=0)
         allow_empty = self.get_allow_empty()

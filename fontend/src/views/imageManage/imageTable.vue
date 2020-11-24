@@ -2,7 +2,10 @@
   <div>
     <el-row>
       <el-col :span="4">
-        <backend-searchVue @parentMethod="pagination" :keyWords="keyWords"></backend-searchVue>
+        <backend-searchVue
+          @parentMethod="pagination"
+          :keyWords="keyWords"
+        ></backend-searchVue>
       </el-col>
       <el-col :span="8">
         <date-search @dateSearchDate="dateSearchDate"></date-search>
@@ -19,7 +22,11 @@
       @select-all="handleSelect"
       ref="imageTableData"
     >
-      <el-table-column type="selection" width="55" align="center"></el-table-column>
+      <el-table-column
+        type="selection"
+        width="55"
+        align="center"
+      ></el-table-column>
       <el-table-column label="所属产品" align="center" width="120">
         <template slot-scope="scope">
           <el-select
@@ -36,7 +43,7 @@
               :value="item.id"
             ></el-option>
           </el-select>
-          <span v-else>{{ scope.row.pro_number}}</span>
+          <span v-else>{{ scope.row.pro_number }}</span>
         </template>
       </el-table-column>
       <el-table-column label="上传日期" align="center" width="120">
@@ -46,43 +53,66 @@
       </el-table-column>
       <el-table-column label="所属" align="center" width="80">
         <template slot-scope="scope">
-          <el-input v-if="scope.row.is_edit === 1" v-model="scope.row.owner"></el-input>
+          <el-input
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.owner"
+          ></el-input>
           <span v-else>{{ scope.row.owner }}</span>
         </template>
       </el-table-column>
       <el-table-column label="首页展示" align="center" width="80">
         <template slot-scope="scope">
-          <el-input v-if="scope.row.is_edit === 1" v-model="scope.row.is_home"></el-input>
+          <el-input
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.is_home"
+          ></el-input>
           <span v-else>{{ scope.row.is_home }}</span>
         </template>
       </el-table-column>
       <el-table-column label="首页顺序" align="center" width="80">
         <template slot-scope="scope">
-          <el-input v-if="scope.row.is_edit === 1" v-model="scope.row.home_index"></el-input>
+          <el-input
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.home_index"
+          ></el-input>
           <span v-else>{{ scope.row.home_index }}</span>
         </template>
       </el-table-column>
       <el-table-column label="banner" align="center" width="80">
         <template slot-scope="scope">
-          <el-input v-if="scope.row.is_edit === 1" v-model="scope.row.is_banner"></el-input>
+          <el-input
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.is_banner"
+          ></el-input>
           <span v-else>{{ scope.row.is_banner }}</span>
         </template>
       </el-table-column>
       <el-table-column label="alt" align="center" width="150">
         <template slot-scope="scope">
-          <el-input v-if="scope.row.is_edit === 1" v-model="scope.row.image_alt"></el-input>
+          <el-input
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.image_alt"
+          ></el-input>
           <span v-else>{{ scope.row.image_alt }}</span>
         </template>
       </el-table-column>
       <el-table-column label="banner_title" align="center" width="200">
         <template slot-scope="scope">
-          <el-input autosize v-if="scope.row.is_edit === 1" v-model="scope.row.banner_title"></el-input>
+          <el-input
+            autosize
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.banner_title"
+          ></el-input>
           <span v-else>{{ scope.row.banner_title }}</span>
         </template>
       </el-table-column>
       <el-table-column label="banner_desc" align="center" width="200">
         <template slot-scope="scope">
-          <el-input autosize v-if="scope.row.is_edit === 1" v-model="scope.row.banner_desc"></el-input>
+          <el-input
+            autosize
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.banner_desc"
+          ></el-input>
           <span v-else>{{ scope.row.banner_desc }}</span>
         </template>
       </el-table-column>
@@ -93,28 +123,39 @@
       </el-table-column>
       <el-table-column label="图片" align="center" width="300" fiexd>
         <template slot-scope="scope">
-          <img :src="baseurl + scope.row.path" :alt="scope.row.path" class="image" />
+          <img
+            :src="baseurl + scope.row.path"
+            :alt="scope.row.path"
+            class="image"
+          />
         </template>
       </el-table-column>
       <el-table-column label="操作" fixed="right" width="120" align="center">
         <template slot-scope="scope">
-          <el-button @click="handleDel(scope.row)" type="text" size="mini">删除</el-button>
+          <el-button @click="handleDel(scope.row)" type="text" size="mini"
+            >删除</el-button
+          >
           <el-button
             @click="handleChange(scope.row)"
             type="text"
             size="mini"
             v-show="scope.row.is_edit === 0"
-          >修改</el-button>
+            >修改</el-button
+          >
           <el-button
             @click="handleSave(scope.row)"
             type="text"
             size="mini"
             v-show="scope.row.is_edit === 1"
-          >保存</el-button>
+            >保存</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
-    <pagi-nation @pagination="pagination" :getDataTotal="dataTotal"></pagi-nation>
+    <pagi-nation
+      @pagination="pagination"
+      :getDataTotal="dataTotal"
+    ></pagi-nation>
   </div>
 </template>
 
@@ -131,7 +172,7 @@ export default {
     pagiNation,
     backendSearchVue,
     dateSearch,
-    uploadPic,
+    uploadPic
   },
   data() {
     return {
@@ -139,16 +180,15 @@ export default {
       dataTotal: 0,
       baseurl: process.env.VUE_APP_API_PIC_URL,
       productDataSelect: [],
-      keyWords:['owner', 'is_banner', 'image_alt']
+      keyWords: ['owner', 'is_banner', 'image_alt']
     }
   },
   methods: {
     //调用后台类别数据
     selectTest(v) {
       if (v === true) {
-        getProducts().then((res) => {
+        getProducts().then(res => {
           this.productDataSelect = res.data.results
-          console.log(res.data)
         })
       }
     },
@@ -164,7 +204,7 @@ export default {
         this.pagination({
           start_date: value[0],
           end_date: value[1],
-          argument: 'date_search',
+          argument: 'date_search'
         })
       }
     },
@@ -173,14 +213,14 @@ export default {
       if (!params) {
         params = { page: 1, page_size: 10 }
       }
-      getImages(params).then((res) => {
+      getImages(params).then(res => {
         this.loading = false
         this.imageData = res.data.results
         this.dataTotal = res.data.count
       })
     },
     handleDel(row) {
-      delImage(row.id).then((res) => {
+      delImage(row.id).then(res => {
         this.pagination()
       })
     },
@@ -189,7 +229,7 @@ export default {
     },
     handleSave(row) {
       row.is_edit = 0
-      patchImage(row.id, row).then((res) => {
+      patchImage(row.id, row).then(res => {
         this.pagination()
       })
     },
@@ -199,11 +239,11 @@ export default {
     //获取上传图片组件发送的图片网址
     getPicUrl(picurl) {
       this.$message('图片上传成功!')
-    },
+    }
   },
   created() {
     this.pagination()
-  },
+  }
 }
 </script>
 

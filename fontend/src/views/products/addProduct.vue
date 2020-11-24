@@ -56,8 +56,28 @@
         </el-row>
         <el-row>
           <el-col :span="4">
+            <el-form-item label="材质">
+              <el-select v-model="addProductData.material">
+                <el-option
+                  v-for="item in materialOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
             <el-form-item label="包装">
-              <el-input v-model="addProductData.pro_pack"></el-input>
+                            <el-select v-model="addProductData.pro_pack">
+                <el-option
+                  v-for="item in PackOptions"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
             </el-form-item>
           </el-col>
           <el-col :span="4">
@@ -87,6 +107,11 @@
                   :value="item.value"
                 ></el-option>
               </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="logo尺寸">
+              <el-input v-model="addProductData.imprint_size"></el-input>
             </el-form-item>
           </el-col>
           <!-- <el-col :span="4">
@@ -209,12 +234,6 @@
             </el-form-item>
           </el-col>
         </el-row>
-        capacities = models.CharField('容量', max_length=128, default='custom')
-        moq = models.IntegerField('起订量', default=100) imprint_location =
-        models.CharField('logo位置', max_length=64, default='custom')
-        imprint_size = models.CharField('logo尺寸', max_length=128,
-        default='custom') material = models.CharField('材质', max_length=64,
-        default='custom')
         <!-- 添加图片 -->
         <el-row>
           <el-button type="primary" @click="selectPic">选择图片</el-button>
@@ -313,6 +332,19 @@ export default {
       options: [
         { label: '是', value: 1 },
         { label: '否', value: 0 }
+      ],
+      materialOptions: [
+        { label: 'Plastic', value: 'Plastic' },
+        { label: 'Aluminum', value: 'Aluminum' },
+        { label: 'Aluminum&Plastic', value: 'Aluminum&Plastic' },
+        { label: 'custom', value: 'custom' }
+      ],
+      PackOptions:[
+        { label: 'Polybag', value: 'Polybag' },
+        { label: 'Aluminum', value: 'Aluminum' },
+        { label: 'PP Case', value: 'PP Case' },
+        { label: 'Tin Box', value: 'Tin Box' },
+        { label: 'Custom', value: 'Custom' },
       ],
       childAddColorBtn: true,
       editor: null,
