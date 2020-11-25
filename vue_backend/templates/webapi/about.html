@@ -6,9 +6,30 @@ Chinagoodgifts coteam about
 {% block content %}
   <p></p>
   <div class="container">
-  <div class="text-center about-image-wrapper">
-    <img class="img-fluid rounded" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">
-  </div>
+          <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <h3>Design</h3>
+      </div>
+{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
+    </div>
+        <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <h3>Workshop</h3>
+      </div>
+{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
+    </div>
+      <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <h3>Detect</h3>
+      </div>
+{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <h3>Produced</h3>
+      </div>
+      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">
+    </div>
   </div>
    <div class="about-content">
     {% include 'webapi/contact.html' %}

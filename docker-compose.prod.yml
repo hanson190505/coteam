@@ -55,6 +55,7 @@ services:
       - ./letsencrypt/archive:/letsencrypt/archive  # 历史证书目录
       - ./dhparam-2048.pem:/letsencrypt/dhparam-2048.pem
       - static_volume:/etc/nginx/html/image
+      - ./favicon.ico:/etc/nginx/html/favicons/favicon.ico
     depends_on:
       - api
     ports:

@@ -135,6 +135,7 @@ class HomeIndexView(ListView):
         context['is_home'] = Image.objects.filter(is_home=1)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['home_text'] = HomeIndex.objects.filter(is_use=1).first()
+        context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
         return context
 
 
@@ -190,4 +191,5 @@ class AboutTemplateView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['about_image'] = get_object_or_404(Image, owner='about')
+        context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
         return context
