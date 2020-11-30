@@ -64,6 +64,54 @@ export default {
       //TODO:pantone颜色数据要从后台获取
       restaurants: [
         {
+          value: 'red c',
+          html_color: '#F93822'
+        },
+        {
+          value: 'red 032 c',
+          html_color: '#EF3340'
+        },
+        {
+          value: 'warm red c',
+          html_color: '#F9423A'
+        },
+        {
+          value: 'bright red c',
+          html_color: '#F93822'
+        },
+        {
+          value: 'rubine red c',
+          html_color: '#CE0058'
+        },
+        {
+          value: 'rhodamine red c',
+          html_color: '#E10098'
+        },
+        {
+          value: 'green c',
+          html_color: '#00AB84'
+        },
+        {
+          value: 'process blue',
+          html_color: '#0085CA'
+        },
+        {
+          value: 'blue 072 c',
+          html_color: '#10069F'
+        },
+        {
+          value: 'dark blue',
+          html_color: '#00249C'
+        },
+        {
+          value: 'reflex blue',
+          html_color: '#001489'
+        },
+        {
+          value: 'reflex blue',
+          html_color: '#001489'
+        },
+        {
           value: '100 C',
           html_color: '#F6EB61'
         },
