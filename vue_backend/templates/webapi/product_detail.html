@@ -75,7 +75,10 @@
 			</div>
 		</div>
 		<p></p>
-  <div class="ship-instructions">
+		<div>
+			{{ product_detail.pro_desc | safe }}
+		</div>
+    <div class="ship-instructions">
     <h5>Shipping instructions:</h5>
     <ul>
       <li><small>Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.</small></li>
@@ -83,9 +86,6 @@
       <li><small>You can also appoint a courier company and use your own courier account.</small></li>
     </ul>
   </div>
-		<div>
-			{{ product_detail.pro_desc | safe }}
-		</div>
 	</div>
 	<div class="modal fade" tabindex="-1" role="dialog" id="product-list-contact-modal" aria-hidden="true">
 		<div class="modal-dialog">
