@@ -29,11 +29,11 @@
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="carousel-control-prev-icon" aria-hidden="true" style="background-color:#336699"></span>
 					<span class="sr-only">Previous</span>
 				</a>
 				<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="carousel-control-next-icon" aria-hidden="true" style="background-color:#336699"></span>
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
@@ -64,17 +64,25 @@
 								data-target="#product-list-contact-modal" data-toggle="modal"
 								data-whatever="{{ web_base_url }}product/{{ product_detail.id }}">contact us
 				</button></li>
-        <li class="list-group-item"><strong>Shipping instructions:</strong>
-        <small>
-Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.
-          We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company.
-You can also appoint a courier company and use your own courier account.
-        </small>
-        </li>
+{#        <li class="list-group-item"><strong>Shipping instructions:</strong>#}
+{#        <small>#}
+{#Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.#}
+{#          We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company.#}
+{#You can also appoint a courier company and use your own courier account.#}
+{#        </small>#}
+{#        </li>#}
 				</ul>
 			</div>
 		</div>
 		<p></p>
+  <div class="ship-instructions">
+    <h5>Shipping instructions:</h5>
+    <ul>
+      <li><small>Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.</small></li>
+      <li><small>We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company.</small></li>
+      <li><small>You can also appoint a courier company and use your own courier account.</small></li>
+    </ul>
+  </div>
 		<div>
 			{{ product_detail.pro_desc | safe }}
 		</div>
