@@ -1,11 +1,12 @@
 from django.db import models
 from api.models import OrderCatalog
-from webapi.models import Products
+from webapi.models import Products, PackModels
 
 
 class Image(models.Model):
     order_number = models.ForeignKey(OrderCatalog, blank=True, null=True, on_delete=models.CASCADE, related_name='order_image')
     pro_number = models.ForeignKey(Products, blank=True, null=True, on_delete=models.CASCADE, related_name='pro_image')
+    pack_number = models.ForeignKey(PackModels, blank=True, null=True, on_delete=models.CASCADE, related_name='pack_image')
     up_date = models.DateField(auto_now_add=True)
     md5 = models.CharField(max_length=128)
     owner = models.CharField(max_length=32)

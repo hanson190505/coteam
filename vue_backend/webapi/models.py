@@ -59,6 +59,22 @@ class Products(models.Model):
         return '{}-{}'.format(self.pro_number, self.pro_name)
 
 
+class PackModels(models.Model):
+    products = models.ManyToManyField('Products', through='ProductsToPacks')
+    pack_number = models.CharField('编号', max_length=64, blank=True)
+    size = models.CharField('尺寸', max_length=128, default='custom')
+    material = models.CharField('材质', max_length=128, default='custom')
+    weight = models.DecimalField('重量', max_digits=6, decimal_places=2, default=0)
+    description = models.TextField('说明', blank=True)
+    is_delete = models.IntegerField(default=0)
+
+
+class ProductsToPacks(models.Model):
+    product = models.ForeignKey('Products', on_delete=models.CASCADE)
+    packs = models.ForeignKey('PackModels', on_delete=models.CASCADE)
+    pub_date = models.DateField('添加日期', auto_now=datetime.now)
+
+
 class HomeIndex(models.Model):
     seo_title = models.CharField(max_length=256)
     seo_desc = models.CharField(max_length=1024)
