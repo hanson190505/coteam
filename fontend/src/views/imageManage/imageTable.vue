@@ -217,6 +217,7 @@ export default {
         this.loading = false
         this.imageData = res.data.results
         this.dataTotal = res.data.count
+        console.log(this.imageData);
       })
     },
     handleDel(row) {

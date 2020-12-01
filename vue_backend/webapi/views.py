@@ -193,3 +193,6 @@ class AboutTemplateView(TemplateView):
         context['about_image'] = get_object_or_404(Image, owner='about')
         context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
         return context
+
+
+
