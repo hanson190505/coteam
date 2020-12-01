@@ -16,14 +16,14 @@ Including another URLconf
 import os
 
 from django.conf.urls.static import static
-from django.urls import path, include, re_path
+from django.urls import path, include
 from rest_framework import routers
 from api.views import OrdersViewSet, CustomerViewSet, SubOrderViewSet, PurchaseOrderViewSet, PurchaseDetailViewSet, \
     ShipOrderViewSet, ShipDetailViewSet, HomeIndexViewSet, CustomerAddrViewSet, OrderModelsViewSet, OrderToModelViewSet, GetLogsViewSet
 from upload.views import ImageUploadVieSet
-from user.views import UserApiViewSet, SendEmail
+from user.views import UserApiViewSet
 from vuebackend import settings
-from webapi.views import ProductsViewSet, ProductTypeViewSet
+from webapi.views import ProductsViewSet, ProductTypeViewSet, PacksViewSet, ProductToPackViewSet
 
 router = routers.DefaultRouter()
 router.register('orders', OrdersViewSet)
@@ -41,7 +41,8 @@ router.register('home_index', HomeIndexViewSet)
 router.register('customer_addr', CustomerAddrViewSet)
 router.register('order_model', OrderModelsViewSet)
 router.register('order_to_model', OrderToModelViewSet)
-# router.register('get_logs', GetLogsViewSet)
+router.register('packs', PacksViewSet)
+router.register('product_to_pack', ProductToPackViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),

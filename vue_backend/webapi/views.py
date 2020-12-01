@@ -1,15 +1,18 @@
+from django.db import models
 from django.http import Http404
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic import ListView, DetailView, TemplateView
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 
 from middleware.pagenation import SubOrderPagination
 from upload.models import Image
 from user.permissions import UserTokenPermission
-from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer
-from webapi.models import Products, ProductsType, HomeIndex
+from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer, \
+    PackModelsSerializer
+from webapi.models import Products, ProductsType, HomeIndex, PackModels, ProductsToPacks
 from user.authentications import GetTokenAuthentication
 from vuebackend import settings
 
@@ -194,5 +197,18 @@ class AboutTemplateView(TemplateView):
         context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
         return context
 
+
+class PacksViewSet(ModelViewSet):
+    queryset = PackModels.objects.filter(is_delete=0)
+    serializer_class = is_delete = PackModelsSerializer
+    authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
+
+
+class ProductToPackViewSet(ModelViewSet):
+    queryset = ProductsToPacks.objects.all()
+    serializer_class = is_delete = PackModelsSerializer
+    authentication_classes = GetTokenAuthentication,
+    pagination_class = SubOrderPagination
 
 
