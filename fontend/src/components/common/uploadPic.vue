@@ -1,8 +1,15 @@
 <template>
   <div>
-    <el-button type="primary" @click="picdialogVisible = true" size="mini">上传图片</el-button>
-    <el-dialog title :visible.sync="picdialogVisible" width="50%" :append-to-body="true">
-      <el-row>
+    <el-button type="primary" @click="picdialogVisible = true" size="mini"
+      >上传图片</el-button
+    >
+    <el-dialog
+      title
+      :visible.sync="picdialogVisible"
+      width="50%"
+      :append-to-body="true"
+    >
+      <!-- <el-row>
         <el-col :span="4">
           <span>首页</span>
         </el-col>
@@ -39,14 +46,92 @@
         <el-col :span="12">
           <el-input v-model="uploadData.image_alt"></el-input>
         </el-col>
-      </el-row>
-      <!-- <span>banner标题:</span>
-      <el-input v-model="uploadData.pro_url" placeholder="非必填项"></el-input>-->
-      <!-- <span>banner描述:</span>
-      <el-input
-        v-model="uploadData.banner_desc"
-        placeholder="非必填项"
-      ></el-input>-->
+      </el-row> -->
+      <el-form label-width="80px">
+        <el-form-item label="首页">
+          <el-select v-model="uploadData.is_home" placeholder>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="首页顺序">
+          <el-input v-model="uploadData.home_index"></el-input>
+        </el-form-item>
+        <el-form-item label="banner">
+          <el-select v-model="uploadData.is_banner" placeholder>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="alt">
+          <el-input v-model="uploadData.image_alt"></el-input>
+        </el-form-item>
+        <el-form-item label="所属产品">
+          <el-select
+            v-model="uploadData.pro_number"
+            filterable
+            placeholder="请选择"
+            @visible-change="productSelect"
+          >
+            <el-option
+              v-for="item in productDataSelect"
+              :key="item.id"
+              :label="item.pro_number"
+              :value="item.id"
+            >
+              <span>{{ item.sub_type }}</span
+              >- <span>{{ item.pro_number }}</span
+              >-
+              <span>{{ item.pro_name }}</span>
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="所属包装">
+          <el-select
+            v-model="uploadData.pack_number"
+            filterable
+            placeholder="请选择"
+            @visible-change="packNumberSelect"
+          >
+            <el-option
+              v-for="item in packDataSelect"
+              :key="item.id"
+              :label="item.pack_number"
+              :value="item.id"
+            >
+              <span>{{ item.pack_number }}</span
+              >- <span>{{ item.size }}</span
+              >-
+              <span>{{ item.material }}</span>
+            </el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="所属订单">
+          <el-select
+            v-model="uploadData.order_number"
+            filterable
+            placeholder="请选择"
+            @visible-change="orderNumberSelect"
+          >
+            <el-option
+              v-for="item in orderDataSelect"
+              :key="item.id"
+              :label="item.order_number"
+              :value="item.id"
+            >
+              <span>{{ item.order_number }}-{{ item.customer.lite_name }}</span>
+            </el-option>
+          </el-select>
+        </el-form-item>
+      </el-form>
       <el-upload
         class="upload-demo"
         ref="upload"
@@ -60,15 +145,28 @@
         :auto-upload="false"
         :on-exceed="handleExceed"
       >
-        <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-        <el-button style="margin-left: 10px;" size="small" type="success" @click="uploadBtn">上传到服务器</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        <el-button slot="trigger" size="small" type="primary"
+          >选取文件</el-button
+        >
+        <el-button
+          style="margin-left: 10px;"
+          size="small"
+          type="success"
+          @click="uploadBtn"
+          >上传到服务器</el-button
+        >
+        <div slot="tip" class="el-upload__tip">
+          只能上传jpg/png文件，且不超过500kb
+        </div>
       </el-upload>
     </el-dialog>
   </div>
 </template>
 
 <script>
+import { getProducts } from '@/api/products'
+import { getPacks } from '@/api/packs'
+import { getOrderList } from '@/api/order'
 export default {
   name: 'uploadPic',
   props: {
@@ -101,10 +199,34 @@ export default {
       options: [
         { value: '0', label: '否' },
         { value: '1', label: '是' }
-      ]
+      ],
+      productDataSelect: [],
+      packDataSelect: [],
+      orderDataSelect: []
     }
   },
   methods: {
+    productSelect(v) {
+      if (v === true) {
+        getProducts().then(res => {
+          this.productDataSelect = res.data.results
+        })
+      }
+    },
+    packNumberSelect(v) {
+      if (v === true) {
+        getPacks().then(res => {
+          this.packDataSelect = res.data.results
+        })
+      }
+    },
+    orderNumberSelect(v) {
+      if (v === true) {
+        getOrderList().then(res => {
+          this.orderDataSelect = res.data.results
+        })
+      }
+    },
     //图片上传成功后的返回结果
     uploadSuccess(res) {
       switch (res.status) {

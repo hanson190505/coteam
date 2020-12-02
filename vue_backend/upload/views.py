@@ -82,6 +82,10 @@ class ImageUploadVieSet(viewsets.ModelViewSet):
             upload_img = Image()
             if owner == 'order':
                 upload_img.order_number_id = file_name
+            if 'pro_number' in request.data:
+                upload_img.pro_number_id = request.data['pro_number']
+            if 'pack_number' in request.data:
+                upload_img.pack_number_id = request.data['pack_number']
             upload_img.md5 = md5
             upload_img.path = sub_path + file.name
             upload_img.owner = owner

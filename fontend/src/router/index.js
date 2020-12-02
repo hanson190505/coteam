@@ -99,6 +99,11 @@ const routes = [{
         name: 'home_index',
         component: () => import('@/views/webapi'),
       },
+      {
+        path: '/packs',
+        name: 'packs',
+        component:() => import('@/views/packs'),
+      }
     ]
   },
 ]

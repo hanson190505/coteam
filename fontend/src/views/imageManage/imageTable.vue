@@ -27,7 +27,7 @@
         width="55"
         align="center"
       ></el-table-column>
-      <el-table-column label="所属产品" align="center" width="120">
+      <el-table-column label="所属产品" align="center" width="80">
         <template slot-scope="scope">
           <el-select
             v-if="scope.row.is_edit === 1"
@@ -44,6 +44,44 @@
             ></el-option>
           </el-select>
           <span v-else>{{ scope.row.pro_number }}</span>
+        </template>
+      </el-table-column>
+            <el-table-column label="所属包装" align="center" width="80">
+        <template slot-scope="scope">
+          <el-select
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.pack_number"
+            filterable
+            placeholder="请选择"
+            @visible-change="packNumberSelect"
+          >
+            <el-option
+              v-for="item in packDataSelect"
+              :key="item.id"
+              :label="item.pack_number"
+              :value="item.id"
+            ></el-option>
+          </el-select>
+          <span v-else>{{ scope.row.pack_number }}</span>
+        </template>
+      </el-table-column>
+            <el-table-column label="所属订单" align="center" width="80">
+        <template slot-scope="scope">
+          <el-select
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.order_number"
+            filterable
+            placeholder="请选择"
+            @visible-change="orderNumberSelect"
+          >
+            <el-option
+              v-for="item in orderDataSelect"
+              :key="item.id"
+              :label="item.order_number"
+              :value="item.id"
+            ></el-option>
+          </el-select>
+          <span v-else>{{ scope.row.order_number }}</span>
         </template>
       </el-table-column>
       <el-table-column label="上传日期" align="center" width="120">
@@ -149,6 +187,13 @@
             v-show="scope.row.is_edit === 1"
             >保存</el-button
           >
+          <el-button
+            @click="handleCancel(scope.row)"
+            type="text"
+            size="mini"
+            v-show="scope.row.is_edit === 1"
+            >取消</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -166,6 +211,8 @@ import backendSearchVue from '@/components/common/backendSearch.vue'
 import uploadPic from '@/components/common/uploadPic'
 import { getImages, delImage, patchImage } from '@/api/image'
 import { getProducts } from '@/api/products'
+import { getPacks } from "@/api/packs";
+import { getOrderList } from "@/api/order";
 export default {
   name: 'imageTable',
   components: {
@@ -180,7 +227,10 @@ export default {
       dataTotal: 0,
       baseurl: process.env.VUE_APP_API_PIC_URL,
       productDataSelect: [],
-      keyWords: ['owner', 'is_banner', 'image_alt']
+      packDataSelect:[],
+      orderDataSelect:[],
+      keyWords: ['owner', 'is_banner', 'image_alt'],
+      tempData: {},
     }
   },
   methods: {
@@ -189,6 +239,20 @@ export default {
       if (v === true) {
         getProducts().then(res => {
           this.productDataSelect = res.data.results
+        })
+      }
+    },
+    packNumberSelect(v){
+      if (v === true) {
+        getPacks().then(res => {
+          this.packDataSelect = res.data.results
+        })
+      }
+    },
+        orderNumberSelect(v){
+      if (v === true) {
+        getOrderList().then(res => {
+          this.orderDataSelect = res.data.results
         })
       }
     },
@@ -217,7 +281,6 @@ export default {
         this.loading = false
         this.imageData = res.data.results
         this.dataTotal = res.data.count
-        console.log(this.imageData);
       })
     },
     handleDel(row) {
@@ -227,12 +290,17 @@ export default {
     },
     handleChange(row) {
       row.is_edit = 1
+      this.tempData = row
     },
     handleSave(row) {
       row.is_edit = 0
       patchImage(row.id, row).then(res => {
         this.pagination()
       })
+    },
+    handleCancel(row){
+      row.is_edit = 0
+      this.row = this.tempData
     },
     clearSelect() {
       this.$refs.imageTableData.clearSelection()

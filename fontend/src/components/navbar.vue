@@ -35,6 +35,7 @@
       <el-submenu index="5">
         <template slot="title">产品管理</template>
         <el-menu-item index="/products">产品列表</el-menu-item>
+        <el-menu-item index="/packs">包装列表</el-menu-item>
         <el-menu-item index="/upload">图片列表</el-menu-item>
       </el-submenu>
       <el-submenu index="6">
