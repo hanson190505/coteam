@@ -34,7 +34,7 @@ class ProductTypeRetrieveSerializer(serializers.ModelSerializer):
 
 
 class PackModelsSerializer(serializers.ModelSerializer):
-    images = ImageSerializer(many=True, read_only=True)
+    pack_image = ImageSerializer(many=True, read_only=True)
 
     class Meta:
         model = PackModels
