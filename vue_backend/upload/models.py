@@ -20,6 +20,7 @@ class Image(models.Model):
     # banner_desc = models.CharField(max_length=128, blank=True, null=True)
     # 是否被占用
     is_used = models.IntegerField(default=0)
+    is_cover = models.IntegerField(default=0)
     image_alt = models.CharField(max_length=64, default='usb powerbank')
 
     # 我们还定义了通过文件md5值获取模型对象的类方法
