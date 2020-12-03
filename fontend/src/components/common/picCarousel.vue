@@ -19,23 +19,8 @@ export default {
   props: {
     proPicUrl: Array
   },
-  methods: {
-    //   handlePicUrl() {
-    //     if (this.proPicUrl !== undefined) {
-    //       this.proPicUrl.split('|').forEach(el => {
-    //         if (el !== '') {
-    //           this.picUrlList.push(el)
-    //         }
-    //       })
-    //     }
-    //   },
-    //   addPicUrl(picurl) {
-    //     this.picUrlList.push(picurl)
-    //   }
-    // },
-    // created() {
-    //   this.handlePicUrl()
-  }
+  computed: {},
+  methods: {}
 }
 </script>
 

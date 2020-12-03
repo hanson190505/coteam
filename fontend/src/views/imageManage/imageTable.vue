@@ -46,7 +46,7 @@
           <span v-else>{{ scope.row.pro_number }}</span>
         </template>
       </el-table-column>
-            <el-table-column label="所属包装" align="center" width="80">
+      <el-table-column label="所属包装" align="center" width="80">
         <template slot-scope="scope">
           <el-select
             v-if="scope.row.is_edit === 1"
@@ -65,7 +65,7 @@
           <span v-else>{{ scope.row.pack_number }}</span>
         </template>
       </el-table-column>
-            <el-table-column label="所属订单" align="center" width="80">
+      <el-table-column label="所属订单" align="center" width="80">
         <template slot-scope="scope">
           <el-select
             v-if="scope.row.is_edit === 1"
@@ -116,7 +116,16 @@
           <span v-else>{{ scope.row.home_index }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="banner" align="center" width="80">
+      <el-table-column label="cover" align="center" width="70">
+        <template slot-scope="scope">
+          <el-input
+            v-if="scope.row.is_edit === 1"
+            v-model="scope.row.is_cover"
+          ></el-input>
+          <span v-else>{{ scope.row.is_cover }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="banner" align="center" width="70">
         <template slot-scope="scope">
           <el-input
             v-if="scope.row.is_edit === 1"
@@ -211,8 +220,8 @@ import backendSearchVue from '@/components/common/backendSearch.vue'
 import uploadPic from '@/components/common/uploadPic'
 import { getImages, delImage, patchImage } from '@/api/image'
 import { getProducts } from '@/api/products'
-import { getPacks } from "@/api/packs";
-import { getOrderList } from "@/api/order";
+import { getPacks } from '@/api/packs'
+import { getOrderList } from '@/api/order'
 export default {
   name: 'imageTable',
   components: {
@@ -227,10 +236,10 @@ export default {
       dataTotal: 0,
       baseurl: process.env.VUE_APP_API_PIC_URL,
       productDataSelect: [],
-      packDataSelect:[],
-      orderDataSelect:[],
+      packDataSelect: [],
+      orderDataSelect: [],
       keyWords: ['owner', 'is_banner', 'image_alt'],
-      tempData: {},
+      tempData: {}
     }
   },
   methods: {
@@ -242,14 +251,14 @@ export default {
         })
       }
     },
-    packNumberSelect(v){
+    packNumberSelect(v) {
       if (v === true) {
         getPacks().then(res => {
           this.packDataSelect = res.data.results
         })
       }
     },
-        orderNumberSelect(v){
+    orderNumberSelect(v) {
       if (v === true) {
         getOrderList().then(res => {
           this.orderDataSelect = res.data.results
@@ -298,7 +307,7 @@ export default {
         this.pagination()
       })
     },
-    handleCancel(row){
+    handleCancel(row) {
       row.is_edit = 0
       this.row = this.tempData
     },

@@ -99,6 +99,10 @@ export default {
     onSelectChange(key, row) {
       this.selectedRowKeys = key
       this.selectData = row
+      this.$emit('getSelectedPacks', this.selectData)
+    },
+    emptySelectedRowKeys() {
+      this.selectedRowKeys = []
     }
   },
   mounted() {

@@ -11,7 +11,7 @@ from middleware.pagenation import SubOrderPagination
 from upload.models import Image
 from user.permissions import UserTokenPermission
 from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer, \
-    PackModelsSerializer
+    PackModelsSerializer, ProductsToPacksSerializer
 from webapi.models import Products, ProductsType, HomeIndex, PackModels, ProductsToPacks
 from user.authentications import GetTokenAuthentication
 from vuebackend import settings
@@ -200,15 +200,26 @@ class AboutTemplateView(TemplateView):
 
 class PacksViewSet(ModelViewSet):
     queryset = PackModels.objects.filter(is_delete=0)
-    serializer_class = is_delete = PackModelsSerializer
+    serializer_class = PackModelsSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
 
 
 class ProductToPackViewSet(ModelViewSet):
     queryset = ProductsToPacks.objects.all()
-    serializer_class = is_delete = PackModelsSerializer
+    serializer_class = ProductsToPacksSerializer
     authentication_classes = GetTokenAuthentication,
     pagination_class = SubOrderPagination
+
+    def create(self, request, *args, **kwargs):
+        product = self.request.data['product']
+        packs = self.request.data['packs']
+        product_obj = Products.objects.filter(id=product).first()
+        packs_obj = PackModels.objects.filter(id=packs).first()
+        obj = ProductsToPacks()
+        obj.product = product_obj
+        obj.packs = packs_obj
+        obj.save()
+        return Response(status.HTTP_201_CREATED)
 
 

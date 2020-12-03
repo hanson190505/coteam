@@ -251,6 +251,8 @@
             <pic-carousel :proPicUrl="pic_url" ref="picCar"></pic-carousel>
           </el-col>
         </el-row>
+        <!-- 添加包装 -->
+        <postproduct-to-pack :products="addProductData" :getProductToPacks="getProductToPacks"></postproduct-to-pack>
         <el-row>
           <el-col :span="24">
             <!-- <ckeditor
@@ -291,7 +293,8 @@ import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
 import { getWebapi } from '@/api/webapi'
 import wangEditor from 'wangeditor'
-
+import PostproductToPack from './postproductToPack.vue'
+import { postProductToPack, getProductToPack, getPacks } from '@/api/packs'
 const imprintMethodsList = ['Silkscreen', 'Laser Engrave', 'UV', 'FCP']
 // const imprintLocationList = ['Side', 'Front', 'Backend', 'custom']
 
@@ -302,7 +305,8 @@ export default {
     uploadPic,
     richText,
     addProductColor,
-    imageTable
+    imageTable,
+    PostproductToPack,
   },
   props: {
     addProductVisble: {
@@ -381,7 +385,8 @@ export default {
         '8000mAh',
         '10000mAh',
         'custom'
-      ]
+      ],
+      getProductToPacks:[]
     }
   },
   methods: {
