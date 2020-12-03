@@ -8,10 +8,14 @@
         <el-button type="primary" @click="addproductData">新增产品</el-button>
       </el-col>
     </el-row>
-    <Product-table @checkproductData="checkproductData"></Product-table>
+    <Product-table
+      @checkproductData="checkproductData"
+      @checkProductTopackData="checkProductTopackData"
+    ></Product-table>
     <add-product
       ref="addProductComponent"
       :addProductData="productsData"
+      :getProductToPacks="getProductToPacks"
       :addProductVisble="addProductVisible"
       @closeAddProductDialog="closeAddProductDialog"
     ></add-product>
@@ -27,6 +31,7 @@ import ProductTable from './ProductTable'
 import addProductType from './addProductType'
 import addProduct from './addProduct'
 import wangEditor from 'wangeditor'
+import { getPack } from '@/api/packs'
 export default {
   components: {
     ProductTable,
@@ -41,6 +46,7 @@ export default {
         capacities: [],
         imprint_location: []
       },
+      getProductToPacks: [],
       addproductTypeVisible: false,
       addProductVisible: false
     }
@@ -65,6 +71,18 @@ export default {
         imprint_methods: [],
         imprint_location: [],
         capacities: []
+      }
+    },
+    checkProductTopackData(data) {
+      if (data.length > 0) {
+        data.forEach(el => {
+          getPack(el).then(res => {
+            res.data.pack_image.forEach(image => {
+              image.path = process.env.VUE_APP_API_PIC_URL + image.path
+            })
+            this.getProductToPacks.push(res.data)
+          })
+        })
       }
     },
     checkproductData(data) {

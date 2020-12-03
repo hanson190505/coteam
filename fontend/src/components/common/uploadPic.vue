@@ -49,7 +49,7 @@
       </el-row> -->
       <el-form label-width="80px">
         <el-form-item label="首页">
-          <el-select v-model="uploadData.is_home" placeholder>
+          <el-select v-model="uploadData.is_home" placeholder clearable>
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -62,7 +62,17 @@
           <el-input v-model="uploadData.home_index"></el-input>
         </el-form-item>
         <el-form-item label="banner">
-          <el-select v-model="uploadData.is_banner" placeholder>
+          <el-select v-model="uploadData.is_banner" placeholder clearable>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            ></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item label="cover">
+          <el-select v-model="uploadData.is_cover" placeholder clearable>
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -78,6 +88,7 @@
           <el-select
             v-model="uploadData.pro_number"
             filterable
+            clearable
             placeholder="请选择"
             @visible-change="productSelect"
           >
@@ -98,6 +109,7 @@
           <el-select
             v-model="uploadData.pack_number"
             filterable
+            clearable
             placeholder="请选择"
             @visible-change="packNumberSelect"
           >
@@ -118,6 +130,7 @@
           <el-select
             v-model="uploadData.order_number"
             filterable
+            clearable
             placeholder="请选择"
             @visible-change="orderNumberSelect"
           >

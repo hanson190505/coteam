@@ -109,16 +109,17 @@ export default {
       this.selectedPacks = rows
     },
     confirm() {
-      this.selectedPacks.forEach(el => {
-        if (this.packsData.indexOf(el) === -1) {
-          el.is_save = 0
-          this.packsData.push(el)
-        } else {
-          this.$message.warning({
-            message: `${el.pack_number}已添加,请重新选择`
-          })
-        }
-      })
+      // this.selectedPacks.forEach(el => {
+      //   if (this.packsData.indexOf(el) === -1) {
+      //     el.is_save = 0
+      //     this.packsData.push(el)
+      //   } else {
+      //     this.$message.warning({
+      //       message: `${el.pack_number}已添加,请重新选择`
+      //     })
+      //   }
+      // })
+      console.log(this.packsData)
     },
     upload(scope) {
       postProductToPack({

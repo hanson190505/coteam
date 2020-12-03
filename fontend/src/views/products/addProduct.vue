@@ -323,7 +323,8 @@ export default {
           capacities: []
         }
       }
-    }
+    },
+    getProductToPacks:Array
   },
   data() {
     return {
@@ -386,7 +387,6 @@ export default {
         '10000mAh',
         'custom'
       ],
-      getProductToPacks:[]
     }
   },
   methods: {

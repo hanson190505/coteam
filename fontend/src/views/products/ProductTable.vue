@@ -102,6 +102,7 @@ import addProductColor from '@/components/common/addProductColor'
 import pagiNation from '@/components/common/pagiNation'
 import dateSearch from '@/components/common/dateSearch'
 import backendSearchVue from '@/components/common/backendSearch.vue'
+import { getProductToPack, getPacks } from '@/api/packs'
 export default {
   name: 'ProductTable',
   components: {
@@ -166,6 +167,15 @@ export default {
       if (!Array.isArray(row.capacities)) {
         row.capacities = row.capacities.split(',')
       }
+      getProductToPack({ product_id: row.id }).then(res => {
+        let packs = []
+        if (res.data.results.length > 0) {
+          res.data.results.forEach(el => {
+            packs.push(el.packs.id)
+          })
+        }
+        this.$emit('checkProductTopackData', packs)
+      })
       this.$emit('checkproductData', row)
     },
     //保存修改

@@ -10,6 +10,12 @@ export function getPacks(params) {
     })
 }
 
+export function getPack(id) {
+    return request({
+        url: `packs/${id}/`,
+    })
+}
+
 export function patchPack(id, data) {
     return request({
         url: `packs/${id}/`,
