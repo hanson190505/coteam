@@ -118,6 +118,10 @@ class ProductDetailView(DetailView):
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['web_base_url'] = settings.WEB_BASE_URL
         color_list_temp = context["product_detail"].pro_color.split('|')
+        p_id = context["product_detail"].id
+        context['packs'] = ProductsToPacks.objects.filter(product_id=p_id)
+        for p in context['packs']:
+            print(p.packs)
         color_list = []
         for i in color_list_temp:
             if i != '':
@@ -236,6 +240,3 @@ class ProductToPackViewSet(ModelViewSet):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
-
-
