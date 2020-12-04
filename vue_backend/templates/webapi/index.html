@@ -9,6 +9,7 @@
 {% endblock %}
 {% block banner %}
   <div class="unit-wrapper bg-dark">
+	{{ home_text }}
     <div class="container">
       {% for banner in banners %}
         <img src="{% image base_url banner.path %}" alt="" class="img-fluid w-100">

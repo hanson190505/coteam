@@ -10,7 +10,7 @@
       bordered
     >
       <template
-        v-for="col in ['seo_title', 'seo_desc', 'logo_svg']"
+        v-for="col in ['seo_title', 'seo_desc', 'logo_svg', 'is_use']"
         :slot="col"
         slot-scope="text, record, index"
       >

@@ -28,7 +28,7 @@
               v-for="(item, index) in scope.row.pack_image"
               :key="index"
             >
-              <img :src="item.path" class="car-img" />
+              <img :src="item.path" class="car-img" width="auto"  alt=""/>
             </el-carousel-item>
           </el-carousel>
         </template>

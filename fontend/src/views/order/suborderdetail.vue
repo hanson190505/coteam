@@ -1,17 +1,18 @@
-<template>
+<template xmlns="">
   <div>
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item :to="{ path: '/orders' }"
-        >订单管理</el-breadcrumb-item
+      >订单管理
+      </el-breadcrumb-item
       >
       <el-breadcrumb-item>明细列表</el-breadcrumb-item>
     </el-breadcrumb>
     <el-row>
       <el-col :span="4">
         <backend-search
-          v-on:getSearchSuborder="getSearchSuborder"
-          @parentMethod="pagination"
+            v-on:getSearchSuborder="getSearchSuborder"
+            @parentMethod="pagination"
         ></backend-search>
       </el-col>
       <el-col :span="2">
@@ -24,39 +25,40 @@
     </el-row>
     <!-- 订单明细表 -->
     <el-table
-      :data="subOrderData"
-      border
-      show-summary
-      highlight-current-row
-      style="width=99.9%"
-      v-loading="loading"
-      :summary-method="getSummaries"
-      @select="handleSelect"
-      @select-all="handleSelect"
-      :row-class-name="tableRowClassName"
-      element-loading-text="拼命加载中"
-      element-loading-spinner="el-icon-loading"
-      element-loading-background="rgba(0, 0, 0, 0.8)"
+        :data="subOrderData"
+        border
+        show-summary
+        highlight-current-row
+        style="width:99.9%"
+        v-loading="loading"
+        :summary-method="getSummaries"
+        @select="handleSelect"
+        @select-all="handleSelect"
+        :row-class-name="tableRowClassName"
+        element-loading-text="拼命加载中"
+        element-loading-spinner="el-icon-loading"
+        element-loading-background="rgba(0, 0, 0, 0.8)"
     >
       <el-table-column
-        type="selection"
-        width="60"
-        align="center"
+          type="selection"
+          width="60"
+          align="center"
       ></el-table-column>
       <el-table-column prop="tag" label="标签" width="80" align="center" fixed>
         <template slot-scope="scope">
           <el-popover
-            placement="top-start"
-            width="80"
-            trigger="hover"
-            :content="popoverContent"
-            :disabled="popoverDisable(scope.row)"
+              placement="top-start"
+              width="80"
+              trigger="hover"
+              :content="popoverContent"
+              :disabled="popoverDisable(scope.row)"
           >
             <el-tag
-              :type="scope.row.type"
-              disable-transitions
-              slot="reference"
-              >{{ scope.row.tag }}</el-tag
+                :type="scope.row.type"
+                disable-transitions
+                slot="reference"
+            >{{ scope.row.tag }}
+            </el-tag
             >
           </el-popover>
         </template>
@@ -64,39 +66,39 @@
       <el-table-column label="客户" align="center" width="100" fixed>
         <template slot-scope="scope">
           <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.customer)"
+              class="col-cont"
+              v-html="showDate(scope.row.order_number.customer)"
           ></span>
         </template>
       </el-table-column>
       <el-table-column label="订单编号" align="center" width="140" fixed>
         <template slot-scope="scope">
           <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.order_number)"
+              class="col-cont"
+              v-html="showDate(scope.row.order_number.order_number)"
           ></span>
         </template>
       </el-table-column>
       <el-table-column
-        label="下单日期"
-        align="center"
-        width="100"
-        sortable
-        prop="order_date"
-        fixed
+          label="下单日期"
+          align="center"
+          width="100"
+          sortable
+          prop="order_date"
+          fixed
       >
         <template slot-scope="scope">
           <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.order_date)"
+              class="col-cont"
+              v-html="showDate(scope.row.order_number.order_date)"
           ></span>
         </template>
       </el-table-column>
       <el-table-column label="订单交期" align="center" width="100">
         <template slot-scope="scope">
           <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.deliver_date)"
+              class="col-cont"
+              v-html="showDate(scope.row.order_number.deliver_date)"
           ></span>
         </template>
       </el-table-column>
@@ -126,10 +128,10 @@
         </template>
       </el-table-column>
       <el-table-column
-        label="产品描述"
-        align="center"
-        width="140"
-        :show-overflow-tooltip="true"
+          label="产品描述"
+          align="center"
+          width="140"
+          :show-overflow-tooltip="true"
       >
         <template slot-scope="scope">
           <span class="col-cont" v-html="showDate(scope.row.pro_desc)"></span>
@@ -153,71 +155,71 @@
       <el-table-column label="汇率" align="center" width="70">
         <template slot-scope="scope">
           <span
-            class="col-cont"
-            v-html="showDate(scope.row.order_number.ex_rate)"
+              class="col-cont"
+              v-html="showDate(scope.row.order_number.ex_rate)"
           ></span>
         </template>
       </el-table-column>
       <el-table-column
-        label="订单金额($)"
-        align="center"
-        width="100"
-        prop="sub_amount"
+          label="订单金额($)"
+          align="center"
+          width="100"
+          prop="sub_amount"
       >
         <template slot-scope="scope">
           <span>{{ scope.row.sub_amount | toThousandFilter }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="订单金额(¥)"
-        align="center"
-        width="100"
-        prop="rmb_amount"
+          label="订单金额(¥)"
+          align="center"
+          width="100"
+          prop="rmb_amount"
       >
         <template slot-scope="scope">
           <span>
             {{
               (scope.row.sub_amount * scope.row.order_number.ex_rate)
-                | toThousandFilter
+                  | toThousandFilter
             }}
           </span>
         </template>
       </el-table-column>
       <el-table-column
-        label="采购金额(¥)"
-        align="center"
-        width="100"
-        prop="purchaseAmount"
+          label="采购金额(¥)"
+          align="center"
+          width="100"
+          prop="purchaseAmount"
       >
         <template slot-scope="scope">
           <span>{{ scope.row.purchaseAmount | toThousandFilter }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="出货金额(¥)"
-        align="center"
-        width="100"
-        prop="shipAmount"
+          label="出货金额(¥)"
+          align="center"
+          width="100"
+          prop="shipAmount"
       >
         <template slot-scope="scope">
           <span>{{ scope.row.shipAmount | toThousandFilter }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="毛利(¥)"
-        align="center"
-        width="100"
-        prop="profit_rmb"
+          label="毛利(¥)"
+          align="center"
+          width="100"
+          prop="profit_rmb"
       >
         <template slot-scope="scope">
           <span>{{ scope.row.profit_rmb | toThousandFilter }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        label="毛利($)"
-        align="center"
-        width="100"
-        prop="profit_usd"
+          label="毛利($)"
+          align="center"
+          width="100"
+          prop="profit_usd"
       >
         <template slot-scope="scope">
           <span>{{ scope.row.profit_usd | toThousandFilter }}</span>
@@ -225,19 +227,20 @@
       </el-table-column>
     </el-table>
     <pagi-nation
-      @pagination="pagination"
-      :getDataTotal="dataTotal"
+        @pagination="pagination"
+        :getDataTotal="dataTotal"
     ></pagi-nation>
   </div>
 </template>
 
 <script>
-import { getSubOrderList } from '@/api/order'
+import {getSubOrderList} from '@/api/order'
 import backendSearch from '@/components/common/backendSearch'
 import pagiNation from '@/components/common/pagiNation'
 import dateSearch from '@/components/common/dateSearch'
 import addProductColor from '@/components/common/addProductColor'
 import orderStatus from './orderStatus'
+
 export default {
   components: {
     backendSearch,
@@ -284,8 +287,8 @@ export default {
       val = val + ''
       if (val.indexOf(this.search) !== -1 && this.search !== '') {
         return val.replace(
-          this.search,
-          '<font color="#ff4400">' + this.search + '</font>'
+            this.search,
+            '<font color="#ff4400">' + this.search + '</font>'
         )
       } else {
         return val
@@ -295,7 +298,7 @@ export default {
     pagination(params) {
       //子组件backendSearch清空搜索条件时调用,设定page默认值为1
       if (!params) {
-        params = { page: 1, page_size: 10 }
+        params = {page: 1, page_size: 10}
       }
       return getSubOrderList(params).then(res => {
         let resData = res.data
@@ -320,9 +323,9 @@ export default {
             purchaseAmount: purchaseSum,
             shipAmount: shipSum,
             profit_rmb:
-              el.sub_amount * el.order_number.ex_rate - purchaseSum - shipSum,
+                el.sub_amount * el.order_number.ex_rate - purchaseSum - shipSum,
             profit_usd:
-              el.sub_amount - (purchaseSum + shipSum) / el.order_number.ex_rate
+                el.sub_amount - (purchaseSum + shipSum) / el.order_number.ex_rate
           }
           this.subOrderData.push(Object.assign(el, profit))
         })
@@ -330,7 +333,7 @@ export default {
     },
     //表尾合计
     getSummaries(param) {
-      const { columns, data } = param
+      const {columns, data} = param
       const sums = []
       columns.forEach((column, index) => {
         if (index === 0) {
@@ -366,7 +369,7 @@ export default {
       return sums
     },
     //标记订单订单标签
-    tableRowClassName({ row, rowIndex }) {
+    tableRowClassName({row, rowIndex}) {
       if (row.is_purchase === 1) {
         row.type = 'info'
         row.tag = '待采购'
@@ -404,9 +407,9 @@ export default {
           this.popoverContent = '待出货'
         }
         if (
-          row.is_purchase === 0 &&
-          row.is_ship === 0 &&
-          row.is_account === 1
+            row.is_purchase === 0 &&
+            row.is_ship === 0 &&
+            row.is_account === 1
         ) {
           this.popoverContent = '待结算'
         }
