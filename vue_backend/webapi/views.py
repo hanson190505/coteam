@@ -119,15 +119,18 @@ class ProductDetailView(DetailView):
         context['web_base_url'] = settings.WEB_BASE_URL
         color_list_temp = context["product_detail"].pro_color.split('|')
         p_id = context["product_detail"].id
-        context['packs'] = ProductsToPacks.objects.filter(product_id=p_id)
-        for p in context['packs']:
-            print(p.packs)
+        packs = ProductsToPacks.objects.filter(product_id=p_id)
+        packs_image = []
+        for p in packs:
+            for image in Image.objects.filter(pack_number=p.packs.id):
+                packs_image.append(image)
         color_list = []
         for i in color_list_temp:
             if i != '':
                 color_list.append(
                     i.replace('{', '').replace('}', '').strip().split(',')[1].split(':')[1].replace('"', ''))
         context['color_list'] = color_list
+        context['packs_image'] = packs_image
         return context
 
 

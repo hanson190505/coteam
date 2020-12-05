@@ -62,14 +62,25 @@
 {#You can also appoint a courier company and use your own courier account.#}
 {#        </small>#}
 {#        </li>#}
-				<li class="list-group-item"><strong>Imprint Methods:</strong>
+				<li class="list-group-item"><strong>Packaging Reference:</strong>
 				<div class="d-flex flex-row">
-					{{ packs }}
+					{% for i in packs_image %}
+            <img src="{% image base_url i.path %}" alt="{{ i.image_alt }}" style="width: 25%; cursor:pointer" class="pack-image" data-toggle="modal" data-target="#exampleModal">
+					{% endfor %}
 				</div>
 				</li>
 				</ul>
 			</div>
 		</div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img src="" alt="" class="modal-image rounded mx-auto d-block img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
 		<p></p>
 		<div>
 			{{ product_detail.pro_desc | safe }}
@@ -158,6 +169,9 @@
 							const smallImagAlt = $(this).attr('alt')
 							$('.img-big').attr('src', smallImagSrc)
 							$('.img-big').attr('alt', smallImagAlt)
+          })
+          $('.pack-image').click(function(){
+              $('.modal-image').attr('src', $(this).attr('src'))
           })
       })
 	</script>
