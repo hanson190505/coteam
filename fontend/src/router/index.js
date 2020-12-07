@@ -103,6 +103,11 @@ const routes = [{
         path: '/packs',
         name: 'packs',
         component:() => import('@/views/packs'),
+      },
+      {
+        path: '/product_text',
+        name: 'product_text',
+        component:() => import('@/views/productText'),
       }
     ]
   },

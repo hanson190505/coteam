@@ -5,7 +5,6 @@
       :visible.sync="addProductVisble"
       width="95%"
       :before-close="close"
-      @opened="opened"
       :destroy-on-close="true"
     >
       <el-form :model="addProductData" ref="addProductData" label-width="70px">
@@ -78,7 +77,6 @@
                 ></el-option>
               </el-select>
             </el-form-item>
-            </el-form-item>
           </el-col>
           <el-col :span="4">
             <el-form-item label="MOQ">
@@ -114,23 +112,6 @@
               <el-input v-model="addProductData.imprint_size"></el-input>
             </el-form-item>
           </el-col>
-          <!-- <el-col :span="4">
-            <el-form-item label="折扣">
-              <el-select v-model="addProductData.is_discount">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
-                ></el-option>
-              </el-select>
-            </el-form-item>
-          </el-col>
-          <el-col :span="4">
-            <el-form-item label="折扣数">
-              <el-input v-model="addProductData.pro_discount"></el-input>
-            </el-form-item>
-          </el-col> -->
         </el-row>
         <el-row>
           <el-col :span="12" :offset="0">
@@ -138,7 +119,6 @@
               <el-checkbox-group
                 v-model="addProductData.imprint_methods"
                 size="normal"
-                @change="hanleImpintMethods"
               >
                 <el-checkbox
                   v-for="item in imprintMethodsList"
@@ -253,16 +233,6 @@
         </el-row>
         <!-- 添加包装 -->
         <postproduct-to-pack :products="addProductData" :getProductToPacks="getProductToPacks"></postproduct-to-pack>
-        <el-row>
-          <el-col :span="24">
-            <!-- <ckeditor
-            v-model="addProductData.pro_desc"
-            :config="editorConfig"
-            @ready="prefill"
-          ></ckeditor> -->
-            <div id="demo1"></div>
-          </el-col>
-        </el-row>
       </el-form>
       <el-button type="primary" @click="onSubmit">创建</el-button>
       <el-button type="primary" @click="handleSave">保存</el-button>
@@ -286,24 +256,20 @@
 import { getProductType } from '@/api/products'
 import picCarousel from '@/components/common/picCarousel'
 import uploadPic from '@/components/common/uploadPic'
-import richText from '@/components/ckeditor/richText'
 import addProductColor from '@/components/common/addProductColor'
 import imageTable from '../imageManage/imageTable'
 import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
 import { getWebapi } from '@/api/webapi'
-import wangEditor from 'wangeditor'
 import PostproductToPack from './postproductToPack.vue'
 import { postProductToPack, getProductToPack, getPacks } from '@/api/packs'
 const imprintMethodsList = ['Silkscreen', 'Laser Engrave', 'UV', 'FCP']
-// const imprintLocationList = ['Side', 'Front', 'Backend', 'custom']
 
 export default {
   name: 'addProduct',
   components: {
     picCarousel,
     uploadPic,
-    richText,
     addProductColor,
     imageTable,
     PostproductToPack,
@@ -390,23 +356,6 @@ export default {
     }
   },
   methods: {
-    //imprint_methods
-    hanleImpintMethods(value) {
-      // this.addProduct.imprint_methods = this.imprintMethods.toString()
-    },
-    //打开dialog的之后,创建富文本对象
-    opened() {
-      const editor = new wangEditor('#demo1')
-      // 配置 onchange 回调函数，将数据同步到 vue 中
-      // editor.config.onchange = newHtml => {
-      //   this.addProductData.pro_desc = newHtml
-      // }
-      // 创建编辑器
-      editor.create()
-      editor.txt.html(this.addProductData.pro_desc)
-      this.editor = editor
-    },
-    //wangeditor
     //调用后台类别数据
     selectTest(v) {
       if (v === true) {

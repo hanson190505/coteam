@@ -55,13 +55,6 @@
 								data-target="#product-list-contact-modal" data-toggle="modal"
 								data-whatever="{{ web_base_url }}product/{{ product_detail.id }}">contact us
 				</button></li>
-{#        <li class="list-group-item"><strong>Shipping instructions:</strong>#}
-{#        <small>#}
-{#Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.#}
-{#          We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company.#}
-{#You can also appoint a courier company and use your own courier account.#}
-{#        </small>#}
-{#        </li>#}
 				<li class="list-group-item"><strong>Packaging Reference:</strong>
 				<div class="d-flex flex-row">
 					{% for i in packs_image %}
@@ -82,8 +75,9 @@
   </div>
 </div>
 		<p></p>
+{#	product_detail description custom prompt others#}
 		<div>
-			{{ product_detail.pro_desc | safe }}
+
 		</div>
     <div class="ship-instructions">
     <h5>Shipping instructions:</h5>

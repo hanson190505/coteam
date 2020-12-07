@@ -47,9 +47,12 @@ class Products(models.Model):
     pro_pack = models.CharField('产品包装', max_length=128, default='custom made')
     pro_color = models.CharField('产品颜色', max_length=1024, blank=True)
     pro_weight = models.DecimalField(verbose_name='单重(g)', max_digits=10, decimal_places=2, default=0)
-    pro_desc = RichTextField()
+    # pro_desc = RichTextField()
     is_delete = models.IntegerField(default=0)
     is_edit = models.IntegerField(default=0)
+    description = models.TextField(blank=True)
+    custom = models.TextField(blank=True)
+    prompt = models.TextField(blank=True)
 
     class Meta:
         verbose_name = '产品目录'
@@ -57,6 +60,12 @@ class Products(models.Model):
 
     def __str__(self):
         return '{}-{}'.format(self.pro_number, self.pro_name)
+
+
+class ProductText(models.Model):
+    p_type = models.CharField(max_length=64)
+    p_content = models.TextField(blank=True)
+    pub_date = models.DateField(auto_now=datetime.now)
 
 
 class PackModels(models.Model):

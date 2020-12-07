@@ -2,6 +2,7 @@ import {
     request
 } from "../network/rquest";
 import qs from 'qs'
+import expand from 'element-ui/packages/table/src/store/expand'
 
 export function getProductType(params) {
     return request({
@@ -44,6 +45,29 @@ export function postProducts(data) {
 export function patchProducts(id, data) {
     return request({
         url: `products/${id}/`,
+        method: 'patch',
+        data: qs.stringify(data)
+    })
+}
+
+export function getProductText(params){
+    return request({
+        url: 'product_text/',
+        params: params
+    })
+}
+
+export function postProductText(data){
+    return request({
+        url: 'product_text/',
+        method: 'post',
+        data: qs.stringify(data)
+    })
+}
+
+export function patchProductText(id, data) {
+    return request({
+        url: `product_text/${id}/`,
         method: 'patch',
         data: qs.stringify(data)
     })
