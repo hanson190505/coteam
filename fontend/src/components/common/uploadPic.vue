@@ -154,7 +154,7 @@
         :limit="1"
         :data="uploadData"
         :headers="myheaders"
-        accept="image/jpg, image/jpeg, image/png"
+        accept="image/jpg, image/jpeg, image/png, image/jpf"
         :auto-upload="false"
         :on-exceed="handleExceed"
       >
