@@ -169,39 +169,53 @@
         <el-row>
           <el-col :span="8">
             <el-form-item label="seo标题">
-              <el-select
-                v-model="addProductData.seo_title"
-                filterable
-                placeholder="请选择"
-                @visible-change="selectWebApi"
-              >
-                <el-option
-                  v-for="item in webApiData"
-                  :key="item.seo_title"
-                  :label="item.seo_title"
-                  :value="item.seo_title"
-                ></el-option>
-              </el-select>
+              <el-input v-model="addProductData.seo_title" placeholder="placeholder"></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="16">
             <el-form-item label="seo描述">
-              <el-select
-                v-model="addProductData.seo_desc"
-                filterable
-                placeholder="请选择"
-                @visible-change="selectWebApi"
-              >
-                <el-option
-                  v-for="item in webApiData"
-                  :key="item.seo_desc"
-                  :label="item.seo_desc"
-                  :value="item.seo_desc"
-                ></el-option>
-              </el-select>
+              <el-input type="textarea" placeholder="placeholder" v-model="addProductData.seo_desc"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
+<!--        产品详情-->
+        <el-row>
+        <el-col>
+            <el-form-item label='产品描述'>
+              <el-button type='primary' @click='selectProductTextTable'>选择</el-button>
+            </el-form-item>
+          </el-col>
+          <el-col>
+            <el-form-item>
+              <el-input type="textarea" v-model="addProductData.description"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col>
+            <el-form-item label='定制说明'>
+              <el-button type='primary' @click='selectCustom'>选择</el-button>
+            </el-form-item>
+          </el-col>
+          <el-col>
+            <el-form-item>
+              <el-input type="textarea" v-model="addProductData.custom"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col>
+            <el-form-item label='补充说明'>
+              <el-button type='primary' @click='selectPrompt'>选择</el-button>
+            </el-form-item>
+          </el-col>
+          <el-col>
+            <el-form-item>
+              <el-input type="textarea" v-model="addProductData.prompt"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+<!--        添加颜色-->
         <el-row>
           <el-col :span="24">
             <el-form-item label="颜色">
@@ -249,6 +263,14 @@
           <el-button type="primary" @click="selectImage">确 定</el-button>
         </div>
       </el-dialog>
+      <el-dialog
+        :visible.sync='ProductTextTabledialogVisible'
+        width='90%'
+        :append-to-body="true"
+        :before-close="ProductTextTableDialogClose"
+      >
+          <product-text-table ref='ProductTextSelectTable' :ProductTextSelectedShow='true' @ProductTextSelected='ProductTextSelected'></product-text-table>
+      </el-dialog>
     </el-dialog>
   </div>
 </template>
@@ -260,14 +282,14 @@ import addProductColor from '@/components/common/addProductColor'
 import imageTable from '../imageManage/imageTable'
 import { postProducts, patchProducts } from '@/api/products'
 import { patchImage } from '@/api/image'
-import { getWebapi } from '@/api/webapi'
 import PostproductToPack from './postproductToPack.vue'
-import { postProductToPack, getProductToPack, getPacks } from '@/api/packs'
+import ProductTextTable from '@/views/productText/productTextTable'
 const imprintMethodsList = ['Silkscreen', 'Laser Engrave', 'UV', 'FCP']
 
 export default {
   name: 'addProduct',
   components: {
+    ProductTextTable,
     picCarousel,
     uploadPic,
     addProductColor,
@@ -296,7 +318,7 @@ export default {
     return {
       imageData: [],
       PicDialogTableVisible: false,
-      webApiData: [],
+      ProductTextTabledialogVisible:false,
       productTypeData: [],
       pic_url: [],
       pic_id: '',
@@ -353,26 +375,30 @@ export default {
         '10000mAh',
         'custom'
       ],
+      //判定选择productText的是哪个组件.1--description 2--custom 3--prompt
+      whoSelecting:0
     }
   },
   methods: {
+    selectProductTextTable(){
+      this.ProductTextTabledialogVisible = true
+      this.whoSelecting = 1
+    },
+    selectCustom(){
+      this.ProductTextTabledialogVisible = true
+      this.whoSelecting = 2
+    },
+    selectPrompt(){
+      this.ProductTextTabledialogVisible = true
+      this.whoSelecting = 3
+    },
     //调用后台类别数据
     selectTest(v) {
       if (v === true) {
         getProductType().then(res => {
-          // res.data.results.forEach(el => {
-          //   if (el.parent_category !== null) {
-          //     this.productTypeData.push(el)
-          //   }
-          // })
           this.productTypeData = res.data.results
         })
       }
-    },
-    selectWebApi(v) {
-      getWebapi().then(res => {
-        this.webApiData = res.data.results
-      })
     },
     //删除颜色
     delProColor(value, index) {
@@ -401,7 +427,7 @@ export default {
     },
     //获取wangeditor数据
     getEditorData() {
-      this.addProductData.pro_desc = this.editor.txt.html()
+      // this.addProductData.pro_desc = this.editor.txt.html()
       let im = this.addProductData.imprint_methods
       if (im.length === 0) {
         im = 'custom'
@@ -507,6 +533,42 @@ export default {
             })
           })
       }
+    },
+    ProductTextSelected(data){
+      this.ProductTextTabledialogVisible = false
+      if(data.length > 0) {
+        switch (this.whoSelecting) {
+          case 1:
+            for (let i = 0; i <= data.length; i++){
+              this.addProductData.description += data[i].p_content
+              if (i === data.length - 1) break;
+              this.addProductData.description += '/'
+            }
+            break
+          case 2:
+            for (let i = 0; i <= data.length; i++){
+              this.addProductData.custom += data[i].p_content
+              if (i === data.length - 1) break;
+              this.addProductData.custom += '/'
+            }
+            break
+          case 3:
+            for (let i = 0; i <= data.length; i++){
+              this.addProductData.prompt += data[i].p_content
+              if (i === data.length - 1) break;
+              this.addProductData.prompt += '/'
+            }
+            break
+        }
+      }
+    },
+    ProductTextTableDialogClose(done){
+      this.$confirm('数据未确认,是否关闭？')
+          .then(_ => {
+            this.$refs.ProductTextSelectTable.removeSelected()
+            done();
+          })
+          .catch(_ => {});
     }
   }
 }

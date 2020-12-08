@@ -63,8 +63,9 @@ class Products(models.Model):
 
 
 class ProductText(models.Model):
-    p_type = models.CharField(max_length=64)
+    p_type = models.CharField(max_length=64, blank=True)
     p_content = models.TextField(blank=True)
+    p_property = models.CharField(max_length=64, blank=True)
     pub_date = models.DateField(auto_now=datetime.now)
 
 

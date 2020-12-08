@@ -1,8 +1,8 @@
 <template>
   <div class="block">
-    <el-carousel trigger="click" height="150px">
+    <el-carousel trigger="click">
       <el-carousel-item v-for="(item, index) in proPicUrl" :key="index">
-        <img :src="item" class="car-img" />
+        <img :src="item" class="car-img" height='auto'/>
       </el-carousel-item>
     </el-carousel>
   </div>
