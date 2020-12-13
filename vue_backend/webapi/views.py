@@ -129,6 +129,9 @@ class ProductDetailView(DetailView):
             if i != '':
                 color_list.append(
                     i.replace('{', '').replace('}', '').strip().split(',')[1].split(':')[1].replace('"', ''))
+        context['description'] = context["product_detail"].description.split('/')
+        context['custom'] = context["product_detail"].custom.split('/')
+        context['prompt'] = context["product_detail"].prompt.split('/')
         context['color_list'] = color_list
         context['packs_image'] = packs_image
         return context

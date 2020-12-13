@@ -76,15 +76,33 @@
 </div>
 		<p></p>
 {#	product_detail description custom prompt others#}
+  <h1 class="text-center font-weight-bolder">{{ product_detail.pro_name }}</h1>
 		<div>
-
+      <h2 style="background-color: #039DF7;color:#F5F503">Description</h2>
+      <ul>
+        {% for desc in description %}
+          <li>{{ desc }}</li>
+        {% endfor %}
+      </ul>
+      <h2 style="background-color: #039DF7;color:#F5F503">Custom</h2>
+          <ul>
+        {% for cus in custom %}
+          <li>{{ cus }}</li>
+        {% endfor %}
+      </ul>
+      <h2 style="background-color: #039DF7;color:#F5F503">Prompt</h2>
+          <ul>
+        {% for prom in prompt %}
+          <li>{{ prom }}</li>
+        {% endfor %}
+      </ul>
 		</div>
     <div class="ship-instructions">
-    <h5>Shipping instructions:</h5>
+    <h2 style="background-color: #039DF7;color:#F5F503">Shipping instructions</h2>
     <ul>
-      <li><small>Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements.</small></li>
-      <li><small>We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company.</small></li>
-      <li><small>You can also appoint a courier company and use your own courier account.</small></li>
+      <li>Products are shipped from our Chinese factory, please choose the appropriate shipping method according to your timeliness requirements</li>
+      <li>We will choose DHL, UPS, FEDEX and other internationally renowned express companies, and the freight price will vary with each express company</li>
+      <li>You can also appoint a courier company and use your own courier account</li>
     </ul>
   </div>
 	</div>
