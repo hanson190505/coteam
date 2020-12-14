@@ -23,7 +23,8 @@ from api.views import OrdersViewSet, CustomerViewSet, SubOrderViewSet, PurchaseO
 from upload.views import ImageUploadVieSet
 from user.views import UserApiViewSet
 from vuebackend import settings
-from webapi.views import ProductsViewSet, ProductTypeViewSet, PacksViewSet, ProductToPackViewSet, ProductTextViewSet
+from webapi.views import ProductsViewSet, ProductTypeViewSet, PacksViewSet, ProductToPackViewSet, ProductTextViewSet, \
+    ProductSubTypeViewSet
 
 router = routers.DefaultRouter()
 router.register('orders', OrdersViewSet)
@@ -37,6 +38,7 @@ router.register('staffs', UserApiViewSet)
 router.register('upload', ImageUploadVieSet)
 router.register('products', ProductsViewSet)
 router.register('product_type', ProductTypeViewSet)
+router.register('product_sub_type', ProductSubTypeViewSet)
 router.register('home_index', HomeIndexViewSet)
 router.register('customer_addr', CustomerAddrViewSet)
 router.register('order_model', OrderModelsViewSet)

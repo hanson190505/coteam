@@ -11,8 +11,8 @@ from middleware.pagenation import SubOrderPagination
 from upload.models import Image
 from user.permissions import UserTokenPermission
 from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer, \
-    PackModelsSerializer, ProductsToPacksSerializer, ProductTextSerializer
-from webapi.models import Products, ProductsType, HomeIndex, PackModels, ProductsToPacks, ProductText
+    PackModelsSerializer, ProductsToPacksSerializer, ProductTextSerializer, ProductSubTypeSerializer
+from webapi.models import Products, ProductsType, HomeIndex, PackModels, ProductsToPacks, ProductText, ProductSubType
 from user.authentications import GetTokenAuthentication
 from vuebackend import settings
 
@@ -39,6 +39,25 @@ class ProductTypeViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         serializer = ProductTypeRetrieveSerializer(instance)
         return Response(serializer.data)
+
+
+class ProductSubTypeViewSet(viewsets.ModelViewSet):
+    queryset = ProductSubType.objects.filter(is_delete=0)
+    serializer_class = ProductSubTypeSerializer
+    pagination_class = SubOrderPagination
+    authentication_classes = GetTokenAuthentication,
+
+    def get_authenticators(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [GetTokenAuthentication()]
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [UserTokenPermission()]
 
 
 class ProductsViewSet(viewsets.ModelViewSet):

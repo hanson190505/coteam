@@ -12,7 +12,12 @@
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)"
     >
-      <el-table-column label="产品类别" align="center" width="80" fiexd>
+      <el-table-column label="一级类目" align="center" width="80" fiexd>
+        <template slot-scope="scope">
+          <span>{{ scope.row.sub_type }}</span>
+        </template>
+      </el-table-column>
+            <el-table-column label="二级类目" align="center" width="80" fiexd>
         <template slot-scope="scope">
           <span>{{ scope.row.sub_type }}</span>
         </template>
@@ -151,6 +156,7 @@ export default {
         params = { page: 1, page_size: 10 }
       }
       getProducts(params).then(res => {
+        console.log(res.data)
         this.productsData = res.data.results
         this.loading = false
         this.dataTotal = res.data.count

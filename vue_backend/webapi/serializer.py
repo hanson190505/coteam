@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from upload.serializer import ImageSerializer
-from webapi.models import ProductsType, Products, HomeIndex, PackModels, ProductsToPacks, ProductText
+from webapi.models import ProductsType, Products, HomeIndex, PackModels, ProductsToPacks, ProductText, ProductSubType
 
 
 class ProductsSerializer(serializers.ModelSerializer):
@@ -15,13 +15,25 @@ class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Products
         fields = '__all__'
+        depth = 1
+
+
+class ProductSubTypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProductSubType
+        fields = '__all__'
+        depth = 1
 
 
 class ProductTypeSerializer(serializers.ModelSerializer):
 
+    subs = ProductSubTypeSerializer(many=True, read_only=True)
+
     class Meta:
         model = ProductsType
         fields = '__all__'
+        depth = 1
 
 
 class ProductTypeRetrieveSerializer(serializers.ModelSerializer):

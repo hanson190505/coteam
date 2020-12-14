@@ -19,23 +19,22 @@
       :addProductVisble="addProductVisible"
       @closeAddProductDialog="closeAddProductDialog"
     ></add-product>
-    <addProduct-type
+    <product-type-table
       :visible="addproductTypeVisible"
       @closeAddproductType="closeAddproductType"
-    ></addProduct-type>
+    ></product-type-table>
   </div>
 </template>
 
 <script>
 import ProductTable from './ProductTable'
-import addProductType from './addProductType'
 import addProduct from './addProduct'
-import wangEditor from 'wangeditor'
 import { getPack } from '@/api/packs'
+import ProductTypeTable from "@/views/products/productTypeTable";
 export default {
   components: {
+    ProductTypeTable,
     ProductTable,
-    addProductType,
     addProduct
   },
   data() {

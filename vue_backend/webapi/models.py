@@ -17,6 +17,13 @@ class ProductsType(models.Model):
         return '{}'.format(self.category)
 
 
+class ProductSubType(models.Model):
+    parent_category = models.ForeignKey(ProductsType, on_delete=models.CASCADE)
+    category = models.CharField(max_length=64)
+    pub_date = models.DateField('添加日期', auto_now=datetime.now)
+    is_delete = models.IntegerField(default=0)
+
+
 class Products(models.Model):
     sub_type = models.ForeignKey(
         ProductsType, null=True, blank=True, max_length=32, verbose_name='产品子类', on_delete=models.CASCADE)

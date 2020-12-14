@@ -44,9 +44,9 @@
           <span v-else>{{ scope.row.p_property }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop='p_content' label='内容' width='500'>
+      <el-table-column prop='p_content' label='内容' width='600'>
         <template slot-scope='scope'>
-          <el-input type='textarea' :rows='2' v-model='scope.row.p_content'></el-input>
+          <el-input type='textarea' autosize v-model='scope.row.p_content'></el-input>
         </template>
       </el-table-column>
       <el-table-column label='操作' fixed='right' width='120' align='center'>

@@ -27,6 +27,29 @@ export function patchProductType(id, data) {
     })
 }
 
+export function getProductSubType(params) {
+    return request({
+        url: 'product_sub_type/',
+        params: params
+    })
+}
+
+export function postProductSubType(data) {
+    return request({
+        url: 'product_sub_type/',
+        method: 'post',
+        data: qs.stringify(data)
+    })
+}
+
+export function patchProductSubType(id, data) {
+    return request({
+        url: `product_sub_type/${id}/`,
+        method: 'patch',
+        data: qs.stringify(data)
+    })
+}
+
 export function getProducts(params) {
     return request({
         url: 'products/',
