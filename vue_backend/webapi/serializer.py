@@ -18,12 +18,26 @@ class ProductsSerializer(serializers.ModelSerializer):
         depth = 1
 
 
+class POSTProductsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Products
+        fields = '__all__'
+
+
 class ProductSubTypeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductSubType
         fields = '__all__'
         depth = 1
+
+
+class POSTProductSubTypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProductSubType
+        fields = '__all__'
 
 
 class ProductTypeSerializer(serializers.ModelSerializer):

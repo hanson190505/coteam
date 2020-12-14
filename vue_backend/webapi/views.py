@@ -11,7 +11,8 @@ from middleware.pagenation import SubOrderPagination
 from upload.models import Image
 from user.permissions import UserTokenPermission
 from webapi.serializer import ProductsSerializer, ProductTypeSerializer, ProductTypeRetrieveSerializer, \
-    PackModelsSerializer, ProductsToPacksSerializer, ProductTextSerializer, ProductSubTypeSerializer
+    PackModelsSerializer, ProductsToPacksSerializer, ProductTextSerializer, ProductSubTypeSerializer, \
+    POSTProductSubTypeSerializer, POSTProductsSerializer
 from webapi.models import Products, ProductsType, HomeIndex, PackModels, ProductsToPacks, ProductText, ProductSubType
 from user.authentications import GetTokenAuthentication
 from vuebackend import settings
@@ -59,33 +60,32 @@ class ProductSubTypeViewSet(viewsets.ModelViewSet):
         else:
             return [UserTokenPermission()]
 
+    def create(self, request, *args, **kwargs):
+        serializer = POSTProductSubTypeSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
 
 class ProductsViewSet(viewsets.ModelViewSet):
     queryset = Products.objects.filter(is_delete=0).order_by()
-    serializer_class = ProductsSerializer
+    serializer_class = POSTProductsSerializer
     pagination_class = SubOrderPagination
     authentication_classes = GetTokenAuthentication,
     permission_classes = UserTokenPermission,
     filterset_fields = ['seo_title', 'sub_type', 'is_hot']
 
-    # def get_authenticators(self):
-    #     if self.request.method == 'GET':
-    #         return []
-    #     else:
-    #         return [GetTokenAuthentication()]
-    #
-    # def get_permissions(self):
-    #     if self.request.method == 'GET':
-    #         return []
-    #     else:
-    #         return [UserTokenPermission()]
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
 
-    def create(self, request, *args, **kwargs):
-        serializer = ProductsSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = ProductsSerializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = ProductsSerializer(queryset, many=True)
+        return Response(serializer.data)
 
 
 class ProductListView(ListView):
