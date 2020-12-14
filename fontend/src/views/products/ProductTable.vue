@@ -14,12 +14,12 @@
     >
       <el-table-column label="一级类目" align="center" width="80" fiexd>
         <template slot-scope="scope">
-          <span>{{ scope.row.sub_type }}</span>
+          <span>{{ scope.row.sub_type.parent_category.category }}</span>
         </template>
       </el-table-column>
             <el-table-column label="二级类目" align="center" width="80" fiexd>
         <template slot-scope="scope">
-          <span>{{ scope.row.sub_type }}</span>
+          <span>{{ scope.row.sub_type.category }}</span>
         </template>
       </el-table-column>
       <el-table-column label="seo标题" align="center" width="180">
@@ -156,7 +156,6 @@ export default {
         params = { page: 1, page_size: 10 }
       }
       getProducts(params).then(res => {
-        console.log(res.data)
         this.productsData = res.data.results
         this.loading = false
         this.dataTotal = res.data.count

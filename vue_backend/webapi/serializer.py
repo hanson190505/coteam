@@ -15,7 +15,7 @@ class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Products
         fields = '__all__'
-        depth = 1
+        depth = 2
 
 
 class POSTProductsSerializer(serializers.ModelSerializer):
