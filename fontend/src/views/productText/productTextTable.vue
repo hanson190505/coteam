@@ -25,7 +25,7 @@
           <span v-else>{{ scope.row.p_type }}</span>
         </template>
       </el-table-column>
-      <el-table-column label='产品类别' width='120'>
+      <el-table-column label='产品类别' width='200'>
         <template slot-scope='scope'>
           <el-select
               v-model="scope.row.p_property"
@@ -37,8 +37,8 @@
             <el-option
                 v-for="item in productTypeData"
                 :key="item.id"
-                :label="item.category"
-                :value="item.category"
+                :label="item.parent_category.category + '-' + item.category"
+                :value="item.parent_category.category + '-' + item.category"
             ></el-option>
           </el-select>
           <span v-else>{{ scope.row.p_property }}</span>
@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import {getProductText, postProductText, patchProductText, getProducts, getProductType} from '@/api/products'
+import {getProductText, postProductText, getProductType, getProductSubType} from '@/api/products'
 import pagiNation from '@/components/common/pagiNation'
 
 export default {
@@ -115,12 +115,13 @@ export default {
   methods: {
     selectTest(v) {
       if (v === true) {
-        getProductType().then(res => {
+        getProductSubType().then(res => {
           // res.data.results.forEach(el => {
           //   if (el.parent_category !== null) {
           //     this.productTypeData.push(el)
           //   }
           // })
+          console.log(res.data.results)
           this.productTypeData = res.data.results
         })
       }

@@ -10,6 +10,18 @@
       <el-form :model="addProductData" ref="addProductData" label-width="70px">
         <el-row>
           <el-col :span="4">
+            <el-form-item label="一级目录">
+              <span>{{ addProductData.one_category }}</span>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="二级目录">
+              <span>{{ addProductData.tow_category }}</span>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="4">
             <el-form-item label="类目">
               <el-select
                   v-model="addProductData.sub_type"
@@ -473,7 +485,6 @@ export default {
     close() {
       this.$confirm('数据未保存,确认关闭?')
           .then(_ => {
-            // let promis = new Promise((resolve, reject) => {
             this.$emit('closeAddProductDialog')
             this.pic_url = []
           })

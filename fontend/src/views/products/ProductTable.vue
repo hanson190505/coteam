@@ -12,14 +12,14 @@
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)"
     >
-      <el-table-column label="一级类目" align="center" width="80" fiexd>
+      <el-table-column label="一级类目" align="center" width="100" fiexd>
         <template slot-scope="scope">
-          <span>{{ scope.row.sub_type.parent_category.category }}</span>
+          <span>{{ scope.row.one_category }}</span>
         </template>
       </el-table-column>
-            <el-table-column label="二级类目" align="center" width="80" fiexd>
+            <el-table-column label="二级类目" align="center" width="100" fiexd>
         <template slot-scope="scope">
-          <span>{{ scope.row.sub_type.category }}</span>
+          <span>{{ scope.row.tow_category }}</span>
         </template>
       </el-table-column>
       <el-table-column label="seo标题" align="center" width="180">
@@ -79,7 +79,7 @@
       </el-table-column>
       <el-table-column label="操作" fixed="right" width="120" align="center">
         <template slot-scope="scope">
-          <el-button @click="handleCheck(scope.row)" type="text" size="mini"
+          <el-button @click="handleCheck(scope.row, scope.$index)" type="text" size="mini"
             >查看</el-button
           >
           <el-button @click="handleSave(scope.row)" type="text" size="mini"
@@ -156,13 +156,17 @@ export default {
         params = { page: 1, page_size: 10 }
       }
       getProducts(params).then(res => {
+        res.data.results.forEach(item =>{
+          item.one_category = item.sub_type.parent_category.category
+          item.tow_category = item.sub_type.category
+        })
         this.productsData = res.data.results
         this.loading = false
         this.dataTotal = res.data.count
       })
     },
     //查看详情
-    handleCheck(row) {
+    handleCheck(row, index) {
       if (!Array.isArray(row.imprint_methods)) {
         row.imprint_methods = row.imprint_methods.split(',')
       }
@@ -171,6 +175,14 @@ export default {
       }
       if (!Array.isArray(row.capacities)) {
         row.capacities = row.capacities.split(',')
+      }
+      if (row.hasOwnProperty('sub_type')){
+        if (typeof row.sub_type === 'object'){
+          row.sub_type = row.sub_type.category
+        }
+        if (typeof row.sub_type === 'number'){
+          row.sub_type = null
+        }
       }
       getProductToPack({ product_id: row.id }).then(res => {
         let packs = []

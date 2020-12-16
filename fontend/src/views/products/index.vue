@@ -43,7 +43,7 @@ export default {
         pro_color: '',
         imprint_methods: [],
         capacities: [],
-        imprint_location: []
+        imprint_location: [],
       },
       getProductToPacks: [],
       addproductTypeVisible: false,
@@ -69,7 +69,7 @@ export default {
         pro_color: '',
         imprint_methods: [],
         imprint_location: [],
-        capacities: []
+        capacities: [],
       }
     },
     checkProductTopackData(data) {
