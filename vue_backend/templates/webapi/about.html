@@ -1,46 +1,55 @@
 {% extends 'base.html' %}
 {% load image %}
 {% block title %}
-Chinagoodgifts coteam about
+	Chinagoodgifts coteam about
 {% endblock %}
 {% block content %}
-  <p></p>
-  <div class="container">
-          <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <h3>Design</h3>
-      </div>
-						<video class="col-sm-12 col-md-8" controls>
-							<source src="https://youtu.be/FC-OURVv5yM">
-						</video>
-    </div>
-        <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <h3>Workshop</h3>
-      </div>
-{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
-    </div>
-      <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <h3>Detect</h3>
-      </div>
-{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-4">
-        <h3>Produced</h3>
-      </div>
-      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">
-    </div>
-  </div>
-   <div class="about-content">
-    {% include 'webapi/contact.html' %}
-  </div>
+	<p></p>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<h3>Design</h3>
+				<ul>
+					<li>We have professional designers who can help you realize your ideas.</li>
+					<li>All logo designs are free, which will save you the expense of at least one designer.</li>
+				</ul>
+			</div>
+			{#						<video class="col-sm-12 col-md-8" controls>#}
+			{#							<source src="https://youtu.be/FC-OURVv5yM">#}
+			{#						</video>#}
+			<iframe class="col-sm-12 col-md-8" width="782" height="450" src="https://www.youtube.com/embed/FC-OURVv5yM"
+							frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen></iframe>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<h3>Workshop</h3>
+			</div>
+			{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<h3>Detect</h3>
+			</div>
+			{#      <img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}" alt="{{ about_image.image_alt }}">#}
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-4">
+				<h3>Produced</h3>
+			</div>
+			<img class="img-fluid rounded col-sm-12 col-md-8" src="{% image base_url about_image.path %}"
+					 alt="{{ about_image.image_alt }}">
+		</div>
+	</div>
+	<div class="about-content">
+		{% include 'webapi/contact.html' %}
+	</div>
 {% endblock %}
 {% block script %}
-  <script>
-    $(function () {
-      $("#sendMailForm").submit(function () {
+	<script>
+      $(function () {
+          $("#sendMailForm").submit(function () {
               const title = $("#sendMailFormTitle:input").val()
               const name = $("#sendMailFormName:input").val()
               const email = $("#sendMailFormEmail1:input").val()
@@ -63,6 +72,6 @@ Chinagoodgifts coteam about
               })
               return false;
           })
-    })
-  </script>
+      })
+	</script>
 {% endblock %}
