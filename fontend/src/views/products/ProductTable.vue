@@ -176,14 +176,14 @@ export default {
       if (!Array.isArray(row.capacities)) {
         row.capacities = row.capacities.split(',')
       }
-      if (row.hasOwnProperty('sub_type')){
-        if (typeof row.sub_type === 'object'){
-          row.sub_type = row.sub_type.category
-        }
-        if (typeof row.sub_type === 'number'){
-          row.sub_type = null
-        }
-      }
+      // if (row.hasOwnProperty('sub_type')){
+      //   if (typeof row.sub_type === 'object'){
+      //     row.sub_type = row.sub_type.category
+      //   }
+      //   if (typeof row.sub_type === 'number'){
+      //     row.sub_type = null
+      //   }
+      // }
       getProductToPack({ product_id: row.id }).then(res => {
         let packs = []
         if (res.data.results.length > 0) {

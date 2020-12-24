@@ -460,6 +460,7 @@ export default {
       } else {
         this.addProductData.capacities = imCapacities.toString()
       }
+      console.log(this.addProductData)
     },
     //提交
     onSubmit() {

@@ -16,14 +16,14 @@ RUN apk update
 RUN apk add --no-cache jpeg-dev zlib-dev
 RUN apk add --no-cache --virtual .build-deps build-base linux-headers \
     && pip install pip --upgrade \
-    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pillow \
+#    && pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pillow \
     && apk del .build-deps
 RUN apk add postgresql-dev gcc python3-dev musl-dev
 
 # install dependencies
 RUN pip install --upgrade pip
 COPY ./requirements.txt /usr/src/api/requirements.txt
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+RUN pip install -i https://pypi.doubanio.com/simple -r requirements.txt
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh /usr/src/api/entrypoint.sh
