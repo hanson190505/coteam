@@ -1,4 +1,3 @@
-from django.db import models
 from django.http import Http404
 from django.shortcuts import get_object_or_404, get_list_or_404
 from django.views.generic import ListView, DetailView, TemplateView
@@ -99,7 +98,7 @@ class ProductListView(ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
+        context['product_type_list'] = ProductSubType.objects.all().filter(is_delete=0)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['web_base_url'] = settings.WEB_BASE_URL
         return context
@@ -107,7 +106,7 @@ class ProductListView(ListView):
     def get(self, request, *args, **kwargs):
         # 根据url后缀查询数据,按产品种类
         if 'pro_type' in kwargs:
-            self.object_list = self.get_queryset().filter(sub_type=kwargs['pro_type']).filter(is_delete=0)
+            self.object_list = self.get_queryset().filter(sub_type__category=kwargs['pro_type']).filter(is_delete=0)
         else:
             self.object_list = self.get_queryset().filter(is_delete=0)
         allow_empty = self.get_allow_empty()
