@@ -98,7 +98,7 @@ class ProductListView(ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['product_type_list'] = ProductSubType.objects.all().filter(is_delete=0)
+        context['product_type_list'] = ProductsType.objects.all().filter(is_delete=0)
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['web_base_url'] = settings.WEB_BASE_URL
         return context

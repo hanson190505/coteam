@@ -1,95 +1,130 @@
 {% extends 'base.html' %}
 {% load image %}
 {% block title %}
-  products
+	products
 {% endblock %}
 {% block content %}
-  <p></p>
-  <div class="container">
-    <div class="row">
-      {#  产品页侧面导航#}
-      {% include 'webapi/product_list_nav.html' %}
-      {#  产品页正文内容#}
-      <div class="col-sm-12 col-md-10">
-        <div class="row">
-          {% for prodcuct in page_obj %}
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
-              <div class="card text-center">
-                <a href="{% url 'product_detail' prodcuct.id %}">
-                  <img src="{% image base_url prodcuct.pro_image.first.path %}" class="card-img-top img-fluid"
-                       alt="{{ prodcuct.seo_title }}">
-                </a>
-                <div class="card-body">
-                  <a href="{% url 'product_detail' prodcuct.id %}">
-                    <h5 class="card-title">{{ prodcuct.seo_title }}</h5>
-                  </a>
-                  {#                  <p class="card-text"><small>{{ prodcuct.seo_desc }}</small></p>#}
-                  <button type="button" class="btn btn-primary btn-lg btn-block btn-sm" id="product-list-contact-btn"
-                          data-target="#product-list-contact-modal" data-toggle="modal"
-                          data-whatever="{{ web_base_url }}product/{{ prodcuct.id }}">contact us
-                  </button>
-                </div>
-              </div>
-              <p></p>
-            </div>
-          {% endfor %}
-        </div>
-        <div class="pagination d-flex justify-content-between">
-          <div>
-            {% if page_obj.has_previous %}
-              <a href="?page=1" class="btn btn-primary" role="button">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-bar-left" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                        d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"></path>
-                </svg>
-              </a>
-              <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary" role="button">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
-                </svg>
-              </a>
-            {% endif %}
-          </div>
-          <span class="current pt-2">
+	<p></p>
+	<div class="container">
+		<div class="row">
+			{#  产品页侧面导航#}
+			{#			{% include 'webapi/product_list_nav.html' %}#}
+			<div class="col-sm-0 col-md-2 d-none d-sm-block">
+				{#				<div class="list-group" id="list-tab" role="tablist">#}
+				{#					{% for product_type in product_type_list %}#}
+				{#						<a class="list-group-item list-group-item-action" id="product-list-nav" data-toggle="list"#}
+				{#							 href="#list-home" role="tab" aria-controls="home">{{ product_type.category }}</a>#}
+				{#					{% endfor %}#}
+				{#				</div>#}
+				<div class="accordion" id="accordionExample">
+					{% for product_type in product_type_list %}
+						<div class="card">
+							<div class="card-header" id="heading{{ product_type.id }}">
+								<h2 class="mb-0">
+									<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+													data-target="#collapse{{ product_type.id }}" aria-expanded="true"
+													aria-controls="collapse{{ product_type.id }}">
+										{{ product_type.category }}
+									</button>
+								</h2>
+							</div>
+							<div id="collapse{{ product_type.id }}" class="collapse show"
+									 aria-labelledby="heading{{ product_type.id }}" data-parent="#accordionExample">
+								<div class="card-body">
+									<ul>
+										{% for sub in product_type.productsubtype_set.iterator %}
+											<a href="{% url 'product_type' pro_type=sub.category %}">
+												<li>{{ sub.category }}</li>
+											</a>
+										{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			{#  产品页正文内容#}
+			<div class="col-sm-12 col-md-10">
+				<div class="row">
+					{% for prodcuct in page_obj %}
+						<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12">
+							<div class="card text-center">
+								<a href="{% url 'product_detail' prodcuct.id %}">
+									{#									<img src="{% image base_url prodcuct.pro_image.first.path %}" class="card-img-top img-fluid"#}
+									{#											 alt="{{ prodcuct.seo_title }}">#}
+								</a>
+								<div class="card-body">
+									<a href="{% url 'product_detail' prodcuct.id %}">
+										<h5 class="card-title">{{ prodcuct.seo_title }}</h5>
+									</a>
+									{#                  <p class="card-text"><small>{{ prodcuct.seo_desc }}</small></p>#}
+									<button type="button" class="btn btn-primary btn-lg btn-block btn-sm" id="product-list-contact-btn"
+													data-target="#product-list-contact-modal" data-toggle="modal"
+													data-whatever="{{ web_base_url }}product/{{ prodcuct.id }}">contact us
+									</button>
+								</div>
+							</div>
+							<p></p>
+						</div>
+					{% endfor %}
+				</div>
+				<div class="pagination d-flex justify-content-between">
+					<div>
+						{% if page_obj.has_previous %}
+							<a href="?page=1" class="btn btn-primary" role="button">
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-bar-left" fill="currentColor"
+										 xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+												d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"></path>
+								</svg>
+							</a>
+							<a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary" role="button">
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor"
+										 xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+												d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+								</svg>
+							</a>
+						{% endif %}
+					</div>
+					<span class="current pt-2">
             Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
         </span>
-          <div>
-            {% if page_obj.has_next %}
-              <a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary" role="button">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
-                </svg>
-              </a>
-              <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-primary" role="button">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-bar-right" fill="currentColor"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                        d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"></path>
-                </svg>
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal fade" tabindex="-1" role="dialog" id="product-list-contact-modal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          {% include 'webapi/contact.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
+					<div>
+						{% if page_obj.has_next %}
+							<a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary" role="button">
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor"
+										 xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+												d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+								</svg>
+							</a>
+							<a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-primary" role="button">
+								<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-bar-right" fill="currentColor"
+										 xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+												d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"></path>
+								</svg>
+							</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" tabindex="-1" role="dialog" id="product-list-contact-modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					{% include 'webapi/contact.html' %}
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
 {% block script %}
-  <script>
+	<script>
       $(function () {
           $('#product-list-contact-modal').on('show.bs.modal', function (event) {
               const button = $(event.relatedTarget) // Button that triggered the modal
@@ -117,7 +152,8 @@
                   })
                   return false;
               })
-          })
+          });
+          $('#product-list-nav:first').addClass('active')
       })
-  </script>
+	</script>
 {% endblock %}

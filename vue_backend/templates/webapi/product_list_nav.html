@@ -1,10 +1,30 @@
 <div class="col-sm-0 col-md-2 d-none d-sm-block">
-  <nav class="nav flex-column">
-    <a class="nav-link active" href="{% url 'products' %}">ALL</a>
-    {% for product_type in product_type_list %}
-      <a href="{% url 'product_type' pro_type=product_type.category %}"
-         class="nav-link">{{ product_type.category }}
-      </a>
-    {% endfor %}
-  </nav>
+	<nav class="nav flex-column">
+		<a class="nav-link active" href="{% url 'products' %}">ALL</a>
+		{% for product_type in product_type_list %}
+			<a href="{% url 'product_type' pro_type=product_type.category %}"
+				 class="nav-link">{{ product_type.category }}
+			</a>
+		{% endfor %}
+	</nav>
+	<div id="accordion">
+		{% for product_type in product_type_list %}
+			<div class="card">
+				<div class="card-header">
+					<a class="card-link" data-toggle="collapse" href="#collapseOne">
+						{{ product_type.parent_category }}
+					</a>
+				</div>
+				<div id="collapseOne" class="collapse show" data-parent="#accordion">
+					<div class="card-body">
+						<nav class="nav flex-column">
+							<a href="{% url 'product_type' pro_type=product_type.category %}"
+								 class="nav-link">{{ product_type.category }}
+							</a>
+						</nav>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 </div>
