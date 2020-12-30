@@ -136,6 +136,7 @@ class ProductDetailView(DetailView):
         context['base_url'] = settings.WEB_IMAGE_SERVER_PATH
         context['web_base_url'] = settings.WEB_BASE_URL
         color_list_temp = context["product_detail"].pro_color.split('|')
+        print(context['product_detail'].pro_image)
         p_id = context["product_detail"].id
         packs = ProductsToPacks.objects.filter(product_id=p_id)
         packs_image = []
