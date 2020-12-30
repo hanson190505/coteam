@@ -307,6 +307,19 @@ export function uniqueArr(arr) {
 }
 
 /**
+ * @description: 为表头筛选提供值,过滤后台返回的数据对象
+ * @param {Array} tmpList
+ * @return {Array}
+ */
+export function uniqueArrObject(tmpList){
+  let uniqueList = Array.from(new Set(tmpList))
+  let outList = []
+  uniqueList.forEach(el => {
+    outList.push({text: el, value:el})
+  })
+  return outList
+}
+/**
  * @returns {string}
  */
 export function createUniqueString() {
