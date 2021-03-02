@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
-{% block structured %}
-<script type="application/ld+json">
-	    {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Cobblestone power bank",
-      "image": [
-        "https://www.chinagoodgifts.com/image/product/2020-11/PB-0001.jpg",
-        "https://www.chinagoodgifts.com/image/public/2020-11/%E9%B9%85%E5%8D%B5%E7%9F%B3%20(4).jpg",
-        "https://www.chinagoodgifts.com/image/public/2020-11/%E9%B9%85%E5%8D%B5%E7%9F%B3%20(13).jpg"
-       ],
-      "description": "The uniquely designed mobile power supply and matte textured surface set off the product's grade, large capacity, and multiple interfaces.",
-      "sku": "FB-0001",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://chinagoodgifts.com/product/5",
-        "priceCurrency": "USD",
-        "price": "49.99",
-        "priceValidUntil": "2021-6-1",
-        "availability": "https://schema.org/PreOrder"
-      }
-    }
-</script>
-{% endblock %}
+{#{% block structured %}#}
+{#<script type="application/ld+json">#}
+{#	    {#}
+{#      "@context": "https://schema.org/",#}
+{#      "@type": "Product",#}
+{#      "name": "Cobblestone power bank",#}
+{#      "image": [#}
+{#        "https://www.chinagoodgifts.com/image/product/2020-11/PB-0001.jpg",#}
+{#        "https://www.chinagoodgifts.com/image/public/2020-11/%E9%B9%85%E5%8D%B5%E7%9F%B3%20(4).jpg",#}
+{#        "https://www.chinagoodgifts.com/image/public/2020-11/%E9%B9%85%E5%8D%B5%E7%9F%B3%20(13).jpg"#}
+{#       ],#}
+{#      "description": "The uniquely designed mobile power supply and matte textured surface set off the product's grade, large capacity, and multiple interfaces.",#}
+{#      "sku": "FB-0001",#}
+{#      "offers": {#}
+{#        "@type": "Offer",#}
+{#        "url": "https://chinagoodgifts.com/product/5",#}
+{#        "priceCurrency": "USD",#}
+{#        "price": "49.99",#}
+{#        "priceValidUntil": "2021-6-1",#}
+{#        "availability": "https://schema.org/PreOrder"#}
+{#      }#}
+{#    }#}
+{#</script>#}
+{#{% endblock %}#}
 {% load image %}
 {% block title %}
 	{{ product_detail.seo_title }}
