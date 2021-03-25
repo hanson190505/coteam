@@ -28,7 +28,7 @@ pycryptodome==3.9.6
 pylint==2.4.4
 PyMySQL==0.9.3
 pytz==2019.3
-PyYAML==5.3
+PyYAML==5.4
 redis==3.3.11
 requests==2.22.0
 shellescape==3.8.1
